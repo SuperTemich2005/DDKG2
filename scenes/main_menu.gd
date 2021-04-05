@@ -8,6 +8,7 @@ extends Node2D
 var save_file
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(str(149*25))
 	save_file = File.new()
 	save_file.open("C:/Games/ddkg2.save", File.READ)
 	if save_file.file_exists("C:/Games/ddkg2.save"):
