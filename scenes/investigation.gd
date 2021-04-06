@@ -47,7 +47,8 @@ func _process(delta):
 			$next_button.disabled = true
 			$crosshair.show()
 func _input(event):
-	$crosshair.position = event.position
+	if event is InputEventMouseMotion:
+		$crosshair.position = event.position
 func _on_next_button_pressed():
 	print(get_parent().Dialogue[Cur+1].split(" ")[0])
 	Cur+=1
