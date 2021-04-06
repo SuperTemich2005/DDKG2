@@ -21,7 +21,7 @@ func _ready():
 	for i in range(1,save_file.get_as_text().split(" ").size()):
 		CourtRecord.append(save_file.get_as_text().split(" ")[i])
 	Cur = 0
-	State = "Dialogue" # Main Dialogue Examine ChatSelect Present Move
+	State = "Dialogue" # Main Dialogue Examine Chat Present Move
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,6 +39,10 @@ func _process(delta):
 			if not get_parent().Dialogue[Cur+1].split(" ")[0] == "SPLIT":
 				$next_button.show()
 				$next_button.disabled = false
+			for i in range(1,4):
+				if get_parent().Chats[i-1] != "":
+					get_parent().get_node("chat_"+str(i)).hide()
+					get_parent().get_node("chat_"+str(i)).disabled = true
 		"Main":
 			$back_button.hide()
 			$back_button.disabled = true
@@ -48,6 +52,10 @@ func _process(delta):
 			$next_button.hide()
 			$next_button.disabled = true
 			$crosshair.hide()
+			for i in range(1,4):
+				if get_parent().Chats[i-1] != "":
+					get_parent().get_node("chat_"+str(i)).hide()
+					get_parent().get_node("chat_"+str(i)).disabled = true
 		"Examine":
 			$back_button.show()
 			$back_button.disabled = false
@@ -57,6 +65,20 @@ func _process(delta):
 			$next_button.hide()
 			$next_button.disabled = true
 			$crosshair.show()
+		"Chat":
+			$back_button.show()
+			$back_button.disabled = false
+			$background.hide()
+			$show_text.hide()
+			$investigation_buttons_container.hide()
+			$next_button.hide()
+			$next_button.disabled = true
+			$crosshair.hide()
+			for i in range(1,4):
+				if get_parent().Chats[i-1] != "":
+					get_parent().get_node("chat_"+str(i)).show()
+					get_parent().get_node("chat_"+str(i)).disabled = false
+				
 func _input(event):
 	if event is InputEventMouseMotion:
 		$crosshair.position = event.position
@@ -64,9 +86,9 @@ func _on_next_button_pressed():
 	Cur+=1
 	print(get_parent().Dialogue[Cur+1].split(" ")[0])
 	$show_text.text = get_parent().Dialogue[Cur]
-	if get_parent().Dialogue[Cur].split(" ")[0] == "JUMP":
+	if get_parent().Dialogue[Cur+1].split(" ")[0] == "JUMP":
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
-		#$show_text.text = get_parent().Dialogue[Cur]
+		$show_text.text = get_parent().Dialogue[Cur]
 		print("jumping to whatever")
 	if get_parent().Dialogue[Cur].split(" ")[0] == "MAIN":
 		State = "Main"
@@ -107,7 +129,7 @@ func _on_choice_first_pressed():
 	$choice_first.hide()
 	$choice_second.hide()
 	$next_button.show()
-	Cur = int(get_parent().Dialogue[Cur+1].split(" ")[3])+1
+	Cur = int(get_parent().Dialogue[Cur+1].split(" ")[3])
 	$show_text.text = get_parent().Dialogue[Cur]
 
 
@@ -118,7 +140,7 @@ func _on_choice_second_pressed():
 	$choice_first.hide()
 	$choice_second.hide()
 	$next_button.show()
-	Cur = int(get_parent().Dialogue[Cur+1].split(" ")[4])+1
+	Cur = int(get_parent().Dialogue[Cur+1].split(" ")[4])
 	$show_text.text = get_parent().Dialogue[Cur]
 
 
@@ -130,4 +152,5 @@ func _on_button_investigate_pressed():
 	State = "Examine"
 
 
-
+func _on_button_chat_pressed():
+	State = "Chat"
