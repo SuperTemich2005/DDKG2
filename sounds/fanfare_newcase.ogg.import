@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fanfare_newcase.ogg-24cee1f5239975e40bbc879b18d34b60.oggstr"
+
+[deps]
+
+source_file="res://sounds/fanfare_newcase.ogg"
+dest_files=[ "res://.import/fanfare_newcase.ogg-24cee1f5239975e40bbc879b18d34b60.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
