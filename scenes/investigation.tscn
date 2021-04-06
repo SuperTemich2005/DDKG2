@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation.gd" type="Script" id=2]
+[ext_resource path="res://sprites/crosshair/uninvestigated.png" type="Texture" id=3]
+[ext_resource path="res://sprites/crosshair/investigated.png" type="Texture" id=4]
+[ext_resource path="res://sprites/crosshair/nothing.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -16,6 +19,24 @@ blend_mode = 3
 [sub_resource type="DynamicFont" id=4]
 size = 24
 font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "wut",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "gotchu",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -37,6 +58,17 @@ margin_right = 1024.0
 margin_bottom = 598.0
 custom_fonts/font = SubResource( 1 )
 text = "Дальше"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_button" type="Button" parent="."]
+margin_left = 863.0
+margin_top = 434.0
+margin_right = 1024.0
+margin_bottom = 484.0
+custom_fonts/font = SubResource( 1 )
+text = "Назад"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -85,6 +117,66 @@ text = "Выбор 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="investigation_buttons_container" type="HBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 10.0
+margin_right = 1024.0
+margin_bottom = 95.0
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_investigate" type="Button" parent="investigation_buttons_container"]
+margin_left = 65.0
+margin_right = 293.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 1 )
+text = "Осмотреть"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_chat" type="Button" parent="investigation_buttons_container"]
+margin_left = 343.0
+margin_right = 547.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 1 )
+text = "Разговор"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_present" type="Button" parent="investigation_buttons_container"]
+margin_left = 597.0
+margin_right = 801.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 1 )
+text = "Показать"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_move" type="Button" parent="investigation_buttons_container"]
+margin_left = 851.0
+margin_right = 959.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 1 )
+text = "Уйти"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crosshair" type="AnimatedSprite" parent="."]
+position = Vector2( 118.092, 233.755 )
+scale = Vector2( 0.618163, 0.618163 )
+frames = SubResource( 5 )
 [connection signal="pressed" from="next_button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="choice_first" to="." method="_on_choice_first_pressed"]
 [connection signal="pressed" from="choice_second" to="." method="_on_choice_second_pressed"]
+[connection signal="pressed" from="investigation_buttons_container/button_investigate" to="." method="_on_button_investigate_pressed"]

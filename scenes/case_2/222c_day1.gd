@@ -2,16 +2,30 @@ extends Node2D
 var Dialogue
 func _ready():
 	Dialogue = [
+		"0",
 		"'Jak kit mamy mam...'",
-		"Kit",
-		"Ty mamy mam?",
-		"SPLIT Tak Nie 6 3",
+		"1/2: Kit",
+		"Ty mamy mam? G",
+		"SPLIT Tak Nie 7 4",
 		"Jak ne mam?",
-		"пропуск перед джампом",
-		"JUMP 0",
+		"Ty tata mam?",
+		"JUMP 1",
 		"Faine",
-		"пропуск перед джампом",
-		"JUMP 0",
+		"A sestry mam?",
+		"JUMP 11",
+		"asdasdasd",
+		"11/12: эту строку",
+		"placeholder",
+		"белый W",
+		"зеленый G",
+		"оранжевый R",
+		"желтый Y",
+		"телепатическирозовый P",
+		"(w glowie mysli mam) B",
+		"MAIN",
+		"",
+		"JUMP 1",
+		"",
 	]
 
 
