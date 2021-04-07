@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation.gd" type="Script" id=2]
 [ext_resource path="res://sprites/crosshair/uninvestigated.png" type="Texture" id=3]
 [ext_resource path="res://sprites/crosshair/investigated.png" type="Texture" id=4]
 [ext_resource path="res://sprites/crosshair/nothing.png" type="Texture" id=5]
+[ext_resource path="res://sprites/court_record.png" type="Texture" id=6]
+[ext_resource path="res://sprites/evidence/badge.png" type="Texture" id=7]
+[ext_resource path="res://sprites/evidence/badge_big.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -35,6 +38,43 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "gotchu",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 3
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "badge",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "badge",
 "speed": 5.0
 } ]
 
@@ -69,6 +109,16 @@ margin_right = 1024.0
 margin_bottom = 484.0
 custom_fonts/font = SubResource( 1 )
 text = "Назад"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="court_record" type="Button" parent="."]
+margin_left = 747.0
+margin_right = 1024.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+text = "Записи суда"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -122,9 +172,9 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 49.0
+margin_top = 70.0
 margin_right = 1024.0
-margin_bottom = 134.0
+margin_bottom = 155.0
 custom_constants/separation = 50
 alignment = 1
 __meta__ = {
@@ -175,8 +225,94 @@ __meta__ = {
 position = Vector2( 118.092, 233.755 )
 scale = Vector2( 0.618163, 0.618163 )
 frames = SubResource( 5 )
+
+[node name="frame_record" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 65, 70 )
+scale = Vector2( 1.31, 1.31 )
+frames = SubResource( 6 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="record_theme" type="ColorRect" parent="frame_record"]
+material = SubResource( 7 )
+margin_right = 600.0
+margin_bottom = 300.0
+color = Color( 0, 0.694118, 1, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="evidence_1" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 45.08, 43.3727 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_2" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 118.362, 43.3727 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_3" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 190.118, 43.3727 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_4" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 261.874, 43.3727 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_5" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 45.0801, 114.365 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_6" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 117.599, 114.365 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_7" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 189.355, 114.365 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_8" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 261.111, 114.365 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_9" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 45.0801, 184.594 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_10" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 116.836, 185.358 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_11" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 189.355, 185.358 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="evidence_12" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 261.111, 185.358 )
+scale = Vector2( 0.762614, 0.762614 )
+frames = SubResource( 8 )
+
+[node name="viewport" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 440.131, 79.4598 )
+scale = Vector2( 0.761002, 0.761002 )
+frames = SubResource( 9 )
 [connection signal="pressed" from="next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="court_record" to="." method="_on_court_record_pressed"]
 [connection signal="pressed" from="choice_first" to="." method="_on_choice_first_pressed"]
 [connection signal="pressed" from="choice_second" to="." method="_on_choice_second_pressed"]
 [connection signal="pressed" from="investigation_buttons_container/button_investigate" to="." method="_on_button_investigate_pressed"]

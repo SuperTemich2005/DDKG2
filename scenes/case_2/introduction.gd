@@ -11,6 +11,9 @@ extends Node2D
 #func _process(delta):
 #	pass
 
+func _ready():
+	$AudioStreamPlayer.play()
 
-func _on_AudioStreamPlayer_finished():
-	get_tree().change_scene("")
+
+func _on_Timer_timeout():
+	get_tree().change_scene("res://scenes/case_2/222c_day1.tscn")

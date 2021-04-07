@@ -7,9 +7,9 @@ func _ready():
 		"1",
 		"2",
 		"3",
-		"4",
 		"MAIN",
-		"",
+		"SPLIT Tak Nie 1 2",
+		"", # 6
 		"JUMP 2",
 		"7",
 		"8",
