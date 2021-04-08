@@ -1,6 +1,7 @@
 extends Node2D
 var Dialogue
 var Chats
+var Shows
 func _ready():
 	Dialogue = [
 		"0",
@@ -8,7 +9,7 @@ func _ready():
 		"2",
 		"3",
 		"MAIN",
-		"SPLIT Tak Nie 1 2",
+		"PLIT Tak Nie 1 2",
 		"", # 6
 		"JUMP 2",
 		"7",
@@ -18,6 +19,10 @@ func _ready():
 		"Привет  2",
 		"Пока  4",
 		"",
+		"",
+	]
+	Shows = [
+		"badge 2",
 		"",
 	]
 	if Chats[0] != "":
@@ -33,7 +38,7 @@ func _ready():
 # 2) SPLIT, JUMP срабатывают раньше на 1 реплику. Текст перед JUMP лучше сделать
 # пустым
 # 3) чтобы прыгнуть на N-ную строку, надо из номера строки в редакторе
-# вычесть 7
+# вычесть 8
 
 
 

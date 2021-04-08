@@ -20,13 +20,14 @@ func _ready():
 		Checked[i] = false
 	save_file = File.new()
 	save_file.open("C:/Games/ddkg2.save",File.READ)
-	print(str(save_file.get_as_text().split("-")))
-	CourtRecord = (save_file.get_as_text().split("-"))
+	print(str(save_file.get_as_text().split(";-")))
+	CourtRecord = (save_file.get_as_text().split(";-"))
+	print("Назв-е улики: "+CourtRecord[1].split(":")[0]+" опис-е улики: "+CourtRecord[1].split(":")[1])
 	for i in range(1,CourtRecord.size()):
-		get_node("frame_record/evidence_"+str(i)).animation = str(CourtRecord[i])
+		get_node("frame_record/evidence_"+str(i)).animation = str(CourtRecord[i].split(":")[0])
 	Cur = 0
-	State = "Dialogue" # Main Dialogue Examine Chat Present Move
-
+	State = "Dialogue" # Main Dialogue Examine Chat Show Move
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -82,10 +83,28 @@ func _process(delta):
 				if get_parent().Chats[i-1] != "":
 					get_parent().get_node("chat_"+str(i)).show()
 					get_parent().get_node("chat_"+str(i)).disabled = false
-				
+		"Show":
+			$back_button.show()
+			$back_button.disabled = false
+			$investigation_buttons_container.hide()
+			$next_button.hide()
+			$next_button.disabled = true
+			$crosshair.hide()
+			$frame_record/record_show.show()
+			$frame_record/record_show.disabled = false
+
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		$crosshair.position = event.position
+	if event is InputEventMouseButton and Input.is_action_pressed("lmb_click"):
+		for i in range(1,12):
+			if get_node("frame_record/evidence_"+str(i)+"/hb").get_global_rect().has_point(event.position) and CourtRecordStatus == 1:
+				print("evidence_"+str(i))
+				$frame_record/viewport.animation = get_node("frame_record/evidence_"+str(i)).animation
+				$frame_record/Label.text = CourtRecord[i].split(":")[1]
+
+
 func _on_next_button_pressed():
 	Cur+=1
 	print(get_parent().Dialogue[Cur+1].split(" ")[0])
@@ -126,6 +145,7 @@ func _on_next_button_pressed():
 			$show_text/text_color.color = Color(1,0,1,1)
 			$show_text.text = $show_text.text.left($show_text.text.length()-1)
 
+
 func _on_choice_first_pressed():
 	$choice_first.disabled = true
 	$choice_second.disabled = true
@@ -150,7 +170,10 @@ func _on_choice_second_pressed():
 
 func _on_back_button_pressed():
 	State = "Main"
-
+	CourtRecordStatus = 0
+	$frame_record.hide()
+	$court_record.show()
+	$court_record.disabled = false
 
 func _on_button_investigate_pressed():
 	State = "Examine"
@@ -165,7 +188,34 @@ func _on_court_record_pressed():
 		0:
 			CourtRecordStatus = 1
 			$frame_record.show()
-			
+			$frame_record/record_show.hide()
 		1:
 			CourtRecordStatus = 0
 			$frame_record.hide()
+			$frame_record/record_show.hide()
+
+
+
+func _on_button_present_pressed():
+	CourtRecordStatus = 1
+	$frame_record.show()
+	State = "Show"
+	$court_record.hide()
+	$court_record.disabled = true
+
+
+func _on_record_show_pressed():
+	for i in range(0,get_parent().Shows.size()):
+		print($frame_record/viewport.animation+" asdasdasd "+get_parent().Shows[i].split(" ")[0])
+		if $frame_record/viewport.animation == get_parent().Shows[i].split(" ")[0]:
+			State = "Dialogue"
+			Cur = int(get_parent().Shows[i].split(" ")[-1])
+			$show_text.text = get_parent().Dialogue[Cur]
+			CourtRecordStatus = 0
+			$frame_record.hide()
+			$frame_record/record_show.hide()
+			$court_record.show()
+			$court_record.disabled = false
+			break
+		else:
+			continue
