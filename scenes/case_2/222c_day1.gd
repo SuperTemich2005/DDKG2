@@ -5,7 +5,7 @@ var Chats
 var Shows
 var Moves
 func _ready():
-	Dialogue = [
+	Dialogue = [ # диалоги. 
 		"0",
 		"1",
 		"2",
@@ -17,17 +17,17 @@ func _ready():
 		"7",
 		"8",
 	]
-	Chats = [
+	Chats = [ # массив, в котором все, кроме последних 3 *БУКВ* - названия кнопок, а последние 3 буквы - номер строки
 		"Привет  2",
 		"Пока  4",
 		"",
 		"",
 	]
-	Shows = [
+	Shows = [ # массив, в котором первое слово - улика, а 2 - номер строки, на который перекинет игрока, если ее показать
 		"badge 2",
 		"",
 	]
-	Anims = [
+	Anims = [ # массив, в котором 1 слово это перс, а 2 - его анимка
 		"character_egorich doubts",
 		"character_egorich thinks",
 		"character_egorich suspects",
@@ -35,12 +35,20 @@ func _ready():
 		"character_egorich thinks",
 		"character_egorich suspects",
 	]
-	Moves = [
+	Moves = [ # массив с названиями кнопок перехода и целью куда они переводят
 		"Столовая res://scenes/case_2/mess_hall.tscn",
 		"ГлавМеню res://scenes/main_menu.tscn",
 		"",
 		"",
 	]
+# 1) цвет, MOV-слова срабатывают мгновенно
+# 2) SPLIT, JUMP срабатывают раньше на 1 реплику. Текст перед JUMP лучше сделать
+# пустым
+# 3) чтобы прыгнуть на N-ную строку, надо из номера строки в редакторе
+# вычесть 10
+
+# СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!!
+
 	for i in range(1,4):
 		if Chats[i-1] != "":
 			get_node("chat_"+str(i)).text = Chats[i-1].left(Chats[i-1].length()-3)
@@ -48,14 +56,6 @@ func _ready():
 		if Moves[i-1] != "":
 			get_node("move_"+str(i)).text = Moves[i-1].left(Moves[i-1].length()-Moves[i-1].split(" ")[-1].length())
 	print(Chats[0].split(" ")[-1])
-# 1) цвет, MOV-слова срабатывают мгновенно
-# 2) SPLIT, JUMP срабатывают раньше на 1 реплику. Текст перед JUMP лучше сделать
-# пустым
-# 3) чтобы прыгнуть на N-ную строку, надо из номера строки в редакторе
-# вычесть 10
-
-
-
 func _on_poi_1_pressed():
 	if $investigation_screen.State == "Examine":
 		$investigation_screen.State = "Dialogue"
