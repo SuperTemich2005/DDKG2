@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/investigation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/case_2/222c_day1.gd" type="Script" id=2]
 [ext_resource path="res://sprites/background/a222c_bg.jpg" type="Texture" id=3]
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -34,6 +35,12 @@ __meta__ = {
 position = Vector2( -1, -115 )
 frames = SubResource( 1 )
 centered = false
+
+[node name="characters_all" type="Node2D" parent="."]
+position = Vector2( -1, -115 )
+
+[node name="character_egorich" parent="characters_all" instance=ExtResource( 5 )]
+position = Vector2( 1, 115 )
 
 [node name="investigation_screen" parent="." instance=ExtResource( 1 )]
 
@@ -88,9 +95,65 @@ clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="move_1" type="Button" parent="."]
+visible = false
+margin_left = 598.0
+margin_top = 182.0
+margin_right = 801.0
+margin_bottom = 228.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_2" type="Button" parent="."]
+visible = false
+margin_left = 598.0
+margin_top = 241.0
+margin_right = 801.0
+margin_bottom = 287.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_3" type="Button" parent="."]
+visible = false
+margin_left = 597.0
+margin_top = 304.0
+margin_right = 801.0
+margin_bottom = 350.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_4" type="Button" parent="."]
+visible = false
+margin_left = 598.0
+margin_top = 365.0
+margin_right = 801.0
+margin_bottom = 411.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_entered" from="poi_1" to="." method="_on_poi_1_mouse_entered"]
 [connection signal="pressed" from="poi_1" to="." method="_on_poi_1_pressed"]
 [connection signal="pressed" from="chat_1" to="." method="_on_chat_1_pressed"]
 [connection signal="pressed" from="chat_2" to="." method="_on_chat_2_pressed"]
 [connection signal="pressed" from="chat_3" to="." method="_on_chat_3_pressed"]
 [connection signal="pressed" from="chat_4" to="." method="_on_chat_4_pressed"]
+[connection signal="pressed" from="move_1" to="." method="_on_move_1_pressed"]
+[connection signal="pressed" from="move_2" to="." method="_on_move_2_pressed"]
+[connection signal="pressed" from="move_3" to="." method="_on_move_3_pressed"]
+[connection signal="pressed" from="move_4" to="." method="_on_move_4_pressed"]

@@ -35,6 +35,7 @@ func _ready():
 func _process(delta):
 	match State:
 		"Dialogue":
+			get_parent().get_node("characters_all").show()
 			$back_button.hide()
 			$back_button.disabled = true
 			$investigation_buttons_container.hide()
@@ -49,6 +50,7 @@ func _process(delta):
 					get_parent().get_node("chat_"+str(i)).hide()
 					get_parent().get_node("chat_"+str(i)).disabled = true
 		"Main":
+			get_parent().get_node("characters_all").show()
 			$back_button.hide()
 			$back_button.disabled = true
 			$background.hide()
@@ -61,7 +63,11 @@ func _process(delta):
 				if get_parent().Chats[i-1] != "":
 					get_parent().get_node("chat_"+str(i)).hide()
 					get_parent().get_node("chat_"+str(i)).disabled = true
+				if get_parent().Moves[i-1] != "":
+					get_parent().get_node("move_"+str(i)).hide()
+					get_parent().get_node("move_"+str(i)).disabled = true
 		"Examine":
+			get_parent().get_node("characters_all").hide()
 			$back_button.show()
 			$back_button.disabled = false
 			$background.hide()
@@ -83,6 +89,19 @@ func _process(delta):
 				if get_parent().Chats[i-1] != "":
 					get_parent().get_node("chat_"+str(i)).show()
 					get_parent().get_node("chat_"+str(i)).disabled = false
+		"Move":
+			$back_button.show()
+			$back_button.disabled = false
+			$background.hide()
+			$show_text.hide()
+			$investigation_buttons_container.hide()
+			$next_button.hide()
+			$next_button.disabled = true
+			$crosshair.hide()
+			for i in range(1,4):
+				if get_parent().Moves[i-1] != "":
+					get_parent().get_node("move_"+str(i)).show()
+					get_parent().get_node("move_"+str(i)).disabled = false
 		"Show":
 			$back_button.show()
 			$back_button.disabled = false
@@ -93,13 +112,12 @@ func _process(delta):
 			$frame_record/record_show.show()
 			$frame_record/record_show.disabled = false
 
-
 func _input(event):
 	if event is InputEventMouseMotion:
 		$crosshair.position = event.position
 	if event is InputEventMouseButton and Input.is_action_pressed("lmb_click"):
 		for i in range(1,12):
-			if get_node("frame_record/evidence_"+str(i)+"/hb").get_global_rect().has_point(event.position) and CourtRecordStatus == 1:
+			if get_node("frame_record/evidence_"+str(i)+"/hb").get_global_rect().has_point(event.position) and CourtRecordStatus == 1 and get_node("frame_record/evidence_"+str(i)).animation != "default":
 				print("evidence_"+str(i))
 				$frame_record/viewport.animation = get_node("frame_record/evidence_"+str(i)).animation
 				$frame_record/Label.text = CourtRecord[i].split(":")[1]
@@ -109,6 +127,7 @@ func _on_next_button_pressed():
 	Cur+=1
 	print(get_parent().Dialogue[Cur+1].split(" ")[0])
 	$show_text.text = get_parent().Dialogue[Cur]
+	get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]+"/sprite").animation = get_parent().Anims[Cur].split(" ")[1]
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "JUMP":
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
 		$show_text.text = get_parent().Dialogue[Cur]
@@ -219,3 +238,7 @@ func _on_record_show_pressed():
 			break
 		else:
 			continue
+
+
+func _on_button_move_pressed():
+	State = "Move"
