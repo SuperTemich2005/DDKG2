@@ -33,6 +33,8 @@ __meta__ = {
 position = Vector2( 671.232, 202.043 )
 frames = SubResource( 1 )
 
+[node name="Sprite" type="Sprite" parent="logo"]
+
 [node name="new_game" type="Button" parent="."]
 margin_left = 30.5508
 margin_top = 361.469
@@ -81,3 +83,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="load_game" to="." method="_on_load_game_pressed"]

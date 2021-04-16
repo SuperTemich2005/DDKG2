@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,6 +9,7 @@ var State : String
 var CourtRecord : Array
 var Checked : Array
 var save_file
+var loc_file
 var CourtRecordStatus
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,17 +18,14 @@ func _ready():
 	Checked.resize(10)
 	for i in range(0,10):
 		Checked[i] = false
-	save_file = File.new()
-	save_file.open("C:/Games/ddkg2.save",File.READ)
-	print(str(save_file.get_as_text().split(";-")))
-	CourtRecord = (save_file.get_as_text().split(";-"))
-	print("Назв-е улики: "+CourtRecord[1].split(":")[0]+" опис-е улики: "+CourtRecord[1].split(":")[1])
-	for i in range(1,CourtRecord.size()):
-		get_node("frame_record/evidence_"+str(i)).animation = str(CourtRecord[i].split(":")[0])
 	Cur = 0
+	save_file = ConfigFile.new()
+	save_file.load("C:/Games/ddkg2.save")
+	for i in range(1,12):
+		get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	State = "Dialogue" # Main Dialogue Examine Chat Show Move
-	
-
+	save_file.set_value("Locations","Last",get_parent().filename)
+	save_file.save("C:/Games/ddkg2.save")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -116,18 +113,27 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		$crosshair.position = event.position
 	if event is InputEventMouseButton and Input.is_action_pressed("lmb_click"):
-		for i in range(1,12):
-			if get_node("frame_record/evidence_"+str(i)+"/hb").get_global_rect().has_point(event.position) and CourtRecordStatus == 1 and get_node("frame_record/evidence_"+str(i)).animation != "default":
+		for i in range(2,13):
+			if get_node("frame_record/evidence_"+str(i-1)+"/hb").get_global_rect().has_point(event.position) and CourtRecordStatus == 1 and get_node("frame_record/evidence_"+str(i-1)).animation != "default":
 				print("evidence_"+str(i))
-				$frame_record/viewport.animation = get_node("frame_record/evidence_"+str(i)).animation
-				$frame_record/Label.text = CourtRecord[i].split(":")[1]
+				$frame_record/viewport.animation = get_node("frame_record/evidence_"+str(i-1)).animation
+				$frame_record/Label.text = str(save_file.get_value("Evidence",str(i-1))).split(":")[1]
 
 
 func _on_next_button_pressed():
+	
 	Cur+=1
+	if get_parent().Music[Cur] != "":
+		if get_parent().Music[Cur].split(" ")[0] == "START":
+			$AudioStreamPlayer.set_stream(load("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg"))
+			print("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg")
+			$AudioStreamPlayer.playing = true
+		if get_parent().Music[Cur].split(" ")[0] == "STOP":
+			$AudioStreamPlayer.playing = false
 	print(get_parent().Dialogue[Cur+1].split(" ")[0])
 	$show_text.text = get_parent().Dialogue[Cur]
-	get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]+"/sprite").animation = get_parent().Anims[Cur].split(" ")[1]
+	if get_parent().Anims[Cur].left(10) == "character_":
+		get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]+"/sprite").animation = get_parent().Anims[Cur].split(" ")[1]
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "JUMP":
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
 		$show_text.text = get_parent().Dialogue[Cur]
@@ -136,6 +142,11 @@ func _on_next_button_pressed():
 		State = "Main"
 	if get_parent().Dialogue[Cur].split(" ")[0] == "EXAM":
 		State = "Examine"
+		$show_text/text_color.color = Color(1,1,1,1)
+	if get_parent().Dialogue[Cur].split(" ")[0] == "CHAT":
+		State = "Chat"
+	if get_parent().Dialogue[Cur].split(" ")[0] == "SHOW":
+		State = "Show"
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "SPLIT":
 		$choice_first.disabled = false
 		$choice_second.disabled = false
@@ -152,7 +163,7 @@ func _on_next_button_pressed():
 		$show_text/text_color.color = Color(0,1,0,1)
 		$show_text.text = $show_text.text.left($show_text.text.length()-1)
 	if get_parent().Dialogue[Cur].split(" ")[-1] == "B":
-		$show_text/text_color.color = Color(0,0,1,1)
+		$show_text/text_color.color = Color(0.25,0.25,1,1)
 		$show_text.text = $show_text.text.left($show_text.text.length()-1)
 	if get_parent().Dialogue[Cur].split(" ")[-1] == "R":
 		$show_text/text_color.color = Color(1,0.5,0,1)
@@ -163,6 +174,7 @@ func _on_next_button_pressed():
 	if get_parent().Dialogue[Cur].split(" ")[-1] == "P":
 			$show_text/text_color.color = Color(1,0,1,1)
 			$show_text.text = $show_text.text.left($show_text.text.length()-1)
+			
 
 
 func _on_choice_first_pressed():
