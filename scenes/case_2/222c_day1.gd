@@ -5,11 +5,11 @@ var Chats
 var Shows
 var Moves
 var Music
-var WhereTo
+var loc_file = ConfigFile.new()
 func _ready():
 	Dialogue = [ # диалоги. 
 		"",
-		"6 октября, 12:00. Номер 222с. G",
+		"5 октября, 12:00. Номер 222с. G",
 		"Тёмыч: хрр... W",
 		"Егорыч: Тьоха, вставай, уже 12 часов.",
 		"Пошли гулять.",
@@ -84,7 +84,7 @@ func _ready():
 		"",
 	]
 	Moves = [ # массив с названиями кнопок перехода и целью куда они переводят
-		"",
+		"Столовая res://scenes/case_2/mess_day1.tscn",
 		"",
 		"",
 		"",
@@ -103,7 +103,7 @@ func _ready():
 		"Егорыч: ТЬОХА ВСТАВАЙ ПОТОЛОК ПАДАЕТ!!!!11 R",
 		"Тёмыч: Аааа Егогорыч да ты задрал уже чертила ааааАААА. W",
 		"Егорыч: Бывает...",
-		"MAIN",
+		"START peaceful_day",
 		"Тёмыч: Зеркало.", # 14
 		"Хмм, странно.",
 		"Я вижу в этом зеркале восхитительного адвоката",
@@ -232,9 +232,9 @@ func _ready():
 		"MAIN",
 		""
 	]
-	WhereTo = 12
+	
 # СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!!
-
+	
 	for i in range(1,4):
 		if Chats[i-1] != "":
 			get_node("chat_"+str(i)).text = Chats[i-1].left(Chats[i-1].length()-3)
@@ -242,7 +242,9 @@ func _ready():
 		if Moves[i-1] != "":
 			get_node("move_"+str(i)).text = Moves[i-1].left(Moves[i-1].length()-Moves[i-1].split(" ")[-1].length())
 	print(Chats[0].split(" ")[-1])
-
+	loc_file.load("C:/Games/ddkg2.save")
+	if str(loc_file.get_value("Locations","1st")) == "1":
+		$investigation_screen.Cur = 12
 
 func _on_chat_1_pressed():
 	if $investigation_screen.State == "Chat" and Chats[0] != "":
@@ -357,3 +359,10 @@ func _on_poi_4_pressed():
 		$investigation_screen.Cur = int($poi_4.text)
 		$investigation_screen/show_text.text = Dialogue[$investigation_screen.Cur]
 		$investigation_screen.Checked[4] = true
+
+
+
+func _on_verif_timeout():
+	print("shitfuck")
+	loc_file.set_value("Locations","1st","1")
+	loc_file.save("C:/Games/ddkg2.save")

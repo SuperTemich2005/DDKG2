@@ -1,10 +1,22 @@
 Godot Engine v3.2.3.stable.official - https://godotengine.org
 OpenGL ES 3.0 Renderer: Intel(R) HD Graphics 4400
  
-[2, 222c_day1.tscn, badge:Значок, который есть у каждого дежурного. Номер значка Артёма - 12. Док-во его профессии]
-
+13
+**ERROR**: Couldn't find the given section "Locations" and key "2nd", and no default was given.
+   At: core/io/config_file.cpp:89:get_value() - Condition "p_default.get_type() == Variant::NIL" is true. Returned: Variant()
+res://sounds/peaceful_day.ogg
 Тёмыч:
-Егорыч:
-Пошли
+shitfuck
+О,
+Продавец:
 Тёмыч:
-Егорыч:
+...А,
+Продавец:
+Тёмыч:
+Жека:
+Тёмыч:
+showing +[AnimatedSprite:1805]
+Жека:
+MAIN
+res://sounds/peaceful_day.ogg
+Тёмыч:

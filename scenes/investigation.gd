@@ -30,6 +30,14 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
+	if get_parent().Anims[Cur].split(" ")[0].left(9) == "character":
+		if get_parent().Anims[Cur].split(" ")[1] == "HIDE":
+			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]).hide()
+		elif get_parent().Anims[Cur].split(" ")[1] == "SHOW":
+			print("showing +"+str(get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0])))
+			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]).show()
+		else:
+			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]+"/sprite").animation = get_parent().Anims[Cur].split(" ")[1]
 	match State:
 		"Dialogue":
 			get_parent().get_node("characters_all").show()
@@ -132,8 +140,6 @@ func _on_next_button_pressed():
 			$AudioStreamPlayer.playing = false
 	print(get_parent().Dialogue[Cur+1].split(" ")[0])
 	$show_text.text = get_parent().Dialogue[Cur]
-	if get_parent().Anims[Cur].left(10) == "character_":
-		get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]+"/sprite").animation = get_parent().Anims[Cur].split(" ")[1]
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "JUMP":
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
 		$show_text.text = get_parent().Dialogue[Cur]

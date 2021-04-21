@@ -23,8 +23,10 @@ font_data = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="background" type="ColorRect" parent="."]
-margin_right = 1022.0
-margin_bottom = 598.0
+margin_left = -21.8633
+margin_top = -16.8179
+margin_right = 1040.14
+margin_bottom = 618.182
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,8 +34,6 @@ __meta__ = {
 [node name="logo" type="AnimatedSprite" parent="."]
 position = Vector2( 671.232, 202.043 )
 frames = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="logo"]
 
 [node name="new_game" type="Button" parent="."]
 margin_left = 30.5508
