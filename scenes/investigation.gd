@@ -61,6 +61,8 @@ func _process(delta):
 			$background.hide()
 			$show_text.hide()
 			$investigation_buttons_container.show()
+			if get_parent().Chats[0] == "":
+				$investigation_buttons_container/button_chat.hide()
 			$next_button.hide()
 			$next_button.disabled = true
 			$crosshair.hide()

@@ -362,7 +362,7 @@ func _ready():
 	]
 	Moves = [ # массив с названиями кнопок перехода и целью куда они переводят
 		"Номер res://scenes/case_2/222c_day1.tscn",
-		"",
+		"Парк res://scenes/case_2/park_day1.tscn",
 		"",
 		"",
 	]
