@@ -67,7 +67,7 @@ func _ready():
 		"Шо, в столовку тогда пойдём?",
 		"Егорыч: Ну, хотя бы в направлении столовки",
 		"Тёмыч: Ну пошли, тогда уж",
-		"(Интересно, у них пельмени есть?)",
+		"(Интересно, у них пельмени есть?) B",
 		"CHAT",
 		"Тёмыч: Егогорыч, зырь",
 		"Егорыч: Зырю, И?",
@@ -243,7 +243,7 @@ func _ready():
 			get_node("move_"+str(i)).text = Moves[i-1].left(Moves[i-1].length()-Moves[i-1].split(" ")[-1].length())
 	print(Chats[0].split(" ")[-1])
 	loc_file.load("C:/Games/ddkg2.save")
-	if str(loc_file.get_value("Locations","1st")) == "1":
+	if str(loc_file.get_value("Locations",filename)) == "1":
 		$investigation_screen.Cur = 12
 
 func _on_chat_1_pressed():
@@ -364,5 +364,5 @@ func _on_poi_4_pressed():
 
 func _on_verif_timeout():
 	print("shitfuck")
-	loc_file.set_value("Locations","1st","1")
+	loc_file.set_value("Locations",str(filename),"1")
 	loc_file.save("C:/Games/ddkg2.save")

@@ -72,7 +72,7 @@ func _ready():
 	]
 	Moves = [ # массив с названиями кнопок перехода и целью куда они переводят
 		"Столовая res://scenes/case_2/mess_day1.tscn",
-		"",
+		"Сквер res://scenes/case_2/crime_day1.tscn",
 		"",
 		"",
 	]
@@ -92,8 +92,8 @@ func _ready():
 	
 	
 	loc_file.load("C:/Games/ddkg2.save")
-	if str(loc_file.get_value("Locations","3rd")) == "1":
-		$investigation_screen.Cur = 1
+	if str(loc_file.get_value("Locations",str(filename))) == "1":
+		$investigation_screen.Cur = 2
 
 
 
@@ -216,5 +216,5 @@ func _on_poi_4_pressed():
 
 func _on_verif_timeout():
 	print("shitfuck")
-	loc_file.set_value("Locations","3rd","1")
+	loc_file.set_value("Locations",str(filename),"1")
 	loc_file.save("C:/Games/ddkg2.save")

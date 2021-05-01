@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/logic.ogg-3bd31ce8993d78435c6d96065d82586b.oggstr"
+
+[deps]
+
+source_file="res://sounds/logic.ogg"
+dest_files=[ "res://.import/logic.ogg-3bd31ce8993d78435c6d96065d82586b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

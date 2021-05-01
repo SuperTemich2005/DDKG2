@@ -3,7 +3,8 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var Special
+var ShowChars
 var Cur
 var State : String
 var CourtRecord : Array
@@ -13,6 +14,8 @@ var loc_file
 var CourtRecordStatus
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Special = 0
+	ShowChars = 0
 	CourtRecordStatus = 0
 	CourtRecord.resize(12)
 	Checked.resize(10)
@@ -63,6 +66,7 @@ func _process(delta):
 			$investigation_buttons_container.show()
 			if get_parent().Chats[0] == "":
 				$investigation_buttons_container/button_chat.hide()
+				$investigation_buttons_container/button_present.hide()
 			$next_button.hide()
 			$next_button.disabled = true
 			$crosshair.hide()
@@ -131,7 +135,7 @@ func _input(event):
 
 
 func _on_next_button_pressed():
-	
+	ShowChars = 0
 	Cur+=1
 	if get_parent().Music[Cur] != "":
 		if get_parent().Music[Cur].split(" ")[0] == "START":
@@ -141,20 +145,23 @@ func _on_next_button_pressed():
 		if get_parent().Music[Cur].split(" ")[0] == "STOP":
 			$AudioStreamPlayer.playing = false
 	print(get_parent().Dialogue[Cur+1].split(" ")[0])
-	$show_text.text = get_parent().Dialogue[Cur]
+	#$show_text.text = get_parent().Dialogue[Cur]
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "JUMP":
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
 		$show_text.text = get_parent().Dialogue[Cur]
 		print("jumping to whatever")
 	if get_parent().Dialogue[Cur].split(" ")[0] == "MAIN":
 		State = "Main"
+		$show_text/text_color.color = Color(1,1,1,1)
 	if get_parent().Dialogue[Cur].split(" ")[0] == "EXAM":
 		State = "Examine"
 		$show_text/text_color.color = Color(1,1,1,1)
 	if get_parent().Dialogue[Cur].split(" ")[0] == "CHAT":
 		State = "Chat"
+		$show_text/text_color.color = Color(1,1,1,1)
 	if get_parent().Dialogue[Cur].split(" ")[0] == "SHOW":
 		State = "Show"
+		$show_text/text_color.color = Color(1,1,1,1)
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "SPLIT":
 		$choice_first.disabled = false
 		$choice_second.disabled = false
@@ -166,23 +173,24 @@ func _on_next_button_pressed():
 		$choice_second.text = get_parent().Dialogue[Cur+1].split(" ")[2]
 	if get_parent().Dialogue[Cur].split(" ")[-1] == "W":
 		$show_text/text_color.color = Color(1,1,1,1)
-		$show_text.text = $show_text.text.left($show_text.text.length()-1)
-	if get_parent().Dialogue[Cur].split(" ")[-1] == "G":
+		Special = 1
+	elif get_parent().Dialogue[Cur].split(" ")[-1] == "G":
 		$show_text/text_color.color = Color(0,1,0,1)
-		$show_text.text = $show_text.text.left($show_text.text.length()-1)
-	if get_parent().Dialogue[Cur].split(" ")[-1] == "B":
+		Special = 1
+	elif get_parent().Dialogue[Cur].split(" ")[-1] == "B":
 		$show_text/text_color.color = Color(0.25,0.25,1,1)
-		$show_text.text = $show_text.text.left($show_text.text.length()-1)
-	if get_parent().Dialogue[Cur].split(" ")[-1] == "R":
+		Special = 1
+	elif get_parent().Dialogue[Cur].split(" ")[-1] == "R":
 		$show_text/text_color.color = Color(1,0.5,0,1)
-		$show_text.text = $show_text.text.left($show_text.text.length()-1)
-	if get_parent().Dialogue[Cur].split(" ")[-1] == "Y":
+		Special = 1
+	elif get_parent().Dialogue[Cur].split(" ")[-1] == "Y":
 		$show_text/text_color.color = Color(1,1,0,1)
-		$show_text.text = $show_text.text.left($show_text.text.length()-1)
-	if get_parent().Dialogue[Cur].split(" ")[-1] == "P":
-			$show_text/text_color.color = Color(1,0,1,1)
-			$show_text.text = $show_text.text.left($show_text.text.length()-1)
-			
+		Special = 1
+	elif get_parent().Dialogue[Cur].split(" ")[-1] == "P":
+		$show_text/text_color.color = Color(1,0,1,1)
+		Special = 1
+	else:
+		Special = 0
 
 
 func _on_choice_first_pressed():
@@ -262,3 +270,8 @@ func _on_record_show_pressed():
 
 func _on_button_move_pressed():
 	State = "Move"
+
+
+func _on_update_timeout():
+	ShowChars = clamp(ShowChars+1,1,get_parent().Dialogue[Cur].length()-Special)
+	$show_text.text = get_parent().Dialogue[Cur].left(ShowChars)

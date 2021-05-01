@@ -468,6 +468,10 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -17.479
+
+[node name="update" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
 [connection signal="pressed" from="next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="court_record" to="." method="_on_court_record_pressed"]
@@ -478,3 +482,4 @@ volume_db = -17.479
 [connection signal="pressed" from="investigation_buttons_container/button_present" to="." method="_on_button_present_pressed"]
 [connection signal="pressed" from="investigation_buttons_container/button_move" to="." method="_on_button_move_pressed"]
 [connection signal="pressed" from="frame_record/record_show" to="." method="_on_record_show_pressed"]
+[connection signal="timeout" from="update" to="." method="_on_update_timeout"]
