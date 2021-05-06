@@ -1,0 +1,211 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/investigation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/case_2/222c_day1_1.gd" type="Script" id=2]
+[ext_resource path="res://sprites/background/a222c_bg.jpg" type="Texture" id=3]
+[ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/character_scenes/character_masha.tscn" type="PackedScene" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 29
+font_data = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="poi_1" type="Button" parent="."]
+margin_left = 433.0
+margin_top = 208.0
+margin_right = 500.0
+margin_bottom = 297.0
+text = "14"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poi_2" type="Button" parent="."]
+margin_left = 518.0
+margin_top = 324.0
+margin_right = 977.0
+margin_bottom = 606.0
+text = "26"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poi_3" type="Button" parent="."]
+margin_left = 326.0
+margin_top = 180.0
+margin_right = 413.0
+margin_bottom = 377.0
+text = "33"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poi_4" type="Button" parent="."]
+margin_left = -98.0
+margin_top = 180.0
+margin_right = -11.0
+margin_bottom = 377.0
+disabled = true
+text = "26"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_ground" type="AnimatedSprite" parent="."]
+position = Vector2( -1, -115 )
+frames = SubResource( 1 )
+centered = false
+
+[node name="characters_all" type="Node2D" parent="."]
+position = Vector2( -1, -115 )
+
+[node name="character_egorich" parent="characters_all" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 1, 115 )
+
+[node name="character_masha" parent="characters_all" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 14.2705, 110.596 )
+
+[node name="investigation_screen" parent="." instance=ExtResource( 1 )]
+
+[node name="chat_1" type="Button" parent="."]
+visible = false
+margin_left = 65.0
+margin_top = 182.227
+margin_right = 293.0
+margin_bottom = 228.227
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chat_2" type="Button" parent="."]
+visible = false
+margin_left = 65.0
+margin_top = 241.005
+margin_right = 293.0
+margin_bottom = 287.005
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chat_3" type="Button" parent="."]
+visible = false
+margin_left = 65.0
+margin_top = 304.386
+margin_right = 293.0
+margin_bottom = 350.386
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chat_4" type="Button" parent="."]
+visible = false
+margin_left = 65.0
+margin_top = 366.417
+margin_right = 293.0
+margin_bottom = 412.417
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_1" type="Button" parent="."]
+visible = false
+margin_left = 598.0
+margin_top = 182.0
+margin_right = 801.0
+margin_bottom = 228.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_2" type="Button" parent="."]
+visible = false
+margin_left = 598.0
+margin_top = 241.0
+margin_right = 801.0
+margin_bottom = 287.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_3" type="Button" parent="."]
+visible = false
+margin_left = 597.0
+margin_top = 304.0
+margin_right = 801.0
+margin_bottom = 350.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_4" type="Button" parent="."]
+visible = false
+margin_left = 598.0
+margin_top = 365.0
+margin_right = 801.0
+margin_bottom = 411.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="verif" type="Timer" parent="."]
+one_shot = true
+autostart = true
+[connection signal="mouse_entered" from="poi_1" to="." method="_on_poi_1_mouse_entered"]
+[connection signal="mouse_exited" from="poi_1" to="." method="_on_poi_mouse_exited"]
+[connection signal="pressed" from="poi_1" to="." method="_on_poi_1_pressed"]
+[connection signal="mouse_entered" from="poi_2" to="." method="_on_poi_2_mouse_entered"]
+[connection signal="mouse_exited" from="poi_2" to="." method="_on_poi_mouse_exited"]
+[connection signal="pressed" from="poi_2" to="." method="_on_poi_2_pressed"]
+[connection signal="mouse_entered" from="poi_3" to="." method="_on_poi_3_mouse_entered"]
+[connection signal="mouse_exited" from="poi_3" to="." method="_on_poi_mouse_exited"]
+[connection signal="pressed" from="poi_3" to="." method="_on_poi_3_pressed"]
+[connection signal="mouse_entered" from="poi_4" to="." method="_on_poi_3_mouse_entered"]
+[connection signal="mouse_exited" from="poi_4" to="." method="_on_poi_mouse_exited"]
+[connection signal="pressed" from="poi_4" to="." method="_on_poi_3_pressed"]
+[connection signal="pressed" from="chat_1" to="." method="_on_chat_1_pressed"]
+[connection signal="pressed" from="chat_2" to="." method="_on_chat_2_pressed"]
+[connection signal="pressed" from="chat_3" to="." method="_on_chat_3_pressed"]
+[connection signal="pressed" from="chat_4" to="." method="_on_chat_4_pressed"]
+[connection signal="pressed" from="move_1" to="." method="_on_move_1_pressed"]
+[connection signal="pressed" from="move_2" to="." method="_on_move_2_pressed"]
+[connection signal="pressed" from="move_3" to="." method="_on_move_3_pressed"]
+[connection signal="pressed" from="move_4" to="." method="_on_move_4_pressed"]
+[connection signal="timeout" from="verif" to="." method="_on_verif_timeout"]

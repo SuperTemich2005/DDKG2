@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/investigation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/case_2/222c_day1.gd" type="Script" id=2]
 [ext_resource path="res://sprites/background/a222c_bg.jpg" type="Texture" id=3]
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/character_scenes/character_masha.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -71,7 +72,12 @@ centered = false
 position = Vector2( -1, -115 )
 
 [node name="character_egorich" parent="characters_all" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 1, 115 )
+
+[node name="character_masha" parent="characters_all" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 14.2705, 110.596 )
 
 [node name="investigation_screen" parent="." instance=ExtResource( 1 )]
 

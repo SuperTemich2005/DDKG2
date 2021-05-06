@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ltn_theme.ogg-e64bb949a55a44f5c6f5de145e9c1ebd.oggstr"
+
+[deps]
+
+source_file="res://sounds/ltn_theme.ogg"
+dest_files=[ "res://.import/ltn_theme.ogg-e64bb949a55a44f5c6f5de145e9c1ebd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

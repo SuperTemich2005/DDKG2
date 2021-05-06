@@ -37,7 +37,9 @@ func _process(delta):
 		if get_parent().Anims[Cur].split(" ")[1] == "HIDE":
 			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]).hide()
 		elif get_parent().Anims[Cur].split(" ")[1] == "SHOW":
-			print("showing +"+str(get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0])))
+			#print("showing +"+str(get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0])))
+			for i in range(0,get_parent().get_node("characters_all").get_child_count()):
+				get_parent().get_node("characters_all").get_children()[i].hide()
 			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]).show()
 		else:
 			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]+"/sprite").animation = get_parent().Anims[Cur].split(" ")[1]
@@ -135,8 +137,30 @@ func _input(event):
 
 
 func _on_next_button_pressed():
+	var CheckedEvs = 0
+	for i in range(1,Checked.size()):
+		print(str(CheckedEvs))
+		if Checked[i] == true:
+			CheckedEvs += 1
+	if CheckedEvs == get_parent().EvCount:
+		print("asdasdasd")
+		save_file.set_value("Locations",str(filename)+"checked","1")
+		save_file.save("C:/Games/ddkg2.save")
+
 	ShowChars = 0
 	Cur+=1
+	if get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
+		get_tree().change_scene(get_parent().Dialogue[Cur].split(" ")[1])
+	if get_parent().Dialogue[Cur].split(" ")[0] == "~~~":
+		$AudioStreamPlayer2.set_stream(load("res://sounds/fanfare_newev.ogg"))
+		$AudioStreamPlayer2.play()
+		if save_file.get_value("Evidence",get_parent().Ev[Cur].split("/")[0],"-20:-20:-20:-20").split(":")[2] < get_parent().Ev[Cur].split("/")[3]:
+			save_file.set_value("Evidence",get_parent().Ev[Cur].split("/")[0],get_parent().Ev[Cur].split("/")[1]+":"+get_parent().Ev[Cur].split("/")[2]+":"+get_parent().Ev[Cur].split("/")[3])
+		save_file.save("C:/Games/ddkg2.save")
+		for i in range(1,12):
+			get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
+	else:
+		$AudioStreamPlayer2.stop()
 	if get_parent().Music[Cur] != "":
 		if get_parent().Music[Cur].split(" ")[0] == "START":
 			$AudioStreamPlayer.set_stream(load("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg"))
@@ -161,6 +185,18 @@ func _on_next_button_pressed():
 		$show_text/text_color.color = Color(1,1,1,1)
 	if get_parent().Dialogue[Cur].split(" ")[0] == "SHOW":
 		State = "Show"
+		$back_button.show()
+		$back_button.disabled = false
+		$investigation_buttons_container.hide()
+		$next_button.hide()
+		$next_button.disabled = true
+		$crosshair.hide()
+		$frame_record.show()
+		$show_text.hide()
+		$background.hide()
+		$court_record.hide()
+		$frame_record/record_show.show()
+		$frame_record/record_show.disabled = false
 		$show_text/text_color.color = Color(1,1,1,1)
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "SPLIT":
 		$choice_first.disabled = false
@@ -177,7 +213,7 @@ func _on_next_button_pressed():
 	elif get_parent().Dialogue[Cur].split(" ")[-1] == "G":
 		$show_text/text_color.color = Color(0,1,0,1)
 		Special = 1
-	elif get_parent().Dialogue[Cur].split(" ")[-1] == "B":
+	elif get_parent().Dialogue[Cur].split(" ")[-1] == "B" or get_parent().Dialogue[Cur].split(" ")[0] == "~~~":
 		$show_text/text_color.color = Color(0.25,0.25,1,1)
 		Special = 1
 	elif get_parent().Dialogue[Cur].split(" ")[-1] == "R":

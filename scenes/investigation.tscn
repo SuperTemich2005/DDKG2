@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation.gd" type="Script" id=2]
@@ -8,6 +8,13 @@
 [ext_resource path="res://sprites/court_record.png" type="Texture" id=6]
 [ext_resource path="res://sprites/evidence/badge.png" type="Texture" id=7]
 [ext_resource path="res://sprites/evidence/badge_big.png" type="Texture" id=8]
+[ext_resource path="res://sprites/evidence/body.png" type="Texture" id=9]
+[ext_resource path="res://sounds/fanfare_newev.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sprites/evidence/body_big.png" type="Texture" id=11]
+[ext_resource path="res://sprites/evidence/branch.png" type="Texture" id=12]
+[ext_resource path="res://sprites/evidence/branch_big.png" type="Texture" id=13]
+[ext_resource path="res://sprites/evidence/knucklebuster_big.png" type="Texture" id=14]
+[ext_resource path="res://sprites/evidence/knucklebuster.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -30,14 +37,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "wut",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "gotchu",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "wut",
 "speed": 5.0
 } ]
 
@@ -59,9 +66,24 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "body",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "knucklebuster",
 "speed": 5.0
 } ]
 
@@ -75,9 +97,24 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "body",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "knucklebuster",
 "speed": 5.0
 } ]
 
@@ -252,7 +289,7 @@ __meta__ = {
 material = SubResource( 7 )
 margin_right = 600.0
 margin_bottom = 300.0
-color = Color( 0, 0.694118, 1, 1 )
+color = Color( 0.596078, 0.811765, 1, 1 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -262,6 +299,7 @@ __meta__ = {
 position = Vector2( 45.8434, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_1"]
 material = SubResource( 9 )
@@ -277,6 +315,7 @@ __meta__ = {
 position = Vector2( 119.125, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_2"]
 material = SubResource( 9 )
@@ -292,6 +331,7 @@ __meta__ = {
 position = Vector2( 190.881, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_3"]
 material = SubResource( 9 )
@@ -307,6 +347,7 @@ __meta__ = {
 position = Vector2( 262.637, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_4"]
 material = SubResource( 9 )
@@ -322,6 +363,7 @@ __meta__ = {
 position = Vector2( 45.8435, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_5"]
 material = SubResource( 9 )
@@ -337,6 +379,7 @@ __meta__ = {
 position = Vector2( 118.362, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_6"]
 material = SubResource( 9 )
@@ -352,6 +395,7 @@ __meta__ = {
 position = Vector2( 190.118, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_7"]
 material = SubResource( 9 )
@@ -367,6 +411,7 @@ __meta__ = {
 position = Vector2( 261.874, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_8"]
 material = SubResource( 9 )
@@ -382,6 +427,7 @@ __meta__ = {
 position = Vector2( 45.8435, 184.594 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_9"]
 material = SubResource( 9 )
@@ -397,6 +443,7 @@ __meta__ = {
 position = Vector2( 117.599, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_10"]
 material = SubResource( 9 )
@@ -412,6 +459,7 @@ __meta__ = {
 position = Vector2( 190.118, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "knucklebuster"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_11"]
 material = SubResource( 9 )
@@ -468,6 +516,10 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -17.479
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -18.175
 
 [node name="update" type="Timer" parent="."]
 wait_time = 0.05

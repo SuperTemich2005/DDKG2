@@ -1,4 +1,5 @@
 extends Node2D
+var EvCount
 var Anims
 var Dialogue
 var Chats

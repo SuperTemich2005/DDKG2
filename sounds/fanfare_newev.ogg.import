@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fanfare_newev.ogg-659d7bdda52235ea1d96ca9efca33982.oggstr"
+
+[deps]
+
+source_file="res://sounds/fanfare_newev.ogg"
+dest_files=[ "res://.import/fanfare_newev.ogg-659d7bdda52235ea1d96ca9efca33982.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

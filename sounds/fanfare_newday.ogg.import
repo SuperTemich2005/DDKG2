@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fanfare_newday.ogg-db092986edaa7f824b152218541b4e46.oggstr"
+
+[deps]
+
+source_file="res://sounds/fanfare_newday.ogg"
+dest_files=[ "res://.import/fanfare_newday.ogg-db092986edaa7f824b152218541b4e46.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

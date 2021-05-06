@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/investigation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/case_2/park_day1.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/character_scenes/character_zheka.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/character_scenes/character_sonya.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/character_scenes/character_layton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/character_scenes/character_write.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -85,6 +87,14 @@ position = Vector2( 1, 115 )
 [node name="character_sonya" parent="characters_all" instance=ExtResource( 7 )]
 visible = false
 position = Vector2( 22.9639, 123.937 )
+
+[node name="character_lentoln" parent="characters_all" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( -27.3518, 97.515 )
+
+[node name="character_werur" parent="characters_all" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( -21.4057, 98.7041 )
 
 [node name="investigation_screen" parent="." instance=ExtResource( 1 )]
 
