@@ -413,7 +413,7 @@ func _ready():
 		"Тёмыч: Серьезно? Вы её знаете?",
 		"В. Юрьевна: Да. Это Ира Жарова из моего класса, 8-Г.",
 		"Тёмыч: Учту...",
-		"2/body/Ира Жарова, жертва избиения неустановленным лицом. Травмы: колотая рана в грудь, синяки и переломы./1",
+		"2/body/Ира Жарова, жертва избиения неустановленным лицом. Травмы: колотая рана в грудь, синяки и переломы./3",
 		"SHOW",
 		"Тёмыч: Это - оружие преступления. Одно из.", # 96, ветка, кастет.
 		"В. Юрьевна: Ясно.",
@@ -422,8 +422,8 @@ func _ready():
 		"",
 	]
 	Chats = [ # массив, в котором все, кроме последних 3 *БУКВ* - названия кнопок, а последние 3 буквы - номер строки
-		"Кто это?   46",
-		"Сквер...   27",
+		"",
+		"",
 		"",
 		"",
 	]
@@ -441,23 +441,22 @@ func _ready():
 	]
 	# СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААА*АААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!!
 	
+	loc_file.load("C:/Games/ddkg2.save")
+	if str(loc_file.get_value("Locations",str(filename))) == "1":
+		if loc_file.get_value("Locations","res://scenes/investigation.tscnchecked") == "1":
+			$investigation_screen.Cur = 16
+			Chats[0] = "Кто это?   46"
+			Chats[1] = "Сквер...   27"
+			Chats[2] = ""
+			Chats[3] = ""
+		else: 
+			$investigation_screen.Cur = 2
 	for i in range(1,4):
 		if Chats[i-1] != "":
 			get_node("chat_"+str(i)).text = Chats[i-1].left(Chats[i-1].length()-3)
 	for i in range(1,4):
 		if Moves[i-1] != "":
 			get_node("move_"+str(i)).text = Moves[i-1].left(Moves[i-1].length()-Moves[i-1].split(" ")[-1].length())
-	print(Chats[0].split(" ")[-1])
-	
-	
-	
-	loc_file.load("C:/Games/ddkg2.save")
-	if str(loc_file.get_value("Locations",str(filename))) == "1":
-		if loc_file.get_value("Locations","res://scenes/investigation.tscnchecked") == "1":
-			$investigation_screen.Cur = 16
-		else: 
-			$investigation_screen.Cur = 2
-
 
 
 

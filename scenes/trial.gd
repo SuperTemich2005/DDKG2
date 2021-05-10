@@ -48,73 +48,12 @@ func _process(delta):
 			get_parent().get_node("characters_all").show()
 			$back_button.hide()
 			$back_button.disabled = true
-			$investigation_buttons_container.hide()
 			$crosshair.hide()
 			$background.show()
 			$show_text.show()
 			if not get_parent().Dialogue[Cur+1].split(" ")[0] == "SPLIT":
 				$next_button.show()
 				$next_button.disabled = false
-			for i in range(1,4):
-				if get_parent().Chats[i-1] != "":
-					get_parent().get_node("chat_"+str(i)).hide()
-					get_parent().get_node("chat_"+str(i)).disabled = true
-		"Main":
-			get_parent().get_node("characters_all").show()
-			$back_button.hide()
-			$back_button.disabled = true
-			$background.hide()
-			$show_text.hide()
-			$investigation_buttons_container.show()
-			if get_parent().Chats[0] == "":
-				$investigation_buttons_container/button_chat.hide()
-				$investigation_buttons_container/button_present.hide()
-			$next_button.hide()
-			$next_button.disabled = true
-			$crosshair.hide()
-			for i in range(1,4):
-				if get_parent().Chats[i-1] != "":
-					get_parent().get_node("chat_"+str(i)).hide()
-					get_parent().get_node("chat_"+str(i)).disabled = true
-				if get_parent().Moves[i-1] != "":
-					get_parent().get_node("move_"+str(i)).hide()
-					get_parent().get_node("move_"+str(i)).disabled = true
-		"Examine":
-			get_parent().get_node("characters_all").hide()
-			$back_button.show()
-			$back_button.disabled = false
-			$background.hide()
-			$show_text.hide()
-			$investigation_buttons_container.hide()
-			$next_button.hide()
-			$next_button.disabled = true
-			$crosshair.show()
-		"Chat":
-			$back_button.show()
-			$back_button.disabled = false
-			$background.hide()
-			$show_text.hide()
-			$investigation_buttons_container.hide()
-			$next_button.hide()
-			$next_button.disabled = true
-			$crosshair.hide()
-			for i in range(1,4):
-				if get_parent().Chats[i-1] != "":
-					get_parent().get_node("chat_"+str(i)).show()
-					get_parent().get_node("chat_"+str(i)).disabled = false
-		"Move":
-			$back_button.show()
-			$back_button.disabled = false
-			$background.hide()
-			$show_text.hide()
-			$investigation_buttons_container.hide()
-			$next_button.hide()
-			$next_button.disabled = true
-			$crosshair.hide()
-			for i in range(1,4):
-				if get_parent().Moves[i-1] != "":
-					get_parent().get_node("move_"+str(i)).show()
-					get_parent().get_node("move_"+str(i)).disabled = false
 		"Show":
 			$back_button.show()
 			$back_button.disabled = false
@@ -176,15 +115,6 @@ func _on_next_button_pressed():
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
 		$show_text.text = get_parent().Dialogue[Cur]
 		print("jumping to whatever")
-	if get_parent().Dialogue[Cur].split(" ")[0] == "MAIN":
-		State = "Main"
-		$show_text/text_color.color = Color(1,1,1,1)
-	if get_parent().Dialogue[Cur].split(" ")[0] == "EXAM":
-		State = "Examine"
-		$show_text/text_color.color = Color(1,1,1,1)
-	if get_parent().Dialogue[Cur].split(" ")[0] == "CHAT":
-		State = "Chat"
-		$show_text/text_color.color = Color(1,1,1,1)
 	if get_parent().Dialogue[Cur].split(" ")[0] == "SHOW":
 		State = "Show"
 		$back_button.show()
@@ -260,13 +190,6 @@ func _on_back_button_pressed():
 	$court_record.show()
 	$court_record.disabled = false
 
-func _on_button_investigate_pressed():
-	State = "Examine"
-
-
-func _on_button_chat_pressed():
-	State = "Chat"
-
 
 func _on_court_record_pressed():
 	match CourtRecordStatus:
@@ -278,15 +201,6 @@ func _on_court_record_pressed():
 			CourtRecordStatus = 0
 			$frame_record.hide()
 			$frame_record/record_show.hide()
-
-
-
-func _on_button_present_pressed():
-	CourtRecordStatus = 1
-	$frame_record.show()
-	State = "Show"
-	$court_record.hide()
-	$court_record.disabled = true
 
 
 func _on_record_show_pressed():
@@ -304,10 +218,6 @@ func _on_record_show_pressed():
 			break
 		else:
 			continue
-
-
-func _on_button_move_pressed():
-	State = "Move"
 
 
 func _on_update_timeout():

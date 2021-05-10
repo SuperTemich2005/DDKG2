@@ -192,6 +192,7 @@ func _ready():
 			get_node("move_"+str(i)).text = Moves[i-1].left(Moves[i-1].length()-Moves[i-1].split(" ")[-1].length())
 	print(Chats[0].split(" ")[-1])
 	
+	
 
 func _on_chat_1_pressed():
 	if $investigation_screen.State == "Chat" and Chats[0] != "":

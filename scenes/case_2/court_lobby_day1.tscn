@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/trial.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/case_2/court_lobby_day1.gd" type="Script" id=2]
+[ext_resource path="res://sprites/background/a222c_bg.jpg" type="Texture" id=3]
+[ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/character_scenes/character_masha.tscn" type="PackedScene" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="back_ground" type="AnimatedSprite" parent="."]
+position = Vector2( -1, -115 )
+frames = SubResource( 1 )
+centered = false
+
+[node name="characters_all" type="Node2D" parent="."]
+position = Vector2( -1, -115 )
+
+[node name="character_egorich" parent="characters_all" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 1, 115 )
+
+[node name="character_masha" parent="characters_all" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 14.2705, 110.596 )
+
+[node name="verif" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Trial" parent="." instance=ExtResource( 1 )]
+[connection signal="timeout" from="verif" to="." method="_on_verif_timeout"]

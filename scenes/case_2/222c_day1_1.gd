@@ -64,6 +64,7 @@ func _ready():
 	]
 	
 # СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!!
+	loc_file.load("C:/Games/ddkg2.save")
 	for i in range(1,4):
 		if Chats[i-1] != "":
 			get_node("chat_"+str(i)).text = Chats[i-1].left(Chats[i-1].length()-3)
