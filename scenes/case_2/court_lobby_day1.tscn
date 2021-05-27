@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/trial.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/case_2/court_lobby_day1.gd" type="Script" id=2]
-[ext_resource path="res://sprites/background/a222c_bg.jpg" type="Texture" id=3]
+[ext_resource path="res://sprites/background/alobby_bg.png" type="Texture" id=3]
+[ext_resource path="res://scenes/character_scenes/character_sonya.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/character_scenes/character_masha.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/character_scenes/character_layton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/character_scenes/character_write.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -18,7 +21,8 @@ animations = [ {
 script = ExtResource( 2 )
 
 [node name="back_ground" type="AnimatedSprite" parent="."]
-position = Vector2( -1, -115 )
+position = Vector2( -174, 0 )
+scale = Vector2( 0.502525, 0.502525 )
 frames = SubResource( 1 )
 centered = false
 
@@ -32,6 +36,18 @@ position = Vector2( 1, 115 )
 [node name="character_masha" parent="characters_all" instance=ExtResource( 6 )]
 visible = false
 position = Vector2( 14.2705, 110.596 )
+
+[node name="character_werur" parent="characters_all" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 0, 72 )
+
+[node name="character_lentolna" parent="characters_all" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 0, 56 )
+
+[node name="character_sonya" parent="characters_all" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 0, 64 )
 
 [node name="verif" type="Timer" parent="."]
 one_shot = true

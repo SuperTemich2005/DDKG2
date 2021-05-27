@@ -1,15 +1,11 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/trial.gd" type="Script" id=2]
-[ext_resource path="res://sprites/crosshair/uninvestigated.png" type="Texture" id=3]
-[ext_resource path="res://sprites/crosshair/investigated.png" type="Texture" id=4]
-[ext_resource path="res://sprites/crosshair/nothing.png" type="Texture" id=5]
 [ext_resource path="res://sprites/court_record.png" type="Texture" id=6]
 [ext_resource path="res://sprites/evidence/badge.png" type="Texture" id=7]
 [ext_resource path="res://sprites/evidence/badge_big.png" type="Texture" id=8]
 [ext_resource path="res://sprites/evidence/body.png" type="Texture" id=9]
-[ext_resource path="res://sounds/fanfare_newev.ogg" type="AudioStream" id=10]
 [ext_resource path="res://sprites/evidence/body_big.png" type="Texture" id=11]
 [ext_resource path="res://sprites/evidence/branch.png" type="Texture" id=12]
 [ext_resource path="res://sprites/evidence/branch_big.png" type="Texture" id=13]
@@ -32,35 +28,27 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "gotchu",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "wut",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="CanvasItemMaterial" id=7]
+[sub_resource type="CanvasItemMaterial" id=6]
 blend_mode = 3
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "autopsy",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
 "frames": [  ],
 "loop": true,
 "name": "default",
@@ -76,21 +64,21 @@ animations = [ {
 "name": "branch",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "knucklebuster",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "badge",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "knucklebuster",
+"speed": 5.0
 } ]
 
-[sub_resource type="CanvasItemMaterial" id=9]
+[sub_resource type="CanvasItemMaterial" id=8]
 blend_mode = 3
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -107,21 +95,21 @@ animations = [ {
 "name": "branch",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "knucklebuster",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "badge",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "knucklebuster",
+"speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 size = 26
 font_data = ExtResource( 1 )
 
@@ -217,23 +205,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="crosshair" type="AnimatedSprite" parent="."]
-position = Vector2( 118.092, 233.755 )
-scale = Vector2( 0.618163, 0.618163 )
-frames = SubResource( 5 )
-
 [node name="frame_record" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 65, 70 )
 scale = Vector2( 1.31, 1.31 )
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 centered = false
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="record_theme" type="ColorRect" parent="frame_record"]
-material = SubResource( 7 )
+material = SubResource( 6 )
 margin_right = 600.0
 margin_bottom = 300.0
 color = Color( 0.596078, 0.811765, 1, 1 )
@@ -245,11 +228,11 @@ __meta__ = {
 [node name="evidence_1" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 45.8434, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_1"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
@@ -261,11 +244,11 @@ __meta__ = {
 [node name="evidence_2" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 119.125, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_2"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
@@ -277,11 +260,11 @@ __meta__ = {
 [node name="evidence_3" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 190.881, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_3"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
@@ -293,11 +276,11 @@ __meta__ = {
 [node name="evidence_4" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 262.637, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_4"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
@@ -309,11 +292,11 @@ __meta__ = {
 [node name="evidence_5" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 45.8435, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_5"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0313
 margin_top = -32.0313
 margin_right = 31.9687
@@ -325,11 +308,11 @@ __meta__ = {
 [node name="evidence_6" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 118.362, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_6"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0313
 margin_top = -32.0313
 margin_right = 31.9688
@@ -341,11 +324,11 @@ __meta__ = {
 [node name="evidence_7" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 190.118, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_7"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0313
 margin_top = -32.0313
 margin_right = 31.9688
@@ -357,11 +340,11 @@ __meta__ = {
 [node name="evidence_8" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 261.874, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_8"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0313
 margin_top = -32.0313
 margin_right = 31.9688
@@ -373,11 +356,11 @@ __meta__ = {
 [node name="evidence_9" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 45.8435, 184.594 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_9"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0313
 margin_top = -32.0313
 margin_right = 31.9687
@@ -389,11 +372,11 @@ __meta__ = {
 [node name="evidence_10" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 117.599, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_10"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0313
 margin_top = -32.0313
 margin_right = 31.9687
@@ -405,11 +388,11 @@ __meta__ = {
 [node name="evidence_11" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 190.118, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
-animation = "knucklebuster"
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_11"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0313
 margin_top = -32.0313
 margin_right = 31.9688
@@ -421,10 +404,11 @@ __meta__ = {
 [node name="evidence_12" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 261.874, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
-frames = SubResource( 8 )
+frames = SubResource( 7 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_12"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_left = -32.0313
 margin_top = -32.0313
 margin_right = 31.9688
@@ -436,14 +420,14 @@ __meta__ = {
 [node name="viewport" type="AnimatedSprite" parent="frame_record"]
 position = Vector2( 440.131, 79.4598 )
 scale = Vector2( 0.761002, 0.761002 )
-frames = SubResource( 10 )
+frames = SubResource( 9 )
 
 [node name="Label" type="Label" parent="frame_record"]
 margin_left = 306.0
 margin_top = 157.0
 margin_right = 576.0
 margin_bottom = 283.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 autowrap = true
 clip_text = true
 __meta__ = {
@@ -455,7 +439,7 @@ margin_left = 14.0
 margin_top = 225.0
 margin_right = 150.0
 margin_bottom = 287.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Показать"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -465,12 +449,13 @@ __meta__ = {
 volume_db = -17.479
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
 volume_db = -18.175
 
 [node name="update" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
+
+[node name="stopreact" type="Timer" parent="."]
 [connection signal="pressed" from="next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="court_record" to="." method="_on_court_record_pressed"]

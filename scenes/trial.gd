@@ -48,7 +48,6 @@ func _process(delta):
 			get_parent().get_node("characters_all").show()
 			$back_button.hide()
 			$back_button.disabled = true
-			$crosshair.hide()
 			$background.show()
 			$show_text.show()
 			if not get_parent().Dialogue[Cur+1].split(" ")[0] == "SPLIT":
@@ -65,8 +64,6 @@ func _process(delta):
 			$frame_record/record_show.disabled = false
 
 func _input(event):
-	if event is InputEventMouseMotion:
-		$crosshair.position = event.position
 	if event is InputEventMouseButton and Input.is_action_pressed("lmb_click"):
 		for i in range(2,13):
 			if get_node("frame_record/evidence_"+str(i-1)+"/hb").get_global_rect().has_point(event.position) and CourtRecordStatus == 1 and get_node("frame_record/evidence_"+str(i-1)).animation != "default":
@@ -76,16 +73,6 @@ func _input(event):
 
 
 func _on_next_button_pressed():
-	var CheckedEvs = 0
-	for i in range(1,Checked.size()):
-		print(str(CheckedEvs))
-		if Checked[i] == true:
-			CheckedEvs += 1
-	if CheckedEvs == get_parent().EvCount:
-		print("asdasdasd")
-		save_file.set_value("Locations",str(filename)+"checked","1")
-		save_file.save("C:/Games/ddkg2.save")
-
 	ShowChars = 0
 	Cur+=1
 	if get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
@@ -102,7 +89,11 @@ func _on_next_button_pressed():
 			get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	else:
 		$AudioStreamPlayer2.stop()
-	if get_parent().Music[Cur] != "":
+	if get_parent().Music[Cur] != "": 
+		if get_parent().Music[Cur].split(" ")[0] == "REACT":
+			$AudioStreamPlayer2.set_stream(load("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg"))
+			print("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg")
+			$AudioStreamPlayer2.play()
 		if get_parent().Music[Cur].split(" ")[0] == "START":
 			$AudioStreamPlayer.set_stream(load("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg"))
 			print("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg")
@@ -115,6 +106,10 @@ func _on_next_button_pressed():
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
 		$show_text.text = get_parent().Dialogue[Cur]
 		print("jumping to whatever")
+	if get_parent().Dialogue[Cur].split(" ")[0] == "POS":
+		match get_parent().Dialogue[Cur].split(" ")[1]:
+			"def":
+				pass
 	if get_parent().Dialogue[Cur].split(" ")[0] == "SHOW":
 		State = "Show"
 		$back_button.show()

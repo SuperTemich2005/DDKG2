@@ -144,7 +144,7 @@ func _on_next_button_pressed():
 			CheckedEvs += 1
 	if CheckedEvs == get_parent().EvCount:
 		print("asdasdasd")
-		save_file.set_value("Locations",str(filename)+"checked","1")
+		save_file.set_value("Locations",str(get_parent().filename)+"checked","1")
 		save_file.save("C:/Games/ddkg2.save")
 
 	ShowChars = 0
@@ -154,6 +154,7 @@ func _on_next_button_pressed():
 	if get_parent().Dialogue[Cur].split(" ")[0] == "~~~":
 		$AudioStreamPlayer2.set_stream(load("res://sounds/fanfare_newev.ogg"))
 		$AudioStreamPlayer2.play()
+		save_file.load("C:/Games/ddkg2.save")
 		if save_file.get_value("Evidence",get_parent().Ev[Cur].split("/")[0],"-20:-20:-20:-20").split(":")[2] < get_parent().Ev[Cur].split("/")[3]:
 			save_file.set_value("Evidence",get_parent().Ev[Cur].split("/")[0],get_parent().Ev[Cur].split("/")[1]+":"+get_parent().Ev[Cur].split("/")[2]+":"+get_parent().Ev[Cur].split("/")[3])
 		else:
