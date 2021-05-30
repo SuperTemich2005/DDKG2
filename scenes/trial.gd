@@ -12,12 +12,14 @@ var Checked : Array
 var save_file
 var loc_file
 var CourtRecordStatus
+var Pos
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Pos = "jud" # wit def pro jud hld
 	Special = 0
 	ShowChars = 0
 	CourtRecordStatus = 0
-	CourtRecord.resize(12)
+	CourtRecord.resize(12) 
 	Checked.resize(10)
 	for i in range(0,10):
 		Checked[i] = false
@@ -80,6 +82,7 @@ func _on_next_button_pressed():
 	if get_parent().Dialogue[Cur].split(" ")[0] == "~~~":
 		$AudioStreamPlayer2.set_stream(load("res://sounds/fanfare_newev.ogg"))
 		$AudioStreamPlayer2.play()
+		print(get_parent().Ev[Cur].split("/"))
 		if save_file.get_value("Evidence",get_parent().Ev[Cur].split("/")[0],"-20:-20:-20:-20").split(":")[2] < get_parent().Ev[Cur].split("/")[3]:
 			save_file.set_value("Evidence",get_parent().Ev[Cur].split("/")[0],get_parent().Ev[Cur].split("/")[1]+":"+get_parent().Ev[Cur].split("/")[2]+":"+get_parent().Ev[Cur].split("/")[3])
 		else:
@@ -106,10 +109,6 @@ func _on_next_button_pressed():
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
 		$show_text.text = get_parent().Dialogue[Cur]
 		print("jumping to whatever")
-	if get_parent().Dialogue[Cur].split(" ")[0] == "POS":
-		match get_parent().Dialogue[Cur].split(" ")[1]:
-			"def":
-				pass
 	if get_parent().Dialogue[Cur].split(" ")[0] == "SHOW":
 		State = "Show"
 		$back_button.show()
@@ -134,6 +133,9 @@ func _on_next_button_pressed():
 		$next_button.hide()
 		$choice_first.text = get_parent().Dialogue[Cur+1].split(" ")[1]
 		$choice_second.text = get_parent().Dialogue[Cur+1].split(" ")[2]
+	if get_parent().Anims[Cur].split(" ").size() >= 2:
+		if get_parent().Anims[Cur].split(" ")[-2] == "POS":
+			get_parent().get_node("back_ground").play(get_parent().Anims[Cur].split(" ")[-1])
 	if get_parent().Dialogue[Cur].split(" ")[-1] == "W":
 		$show_text/text_color.color = Color(1,1,1,1)
 		Special = 1
