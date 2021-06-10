@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://sprites/gg/default/default.png" type="Texture" id=1]
 [ext_resource path="res://sprites/gg/deskslam/deskslam_3.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://sprites/gg/no/no_1.png" type="Texture" id=8]
 [ext_resource path="res://sprites/gg/no/no_2.png" type="Texture" id=9]
 [ext_resource path="res://sprites/gg/deskslam/deskslam_2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/gg/thonker/thonker.png" type="Texture" id=11]
+[ext_resource path="res://sprites/gg/comeon/comeon.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,20 +25,30 @@ animations = [ {
 "name": "rage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "yee",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
 "loop": false,
 "name": "no",
 "speed": 3.0
 }, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "yee",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "deskslam",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "thonker",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "comeon",
+"speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]
