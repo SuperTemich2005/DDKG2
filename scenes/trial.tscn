@@ -43,11 +43,6 @@ blend_mode = 3
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "footage 1",
-"speed": 5.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "default",
@@ -81,6 +76,11 @@ animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "footage 1",
 "speed": 5.0
 } ]
 

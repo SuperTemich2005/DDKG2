@@ -45,6 +45,9 @@ func _process(delta):
 			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]).show()
 		else:
 			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]+"/sprite").animation = get_parent().Anims[Cur].split(" ")[1]
+			for i in range(0,get_parent().get_node("characters_all").get_child_count()):
+				get_parent().get_node("characters_all").get_children()[i].hide()
+			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]).show()
 	match State:
 		"Dialogue":
 			get_parent().get_node("characters_all").show()
