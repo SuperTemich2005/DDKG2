@@ -58,7 +58,11 @@ func _process(delta):
 			if not get_parent().Dialogue[Cur+1].split(" ")[0] == "SPLIT":
 				$next_button.show()
 				$next_button.disabled = false
+			$press_button.hide()
+			$press_button.disabled = true
 		"Show":
+			$press_button.hide()
+			$press_button.disabled = true
 			$back_button.show()
 			$back_button.disabled = false
 			$investigation_buttons_container.hide()
@@ -67,6 +71,13 @@ func _process(delta):
 			$crosshair.hide()
 			$frame_record/record_show.show()
 			$frame_record/record_show.disabled = false
+		"Interogation":
+			$back_button.show()
+			$back_button.disabled = false
+			$next_button.show()
+			$next_button.disabled = false
+			$press_button.show()
+			$press_button.disabled = false
 
 func _input(event):
 	if event is InputEventMouseButton and Input.is_action_pressed("lmb_click"):
@@ -78,12 +89,6 @@ func _input(event):
 
 
 func _on_next_button_pressed():
-	print(str(Cur)+" "+get_parent().filename.right(get_parent().filename.length()-15))
-	if Cur == 0 and get_parent().filename.right(get_parent().filename.length()-15) == "_testimony.tscn":
-		$intro_whoosh.show()
-		$AudioStreamPlayer.set_stream(load("res://sounds/intro_woosh.ogg"))
-		$intro_whoosh.play()
-		$AudioStreamPlayer.play()
 	ShowChars = 0
 	Cur+=1
 	if get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
@@ -190,11 +195,17 @@ func _on_choice_second_pressed():
 
 
 func _on_back_button_pressed():
-	State = "Dialogue"
-	CourtRecordStatus = 0
-	$frame_record.hide()
-	$court_record.show()
-	$court_record.disabled = false
+	match State:
+		"Show":
+			State = "Dialogue"
+			CourtRecordStatus = 0
+			$frame_record.hide()
+			$court_record.show()
+			$court_record.disabled = false
+		"Interogation":
+			Cur = Cur - 2
+			_on_next_button_pressed()
+			
 
 
 func _on_court_record_pressed():
@@ -231,6 +242,5 @@ func _on_update_timeout():
 	$show_text.text = get_parent().Dialogue[Cur].left(ShowChars)
 
 
-func _on_intro_whoosh_animation_finished():
-	$intro_whoosh.hide()
-
+func _on_press_button_pressed():
+	pass # Replace with function body.

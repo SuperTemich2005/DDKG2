@@ -64,7 +64,8 @@ margin_right = 423.449
 margin_bottom = 510.883
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Файла сохранения нет, вы начнете новую игру."
+text = "Файла сохранения нет
+"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

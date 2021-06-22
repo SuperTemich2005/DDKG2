@@ -1,7 +1,7 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/trial.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interogation.gd" type="Script" id=2]
 [ext_resource path="res://sprites/evidence/autopsy_big.png" type="Texture" id=3]
 [ext_resource path="res://sprites/evidence/autopsy.png" type="Texture" id=4]
 [ext_resource path="res://sprites/evidence/footage_big.png" type="Texture" id=5]
@@ -15,11 +15,6 @@
 [ext_resource path="res://sprites/evidence/branch_big.png" type="Texture" id=13]
 [ext_resource path="res://sprites/evidence/knucklebuster_big.png" type="Texture" id=14]
 [ext_resource path="res://sprites/evidence/knucklebuster.png" type="Texture" id=15]
-[ext_resource path="res://sprites/witness_testimony/testimony_1.png" type="Texture" id=16]
-[ext_resource path="res://sprites/witness_testimony/testimony_5.png" type="Texture" id=17]
-[ext_resource path="res://sprites/witness_testimony/testimony_2.png" type="Texture" id=18]
-[ext_resource path="res://sprites/witness_testimony/testimony_3.png" type="Texture" id=19]
-[ext_resource path="res://sprites/witness_testimony/testimony_4.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -137,14 +132,6 @@ font_data = ExtResource( 1 )
 size = 26
 font_data = ExtResource( 1 )
 
-[sub_resource type="SpriteFrames" id=12]
-animations = [ {
-"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 16 ) ],
-"loop": false,
-"name": "default",
-"speed": 15.0
-} ]
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -186,6 +173,15 @@ margin_right = 1024.0
 margin_bottom = 50.0
 custom_fonts/font = SubResource( 1 )
 text = "Записи суда"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="press_button" type="Button" parent="."]
+margin_right = 277.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+text = "Подробнее"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -489,17 +485,11 @@ wait_time = 0.05
 autostart = true
 
 [node name="stopreact" type="Timer" parent="."]
-
-[node name="intro_whoosh" type="AnimatedSprite" parent="."]
-visible = false
-position = Vector2( 513.621, 245.5 )
-scale = Vector2( 0.636724, 0.636724 )
-frames = SubResource( 12 )
 [connection signal="pressed" from="next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="court_record" to="." method="_on_court_record_pressed"]
+[connection signal="pressed" from="press_button" to="." method="_on_press_button_pressed"]
 [connection signal="pressed" from="choice_first" to="." method="_on_choice_first_pressed"]
 [connection signal="pressed" from="choice_second" to="." method="_on_choice_second_pressed"]
 [connection signal="pressed" from="frame_record/record_show" to="." method="_on_record_show_pressed"]
 [connection signal="timeout" from="update" to="." method="_on_update_timeout"]
-[connection signal="animation_finished" from="intro_whoosh" to="." method="_on_intro_whoosh_animation_finished"]

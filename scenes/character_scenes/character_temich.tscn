@@ -22,35 +22,20 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "thonker",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "comeon",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "rage",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "deskslam",
-"speed": 15.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "yee",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "no",
-"speed": 3.0
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "thonker",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
@@ -61,6 +46,21 @@ animations = [ {
 "loop": true,
 "name": "kekk",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "comeon",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "deskslam",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "no",
+"speed": 3.0
 } ]
 
 [node name="Node2D" type="Node2D"]
