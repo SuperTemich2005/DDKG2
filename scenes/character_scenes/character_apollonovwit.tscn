@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/paltoswit/default/default.png" type="Texture" id=1]
 [ext_resource path="res://sprites/paltoswit/hmpf/hmpf.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://sprites/paltoswit/well/well.png" type="Texture" id=4]
 [ext_resource path="res://sprites/paltoswit/rage/rage.png" type="Texture" id=5]
 [ext_resource path="res://sprites/paltoswit/objection/objection.png" type="Texture" id=6]
+[ext_resource path="res://sprites/paltoswit/smirk/smirk.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -29,14 +30,19 @@ animations = [ {
 "name": "hmpf",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "shrug",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "objection",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "shrug",
+"name": "heh",
 "speed": 5.0
 } ]
 
