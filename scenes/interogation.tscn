@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/interogation.gd" type="Script" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://sprites/evidence/branch_big.png" type="Texture" id=13]
 [ext_resource path="res://sprites/evidence/knucklebuster_big.png" type="Texture" id=14]
 [ext_resource path="res://sprites/evidence/knucklebuster.png" type="Texture" id=15]
+[ext_resource path="res://sprites/Objection.png" type="Texture" id=16]
+[ext_resource path="res://sprites/Hold it.png" type="Texture" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -58,14 +60,19 @@ animations = [ {
 "name": "knucklebuster",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "badge",
+"name": "footage 1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "badge",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -76,11 +83,6 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "autopsy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "footage 1",
 "speed": 5.0
 } ]
 
@@ -104,14 +106,14 @@ animations = [ {
 "name": "knucklebuster",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "badge",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "badge",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -131,6 +133,19 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=11]
 size = 26
 font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "objection",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "hit",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -157,9 +172,9 @@ __meta__ = {
 }
 
 [node name="back_button" type="Button" parent="."]
-margin_left = 863.0
+margin_left = 860.477
 margin_top = 434.0
-margin_right = 1024.0
+margin_right = 1021.48
 margin_bottom = 484.0
 custom_fonts/font = SubResource( 1 )
 text = "Назад"
@@ -484,7 +499,15 @@ volume_db = -18.175
 wait_time = 0.05
 autostart = true
 
-[node name="stopreact" type="Timer" parent="."]
+[node name="speech_bubble" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 532.065, 274.132 )
+scale = Vector2( 0.831268, 0.831268 )
+frames = SubResource( 12 )
+animation = "hit"
+
+[node name="autoforward" type="Timer" parent="."]
+one_shot = true
 [connection signal="pressed" from="next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="court_record" to="." method="_on_court_record_pressed"]
@@ -493,3 +516,5 @@ autostart = true
 [connection signal="pressed" from="choice_second" to="." method="_on_choice_second_pressed"]
 [connection signal="pressed" from="frame_record/record_show" to="." method="_on_record_show_pressed"]
 [connection signal="timeout" from="update" to="." method="_on_update_timeout"]
+[connection signal="timeout" from="autoforward" to="." method="_on_next_button_pressed"]
+[connection signal="timeout" from="autoforward" to="." method="_on_autoforward_timeout"]

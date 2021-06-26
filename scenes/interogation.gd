@@ -89,6 +89,8 @@ func _input(event):
 
 
 func _on_next_button_pressed():
+	if Cur == 1 and get_parent().filename.right(get_parent().filename.length()-15) == "_crossexam.tscn":
+		State = "Interogation"
 	ShowChars = 0
 	Cur+=1
 	if get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
@@ -112,9 +114,10 @@ func _on_next_button_pressed():
 			print("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg")
 			$AudioStreamPlayer2.play()
 		if get_parent().Music[Cur].split(" ")[0] == "START":
-			$AudioStreamPlayer.set_stream(load("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg"))
-			print("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg")
-			$AudioStreamPlayer.playing = true
+			if $AudioStreamPlayer.playing == false:
+				$AudioStreamPlayer.set_stream(load("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg"))
+				print("res://sounds/"+get_parent().Music[Cur].split(" ")[1]+".ogg")
+				$AudioStreamPlayer.playing = true
 		if get_parent().Music[Cur].split(" ")[0] == "STOP":
 			$AudioStreamPlayer.playing = false
 	print(get_parent().Dialogue[Cur+1].split(" ")[0])
@@ -123,6 +126,14 @@ func _on_next_button_pressed():
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
 		$show_text.text = get_parent().Dialogue[Cur]
 		print("jumping to whatever")
+	if get_parent().Dialogue[Cur].split(" ")[0] == "INTER":
+		State = "Interogation"
+		$back_button.show()
+		$back_button.disabled = false
+		$next_button.show()
+		$next_button.disabled = false
+		$press_button.show()
+		$press_button.disabled = false
 	if get_parent().Dialogue[Cur].split(" ")[0] == "SHOW":
 		State = "Show"
 		$back_button.show()
@@ -150,24 +161,24 @@ func _on_next_button_pressed():
 	if get_parent().Anims[Cur].split(" ").size() >= 2:
 		if get_parent().Anims[Cur].split(" ")[-2] == "POS":
 			get_parent().get_node("back_ground").play(get_parent().Anims[Cur].split(" ")[-1])
-	if get_parent().Dialogue[Cur].split(" ")[-1] == "W":
+	if get_parent().Dialogue[Cur].split(" ")[-1-int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")] == "W":
 		$show_text/text_color.color = Color(1,1,1,1)
-		Special = 1
-	elif get_parent().Dialogue[Cur].split(" ")[-1] == "G":
+		Special = 1+int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")*int(get_parent().Dialogue[Cur].split(" ")[-1].length()+1)
+	elif get_parent().Dialogue[Cur].split(" ")[-1-int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")] == "G":
 		$show_text/text_color.color = Color(0,1,0,1)
-		Special = 1
-	elif get_parent().Dialogue[Cur].split(" ")[-1] == "B" or get_parent().Dialogue[Cur].split(" ")[0] == "~~~":
+		Special = 1+int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")*int(get_parent().Dialogue[Cur].split(" ")[-1].length()+1)
+	elif get_parent().Dialogue[Cur].split(" ")[-1-int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")] == "B" or get_parent().Dialogue[Cur].split(" ")[0] == "~~~":
 		$show_text/text_color.color = Color(0.25,0.25,1,1)
-		Special = 1
-	elif get_parent().Dialogue[Cur].split(" ")[-1] == "R":
+		Special = 1+int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")*int(get_parent().Dialogue[Cur].split(" ")[-1].length()+1)
+	elif get_parent().Dialogue[Cur].split(" ")[-1-int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")] == "R":
 		$show_text/text_color.color = Color(1,0.5,0,1)
-		Special = 1
-	elif get_parent().Dialogue[Cur].split(" ")[-1] == "Y":
+		Special = 1+int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")*int(get_parent().Dialogue[Cur].split(" ")[-1].length()+1)
+	elif get_parent().Dialogue[Cur].split(" ")[-1-int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")] == "Y":
 		$show_text/text_color.color = Color(1,1,0,1)
-		Special = 1
-	elif get_parent().Dialogue[Cur].split(" ")[-1] == "P":
+		Special = 1+int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")*int(get_parent().Dialogue[Cur].split(" ")[-1].length()+1)
+	elif get_parent().Dialogue[Cur].split(" ")[-1-int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")] == "P":
 		$show_text/text_color.color = Color(1,0,1,1)
-		Special = 1
+		Special = 1+int(get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I")*int(get_parent().Dialogue[Cur].split(" ")[-1].length()+1)
 	else:
 		Special = 0
 
@@ -203,7 +214,7 @@ func _on_back_button_pressed():
 			$court_record.show()
 			$court_record.disabled = false
 		"Interogation":
-			Cur = Cur - 2
+			Cur = clamp(Cur - 2,1,get_parent().Dialogue.size())
 			_on_next_button_pressed()
 			
 
@@ -213,11 +224,9 @@ func _on_court_record_pressed():
 		0:
 			CourtRecordStatus = 1
 			$frame_record.show()
-			$frame_record/record_show.hide()
 		1:
 			CourtRecordStatus = 0
 			$frame_record.hide()
-			$frame_record/record_show.hide()
 
 
 func _on_record_show_pressed():
@@ -238,9 +247,32 @@ func _on_record_show_pressed():
 
 
 func _on_update_timeout():
-	ShowChars = clamp(ShowChars+1,1,get_parent().Dialogue[Cur].length()-Special)
+	ShowChars = clamp(ShowChars+1,0,get_parent().Dialogue[Cur].length()-Special)
 	$show_text.text = get_parent().Dialogue[Cur].left(ShowChars)
 
 
 func _on_press_button_pressed():
-	pass # Replace with function body.
+	$AudioStreamPlayer2.set_stream(load("res://sounds/hit_rus.ogg"))
+	$AudioStreamPlayer2.play()
+	$speech_bubble.animation = "hit"
+	$speech_bubble.show()
+	$autoforward.start()
+	$next_button.hide()
+	$back_button.hide()
+	$next_button.disabled = true
+	$back_button.disabled = true
+	#$show_text.hide()
+	
+	print(get_parent().Dialogue[Cur].split(" ")[-1].right(get_parent().Dialogue[Cur].split(" ")[-1].length()-2))
+	print(get_parent().Dialogue[Cur].split(" ")[-1])
+	print(get_parent().Dialogue[Cur])
+	Cur = int(get_parent().Dialogue[Cur].split(" ")[-1].right(get_parent().Dialogue[Cur].split(" ")[-1].length()-2))-1
+
+func _on_autoforward_timeout():
+	#$show_text.show()
+	$speech_bubble.hide()
+	$next_button.show()
+	$back_button.show()
+	$next_button.disabled = false
+	$back_button.disabled = false
+	
