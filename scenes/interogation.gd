@@ -60,6 +60,7 @@ func _process(delta):
 				$next_button.disabled = false
 			$press_button.hide()
 			$press_button.disabled = true
+			$court_record.text = "Записи суда"
 		"Show":
 			$press_button.hide()
 			$press_button.disabled = true
@@ -78,6 +79,7 @@ func _process(delta):
 			$next_button.disabled = false
 			$press_button.show()
 			$press_button.disabled = false
+			$court_record.text = "Показать"
 
 func _input(event):
 	if event is InputEventMouseButton and Input.is_action_pressed("lmb_click"):
@@ -91,6 +93,8 @@ func _input(event):
 func _on_next_button_pressed():
 	if Cur == 1 and get_parent().filename.right(get_parent().filename.length()-15) == "_crossexam.tscn":
 		State = "Interogation"
+		$intro_whoosh.show()
+		$intro_whoosh.play()
 	ShowChars = 0
 	Cur+=1
 	if get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
@@ -122,8 +126,14 @@ func _on_next_button_pressed():
 			$AudioStreamPlayer.playing = false
 	print(get_parent().Dialogue[Cur+1].split(" ")[0])
 	#$show_text.text = get_parent().Dialogue[Cur]
+	if get_parent().Dialogue[Cur+1].split(" ")[0] == "EJUMP":
+		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1]) 
+		$show_text.text = get_parent().Dialogue[Cur]
+		State = "Dialogue"
+		$show_text/text_color.color = Color(1,1,1,1)
+		print("jumping to whatever")
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "JUMP":
-		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
+		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1]) 
 		$show_text.text = get_parent().Dialogue[Cur]
 		print("jumping to whatever")
 	if get_parent().Dialogue[Cur].split(" ")[0] == "INTER":
@@ -158,6 +168,8 @@ func _on_next_button_pressed():
 		$next_button.hide()
 		$choice_first.text = get_parent().Dialogue[Cur+1].split(" ")[1]
 		$choice_second.text = get_parent().Dialogue[Cur+1].split(" ")[2]
+	if get_parent().Dialogue[Cur].split(" ")[-1].left(1) == "I":
+		State = "Interogation"
 	if get_parent().Anims[Cur].split(" ").size() >= 2:
 		if get_parent().Anims[Cur].split(" ")[-2] == "POS":
 			get_parent().get_node("back_ground").play(get_parent().Anims[Cur].split(" ")[-1])
@@ -224,26 +236,45 @@ func _on_court_record_pressed():
 		0:
 			CourtRecordStatus = 1
 			$frame_record.show()
+			if State != "Interogation":
+				$frame_record/record_show.hide()
+			else:
+				$frame_record/record_show.show()
 		1:
 			CourtRecordStatus = 0
 			$frame_record.hide()
 
 
 func _on_record_show_pressed():
-	for i in range(0,get_parent().Shows.size()):
-		print($frame_record/viewport.animation+" asdasdasd "+get_parent().Shows[i].split(" ")[0])
-		if $frame_record/viewport.animation == get_parent().Shows[i].split(" ")[0]:
-			State = "Dialogue"
-			Cur = int(get_parent().Shows[i].split(" ")[-1])
-			$show_text.text = get_parent().Dialogue[Cur]
-			CourtRecordStatus = 0
-			$frame_record.hide()
-			$frame_record/record_show.hide()
-			$court_record.show()
-			$court_record.disabled = false
-			break
+	CourtRecordStatus = 0
+	$frame_record.hide()
+	State = "Dialogue"
+	$AudioStreamPlayer2.set_stream(load("res://sounds/obj_rus.ogg"))
+	$AudioStreamPlayer2.play()
+	$speech_bubble.animation = "objection"
+	$speech_bubble.show()
+	$autoforward.start()
+	$next_button.hide()
+	$back_button.hide()
+	$next_button.disabled = true
+	$back_button.disabled = true
+	$show_text/text_color.color = Color(0,0,0,0)
+	if $frame_record/viewport.animation == get_parent().CorrectShow.split(" ")[0]: # showing correct evidence
+		if Cur == int(get_parent().CorrectShow.split(" ")[1]): # showing at correct statement
+			if get_parent().CorrectShow.split(" ")[-1] != "pressed": # no pressing needed
+				$superforward.start()
+			else: # if pressing needed
+				if get_parent().Pressed == 1: # if pressed correctly
+					$superforward.start()
+				else:
+					Cur = get_parent().WrongShow-1
+					$autoforward.start()
 		else:
-			continue
+			Cur = get_parent().WrongShow-1
+			$autoforward.start()
+	else:
+		Cur = get_parent().WrongShow-1
+		$autoforward.start()
 
 
 func _on_update_timeout():
@@ -252,6 +283,7 @@ func _on_update_timeout():
 
 
 func _on_press_button_pressed():
+	State = "Dialogue"
 	$AudioStreamPlayer2.set_stream(load("res://sounds/hit_rus.ogg"))
 	$AudioStreamPlayer2.play()
 	$speech_bubble.animation = "hit"
@@ -261,6 +293,7 @@ func _on_press_button_pressed():
 	$back_button.hide()
 	$next_button.disabled = true
 	$back_button.disabled = true
+	$show_text/text_color.color = Color(0,0,0,0)
 	#$show_text.hide()
 	
 	print(get_parent().Dialogue[Cur].split(" ")[-1].right(get_parent().Dialogue[Cur].split(" ")[-1].length()-2))
@@ -270,9 +303,14 @@ func _on_press_button_pressed():
 
 func _on_autoforward_timeout():
 	#$show_text.show()
+	$show_text/text_color.color = Color(1,1,1,1)
 	$speech_bubble.hide()
 	$next_button.show()
 	$back_button.show()
 	$next_button.disabled = false
 	$back_button.disabled = false
 	
+
+
+func _on_superforward_timeout():
+	get_tree().change_scene(get_parent().Out)

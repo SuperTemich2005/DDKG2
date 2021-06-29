@@ -55,9 +55,9 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [  ],
 "loop": true,
-"name": "knucklebuster",
+"name": "footage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -75,9 +75,9 @@ animations = [ {
 "name": "badge",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "footage",
+"name": "knucklebuster",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -101,9 +101,9 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "knucklebuster",
+"name": "footage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -116,9 +116,9 @@ animations = [ {
 "name": "badge",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "footage",
+"name": "knucklebuster",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -136,14 +136,14 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "objection",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "objection",
 "speed": 5.0
 } ]
 
@@ -508,6 +508,12 @@ animation = "hit"
 
 [node name="autoforward" type="Timer" parent="."]
 one_shot = true
+
+[node name="intro_whoosh" type="AnimatedSprite" parent="."]
+
+[node name="superforward" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 [connection signal="pressed" from="next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="court_record" to="." method="_on_court_record_pressed"]
@@ -518,3 +524,4 @@ one_shot = true
 [connection signal="timeout" from="update" to="." method="_on_update_timeout"]
 [connection signal="timeout" from="autoforward" to="." method="_on_next_button_pressed"]
 [connection signal="timeout" from="autoforward" to="." method="_on_autoforward_timeout"]
+[connection signal="timeout" from="superforward" to="." method="_on_superforward_timeout"]

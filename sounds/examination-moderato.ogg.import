@@ -11,5 +11,5 @@ dest_files=[ "res://.import/examination-moderato.ogg-d3fa8cbf903e4be040b7b184774
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
