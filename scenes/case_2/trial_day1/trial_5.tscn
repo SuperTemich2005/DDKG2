@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://scenes/case_2/trial_day1/trial_4_crossexam.gd" type="Script" id=1]
-[ext_resource path="res://scenes/interogation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/trial.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/case_2/trial_day1/trial_5.gd" type="Script" id=2]
 [ext_resource path="res://sprites/background/adef_bg.png" type="Texture" id=3]
 [ext_resource path="res://scenes/character_scenes/character_sonyapro.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=5]
@@ -44,7 +44,7 @@ animations = [ {
 } ]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="back_ground" type="AnimatedSprite" parent="."]
 position = Vector2( -8, -4 )
@@ -84,4 +84,4 @@ position = Vector2( 0, 56 )
 visible = false
 position = Vector2( 1, 153 )
 
-[node name="interrogation" parent="." instance=ExtResource( 2 )]
+[node name="Trial" parent="." instance=ExtResource( 1 )]

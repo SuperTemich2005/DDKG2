@@ -580,7 +580,7 @@ func _ready():
 	]
 	CorrectShow = "knucklebuster 4 pressed"
 	WrongShow = 120
-	Out = ""
+	Out = "res://scenes/case_2/trial_day1/trial_5.tscn"
 	loc_file.load("C:/Games/ddkg2.save")
 	loc_file.set_value("Locations","Last",filename)
 	loc_file.save("C:/Games/ddkg2.save")

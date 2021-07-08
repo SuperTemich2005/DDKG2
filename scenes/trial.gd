@@ -133,15 +133,15 @@ func _on_next_button_pressed():
 		$frame_record/record_show.show()
 		$frame_record/record_show.disabled = false
 		$show_text/text_color.color = Color(1,1,1,1)
-	if get_parent().Dialogue[Cur+1].split(" ")[0] == "SPLIT":
+	if get_parent().Dialogue[Cur+1].split(":")[0] == "SPLIT":
 		$choice_first.disabled = false
 		$choice_second.disabled = false
 		$next_button.disabled = true
 		$choice_first.show()
 		$choice_second.show()
 		$next_button.hide()
-		$choice_first.text = get_parent().Dialogue[Cur+1].split(" ")[1]
-		$choice_second.text = get_parent().Dialogue[Cur+1].split(" ")[2]
+		$choice_first.text = get_parent().Dialogue[Cur+1].split(":")[1]
+		$choice_second.text = get_parent().Dialogue[Cur+1].split(":")[2]
 	if get_parent().Anims[Cur].split(" ").size() >= 2:
 		if get_parent().Anims[Cur].split(" ")[-2] == "POS":
 			get_parent().get_node("back_ground").play(get_parent().Anims[Cur].split(" ")[-1])
@@ -174,8 +174,9 @@ func _on_choice_first_pressed():
 	$choice_first.hide()
 	$choice_second.hide()
 	$next_button.show()
-	Cur = int(get_parent().Dialogue[Cur+1].split(" ")[3])
+	Cur = int(get_parent().Dialogue[Cur+1].split(":")[3])
 	$show_text.text = get_parent().Dialogue[Cur]
+	$show_text/text_color.color = Color(1,1,1,1)
 
 
 func _on_choice_second_pressed():
@@ -185,8 +186,9 @@ func _on_choice_second_pressed():
 	$choice_first.hide()
 	$choice_second.hide()
 	$next_button.show()
-	Cur = int(get_parent().Dialogue[Cur+1].split(" ")[4])
+	Cur = int(get_parent().Dialogue[Cur+1].split(":")[4])
 	$show_text.text = get_parent().Dialogue[Cur]
+	$show_text/text_color.color = Color(1,1,1,1)
 
 
 func _on_back_button_pressed():

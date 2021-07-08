@@ -58,6 +58,21 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
+"frames": [  ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "footage 1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "autopsy",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "knucklebuster",
@@ -71,21 +86,6 @@ animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "branch",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "autopsy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "footage 1",
 "speed": 5.0
 } ]
 
@@ -104,6 +104,16 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "autopsy",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "knucklebuster",
@@ -117,16 +127,6 @@ animations = [ {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "branch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "autopsy",
 "speed": 5.0
 } ]
 
@@ -226,10 +226,10 @@ __meta__ = {
 
 [node name="choice_second" type="Button" parent="."]
 visible = false
-margin_left = 343.128
-margin_top = 405.88
-margin_right = 667.128
-margin_bottom = 479.88
+margin_left = 10.0
+margin_top = 310.471
+margin_right = 334.0
+margin_bottom = 384.471
 custom_fonts/font = SubResource( 4 )
 disabled = true
 text = "Выбор 2"
