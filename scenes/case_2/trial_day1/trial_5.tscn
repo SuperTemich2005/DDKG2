@@ -22,6 +22,11 @@ animations = [ {
 "name": "def",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "jud",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "hld",
@@ -30,11 +35,6 @@ animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "pro",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "jud",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -62,7 +62,7 @@ position = Vector2( 270, 115 )
 
 [node name="character_masha" parent="characters_all" instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 14.2705, 110.596 )
+position = Vector2( 14.2705, 119.596 )
 
 [node name="character_werur" parent="characters_all" instance=ExtResource( 8 )]
 visible = false
