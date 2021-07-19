@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bpark_bg.png-22442fac8cdb820e7896801784ace495.stex"
+path="res://.import/uh_01.png-144151484f07998e54027c485b9a1a64.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background/bpark_bg.png"
-dest_files=[ "res://.import/bpark_bg.png-22442fac8cdb820e7896801784ace495.stex" ]
+source_file="res://sprites/masha/uh/uh_01.png"
+dest_files=[ "res://.import/uh_01.png-144151484f07998e54027c485b9a1a64.stex" ]
 
 [params]
 

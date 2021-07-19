@@ -32,14 +32,14 @@ animations = [ {
 "name": "hld",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "pro",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "wit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "pro",
 "speed": 5.0
 } ]
 
@@ -75,7 +75,6 @@ position = Vector2( -60.5811, 119.38 )
 [node name="character_sonya" parent="characters_all" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -35.6359, 102.326 )
-rotation = -0.0199244
 
 [node name="character_lentoln" parent="characters_all" instance=ExtResource( 7 )]
 position = Vector2( 0, 56 )

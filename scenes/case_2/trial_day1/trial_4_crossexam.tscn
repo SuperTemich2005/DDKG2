@@ -17,6 +17,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "jud",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "pro",
@@ -30,11 +35,6 @@ animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "def",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "jud",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -73,9 +73,7 @@ visible = false
 position = Vector2( -60.5811, 119.38 )
 
 [node name="character_sonya" parent="characters_all" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( -35.6359, 102.326 )
-rotation = -0.0199244
 
 [node name="character_lentoln" parent="characters_all" instance=ExtResource( 7 )]
 position = Vector2( 0, 56 )
