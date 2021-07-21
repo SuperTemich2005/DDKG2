@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://sprites/gg/default/default.png" type="Texture" id=1]
 [ext_resource path="res://sprites/gg/deskslam/deskslam_3.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://sprites/gg/objection_1/objection_01.png" type="Texture" id=20]
 [ext_resource path="res://sprites/gg/objection_1/objection_02.png" type="Texture" id=21]
 [ext_resource path="res://sprites/gg/dadada/dadada.png" type="Texture" id=22]
+[ext_resource path="res://sprites/gg/picard/picard.png" type="Texture" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -35,49 +36,14 @@ animations = [ {
 "name": "rage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "wonder",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "yee",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "no",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "damn",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "thonker",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "deskslam",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "kekk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
-"loop": false,
-"name": "objection_1",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "paper",
+"name": "wonder",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -85,9 +51,49 @@ animations = [ {
 "name": "comeon",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "objection_1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "no",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "kekk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "deskslam",
+"speed": 15.0
+}, {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "dadada",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "damn",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "paper",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "thonker",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "picard",
 "speed": 5.0
 } ]
 
@@ -97,4 +103,5 @@ animations = [ {
 position = Vector2( 537.466, 256.339 )
 scale = Vector2( 0.504587, 0.504587 )
 frames = SubResource( 1 )
+animation = "picard"
 playing = true

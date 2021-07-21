@@ -152,15 +152,20 @@ animations = [ {
 "name": "rage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 131 ) ],
-"loop": true,
-"name": "sigh",
+"frames": [ ExtResource( 112 ), ExtResource( 110 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 107 ), ExtResource( 113 ) ],
+"loop": false,
+"name": "damage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 132 ), ExtResource( 135 ), ExtResource( 137 ), ExtResource( 136 ), ExtResource( 134 ), ExtResource( 133 ), ExtResource( 138 ) ],
-"loop": false,
-"name": "idk",
-"speed": 15.0
+"frames": [ ExtResource( 130 ) ],
+"loop": true,
+"name": "yee",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 62 ), ExtResource( 66 ), ExtResource( 68 ), ExtResource( 64 ), ExtResource( 57 ), ExtResource( 65 ), ExtResource( 69 ), ExtResource( 60 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 63 ), ExtResource( 55 ), ExtResource( 61 ), ExtResource( 67 ), ExtResource( 70 ), ExtResource( 56 ) ],
+"loop": true,
+"name": "suspects",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 93 ), ExtResource( 76 ), ExtResource( 87 ), ExtResource( 94 ), ExtResource( 105 ), ExtResource( 72 ), ExtResource( 83 ), ExtResource( 86 ), ExtResource( 84 ), ExtResource( 73 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 75 ), ExtResource( 80 ), ExtResource( 74 ) ],
 "loop": false,
@@ -172,25 +177,20 @@ animations = [ {
 "name": "thinks",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 112 ), ExtResource( 110 ), ExtResource( 106 ), ExtResource( 114 ), ExtResource( 107 ), ExtResource( 113 ) ],
-"loop": false,
-"name": "damage",
+"frames": [ ExtResource( 131 ) ],
+"loop": true,
+"name": "sigh",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 130 ) ],
-"loop": true,
-"name": "yee",
-"speed": 5.0
+"frames": [ ExtResource( 132 ), ExtResource( 135 ), ExtResource( 137 ), ExtResource( 136 ), ExtResource( 134 ), ExtResource( 133 ), ExtResource( 138 ) ],
+"loop": false,
+"name": "idk",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 115 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 111 ), ExtResource( 116 ), ExtResource( 118 ), ExtResource( 117 ), ExtResource( 121 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 122 ), ExtResource( 126 ), ExtResource( 129 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 128 ), ExtResource( 123 ), ExtResource( 127 ) ],
 "loop": false,
 "name": "laugh",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 62 ), ExtResource( 66 ), ExtResource( 68 ), ExtResource( 64 ), ExtResource( 57 ), ExtResource( 65 ), ExtResource( 69 ), ExtResource( 60 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 63 ), ExtResource( 55 ), ExtResource( 61 ), ExtResource( 67 ), ExtResource( 70 ), ExtResource( 56 ) ],
-"loop": true,
-"name": "suspects",
-"speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]
@@ -199,5 +199,5 @@ animations = [ {
 position = Vector2( 538.923, 357.313 )
 scale = Vector2( 1.61882, 1.61882 )
 frames = SubResource( 1 )
-frame = 7
+frame = 18
 playing = true
