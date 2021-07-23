@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/sonyapro/death_glare/death_glare.png" type="Texture" id=1]
 [ext_resource path="res://sprites/sonyapro/default/sonyaact.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://sprites/sonyapro/check_phone/check_phone.png" type="Texture" id=4]
 [ext_resource path="res://sprites/sonyapro/desk.png" type="Texture" id=5]
 [ext_resource path="res://sprites/sonyapro/death_mock/death_mock.png" type="Texture" id=6]
+[ext_resource path="res://sprites/sonyapro/death_damage/death_damage.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,6 +20,11 @@ animations = [ {
 "name": "ugh",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "order66",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "phone",
@@ -29,9 +35,9 @@ animations = [ {
 "name": "death",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "order66",
+"name": "damage",
 "speed": 5.0
 } ]
 
@@ -41,7 +47,7 @@ animations = [ {
 position = Vector2( 522.138, 365.573 )
 scale = Vector2( 1.63449, 1.63449 )
 frames = SubResource( 1 )
-animation = "order66"
+animation = "death"
 flip_h = true
 
 [node name="desk" type="Sprite" parent="."]
