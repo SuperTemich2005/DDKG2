@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/examination-allegro.ogg-7fed41bb54f3bedf1d149d32f77f9b2e.oggstr"
+
+[deps]
+
+source_file="res://sounds/examination-allegro.ogg"
+dest_files=[ "res://.import/examination-allegro.ogg-7fed41bb54f3bedf1d149d32f77f9b2e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
