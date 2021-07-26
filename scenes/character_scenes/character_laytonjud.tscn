@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sprites/ltnjud/normal/normal_01.png" type="Texture" id=1]
 [ext_resource path="res://sprites/ltnjud/sigh/sigh_01.png" type="Texture" id=2]
 [ext_resource path="res://sprites/ltnjud/kek/kek_01.png" type="Texture" id=3]
 [ext_resource path="res://sprites/ltnjud/rage/rage.png" type="Texture" id=4]
 [ext_resource path="res://sprites/ltnjud/hmm/hmm_01.png" type="Texture" id=5]
+[ext_resource path="res://sprites/evidence/case2diag1.png" type="Texture" id=6]
+[ext_resource path="res://sprites/evidence/case2diag2.png" type="Texture" id=7]
+[ext_resource path="res://scenes/character_scenes/character_laytonjud.gd" type="Script" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -12,6 +15,11 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "case2diag2",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -32,9 +40,15 @@ animations = [ {
 "loop": true,
 "name": "kek",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "case2diag1",
+"speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 538.923, 357.313 )

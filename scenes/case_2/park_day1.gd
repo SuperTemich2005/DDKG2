@@ -443,7 +443,7 @@ func _ready():
 	
 	loc_file.load("C:/Games/ddkg2.save")
 	if str(loc_file.get_value("Locations",str(filename))) == "1":
-		if loc_file.get_value("Locations","res://scenes/investigation.tscnchecked") == "1":
+		if loc_file.get_value("Locations","res://scenes/case_2/crime_day1.tscnchecked") == "1":
 			$investigation_screen.Cur = 16
 			Chats[0] = "Кто это?   46"
 			Chats[1] = "Сквер...   27"

@@ -58,24 +58,9 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "footage 1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "autopsy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "knucklebuster",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -86,6 +71,21 @@ animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "branch",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "footage 1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "knucklebuster",
 "speed": 5.0
 } ]
 
@@ -104,19 +104,9 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "autopsy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "knucklebuster",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -127,6 +117,16 @@ animations = [ {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "knucklebuster",
 "speed": 5.0
 } ]
 

@@ -15,14 +15,19 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "death",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "ugh",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "order66",
+"name": "damage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -30,14 +35,9 @@ animations = [ {
 "name": "phone",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "death",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "damage",
+"name": "order66",
 "speed": 5.0
 } ]
 

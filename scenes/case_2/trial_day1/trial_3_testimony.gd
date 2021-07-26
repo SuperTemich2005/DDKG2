@@ -108,7 +108,7 @@ func _ready():
 		"Тёмыч: Эй, эй, спокойнее, спокойнее, без крови...",
 		"Рано флешку, Егогорыч.",
 		"Егорыч: *вздох*",
-		"OUT ",
+		"OUT res://scenes/case_2/trial_day1/trial_4_crossexam.tscn",
 		"",
 	]
 	Music = [

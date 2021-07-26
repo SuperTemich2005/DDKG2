@@ -614,6 +614,7 @@ func _ready():
 	]
 	
 # СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!!
+	$characters_all/character_masha/desk.hide()
 	loc_file.load("C:/Games/ddkg2.save")
 	if str(loc_file.get_value("Locations",filename)) == "1":
 		if str(loc_file.get_value("Locations","res://scenes/case_2/park_day1.tscnchecked")) == "1":
