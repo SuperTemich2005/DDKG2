@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/ltnjud/normal/normal_01.png" type="Texture" id=1]
 [ext_resource path="res://sprites/ltnjud/sigh/sigh_01.png" type="Texture" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://sprites/evidence/case2diag1.png" type="Texture" id=6]
 [ext_resource path="res://sprites/evidence/case2diag2.png" type="Texture" id=7]
 [ext_resource path="res://scenes/character_scenes/character_laytonjud.gd" type="Script" id=8]
+[ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://sprites/crosshair/uninvestigated.png" type="Texture" id=10]
+[ext_resource path="res://sprites/evidence/case2diag3.png" type="Texture" id=11]
+[ext_resource path="res://sprites/evidence/case2diag4.png" type="Texture" id=12]
+[ext_resource path="res://sprites/ltnjud/wut/wut.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,14 +21,14 @@ animations = [ {
 "name": "default",
 "speed": 2.0
 }, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "wut",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "case2diag2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "rage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -31,9 +36,9 @@ animations = [ {
 "name": "sigh",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "hmm",
+"name": "case2diag1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -41,17 +46,64 @@ animations = [ {
 "name": "kek",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "case2diag1",
+"name": "rage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "hmm",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "case2diag3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "case2diag4",
 "speed": 5.0
 } ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 9 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 8 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 538.923, 357.313 )
-scale = Vector2( 1.61882, 1.61882 )
+scale = Vector2( 1.619, 1.619 )
 frames = SubResource( 1 )
+animation = "wut"
 playing = true
+
+[node name="question_box" type="ColorRect" parent="."]
+visible = false
+margin_left = 59.0
+margin_top = 9.0
+margin_right = 1019.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="question_text" type="Label" parent="question_box"]
+margin_left = 64.0
+margin_top = 18.0
+margin_right = 914.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0.764706, 1, 1 )
+text = "Укажите где, по вашему, находился Башим Дашкерин."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="question_mark" type="Sprite" parent="question_box"]
+position = Vector2( 32, 32 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )

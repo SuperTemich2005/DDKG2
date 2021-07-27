@@ -9,8 +9,6 @@
 [ext_resource path="res://scenes/character_scenes/character_layton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/character_scenes/character_write.tscn" type="PackedScene" id=8]
 
-
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
