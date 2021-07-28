@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://sprites/mashasis/cry/cry_01.png" type="Texture" id=1]
+[ext_resource path="res://sprites/mashasis/lmfao/lmfao_01.png" type="Texture" id=2]
+[ext_resource path="res://sprites/mashasis/default/default_01.png" type="Texture" id=3]
+[ext_resource path="res://sprites/mashasis/what/how_01.png" type="Texture" id=4]
+[ext_resource path="res://sprites/masha/desk.png" type="Texture" id=5]
+[ext_resource path="res://sprites/mashasis/ugh/ugh_01.png" type="Texture" id=6]
+[ext_resource path="res://sprites/mashasis/well/well_01.png" type="Texture" id=7]
+[ext_resource path="res://sprites/mashasis/rekt/rekt_01.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "what",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "rage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "hmm",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "cry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "ugh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "lmfao",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 528.424, 359.853 )
+scale = Vector2( 1.61882, 1.61882 )
+frames = SubResource( 1 )
+animation = "rage"
+playing = true
+
+[node name="desk" type="Sprite" parent="."]
+visible = false
+position = Vector2( 503.945, 421.214 )
+scale = Vector2( 0.366, 0.437959 )
+texture = ExtResource( 5 )

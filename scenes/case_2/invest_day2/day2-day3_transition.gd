@@ -16,4 +16,4 @@ func _ready():
 
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://scenes/case_2/court_lobby_day1.tscn")
+	get_tree().change_scene("res://scenes/case_2/invest_day2/court_lobby_day2.tscn")

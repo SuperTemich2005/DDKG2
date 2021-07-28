@@ -50,6 +50,10 @@ func _process(delta):
 			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]).show()
 	if get_parent().Anims[Cur].split(" ")[0].left(10) == "background":
 		get_parent().get_node("back_ground").animation = get_parent().Anims[Cur].split(" ")[1]
+		if get_parent().Anims[Cur].split(" ")[2] == "flip":
+			get_parent().get_node("back_ground").flip_h = true
+		elif get_parent().Anims[Cur].split(" ")[2] == "unflip":
+			get_parent().get_node("back_ground").flip_h = false
 	match State:
 		"Dialogue":
 			get_parent().get_node("characters_all").show()
@@ -150,6 +154,10 @@ func _on_next_button_pressed():
 	if get_parent().Dialogue[Cur].split(" ")[-1] == "W":
 		$show_text/text_color.color = Color(1,1,1,1)
 		Special = 1
+	elif get_parent().Dialogue[Cur].split(" ")[-1] == "SUPER":
+		$show_text.get_font("font").size = 100
+	elif get_parent().Dialogue[Cur].split(" ")[-1] == "LESSER":
+		$show_text.get_font("font").size = 16
 	elif get_parent().Dialogue[Cur].split(" ")[-1] == "G":
 		$show_text/text_color.color = Color(0,1,0,1)
 		Special = 1
