@@ -370,7 +370,7 @@ func _ready():
 		"Так как остались открытыми важные вопросы, на которые прямо сейчас ответить невозможно,",
 		"Слушание откладывается на завтра. Время проведения следующего заседания - 8 часов утра.",
 		"Все свободны.",
-		"OUT ",
+		"OUT res://scenes/case_2/invest_day2/court_lobby_day2.tscn",
 	]
 	loc_file.load("C:/Games/ddkg2.save")
 	loc_file.set_value("Locations","Last",filename)

@@ -110,7 +110,7 @@ func _ready():
 		"Соня: ...",
 		"Е. Анатольевна: Вызывай на ковер.",
 		"Соня: ...",
-		"OUT res://scenes/case_2/trial_day1/trial_9.tscn",
+		"OUT res://scenes/case_2/trial_day1/trial_10_testimony.tscn",
 		"",
 	]
 	Anims = [ # диалоги. 

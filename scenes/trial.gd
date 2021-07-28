@@ -45,8 +45,9 @@ func _process(delta):
 			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]).show()
 		else:
 			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]+"/sprite").animation = get_parent().Anims[Cur].split(" ")[1]
-			for i in range(0,get_parent().get_node("characters_all").get_child_count()):
-				get_parent().get_node("characters_all").get_children()[i].hide()
+			if get_parent().Anims[Cur].split(" ")[2] != "keep":
+				for i in range(0,get_parent().get_node("characters_all").get_child_count()):
+					get_parent().get_node("characters_all").get_children()[i].hide()
 			get_parent().get_node("characters_all/"+get_parent().Anims[Cur].split(" ")[0]).show()
 	if get_parent().Anims[Cur].split(" ")[0].left(10) == "background":
 		get_parent().get_node("back_ground").animation = get_parent().Anims[Cur].split(" ")[1]

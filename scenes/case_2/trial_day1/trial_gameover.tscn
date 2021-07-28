@@ -1,0 +1,86 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scenes/trial.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/case_2/trial_day1/trial_gameover.gd" type="Script" id=2]
+[ext_resource path="res://sprites/background/adef_bg.png" type="Texture" id=3]
+[ext_resource path="res://scenes/character_scenes/character_sonyapro.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/character_scenes/character_masha.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/character_scenes/character_laytonjud.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/character_scenes/character_write.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sprites/background/apro_bg.png" type="Texture" id=9]
+[ext_resource path="res://sprites/background/awitness_bg.png" type="Texture" id=10]
+[ext_resource path="res://sprites/background/ajud_bg.png" type="Texture" id=11]
+[ext_resource path="res://scenes/character_scenes/character_temich.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/character_scenes/character_apollonovwit.tscn" type="PackedScene" id=13]
+[ext_resource path="res://sprites/background/ahld_bg.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "def",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "pro",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "jud",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "wit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "hld",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="back_ground" type="AnimatedSprite" parent="."]
+position = Vector2( -8, -4 )
+scale = Vector2( 0.365304, 0.434772 )
+frames = SubResource( 1 )
+animation = "jud"
+centered = false
+
+[node name="characters_all" type="Node2D" parent="."]
+position = Vector2( -1, -115 )
+
+[node name="character_egorich" parent="characters_all" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 270, 115 )
+
+[node name="character_masha" parent="characters_all" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 14.2705, 110.596 )
+
+[node name="character_werur" parent="characters_all" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 0, 72 )
+
+[node name="character_temich" parent="characters_all" instance=ExtResource( 12 )]
+visible = false
+position = Vector2( -60.5811, 119.38 )
+
+[node name="character_sonya" parent="characters_all" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( -35.6359, 102.326 )
+
+[node name="character_lentoln" parent="characters_all" instance=ExtResource( 7 )]
+position = Vector2( 0, 56 )
+
+[node name="character_wit" parent="characters_all" instance=ExtResource( 13 )]
+visible = false
+position = Vector2( 1, 153 )
+
+[node name="Trial" parent="." instance=ExtResource( 1 )]

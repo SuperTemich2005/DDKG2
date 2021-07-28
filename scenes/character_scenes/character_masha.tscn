@@ -32,9 +32,9 @@ animations = [ {
 "name": "blush",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "hey",
+"name": "brr",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
@@ -42,14 +42,14 @@ animations = [ {
 "name": "sigh",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "brr",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "win",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "hey",
 "speed": 5.0
 } ]
 

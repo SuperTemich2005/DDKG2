@@ -20,6 +20,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "def",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "pro",
@@ -39,11 +44,6 @@ animations = [ {
 "loop": true,
 "name": "hld",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "def",
-"speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]
@@ -62,6 +62,10 @@ position = Vector2( -1, -115 )
 [node name="character_egorich" parent="characters_all" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 270, 115 )
+
+[node name="character_zhekafem" parent="characters_all" instance=ExtResource( 17 )]
+visible = false
+position = Vector2( 293.668, 164.814 )
 
 [node name="character_masha" parent="characters_all" instance=ExtResource( 3 )]
 visible = false
@@ -95,8 +99,6 @@ position = Vector2( 15.4289, 118.169 )
 [node name="character_wit2" parent="characters_all" instance=ExtResource( 8 )]
 visible = false
 position = Vector2( 15, 119 )
-
-[node name="Node2D" parent="characters_all" instance=ExtResource( 17 )]
 
 [node name="Trial" parent="." instance=ExtResource( 4 )]
 

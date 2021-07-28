@@ -94,7 +94,8 @@ func _ready():
 		"(...Стоп, что я сейчас сказал?)",
 		"",
 		"JUMP 6",
-		"OUT ",
+		"...",
+		"OUT res://scenes/case_2/trial_day1/trial_gameover.tscn",
 		"",
 	]
 	Music = [
