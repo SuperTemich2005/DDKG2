@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/investigation_ed.ogg-6513158a2a7306aa3fdf24cf00a30380.oggstr"
+
+[deps]
+
+source_file="res://sounds/investigation_ed.ogg"
+dest_files=[ "res://.import/investigation_ed.ogg-6513158a2a7306aa3fdf24cf00a30380.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,10 +1,36 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sprites/sonya/sonyaact.png" type="Texture" id=1]
 [ext_resource path="res://sprites/sonya/death_glare/death_glare.png" type="Texture" id=2]
+[ext_resource path="res://sprites/sonya/whatever/whatever_01.png" type="Texture" id=3]
+[ext_resource path="res://sprites/sonya/uh/uh_01.png" type="Texture" id=4]
+[ext_resource path="res://sprites/sonya/shrug/shrug_01.png" type="Texture" id=5]
+[ext_resource path="res://sprites/sonya/default/sonyaact.png" type="Texture" id=6]
+[ext_resource path="res://sprites/sonya/wtfmate/wtfmate_01.png" type="Texture" id=7]
+[ext_resource path="res://sprites/sonya/order67/order67_01.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "anyways",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "shrug",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "wtfbruh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "order67",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
@@ -14,6 +40,11 @@ animations = [ {
 "loop": true,
 "name": "death",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "uh",
+"speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]
@@ -22,3 +53,5 @@ animations = [ {
 position = Vector2( 522.138, 328.573 )
 scale = Vector2( 1.63449, 1.63449 )
 frames = SubResource( 1 )
+animation = "order67"
+playing = true
