@@ -312,7 +312,7 @@ func _ready():
 		"character_temich kekk Тёмыч: (Она попустила-- Кхм, опустила Аполлонова в неподдельный страх и ужас) B POS def",
 		"(Ей было достаточно просто на него посмотреть)",
 		"character_temich comeon (Какого чёрта?)",
-		"character_lentoln default Е. Анатольевна: Зинец, Ищенко, Виноградова, ваш перекрестный допрос. W POS pro",
+		"character_lentoln default Е. Анатольевна: Зинец, Ищенко, Виноградова, ваш перекрестный допрос. W POS jud",
 		"character_temich objection_1 Тёмыч: Рашим, пацаны! POS def",
 		"character_egorich yee Егорыч: ФЛЕШКА! POS hld",
 		"character_temich damn Тёмыч: Эй, эй, спокойнее, спокойнее, без крови... POS def",

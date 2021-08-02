@@ -269,7 +269,7 @@ func _ready():
 		"character_temich thonker Эмм, ладно, давайте этого вашего следователя... W",
 		"character_sonya SHOW : ... POS pro",
 		"character_egorich thinks Кстати, Тьоха... Ты помнишь, что вчера Лентольна сказала, когда уликами делилась, что их нашел Аполлонов? POS hld",
-		" : Да. И я сейчас не удивлюсь, если Палтос выйдет... POS def",
+		"character_temich wonder : Да. И я сейчас не удивлюсь, если Палтос выйдет... POS def",
 		"character_wit SHOW ???: Всем здравствуйте. POS wit",
 		"character_temich SHOW : Ну да, не удивлюсь... Действительно POS def",
 		"character_temich thinks (Это Аполлонов. До какого-то момента, мы были хорошими друзьями) B",

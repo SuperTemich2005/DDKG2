@@ -30,14 +30,14 @@ func _ready():
 		"character_masha hey Маша: ...Давай я тебе лучше расскажу, что такое 'петушатня'? W",
 		"Тёмыч: Ух, это уже, если позволите, без нас.",
 		"character_masha HIDE А, Лентольна?",
-		"character_lentoln default Е. Анатольевна: Дети, не забудьте, у нас на 10 экскурсия.",
+		"character_lentolna default Е. Анатольевна: Дети, не забудьте, у нас на 10 экскурсия.",
 		"Про вас двух я не знаю, конечно",
 		"Но у вас тоже, наверняка, что-то будет.",
 		"character_masha default Маша: Угу...",
 		"Тёмыч: Где собираемся?",
-		"character_lentoln default Е. Анатольевна: Я напишу в вайбере, угу...",
+		"character_lentolna default Е. Анатольевна: Я напишу в вайбере, угу...",
 		"...",
-		"character_lentoln HIDE Тёмыч: Я пошел, короче.",
+		"character_lentolna HIDE Тёмыч: Я пошел, короче.",
 		"background hotel2 6 октября. 9:00. Где-то. G",
 		"Тёмыч: (Куда идем мы с пятачком?) B",
 		"(Большой-большой секрет)",
@@ -225,4 +225,6 @@ func _ready():
 
 func _process(_delta):
 	if $Trial.Cur == 57:
-		$back_ground.free()
+		$back_ground.hide()
+		$characters_all.hide()
+		$characters_all/character_sonya.hide()

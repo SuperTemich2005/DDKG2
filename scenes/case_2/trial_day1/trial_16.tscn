@@ -19,9 +19,9 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "def",
+"name": "jud",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -29,19 +29,19 @@ animations = [ {
 "name": "pro",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "jud",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "wit",
+"name": "def",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "hld",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "wit",
 "speed": 5.0
 } ]
 
@@ -111,3 +111,5 @@ visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 15 )
 [connection signal="timeout" from="forward" to="." method="_on_forward_timeout"]
+
+[editable path="Trial"]

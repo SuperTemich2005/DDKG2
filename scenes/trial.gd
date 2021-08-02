@@ -157,8 +157,10 @@ func _on_next_button_pressed():
 		Special = 1
 	elif get_parent().Dialogue[Cur].split(" ")[-1] == "SUPER":
 		$show_text.get_font("font").size = 100
+		Special = 5
 	elif get_parent().Dialogue[Cur].split(" ")[-1] == "LESSER":
 		$show_text.get_font("font").size = 16
+		Special = 6
 	elif get_parent().Dialogue[Cur].split(" ")[-1] == "G":
 		$show_text/text_color.color = Color(0,1,0,1)
 		Special = 1

@@ -55,19 +55,19 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "footage",
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "footage 1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "badge",
+"name": "footage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -75,14 +75,9 @@ animations = [ {
 "name": "knucklebuster",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "autopsy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
+"name": "badge",
 "speed": 5.0
 } ]
 
@@ -101,14 +96,19 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "badge",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -116,14 +116,9 @@ animations = [ {
 "name": "knucklebuster",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "autopsy",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "branch",
+"name": "badge",
 "speed": 5.0
 } ]
 
@@ -272,7 +267,7 @@ __meta__ = {
 position = Vector2( 45.8434, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_1"]
 material = SubResource( 8 )
@@ -288,7 +283,7 @@ __meta__ = {
 position = Vector2( 119.125, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_2"]
 material = SubResource( 8 )
@@ -304,7 +299,7 @@ __meta__ = {
 position = Vector2( 190.881, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_3"]
 material = SubResource( 8 )
@@ -320,7 +315,7 @@ __meta__ = {
 position = Vector2( 262.637, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_4"]
 material = SubResource( 8 )
@@ -336,7 +331,7 @@ __meta__ = {
 position = Vector2( 45.8435, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_5"]
 material = SubResource( 8 )
@@ -352,7 +347,7 @@ __meta__ = {
 position = Vector2( 118.362, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_6"]
 material = SubResource( 8 )
@@ -368,7 +363,7 @@ __meta__ = {
 position = Vector2( 190.118, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_7"]
 material = SubResource( 8 )
@@ -384,7 +379,7 @@ __meta__ = {
 position = Vector2( 261.874, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_8"]
 material = SubResource( 8 )
@@ -400,7 +395,7 @@ __meta__ = {
 position = Vector2( 45.8435, 184.594 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_9"]
 material = SubResource( 8 )
@@ -416,7 +411,7 @@ __meta__ = {
 position = Vector2( 117.599, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_10"]
 material = SubResource( 8 )
@@ -432,7 +427,7 @@ __meta__ = {
 position = Vector2( 190.118, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_11"]
 material = SubResource( 8 )
@@ -448,7 +443,7 @@ __meta__ = {
 position = Vector2( 261.874, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage 1"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_12"]
 material = SubResource( 8 )
@@ -464,7 +459,7 @@ __meta__ = {
 position = Vector2( 440.131, 79.4598 )
 scale = Vector2( 0.761002, 0.761002 )
 frames = SubResource( 9 )
-animation = "footage"
+animation = "report"
 
 [node name="Label" type="Label" parent="frame_record"]
 margin_left = 306.0
@@ -507,6 +502,7 @@ frames = SubResource( 12 )
 animation = "hit"
 
 [node name="autoforward" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="intro_whoosh" type="AnimatedSprite" parent="."]

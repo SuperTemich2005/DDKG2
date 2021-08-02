@@ -12,8 +12,12 @@ var Checked : Array
 var save_file
 var loc_file
 var CourtRecordStatus
+var ThisOne
 # Called when the node enters the scene tree for the first time.
+
+
 func _ready():
+	ThisOne = get_parent().filename
 	Special = 0
 	ShowChars = 0
 	CourtRecordStatus = 0
@@ -29,6 +33,7 @@ func _ready():
 	State = "Dialogue" # Main Dialogue Examine Chat Show Move
 	save_file.set_value("Locations","Last",get_parent().filename)
 	save_file.save("C:/Games/ddkg2.save")
+	#_on_next_button_pressed()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -134,12 +139,13 @@ func _input(event):
 				print("evidence_"+str(i))
 				$frame_record/viewport.animation = get_node("frame_record/evidence_"+str(i-1)).animation
 				$frame_record/Label.text = str(save_file.get_value("Evidence",str(i-1))).split(":")[1]
+				#print(str(save_file.get_value("Evidence",str(i-1))).split(":")[0])
 
 
 func _on_next_button_pressed():
 	var CheckedEvs = 0
 	for i in range(1,Checked.size()):
-		print(str(CheckedEvs))
+		#print(str(CheckedEvs))
 		if Checked[i] == true:
 			CheckedEvs += 1
 	if CheckedEvs == get_parent().EvCount:
@@ -150,6 +156,7 @@ func _on_next_button_pressed():
 	ShowChars = 0
 	Cur+=1
 	if get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
+		$update.free()
 		get_tree().change_scene(get_parent().Dialogue[Cur].split(" ")[1])
 	if get_parent().Dialogue[Cur].split(" ")[0] == "~~~":
 		$AudioStreamPlayer2.set_stream(load("res://sounds/fanfare_newev.ogg"))
@@ -157,6 +164,7 @@ func _on_next_button_pressed():
 		save_file.load("C:/Games/ddkg2.save")
 		if save_file.get_value("Evidence",get_parent().Ev[Cur].split("/")[0],"-20:-20:-20:-20").split(":")[2] < get_parent().Ev[Cur].split("/")[3]:
 			save_file.set_value("Evidence",get_parent().Ev[Cur].split("/")[0],get_parent().Ev[Cur].split("/")[1]+":"+get_parent().Ev[Cur].split("/")[2]+":"+get_parent().Ev[Cur].split("/")[3])
+			print(get_parent().Ev[Cur].split("/")[0])
 		else:
 			pass
 		save_file.save("C:/Games/ddkg2.save")

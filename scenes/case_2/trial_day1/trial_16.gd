@@ -101,7 +101,7 @@ func _ready():
 		"character_wit wtf Дашкерин: ... Х*йня собачья, не хочу это слышать. POS wit",
 		"character_wit default Я ухожу.",
 		"character_temich rage Тёмыч: Не так быстро POS def",
-		"character_wit HIDE Дашкерин: Покаааааааа, лузеры! POS wit",
+		"character_wit ignore Дашкерин: Покаааааааа, лузеры! POS wit",
 		"character_lentoln rage Е. Анатольевна: Свидетель, вернитесь сейчас же! POS jud",
 		"Вер, лови!",
 		"character_lentoln wut Дашкерин: Руки прочь!",
@@ -110,9 +110,9 @@ func _ready():
 		"character_lentoln hmm У нас завтра на 12:00 экскурсия по городу назначена, правда.",
 		"По этому надо собраться как можно раньше.",
 		"character_lentoln kek Боюсь что даже на 8:00 придётся",
-		"character_temich deskslam Тёмыч: Черт! POS def",
+		"REACT deskslam character_temich deskslam Тёмыч: Черт! POS def",
 		"character_temich picard АаааААААА",
-		"character_temich deskslam Из-за этого, эмм, Ирода Окаянного, нам придется растягивать всю эту историю! POS def",
+		"REACT deskslam character_temich deskslam Из-за этого, эмм, Ирода Окаянного, нам придется растягивать всю эту историю! POS def",
 		"character_temich picard Казалось бы, зачем?",
 		"character_lentoln hmm Е. Анатольевна: У меня есть план, как вынудить его прийти на заседание и сидеть до конца. POS jud",
 		"Скажем так...",
@@ -126,7 +126,7 @@ func _ready():
 		"Так как остались открытыми важные вопросы, на которые прямо сейчас ответить невозможно,",
 		"Слушание откладывается на завтра. Время проведения следующего заседания - 8 часов утра.",
 		"STOP Все свободны.",
-		"OUT ",
+		"OUT ", "",
 	]
 	Anims = [
 		"",
@@ -196,7 +196,7 @@ func _ready():
 		"character_lentoln kek Е. Анатольевна: Ну попробуй... POS jud",
 		"",
 		"JUMP 48",
-		"character_temich objection_1 Тёмыч: Внимание, здесь! POS def", 
+		"Тёмыч: Внимание, здесь!", 
 		"character_lentoln wut Е. Анатольевна: Что?! POS jud", # STOP
 		"character_sonya death Соня: ... POS pro",
 		"Неверно. Y",
@@ -248,7 +248,7 @@ func _ready():
 		"Так как остались открытыми важные вопросы, на которые прямо сейчас ответить невозможно,",
 		"Слушание откладывается на завтра. Время проведения следующего заседания - 8 часов утра.",
 		"Все свободны.",
-		"OUT ",
+		"OUT ", "",
 	]
 	Dialogue = [
 		"",
@@ -324,7 +324,7 @@ func _ready():
 		"Неверно. Y",
 		"Тёмыч: Почему же, позвольте спросить? W",
 		"Соня: Это - место преступления Y",
-		"Делая такие заявления, это все равно, что прямо обвинить человека",
+		"Делать такие заявления, это все равно, что прямо обвинить человека",
 		"Тёмыч: Да. W",
 		"Дашкерин: Мне надоело сидеть за прилавком.",
 		"Что это значит?",
@@ -371,6 +371,7 @@ func _ready():
 		"Слушание откладывается на завтра. Время проведения следующего заседания - 8 часов утра.",
 		"Все свободны.",
 		"OUT res://scenes/case_2/invest_day2/court_lobby_day2.tscn",
+		"",
 	]
 	loc_file.load("C:/Games/ddkg2.save")
 	loc_file.set_value("Locations","Last",filename)
@@ -382,9 +383,17 @@ func _process(_delta):
 		$characters_all/character_lentoln/sprite.animation = "case2diag1"
 		$characters_all/character_lentoln/question_box.show()
 		$crosshair.show()
+		$Trial/next_button.disabled = true
+		$Trial/next_button.hide()
+		$Trial/next_button.text = "..."
+		$Trial/court_record.hide()
 	else:
 		$characters_all/character_lentoln/question_box.hide()
 		$crosshair.hide()
+		$Trial/next_button.disabled = false
+		$Trial/next_button.text = "Дальше"
+		$Trial/next_button.show()
+		$Trial/court_record.show()
 
 
 func _input(event):

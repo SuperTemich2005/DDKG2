@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation.gd" type="Script" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://sprites/evidence/branch_big.png" type="Texture" id=13]
 [ext_resource path="res://sprites/evidence/knucklebuster_big.png" type="Texture" id=14]
 [ext_resource path="res://sprites/evidence/knucklebuster.png" type="Texture" id=15]
+[ext_resource path="res://sprites/evidence/autopsy.png" type="Texture" id=16]
+[ext_resource path="res://sprites/evidence/autopsy_big.png" type="Texture" id=17]
+[ext_resource path="res://sprites/evidence/footage.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -37,14 +40,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "wut",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "gotchu",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "wut",
 "speed": 5.0
 } ]
 
@@ -71,6 +74,21 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "knucklebuster",
@@ -79,11 +97,6 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "badge",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
 "speed": 5.0
 } ]
 
@@ -102,6 +115,16 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "knucklebuster",
@@ -110,11 +133,6 @@ animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "badge",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "branch",
 "speed": 5.0
 } ]
 
@@ -299,7 +317,7 @@ __meta__ = {
 position = Vector2( 45.8434, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_1"]
 material = SubResource( 9 )
@@ -315,7 +333,7 @@ __meta__ = {
 position = Vector2( 119.125, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_2"]
 material = SubResource( 9 )
@@ -331,7 +349,7 @@ __meta__ = {
 position = Vector2( 190.881, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_3"]
 material = SubResource( 9 )
@@ -347,7 +365,7 @@ __meta__ = {
 position = Vector2( 262.637, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_4"]
 material = SubResource( 9 )
@@ -363,7 +381,7 @@ __meta__ = {
 position = Vector2( 45.8435, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_5"]
 material = SubResource( 9 )
@@ -379,7 +397,7 @@ __meta__ = {
 position = Vector2( 118.362, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_6"]
 material = SubResource( 9 )
@@ -395,7 +413,7 @@ __meta__ = {
 position = Vector2( 190.118, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_7"]
 material = SubResource( 9 )
@@ -411,7 +429,7 @@ __meta__ = {
 position = Vector2( 261.874, 114.365 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_8"]
 material = SubResource( 9 )
@@ -427,7 +445,7 @@ __meta__ = {
 position = Vector2( 45.8435, 184.594 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_9"]
 material = SubResource( 9 )
@@ -443,7 +461,7 @@ __meta__ = {
 position = Vector2( 117.599, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_10"]
 material = SubResource( 9 )
@@ -459,7 +477,7 @@ __meta__ = {
 position = Vector2( 190.118, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
-animation = "knucklebuster"
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_11"]
 material = SubResource( 9 )
@@ -475,6 +493,7 @@ __meta__ = {
 position = Vector2( 261.874, 185.358 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 8 )
+animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_12"]
 material = SubResource( 9 )
@@ -490,6 +509,13 @@ __meta__ = {
 position = Vector2( 440.131, 79.4598 )
 scale = Vector2( 0.761002, 0.761002 )
 frames = SubResource( 10 )
+animation = "report"
+
+[node name="viewport2" type="AnimatedSprite" parent="frame_record"]
+position = Vector2( 440.131, 79.4598 )
+scale = Vector2( 0.761002, 0.761002 )
+frames = SubResource( 10 )
+animation = "report"
 
 [node name="Label" type="Label" parent="frame_record"]
 margin_left = 306.0

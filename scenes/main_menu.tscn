@@ -78,7 +78,7 @@ margin_right = 1007.13
 margin_bottom = 588.333
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Билд 1. (C) AZIE Games 2021"
+text = "Билд 3. (C) AZIE Games 2021"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false

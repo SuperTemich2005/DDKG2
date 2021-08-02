@@ -179,14 +179,6 @@ func _ready():
 	
 # СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!!
 	loc_file.load("C:/Games/ddkg2.save")
-	if str(loc_file.get_value("Locations",filename)) == "1":
-		if str(loc_file.get_value("Locations","res://scenes/case_2/park_day1.tscnchecked")) == "1":
-			$investigation_screen.Cur = 67
-			Chats[0] = "Кто ты   94"
-			Chats[1] = "Суть дела  124"
-			Chats[2] = "Соня   145"
-		else: 
-			$investigation_screen.Cur = 12
 	for i in range(1,4):
 		if Chats[i-1] != "":
 			get_node("chat_"+str(i)).text = Chats[i-1].left(Chats[i-1].length()-3)

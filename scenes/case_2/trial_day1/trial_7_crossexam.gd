@@ -188,7 +188,7 @@ func _ready():
 	]
 	Anims = [ # массив, в котором 1 слово это перс, а 2 - его анимка
 		"",
-		"--- Как я пыталась её убить --- R",
+		"character_masha default --- Как я пыталась её убить --- R POS wit",
 		"character_masha sigh Маша: Я забила ей стрелу в сквере. G I9 POS wit",
 		"character_masha hey Маша: Она пришла, ну я её и отметелила. G I17 POS wit",
 		"character_masha default Маша: Та я не сильно ее толком приложила то, вроде... G I40 POS wit",

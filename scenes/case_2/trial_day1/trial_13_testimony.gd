@@ -68,6 +68,7 @@ func _ready():
 		"Нас интересует драка Маши Фильмоновой и Иры Жаровой из 8-Г",
 		"Радомир: А, это? Ну, слушайте, тогда.",
 		"OUT res://scenes/case_2/trial_day1/trial_14_testimony.tscn",
+		"",
 	]
 	Anims = [
 		"",
@@ -97,10 +98,10 @@ func _ready():
 		"character_temich comeon REACT damage Тёмыч: (Ё-маё...) B POS def",
 		"character_sonya death REACT damage Соня: ... W POS pro",
 		"character_wit uh REACT surprise Дашкерин: Всё? Я могу идти? POS wit",
-		"character_jud rage REACT frustration Е. Анатольевна: Нет, не можешь POS jud",
+		"character_lentoln rage REACT frustration Е. Анатольевна: Нет, не можешь POS jud",
 		"character_temich comeon Тёмыч: Хотя... POS def",
 		"character_lentoln hmm Е. Анатольевна: Ммм? POS jud",
-		"character_tmeich wonder Тёмыч: ...У нас на сегодня есть еще свидетели? POS def",
+		"character_temich wonder Тёмыч: ...У нас на сегодня есть еще свидетели? POS def",
 		"character_sonya phone Соня: ... POS pro",
 		"character_lentoln default Е. Анатольевна: Да, заявлен еще один POS jud",
 		"character_temich thonker Тёмыч: ...Предлагаю этого POS def",
@@ -130,6 +131,7 @@ func _ready():
 		"character_lentoln default Е. Анатольевна: Рассказывай, что ты видел, что ты слышал W POS jud",
 		"character_lentoln hmm Нас интересует драка Маши Фильмоновой и Иры Жаровой из 8-Г",
 		"character_wit2 default Радомир: А, это? Ну, слушайте, тогда. POS wit",
+		"OUT ",
 		"OUT ",
 	]
 	Music = [
@@ -193,6 +195,7 @@ func _ready():
 		"Е. Анатольевна: Рассказывай, что ты видел, что ты слышал W",
 		"Нас интересует драка Маши Фильмоновой и Иры Жаровой из 8-Г",
 		"Радомир: А, это? Ну, слушайте, тогда.",
+		"OUT ",
 		"OUT ",
 	]
 	loc_file.load("C:/Games/ddkg2.save")

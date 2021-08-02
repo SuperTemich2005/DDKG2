@@ -110,7 +110,7 @@ func _ready():
 		"Соня: ...",
 		"Е. Анатольевна: Вызывай на ковер.",
 		"Соня: ...",
-		"OUT res://scenes/case_2/trial_day1/trial_10_testimony.tscn",
+		"OUT res://scenes/case_2/trial_day1/trial_9.tscn",
 		"",
 	]
 	Anims = [ # диалоги. 
@@ -132,7 +132,7 @@ func _ready():
 		"character_masha what REACT damage Маша: Ааа! POS wit",
 		"character_temich kekk START objection_theme Тёмыч: (Тум турурум турурум турурурум рум рум турурум тум туууум туууум) B POS def",
 		"(А я нашел противоречие)",
-		"character_masha hey REACT surprise Маша: А, стойте, совсем забыла W P wit",
+		"character_masha hey REACT surprise Маша: А, стойте, совсем забыла W POS wit",
 		" Ну да, я использовала кастет, действительно.",
 		"character_masha uh Ошиблась, да, но теперь вы знаете",
 		"character_lentoln hmm STOP Е. Анатольевна: Не долго песенка играла, а? POS jud",

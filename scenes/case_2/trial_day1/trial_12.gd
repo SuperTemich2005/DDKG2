@@ -52,7 +52,7 @@ func _ready():
 		"Тёмыч: Ничего необычного?",
 		"Дашкерин: Ну да, ничего необычного, нелегального",
 		"Просто пинались",
-		"", # обджекшн
+		"Ничего необычного, говорю же!", # обджекшн
 		"Тёмыч: Преступник заколол жертву веткой",
 		"'Ничего нелегального', действительно!",
 		"Дашкерин: Что? Как?!",
@@ -102,6 +102,7 @@ func _ready():
 		"(Думаю, это мой шанс защитить Маху.)",
 		"(Игрушки закончились, пора приготовиться к настоящему заседанию...)",
 		"OUT res://scenes/case_2/trial_day1/trial_13_testimony.tscn",
+		"",
 	]
 	Music = [ # диалоги. 
 		"",
@@ -198,6 +199,7 @@ func _ready():
 		"character_temich kekk (Думаю, это мой шанс защитить Маху.)",
 		"REACT intro_woosh character_temich objection_1 (Игрушки закончились, пора приготовиться к настоящему заседанию...)",
 		"OUT ",
+		"OUT ",
 	]
 	Anims = [ # диалоги. 
 		"",
@@ -253,9 +255,9 @@ func _ready():
 		"character_temich comeon Тёмыч: Ваша Честь, я хочу спросить уже вас. POS def",
 		"Вы слышали, что свидетель сказал?",
 		"character_lentoln hmm Е. Анатольевна: Ну, да, вроде. POS jud",
-		"character_temich comeon Тёмыч: Я признаю, Маха виновная. POS wit",
+		"character_temich comeon Тёмыч: Я признаю, Маха виновная. POS def",
 		"...в драках",
-		"character_sonya default Соня: ...",
+		"character_sonya default Соня: ... POS pro",
 		"character_lentoln hmm Е. Анатольевна: То есть, ты сдаешься? POS jud",
 		"character_lentoln kek Могу переходить к вердикту?",
 		"character_temich comeon Тёмыч: ...Ну, вынести приговор за рукопашный бой тут можно. POS def",
@@ -294,21 +296,8 @@ func _ready():
 		"character_temich kekk (Думаю, это мой шанс защитить Маху.)",
 		"character_temich objection_1 (Игрушки закончились, пора приготовиться к настоящему заседанию...)",
 		"OUT ",
+		"OUT ",
 	]
 	loc_file.load("C:/Games/ddkg2.save")
 	loc_file.set_value("Locations","Last",filename)
 	loc_file.save("C:/Games/ddkg2.save")
-
-
-func _process(delta):
-	if $Trial.Cur == 44:
-		$objection.show()
-		$Trial/AudioStreamPlayer2.set_stream(load("res://sounds/obj_rus.ogg"))
-		$Trial/AudioStreamPlayer2.play()
-		$forward.start()
-		$Trial/next_button.disabled = true
-
-
-func _on_forward_timeout():
-	$Trial._on_next_button_pressed()
-	$Trial/next_button.disabled = false

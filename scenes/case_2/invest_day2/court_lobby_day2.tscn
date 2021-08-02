@@ -22,19 +22,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "hotel1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "hotel2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "park1",
+"name": "hotel3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -42,9 +32,19 @@ animations = [ {
 "name": "park2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "hotel3",
+"name": "park1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "hotel2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "hotel1",
 "speed": 5.0
 } ]
 
@@ -81,6 +81,7 @@ visible = false
 position = Vector2( 0, 64 )
 
 [node name="character_zhekafem" parent="characters_all" instance=ExtResource( 14 )]
+visible = false
 position = Vector2( -11.7725, 195.088 )
 
 [node name="verif" type="Timer" parent="."]
