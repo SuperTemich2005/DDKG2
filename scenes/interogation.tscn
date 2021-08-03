@@ -55,19 +55,9 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "report",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "branch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "footage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -78,6 +68,16 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "footage",
 "speed": 5.0
 } ]
 
@@ -96,19 +96,9 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "report",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "branch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "footage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -119,6 +109,16 @@ animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "footage",
 "speed": 5.0
 } ]
 
@@ -267,7 +267,6 @@ __meta__ = {
 position = Vector2( 45.8434, 43.3727 )
 scale = Vector2( 0.762614, 0.762614 )
 frames = SubResource( 7 )
-animation = "footage"
 
 [node name="hb" type="ColorRect" parent="frame_record/evidence_1"]
 material = SubResource( 8 )

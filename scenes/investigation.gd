@@ -28,7 +28,7 @@ func _ready():
 	Cur = 0
 	save_file = ConfigFile.new()
 	save_file.load("C:/Games/ddkg2.save")
-	for i in range(1,12):
+	for i in range(1,13):
 		get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	State = "Dialogue" # Main Dialogue Examine Chat Show Move
 	save_file.set_value("Locations","Last",get_parent().filename)
@@ -168,7 +168,7 @@ func _on_next_button_pressed():
 		else:
 			pass
 		save_file.save("C:/Games/ddkg2.save")
-		for i in range(1,12):
+		for i in range(1,13):
 			get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	else:
 		$AudioStreamPlayer2.stop()
