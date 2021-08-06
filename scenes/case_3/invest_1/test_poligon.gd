@@ -33,7 +33,7 @@ func _ready():
 	loc_file.load("C:/Games/ddkg2.save")
 	for i in range(1,4):
 		if Chats[i-1] != "":
-			get_node("chat_"+str(i)).text = Chats[i-1].left(Chats[i-1].length()-3)
+			get_node("chat_"+str(i)).text = Chats[i-1].left(Chats[i-1].length()-Chats[i-1].split(" ")[-1].length())
 	for i in range(1,4):
 		if Moves[i-1] != "":
 			get_node("move_"+str(i)).text = Moves[i-1].left(Moves[i-1].length()-Moves[i-1].split(" ")[-1].length())
