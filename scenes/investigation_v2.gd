@@ -38,7 +38,7 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
-	if Cur != 0:
+	if Cur != 0 and get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split("|").size() > 2:
 		if get_parent().Dialogue[Cur].split("|")[2] != "---":
 			if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] != "split":
 				if get_parent().Dialogue[Cur].split("|")[2].split(" ")[1] == "HIDE":
@@ -63,7 +63,7 @@ func _process(delta):
 			$crosshair.hide()
 			$background.show()
 			$show_text.show()
-			if Cur != 0:
+			if Cur != 0 and get_parent().Dialogue[Cur].split("|").size() > 2:
 				if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] != "split":
 					$next_button.show()
 					$next_button.disabled = false
@@ -178,18 +178,18 @@ func _on_next_button_pressed():
 			get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	else:
 		$AudioStreamPlayer2.stop()
-	if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] != "split":
-		if get_parent().Dialogue[Cur].split("|")[3] != "---":
-			if get_parent().Dialogue[Cur].split("|")[3].split(" ")[0] == "START":
-				$AudioStreamPlayer.set_stream(load("res://sounds/"+get_parent().Dialogue[Cur].split("|")[3].split(" ")[1]+".ogg"))
-				$AudioStreamPlayer.playing = true
-			if get_parent().Dialogue[Cur].split("|")[3].split(" ")[0] == "STOP":
-				$AudioStreamPlayer.playing = false
-	if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] != "split":
-		if get_parent().Dialogue[Cur].split("|")[4] != "---":
-			if get_parent().Dialogue[Cur].split("|")[4].split(" ")[0] == "REACT":
-				$AudioStreamPlayer2.set_stream(load("res://sounds/"+get_parent().Dialogue[Cur].split("|")[4].split(" ")[1]+".ogg"))
-				$AudioStreamPlayer2.playing = true
+	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split("|").size() > 2:
+		if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] != "split":
+			if get_parent().Dialogue[Cur].split("|")[3] != "---":
+				if get_parent().Dialogue[Cur].split("|")[3].split(" ")[0] == "START":
+					$AudioStreamPlayer.set_stream(load("res://sounds/"+get_parent().Dialogue[Cur].split("|")[3].split(" ")[1]+".ogg"))
+					$AudioStreamPlayer.playing = true
+				if get_parent().Dialogue[Cur].split("|")[3].split(" ")[0] == "STOP":
+					$AudioStreamPlayer.playing = false
+			if get_parent().Dialogue[Cur].split("|")[4] != "---":
+				if get_parent().Dialogue[Cur].split("|")[4].split(" ")[0] == "REACT":
+					$AudioStreamPlayer2.set_stream(load("res://sounds/"+get_parent().Dialogue[Cur].split("|")[4].split(" ")[1]+".ogg"))
+					$AudioStreamPlayer2.playing = true
 	print(get_parent().Dialogue[Cur+1].split(" ")[0])
 	#$show_text.text = get_parent().Dialogue[Cur]
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "JUMP":
@@ -220,27 +220,28 @@ func _on_next_button_pressed():
 		$frame_record/record_show.show()
 		$frame_record/record_show.disabled = false
 		$show_text/text_color.color = Color(1,1,1,1)
-	if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] == "split":
-		$choice_first.disabled = false
-		$choice_second.disabled = false
-		$next_button.disabled = true
-		$choice_first.show()
-		$choice_second.show()
-		$next_button.hide()
-		$choice_first.text = get_parent().Dialogue[Cur].split("|")[2].split(":")[1]
-		$choice_second.text = get_parent().Dialogue[Cur].split("|")[2].split(":")[2]
-	if get_parent().Dialogue[Cur].split("|")[1] == "W":
-		$show_text/text_color.color = Color(1,1,1,1)
-	elif get_parent().Dialogue[Cur].split("|")[1] == "G":
-		$show_text/text_color.color = Color(0,1,0,1)
-	elif get_parent().Dialogue[Cur].split("|")[1] == "B" or get_parent().Dialogue[Cur].split("|")[0].split(" ")[0] == "~~~":
-		$show_text/text_color.color = Color(0.25,0.25,1,1)
-	elif get_parent().Dialogue[Cur].split("|")[1] == "R":
-		$show_text/text_color.color = Color(1,0.5,0,1)
-	elif get_parent().Dialogue[Cur].split("|")[1] == "Y":
-		$show_text/text_color.color = Color(1,1,0,1)
-	elif get_parent().Dialogue[Cur].split("|")[1] == "P":
-		$show_text/text_color.color = Color(1,0,1,1)
+	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split("|").size() > 2:
+		if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] == "split":
+			$choice_first.disabled = false
+			$choice_second.disabled = false
+			$next_button.disabled = true
+			$choice_first.show()
+			$choice_second.show()
+			$next_button.hide()
+			$choice_first.text = get_parent().Dialogue[Cur].split("|")[2].split(":")[1]
+			$choice_second.text = get_parent().Dialogue[Cur].split("|")[2].split(":")[2]
+		if get_parent().Dialogue[Cur].split("|")[1] == "W":
+			$show_text/text_color.color = Color(1,1,1,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "G":
+			$show_text/text_color.color = Color(0,1,0,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "B" or get_parent().Dialogue[Cur].split("|")[0].split(" ")[0] == "~~~":
+			$show_text/text_color.color = Color(0.25,0.25,1,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "R":
+			$show_text/text_color.color = Color(1,0.5,0,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "Y":
+			$show_text/text_color.color = Color(1,1,0,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "P":
+			$show_text/text_color.color = Color(1,0,1,1)
 
 
 func _on_choice_first_pressed():

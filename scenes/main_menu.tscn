@@ -32,7 +32,7 @@ __meta__ = {
 }
 
 [node name="logo" type="AnimatedSprite" parent="."]
-position = Vector2( 671.232, 202.043 )
+position = Vector2( 600.062, 168.331 )
 frames = SubResource( 1 )
 
 [node name="new_game" type="Button" parent="."]
