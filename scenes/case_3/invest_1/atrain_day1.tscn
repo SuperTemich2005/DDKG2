@@ -1,14 +1,24 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/case_3/invest_1/ahotelentrance_day1.gd" type="Script" id=2]
-[ext_resource path="res://sprites/background/hotelentrance_bg.png" type="Texture" id=3]
+[ext_resource path="res://scenes/case_3/invest_1/atrain_day1.gd" type="Script" id=2]
+[ext_resource path="res://sprites/background/atrain_bg.png" type="Texture" id=3]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/investigation_v2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/background/btrain_bg.png" type="Texture" id=6]
+[ext_resource path="res://scenes/character_scenes/character_temich.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -25,49 +35,48 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="poi_1" type="Button" parent="."]
-margin_left = -189.404
-margin_top = 49.7331
-margin_right = -122.404
-margin_bottom = 138.733
-text = "14"
+margin_left = 304.0
+margin_top = -8.0
+margin_right = 1034.0
+margin_bottom = 78.0
+text = "49"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="poi_2" type="Button" parent="."]
-margin_left = -468.643
-margin_top = 312.775
-margin_right = -9.64264
-margin_bottom = 594.775
-text = "26"
+margin_left = 612.842
+margin_top = 296.704
+margin_right = 804.842
+margin_bottom = 445.704
+text = "21"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="poi_3" type="Button" parent="."]
-margin_left = -198.189
-margin_top = 198.521
-margin_right = -111.189
-margin_bottom = 395.521
-text = "33"
+margin_left = 210.0
+margin_top = 375.0
+margin_right = 385.0
+margin_bottom = 469.0
+text = "38"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="poi_4" type="Button" parent="."]
-margin_left = -98.0
-margin_top = 180.0
-margin_right = -11.0
-margin_bottom = 377.0
-disabled = true
+margin_left = 114.0
+margin_top = -7.0
+margin_right = 273.0
+margin_bottom = 372.0
 text = "26"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="back_ground" type="AnimatedSprite" parent="."]
-position = Vector2( -14.0127, -4.7133 )
-scale = Vector2( 0.521475, 0.521475 )
+position = Vector2( -64.4664, -6.39512 )
+scale = Vector2( 0.570527, 0.570527 )
 frames = SubResource( 1 )
 centered = false
 
@@ -77,6 +86,19 @@ position = Vector2( -1, -115 )
 [node name="character_egorich" parent="characters_all" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 1, 115 )
+
+[node name="character_temich" parent="characters_all" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 28.5363, 158.528 )
+
+[node name="back_ground2" type="AnimatedSprite" parent="."]
+position = Vector2( -64.413, -6.372 )
+scale = Vector2( 0.570527, 0.570527 )
+frames = SubResource( 4 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="move_1" type="Button" parent="."]
 visible = false

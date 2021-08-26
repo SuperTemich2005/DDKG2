@@ -9,12 +9,12 @@ var Music
 var EvCount
 var loc_file = ConfigFile.new()
 func _ready():
-	Dialogue = [
+	Dialogue = [ # диалоги. 
 		"",
 		"6 октября. 10:00. Перед отелем|G|---|---|---", #"Проверка провалена|R|character_masha hey|START omen|REACT damage",
 		"Тёмыч: (Сегодня такой пасмурный день...)|B|---|---|---",
 		"(Еще нагнетают тучи... Не удивлюсь, если сегодня польёт, как из ведра.)|B",
-		"Егорыч: Тьоха, здравствуй.|W|character_egorich laugh|---|---",
+		"Егорыч: Тьоха, здравствуй.|W|character_egorich laugh|START egor_theme|---",
 		"Тёмыч: ДО СВИДАНИЯ!|R|character_egorich all_of_sudden|---|REACT slam|",
 		"Егорыч: Смешно...|W|character_egorich suspects|---|REACT frustration",
 		"MAIN",
@@ -54,29 +54,32 @@ func _ready():
 		"Тёмыч: Не спорю|W",
 		"Можно обсудить кейсы еще, наверное...|W",
 		"Егорыч: Угу...|W|character_egorich thinks|---|---",
-		"Е. Анатольевна: Дети, загружаемся.|W",
-		"Чемоданы в багажник, сами - в салон.|W",
+		"Е. Анатольевна: Дети, загружаемся.|W|character_egorich all_of_sudden|STOP|REACT surprise",
+		"Чемоданы в багажник, сами - в салон.|W|character_egorich thinks|---|---",
 		"Мы едем во Львов, надеюсь, вы в номерах ничего не забыли.|W",
+		"В. Юрьевна: Мой класс садится на правую сторону, класс Текуцкой - на левый!|W",
+		"Егорыч: Ух, потопали...|W|character_egorich shrug|---|---",
+		"OUT res://scenes/case_3/invest_1/atrain_day1.tscn",
 		"",
 	]
 	
+# СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!
+	loc_file.load("C:/Games/ddkg2.save")
 	Chats = [
-		"Куда нас везут?   8",
-		"Что ты будешь делать?   23",
-		"С кем ты будешь ехать?   36",
-		"d   4",
+		"Куда нас везут  8",
+		"Что ты будешь делать  23",
+		"С кем сядешь 36",
+		"",
 	]
 	Moves = [
-		"a   1",
-		"b   2",
-		"c   3",
-		"d   4",
+		"",
+		"",
+		"",
+		"",
 	]
-# СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!!
-	loc_file.load("C:/Games/ddkg2.save")
 	for i in range(1,4):
 		if Chats[i-1] != "":
-			get_node("chat_"+str(i)).text = Chats[i-1].left(Chats[i-1].length()-Chats[i-1].split(" ")[-1].length())
+			get_node("chat_"+str(i)).text = Chats[i-1].left(Chats[i-1].length()-3)
 	for i in range(1,4):
 		if Moves[i-1] != "":
 			get_node("move_"+str(i)).text = Moves[i-1].left(Moves[i-1].length()-Moves[i-1].split(" ")[-1].length())
@@ -202,4 +205,6 @@ func _on_poi_4_pressed():
 func _on_verif_timeout():
 	print("shitfuck")
 	loc_file.set_value("Locations",str(filename),"1")
+	loc_file.set_value("Evidence","1","badge:Значок дежурного, у каждого свой номер. Мой - 13. В отличии от Тьохи, я всего лишь помощник адвоката")
 	loc_file.save("C:/Games/ddkg2.save")
+	

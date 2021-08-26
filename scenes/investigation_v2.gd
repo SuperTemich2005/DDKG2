@@ -33,6 +33,7 @@ func _ready():
 	State = "Dialogue" # Main Dialogue Examine Chat Show Move
 	save_file.set_value("Locations","Last",get_parent().filename)
 	save_file.save("C:/Games/ddkg2.save")
+	
 	#_on_next_button_pressed()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -68,9 +69,8 @@ func _process(delta):
 					$next_button.show()
 					$next_button.disabled = false
 			for i in range(1,4):
-				if get_parent().Chats[i-1] != "":
-					get_parent().get_node("chat_"+str(i)).hide()
-					get_parent().get_node("chat_"+str(i)).disabled = true
+				get_parent().get_node("chat_"+str(i)).hide()
+				get_parent().get_node("chat_"+str(i)).disabled = true
 		"Main":
 			get_parent().get_node("characters_all").show()
 			$back_button.hide()
@@ -85,12 +85,10 @@ func _process(delta):
 			$next_button.disabled = true
 			$crosshair.hide()
 			for i in range(1,4):
-				if get_parent().Chats[i-1] != "":
-					get_parent().get_node("chat_"+str(i)).hide()
-					get_parent().get_node("chat_"+str(i)).disabled = true
-				if get_parent().Moves[i-1] != "":
-					get_parent().get_node("move_"+str(i)).hide()
-					get_parent().get_node("move_"+str(i)).disabled = true
+				get_parent().get_node("chat_"+str(i)).hide()
+				get_parent().get_node("chat_"+str(i)).disabled = true
+				get_parent().get_node("move_"+str(i)).hide()
+				get_parent().get_node("move_"+str(i)).disabled = true
 		"Examine":
 			get_parent().get_node("characters_all").hide()
 			$back_button.show()
@@ -220,28 +218,30 @@ func _on_next_button_pressed():
 		$frame_record/record_show.show()
 		$frame_record/record_show.disabled = false
 		$show_text/text_color.color = Color(1,1,1,1)
-	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split("|").size() > 2:
-		if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] == "split":
-			$choice_first.disabled = false
-			$choice_second.disabled = false
-			$next_button.disabled = true
-			$choice_first.show()
-			$choice_second.show()
-			$next_button.hide()
-			$choice_first.text = get_parent().Dialogue[Cur].split("|")[2].split(":")[1]
-			$choice_second.text = get_parent().Dialogue[Cur].split("|")[2].split(":")[2]
-		if get_parent().Dialogue[Cur].split("|")[1] == "W":
-			$show_text/text_color.color = Color(1,1,1,1)
-		elif get_parent().Dialogue[Cur].split("|")[1] == "G":
-			$show_text/text_color.color = Color(0,1,0,1)
-		elif get_parent().Dialogue[Cur].split("|")[1] == "B" or get_parent().Dialogue[Cur].split("|")[0].split(" ")[0] == "~~~":
-			$show_text/text_color.color = Color(0.25,0.25,1,1)
-		elif get_parent().Dialogue[Cur].split("|")[1] == "R":
-			$show_text/text_color.color = Color(1,0.5,0,1)
-		elif get_parent().Dialogue[Cur].split("|")[1] == "Y":
-			$show_text/text_color.color = Color(1,1,0,1)
-		elif get_parent().Dialogue[Cur].split("|")[1] == "P":
-			$show_text/text_color.color = Color(1,0,1,1)
+	if get_parent().Dialogue[Cur] != "MAIN":
+		if get_parent().Dialogue[Cur].split("|").size() > 2:
+			if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] == "split":
+				$choice_first.disabled = false
+				$choice_second.disabled = false
+				$next_button.disabled = true
+				$choice_first.show()
+				$choice_second.show()
+				$next_button.hide()
+				$choice_first.text = get_parent().Dialogue[Cur].split("|")[2].split(":")[1]
+				$choice_second.text = get_parent().Dialogue[Cur].split("|")[2].split(":")[2]
+		if get_parent().Dialogue[Cur].split("|").size() > 1:
+			if get_parent().Dialogue[Cur].split("|")[1] == "W":
+				$show_text/text_color.color = Color(1,1,1,1)
+			elif get_parent().Dialogue[Cur].split("|")[1] == "G":
+				$show_text/text_color.color = Color(0,1,0,1)
+			elif get_parent().Dialogue[Cur].split("|")[1] == "B" or get_parent().Dialogue[Cur].split("|")[0].split(" ")[0] == "~~~":
+				$show_text/text_color.color = Color(0.25,0.25,1,1)
+			elif get_parent().Dialogue[Cur].split("|")[1] == "R":
+				$show_text/text_color.color = Color(1,0.5,0,1)
+			elif get_parent().Dialogue[Cur].split("|")[1] == "Y":
+				$show_text/text_color.color = Color(1,1,0,1)
+			elif get_parent().Dialogue[Cur].split("|")[1] == "P":
+				$show_text/text_color.color = Color(1,0,1,1)
 
 
 func _on_choice_first_pressed():
