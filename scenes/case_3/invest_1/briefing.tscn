@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/case_3/invest_1/atrain_day1.gd" type="Script" id=2]
+[ext_resource path="res://scenes/case_3/invest_1/briefing.gd" type="Script" id=2]
 [ext_resource path="res://sprites/background/atrain_bg.png" type="Texture" id=3]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/investigation_v2.tscn" type="PackedScene" id=5]
@@ -35,6 +35,7 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="poi_1" type="Button" parent="."]
+visible = false
 margin_left = 304.0
 margin_top = -8.0
 margin_right = 1034.0
@@ -45,6 +46,7 @@ __meta__ = {
 }
 
 [node name="poi_2" type="Button" parent="."]
+visible = false
 margin_left = 612.842
 margin_top = 296.704
 margin_right = 804.842
@@ -55,6 +57,7 @@ __meta__ = {
 }
 
 [node name="poi_3" type="Button" parent="."]
+visible = false
 margin_left = 210.0
 margin_top = 375.0
 margin_right = 385.0
@@ -65,6 +68,7 @@ __meta__ = {
 }
 
 [node name="poi_4" type="Button" parent="."]
+visible = false
 margin_left = 114.0
 margin_top = -7.0
 margin_right = 273.0
@@ -75,12 +79,14 @@ __meta__ = {
 }
 
 [node name="back_ground" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( -64.4664, -6.39512 )
 scale = Vector2( 0.570527, 0.570527 )
 frames = SubResource( 1 )
 centered = false
 
 [node name="characters_all" type="Node2D" parent="."]
+visible = false
 position = Vector2( -1, -115 )
 
 [node name="character_egorich" parent="characters_all" instance=ExtResource( 4 )]
@@ -92,6 +98,7 @@ visible = false
 position = Vector2( 28.5363, 158.528 )
 
 [node name="back_ground2" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( -64.413, -6.372 )
 scale = Vector2( 0.570527, 0.570527 )
 frames = SubResource( 2 )
@@ -158,6 +165,12 @@ autostart = true
 
 [node name="investigation_screen" parent="." instance=ExtResource( 5 )]
 
+[node name="background" parent="investigation_screen" index="0"]
+margin_left = -50.0
+margin_top = -56.0
+margin_right = 1124.0
+margin_bottom = 653.0
+
 [node name="chat_1" type="Button" parent="."]
 visible = false
 margin_left = 65.0
@@ -222,3 +235,5 @@ __meta__ = {
 [connection signal="pressed" from="chat_2" to="." method="_on_chat_2_pressed"]
 [connection signal="pressed" from="chat_3" to="." method="_on_chat_3_pressed"]
 [connection signal="pressed" from="chat_4" to="." method="_on_chat_4_pressed"]
+
+[editable path="investigation_screen"]

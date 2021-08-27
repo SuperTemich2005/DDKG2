@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/case3_intro.ogg-ac9b138f25a20d663f7bdbc722e8dc92.oggstr"
+
+[deps]
+
+source_file="res://sounds/case3_intro.ogg"
+dest_files=[ "res://.import/case3_intro.ogg-ac9b138f25a20d663f7bdbc722e8dc92.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
