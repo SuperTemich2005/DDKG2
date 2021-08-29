@@ -171,6 +171,12 @@ margin_top = -56.0
 margin_right = 1124.0
 margin_bottom = 653.0
 
+[node name="court_record" parent="investigation_screen" index="3"]
+margin_left = 1239.19
+margin_top = 20.2271
+margin_right = 1516.19
+margin_bottom = 70.2271
+
 [node name="chat_1" type="Button" parent="."]
 visible = false
 margin_left = 65.0

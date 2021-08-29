@@ -84,7 +84,7 @@ func _process(delta):
 			$next_button.hide()
 			$next_button.disabled = true
 			$crosshair.hide()
-			for i in range(1,4):
+			for i in range(1,5):
 				get_parent().get_node("chat_"+str(i)).hide()
 				get_parent().get_node("chat_"+str(i)).disabled = true
 				get_parent().get_node("move_"+str(i)).hide()
@@ -108,7 +108,7 @@ func _process(delta):
 			$next_button.hide()
 			$next_button.disabled = true
 			$crosshair.hide()
-			for i in range(1,4):
+			for i in range(1,5):
 				if get_parent().Chats[i-1] != "":
 					get_parent().get_node("chat_"+str(i)).show()
 					get_parent().get_node("chat_"+str(i)).disabled = false
@@ -121,7 +121,7 @@ func _process(delta):
 			$next_button.hide()
 			$next_button.disabled = true
 			$crosshair.hide()
-			for i in range(1,4):
+			for i in range(1,5):
 				if get_parent().Moves[i-1] != "":
 					get_parent().get_node("move_"+str(i)).show()
 					get_parent().get_node("move_"+str(i)).disabled = false
@@ -160,6 +160,15 @@ func _on_next_button_pressed():
 
 	ShowChars = 0
 	Cur+=1
+	if get_parent().Dialogue[Cur].split("|").size() > 5:
+		if get_parent().Dialogue[Cur].split("|")[5].split(":")[0] == "show":
+			$show_cell.show()
+			$show_cell/color.color = $frame_record/record_theme.color
+			$show_cell/evidence.animation = get_parent().Dialogue[Cur].split("|")[5].split(":")[1]
+		else:
+			$show_cell.hide()
+	else:
+		$show_cell.hide()
 	if get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
 		$update.free()
 		get_tree().change_scene(get_parent().Dialogue[Cur].split(" ")[1])
@@ -253,6 +262,19 @@ func _on_choice_first_pressed():
 	$next_button.show()
 	Cur = int(get_parent().Dialogue[Cur].split("|")[2].split(":")[3])
 	$show_text.text = get_parent().Dialogue[Cur]
+	if get_parent().Dialogue[Cur].split("|").size() > 1:
+		if get_parent().Dialogue[Cur].split("|")[1] == "W":
+			$show_text/text_color.color = Color(1,1,1,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "G":
+			$show_text/text_color.color = Color(0,1,0,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "B" or get_parent().Dialogue[Cur].split("|")[0].split(" ")[0] == "~~~":
+			$show_text/text_color.color = Color(0.25,0.25,1,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "R":
+			$show_text/text_color.color = Color(1,0.5,0,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "Y":
+			$show_text/text_color.color = Color(1,1,0,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "P":
+			$show_text/text_color.color = Color(1,0,1,1)
 
 
 func _on_choice_second_pressed():
@@ -264,7 +286,19 @@ func _on_choice_second_pressed():
 	$next_button.show()
 	Cur = int(get_parent().Dialogue[Cur].split("|")[2].split(":")[4])
 	$show_text.text = get_parent().Dialogue[Cur]
-
+	if get_parent().Dialogue[Cur].split("|").size() > 1:
+		if get_parent().Dialogue[Cur].split("|")[1] == "W":
+			$show_text/text_color.color = Color(1,1,1,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "G":
+			$show_text/text_color.color = Color(0,1,0,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "B" or get_parent().Dialogue[Cur].split("|")[0].split(" ")[0] == "~~~":
+			$show_text/text_color.color = Color(0.25,0.25,1,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "R":
+			$show_text/text_color.color = Color(1,0.5,0,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "Y":
+			$show_text/text_color.color = Color(1,1,0,1)
+		elif get_parent().Dialogue[Cur].split("|")[1] == "P":
+			$show_text/text_color.color = Color(1,0,1,1)
 
 func _on_back_button_pressed():
 	State = "Main"
