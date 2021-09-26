@@ -68,7 +68,7 @@ func _process(delta):
 				if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] != "split":
 					$next_button.show()
 					$next_button.disabled = false
-			for i in range(1,4):
+			for i in range(1,5):
 				get_parent().get_node("chat_"+str(i)).hide()
 				get_parent().get_node("chat_"+str(i)).disabled = true
 		"Main":
@@ -157,9 +157,10 @@ func _on_next_button_pressed():
 		print("asdasdasd")
 		save_file.set_value("Locations",str(get_parent().filename)+"checked","1")
 		save_file.save("C:/Games/ddkg2.save")
-
 	ShowChars = 0
 	Cur+=1
+	print(Cur)
+	print(get_parent().Dialogue[Cur])
 	if get_parent().Dialogue[Cur].split("|").size() > 5:
 		if get_parent().Dialogue[Cur].split("|")[5].split(":")[0] == "show":
 			$show_cell.show()
@@ -197,7 +198,7 @@ func _on_next_button_pressed():
 				if get_parent().Dialogue[Cur].split("|")[4].split(" ")[0] == "REACT":
 					$AudioStreamPlayer2.set_stream(load("res://sounds/"+get_parent().Dialogue[Cur].split("|")[4].split(" ")[1]+".ogg"))
 					$AudioStreamPlayer2.playing = true
-	print(get_parent().Dialogue[Cur+1].split(" ")[0])
+	#print(get_parent().Dialogue[Cur+1].split(" ")[0])
 	#$show_text.text = get_parent().Dialogue[Cur]
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "JUMP":
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
