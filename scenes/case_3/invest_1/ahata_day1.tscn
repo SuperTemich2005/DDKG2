@@ -1,0 +1,211 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/case_3/invest_1/ahata_day1.gd" type="Script" id=2]
+[ext_resource path="res://sprites/background/ahata_bg.png" type="Texture" id=3]
+[ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/investigation_v2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/character_scenes/character_layton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/character_scenes/character_temichlegs.tscn" type="PackedScene" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 29
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="poi_1" type="Button" parent="."]
+margin_left = 304.0
+margin_top = -8.0
+margin_right = 1034.0
+margin_bottom = 78.0
+text = "49"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poi_2" type="Button" parent="."]
+margin_left = 612.842
+margin_top = 296.704
+margin_right = 804.842
+margin_bottom = 445.704
+text = "21"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poi_3" type="Button" parent="."]
+margin_left = 210.0
+margin_top = 375.0
+margin_right = 385.0
+margin_bottom = 469.0
+text = "38"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poi_4" type="Button" parent="."]
+margin_left = 114.0
+margin_top = -7.0
+margin_right = 273.0
+margin_bottom = 372.0
+text = "69"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_ground" type="AnimatedSprite" parent="."]
+position = Vector2( -306.573, -29.9619 )
+scale = Vector2( 0.573176, 0.573176 )
+frames = SubResource( 1 )
+centered = false
+
+[node name="characters_all" type="Node2D" parent="."]
+position = Vector2( -1, -115 )
+
+[node name="character_egorich" parent="characters_all" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 1, 115 )
+
+[node name="character_lentoln" parent="characters_all" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( -11.9055, 158.74 )
+
+[node name="character_temich" parent="characters_all" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 9.52441, 190.488 )
+
+[node name="move_1" type="Button" parent="."]
+visible = false
+margin_left = 598.0
+margin_top = 182.0
+margin_right = 801.0
+margin_bottom = 228.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_2" type="Button" parent="."]
+visible = false
+margin_left = 598.0
+margin_top = 241.0
+margin_right = 801.0
+margin_bottom = 287.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_3" type="Button" parent="."]
+visible = false
+margin_left = 597.0
+margin_top = 304.0
+margin_right = 801.0
+margin_bottom = 350.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="move_4" type="Button" parent="."]
+visible = false
+margin_left = 598.0
+margin_top = 365.0
+margin_right = 801.0
+margin_bottom = 411.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="verif" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="investigation_screen" parent="." instance=ExtResource( 5 )]
+
+[node name="chat_1" type="Button" parent="."]
+visible = false
+margin_left = 65.0
+margin_top = 167.0
+margin_right = 293.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chat_2" type="Button" parent="."]
+visible = false
+margin_left = 65.0
+margin_top = 217.0
+margin_right = 293.0
+margin_bottom = 258.0
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chat_3" type="Button" parent="."]
+visible = false
+margin_left = 65.0
+margin_top = 267.0
+margin_right = 293.0
+margin_bottom = 308.0
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chat_4" type="Button" parent="."]
+visible = false
+margin_left = 65.0
+margin_top = 317.0
+margin_right = 293.0
+margin_bottom = 358.0
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="poi_1" to="." method="_on_poi_1_mouse_entered"]
+[connection signal="mouse_exited" from="poi_1" to="." method="_on_poi_mouse_exited"]
+[connection signal="pressed" from="poi_1" to="." method="_on_poi_1_pressed"]
+[connection signal="mouse_entered" from="poi_2" to="." method="_on_poi_2_mouse_entered"]
+[connection signal="mouse_exited" from="poi_2" to="." method="_on_poi_mouse_exited"]
+[connection signal="pressed" from="poi_2" to="." method="_on_poi_2_pressed"]
+[connection signal="mouse_entered" from="poi_3" to="." method="_on_poi_3_mouse_entered"]
+[connection signal="mouse_exited" from="poi_3" to="." method="_on_poi_mouse_exited"]
+[connection signal="pressed" from="poi_3" to="." method="_on_poi_3_pressed"]
+[connection signal="mouse_entered" from="poi_4" to="." method="_on_poi_4_mouse_entered"]
+[connection signal="mouse_exited" from="poi_4" to="." method="_on_poi_mouse_exited"]
+[connection signal="pressed" from="poi_4" to="." method="_on_poi_4_pressed"]
+[connection signal="pressed" from="move_1" to="." method="_on_move_1_pressed"]
+[connection signal="pressed" from="move_2" to="." method="_on_move_2_pressed"]
+[connection signal="pressed" from="move_3" to="." method="_on_move_3_pressed"]
+[connection signal="pressed" from="move_4" to="." method="_on_move_4_pressed"]
+[connection signal="timeout" from="verif" to="." method="_on_verif_timeout"]
+[connection signal="pressed" from="chat_1" to="." method="_on_chat_1_pressed"]
+[connection signal="pressed" from="chat_2" to="." method="_on_chat_2_pressed"]
+[connection signal="pressed" from="chat_3" to="." method="_on_chat_3_pressed"]
+[connection signal="pressed" from="chat_4" to="." method="_on_chat_4_pressed"]
