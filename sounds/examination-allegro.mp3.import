@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/examination-allegro.mp3-e618ed862a4413b0751ae836520d8715.mp3str"
+
+[deps]
+
+source_file="res://sounds/examination-allegro.mp3"
+dest_files=[ "res://.import/examination-allegro.mp3-e618ed862a4413b0751ae836520d8715.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/case_3/invest_1/ahata_day1.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/investigation_v2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/character_scenes/character_layton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/character_scenes/character_temichlegs.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/character_scenes/character_zheka.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -86,6 +87,10 @@ position = Vector2( -11.9055, 158.74 )
 [node name="character_temich" parent="characters_all" instance=ExtResource( 7 )]
 visible = false
 position = Vector2( 9.52441, 190.488 )
+
+[node name="character_zheka" parent="characters_all" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 1, 115 )
 
 [node name="move_1" type="Button" parent="."]
 visible = false

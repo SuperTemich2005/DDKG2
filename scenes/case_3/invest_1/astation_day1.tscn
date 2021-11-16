@@ -188,6 +188,7 @@ custom_fonts/font = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="mouse_entered" from="poi_1" to="." method="_on_poi_1_mouse_entered"]
 [connection signal="mouse_exited" from="poi_1" to="." method="_on_poi_mouse_exited"]
 [connection signal="pressed" from="poi_1" to="." method="_on_poi_1_pressed"]

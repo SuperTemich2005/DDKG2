@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pursuit.mp3-7165c02357d1d55eb57c9a65bb4d1a95.mp3str"
+
+[deps]
+
+source_file="res://sounds/pursuit.mp3"
+dest_files=[ "res://.import/pursuit.mp3-7165c02357d1d55eb57c9a65bb4d1a95.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

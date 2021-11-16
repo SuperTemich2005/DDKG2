@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fanfare_newcase.mp3-ea9914d18d996d913ed35734d1be0d00.mp3str"
+
+[deps]
+
+source_file="res://sounds/fanfare_newcase.mp3"
+dest_files=[ "res://.import/fanfare_newcase.mp3-ea9914d18d996d913ed35734d1be0d00.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

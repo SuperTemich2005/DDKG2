@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/panhata_bgm.ogg-41567df2e5631b442b5d8e9dd70761ba.oggstr"
+
+[deps]
+
+source_file="res://sounds/panhata_bgm.ogg"
+dest_files=[ "res://.import/panhata_bgm.ogg-41567df2e5631b442b5d8e9dd70761ba.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
