@@ -16,9 +16,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "yee1",
+"name": "damage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "rage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -36,14 +41,9 @@ animations = [ {
 "name": "bored",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "rage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "damage",
+"name": "yee1",
 "speed": 5.0
 } ]
 

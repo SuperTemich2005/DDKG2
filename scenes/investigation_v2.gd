@@ -8,7 +8,6 @@ var ShowChars
 var Cur
 var State : String
 var CourtRecord : Array
-var Checked : Array
 var save_file
 var loc_file
 var CourtRecordStatus
@@ -22,9 +21,6 @@ func _ready():
 	ShowChars = 0
 	CourtRecordStatus = 0
 	CourtRecord.resize(12)
-	Checked.resize(10)
-	for i in range(0,10):
-		Checked[i] = false
 	Cur = 0
 	save_file = ConfigFile.new()
 	save_file.load("C:/Games/ddkg2.save")
@@ -148,15 +144,6 @@ func _input(event):
 
 
 func _on_next_button_pressed():
-	var CheckedEvs = 0
-	for i in range(1,Checked.size()):
-		#print(str(CheckedEvs))
-		if Checked[i] == true:
-			CheckedEvs += 1
-	if CheckedEvs == get_parent().EvCount:
-		print("asdasdasd")
-		save_file.set_value("Locations",str(get_parent().filename)+"checked","1")
-		save_file.save("C:/Games/ddkg2.save")
 	ShowChars = 0
 	Cur+=1
 	print(Cur)
@@ -201,11 +188,19 @@ func _on_next_button_pressed():
 	#print(get_parent().Dialogue[Cur+1].split(" ")[0])
 	#$show_text.text = get_parent().Dialogue[Cur]
 	if get_parent().Dialogue[Cur+1].split(" ")[0] == "JUMP":
+		print("jumping to whatever")
 		Cur = int(get_parent().Dialogue[Cur+1].split(" ")[1])
 		$show_text.text = get_parent().Dialogue[Cur]
-		print("jumping to whatever")
 	if get_parent().Dialogue[Cur].split(" ")[0] == "MAIN":
-		State = "Main"
+		var temp = 0
+		if get_parent().check_for_read_chats:
+			for i in range(0,4):
+				if get_parent().read_chats[i]:
+					temp+=1
+		if temp == 4:
+			Cur = get_parent().goto_when_read
+		else:
+			State = "Main"
 		$show_text/text_color.color = Color(1,1,1,1)
 	if get_parent().Dialogue[Cur].split(" ")[0] == "EXAM":
 		State = "Examine"

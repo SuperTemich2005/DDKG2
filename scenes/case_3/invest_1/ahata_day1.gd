@@ -8,6 +8,9 @@ var Ev
 var Music
 var EvCount
 var loc_file = ConfigFile.new()
+var read_chats
+var check_for_read_chats
+var goto_when_read
 func _ready():
 	Dialogue = [ # диалоги. 
 		"",
@@ -15,14 +18,44 @@ func _ready():
 		"Жека: Я подсяду?|W|character_zheka default|START panhata_bgm|---",
 		"Тёмыч: Триста лет, триста зим, Жека.|W|character_temich default|---|---",
 		"Егорыч: Вы видитесь каждый день, так что твоё это 'триста лет' неуместно.|W|---|---|---",
-		"Тёмыч: Как скажешь.",
+		"Тёмыч: Как скажешь.|W|character_temich comeon|---|REACT frustration",
+		"Жека: Быстро доехали, но на завтрак времени вообще не дали.|W|character_zheka bombit|---|---",
+		"Тёмыч: Лично я в поезде успел захавать пачку чипсов, но это не то...|W|character_temich wonder|---|---",
+		"Егорыч: (А еще конфеток, литр кваса, полкабана и лютефиск)|B",
+		"???: Пацаны, я к вам.|W|character_temich HIDE|---|---",
+		"Тёмыч: Ты ба, кто пришел - Тувок!|W|character_temich kekk|---|REACT surprise",
+		"Радомир: 'Тувок'?|W|character_tuvok default|---|---",
+		"Жека: А кто это?|W|character_zheka default|---|---",
+		"Егорыч: Это свид--|W",
+		"Тёмыч: Шпион Башима.|W|character_temich yee|---|REACT frustration",
+		"Радомир: Я же сказал, что у меня не было выбора...|W|character_tuvok rage|---|---",
+		"Тёмыч: И тем не менее, ты же понимаешь, что под нож чуть не попал человек, ни на кого не покушавшийся?|W|character_temich dadada|---|---",
+		"Радомир: Не такая Маша Фильмонова добрая-хорошая, как ты думаешь!|W|character_tuvok rage|---|---",
+		"Тёмыч: Как бы то ни было, Башим Дашкерин достаточно внушительный персонаж, чтобы его бояться. Я никого не о(б)суждаю здесь.|W|character_temich default|---|---",
+		"Егорыч: Давайте мы просто закажем че-нить уже и за столом обсудим дела насущные.|W|character_tuvok default|---|---",
+		"Тёмыч: Как скажешь, господин посредник", # 20
+		"MAIN", # 21
+		"Егорыч: Тьоха, возьми сотку, возьми мне котлетки с пюрешкой и хлеб.|W|character_temich comeon|---|---", # Обед, 22
+		"Тёмыч: Беленький?|R|character_temich kekk|---|REACT surprise",
+		"Егорыч: Да, можно беленький.|W|---|---|---",
+		"Тёмыч: ... .|W|character_temich comeon|---|REACT slam",
+		"Жека: Мне пожалуйста...|W|character_zheka default|---|---",
+		"Макарошки какие-нибудь, котлету по-киевски еще давай.|W|character_zheka yee|---|---",
+		"Радомир: Я дошик съел в поезде, мне лучше че-нить выпить.|W|character_tuvok hmm|---|---",
+		"Егорыч: Да, в 'пузатом пане' еще, как мне известно, лимонада литр наливают в графин.|W|---|---|---",
+		"Давайте вместе на литр лимонада скинемся по десятке|W|---|---|---",
+		"Тёмыч: Скидывайтесь мне.|W|character_temich kekk|---|REACT surprise",
+		"Егорыч: ('Скидывайтесь мне' значит, что сдача пойдет ему в карман. Эта же фраза также значит, что я не имею права раскрывать его план, иначе он призовёт Боцыка.)|B",
+		"(Не дай бог он снова призовёт Боцыка...)|B|character_temich dadada|---|REACT frustration",
+		"Тёмыч: Я пiшов.|W|character_temich default|---|---",
+		"",
 	]
 # СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!
 	loc_file.load("C:/Games/ddkg2.save")
 	Chats = [
-		"",
-		"",
-		"",
+		"Обед 22",
+		"Поездка",
+		"Маша и Женя",
 		"",
 	]
 	Moves = [
@@ -42,13 +75,14 @@ func _ready():
 			get_node("move_"+str(i)).text = Moves[i-1].left(Moves[i-1].length()-Moves[i-1].split(" ")[-1].length())
 	print(Chats[0].split(" ")[-1])
 	$investigation_screen/frame_record/record_theme.color = Color(0.5,1,0.5)
-
+	read_chats = [false,false,false,false]
 
 func _on_chat_1_pressed():
 	if $investigation_screen.State == "Chat" and Chats[0] != "":
 		$investigation_screen.State = "Dialogue"
 		$investigation_screen.Cur = int(Chats[0].split(" ")[-1])
 		$investigation_screen/show_text.text = Dialogue[$investigation_screen.Cur]
+		read_chats[0] = true
 
 
 func _on_chat_2_pressed():
@@ -56,6 +90,7 @@ func _on_chat_2_pressed():
 		$investigation_screen.State = "Dialogue"
 		$investigation_screen.Cur = int(Chats[1].split(" ")[-1])
 		$investigation_screen/show_text.text = Dialogue[$investigation_screen.Cur]
+		read_chats[1] = true
 
 
 func _on_chat_3_pressed():
@@ -63,14 +98,14 @@ func _on_chat_3_pressed():
 		$investigation_screen.State = "Dialogue"
 		$investigation_screen.Cur = int(Chats[2].split(" ")[-1])
 		$investigation_screen/show_text.text = Dialogue[$investigation_screen.Cur]
-
+		read_chats[2] = true
 
 func _on_chat_4_pressed():
 	if $investigation_screen.State == "Chat" and Chats[3] != "":
 		$investigation_screen.State = "Dialogue"
 		$investigation_screen.Cur = int(Chats[3].split(" ")[-1])
 		$investigation_screen/show_text.text = Dialogue[$investigation_screen.Cur]
-
+		read_chats[3] = true
 
 func _on_move_1_pressed():
 	if $investigation_screen.State == "Move" and Moves[0] != "":
