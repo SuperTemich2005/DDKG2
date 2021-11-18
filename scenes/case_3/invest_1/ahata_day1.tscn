@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/case_3/invest_1/ahata_day1.gd" type="Script" id=2]
 [ext_resource path="res://sprites/background/ahata_bg.png" type="Texture" id=3]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/investigation_v2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/character_scenes/character_layton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/character_scenes/character_temichlegs.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/character_scenes/character_zheka.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/character_scenes/character_tuvok.tscn" type="PackedScene" id=9]
@@ -80,10 +79,6 @@ position = Vector2( -1, -115 )
 [node name="character_egorich" parent="characters_all" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 1, 115 )
-
-[node name="character_lentoln" parent="characters_all" instance=ExtResource( 6 )]
-visible = false
-position = Vector2( -11.9055, 158.74 )
 
 [node name="character_temich" parent="characters_all" instance=ExtResource( 7 )]
 visible = false
@@ -201,7 +196,6 @@ custom_fonts/font = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="mouse_entered" from="poi_1" to="." method="_on_poi_1_mouse_entered"]
 [connection signal="mouse_exited" from="poi_1" to="." method="_on_poi_mouse_exited"]
 [connection signal="pressed" from="poi_1" to="." method="_on_poi_1_pressed"]
