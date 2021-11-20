@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/case_3/invest_1/ahata_day1.gd" type="Script" id=2]
 [ext_resource path="res://sprites/background/ahata_bg.png" type="Texture" id=3]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/investigation_v2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/character_scenes/character_zheka_halal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/character_scenes/character_temichlegs.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/character_scenes/character_zheka.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/character_scenes/character_tuvok.tscn" type="PackedScene" id=9]
@@ -94,6 +95,10 @@ position = Vector2( 0, 152 )
 
 [node name="desk" parent="characters_all/character_tuvok" index="1"]
 visible = false
+
+[node name="character_halal" parent="characters_all" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( -26.4335, 216.243 )
 
 [node name="move_1" type="Button" parent="."]
 visible = false
@@ -196,6 +201,7 @@ custom_fonts/font = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="mouse_entered" from="poi_1" to="." method="_on_poi_1_mouse_entered"]
 [connection signal="mouse_exited" from="poi_1" to="." method="_on_poi_mouse_exited"]
 [connection signal="pressed" from="poi_1" to="." method="_on_poi_1_pressed"]

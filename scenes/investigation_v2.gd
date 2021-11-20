@@ -164,10 +164,10 @@ func _on_next_button_pressed():
 		$AudioStreamPlayer2.set_stream(load("res://sounds/fanfare_newev.ogg"))
 		$AudioStreamPlayer2.play()
 		save_file.load("C:/Games/ddkg2.save")
-		if save_file.get_value("Evidence",get_parent().Dialogue[Cur].split("|")[1].split("/")[0],"-20:-20:-20:-20").split(":")[2] < get_parent().Dialogue[Cur].split("|")[1].split("/")[3]:
-			save_file.set_value("Evidence",get_parent().Dialogue[Cur].split("|")[1].split("/")[0],get_parent().Dialogue[Cur].split("|")[1].split("/")[1]+":"+get_parent().Dialogue[Cur].split("|")[1].split("/")[2]+":"+get_parent().Dialogue[Cur].split("|")[1].split("/")[3])
-		else:
-			pass
+#		if save_file.get_value("Evidence",get_parent().Dialogue[Cur].split("|")[1].split("/")[0],"-20:-20:-20:-20").split(":")[2] < get_parent().Dialogue[Cur].split("|")[1].split("/")[3]:
+#			save_file.set_value("Evidence",get_parent().Dialogue[Cur].split("|")[1].split("/")[0],get_parent().Dialogue[Cur].split("|")[1].split("/")[1]+":"+get_parent().Dialogue[Cur].split("|")[1].split("/")[2]+":"+get_parent().Dialogue[Cur].split("|")[1].split("/")[3])
+#		else:
+#			pass
 		save_file.save("C:/Games/ddkg2.save")
 		for i in range(1,13):
 			get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
