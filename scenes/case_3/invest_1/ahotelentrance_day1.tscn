@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/case_3/invest_1/ahotelentrance_day1.gd" type="Script" id=2]
 [ext_resource path="res://sprites/background/hotelentrance_bg.png" type="Texture" id=3]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/investigation_v2.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -133,8 +132,6 @@ __meta__ = {
 [node name="verif" type="Timer" parent="."]
 one_shot = true
 autostart = true
-
-[node name="investigation_screen" parent="." instance=ExtResource( 5 )]
 
 [node name="chat_1" type="Button" parent="."]
 visible = false

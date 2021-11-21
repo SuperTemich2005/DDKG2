@@ -25,7 +25,7 @@ func _ready():
 	save_file = ConfigFile.new()
 	save_file.load("C:/Games/ddkg2.save")
 	for i in range(1,13):
-		get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
+		get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[1]
 	State = "Dialogue" # Main Dialogue Examine Chat Show Move
 	save_file.set_value("Locations","Last",get_parent().filename)
 	save_file.save("C:/Games/ddkg2.save")
@@ -35,7 +35,7 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
-	if Cur != 0 and get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split("|").size() > 2:
+	if Cur != 0 and get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split("|").size() > 2 and get_parent().Dialogue[Cur].left(3) != "~~~":
 		if get_parent().Dialogue[Cur].split("|")[2] != "---":
 			if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] != "split":
 				if get_parent().Dialogue[Cur].split("|")[2].split(" ")[1] == "HIDE":
@@ -139,7 +139,7 @@ func _input(event):
 			if get_node("frame_record/evidence_"+str(i-1)+"/hb").get_global_rect().has_point(event.position) and CourtRecordStatus == 1 and get_node("frame_record/evidence_"+str(i-1)).animation != "default":
 				print("evidence_"+str(i))
 				$frame_record/viewport.animation = get_node("frame_record/evidence_"+str(i-1)).animation
-				$frame_record/Label.text = str(save_file.get_value("Evidence",str(i-1))).split(":")[1]
+				$frame_record/Label.text = str(save_file.get_value("Evidence",str(i-1))).split(":")[2]
 				#print(str(save_file.get_value("Evidence",str(i-1))).split(":")[0])
 
 
@@ -164,6 +164,9 @@ func _on_next_button_pressed():
 		$AudioStreamPlayer2.set_stream(load("res://sounds/fanfare_newev.ogg"))
 		$AudioStreamPlayer2.play()
 		save_file.load("C:/Games/ddkg2.save")
+		# ~~~ Chat Text|Color|EvName;EvShowName;EvDesc;EvExp;EvVer
+		if save_file.get_value("Evidence",get_parent().Dialogue[Cur].split("|")[2],"123;noname;blanque;nodesc;noexp;-1").split(";")[5] < get_parent().Dialogue[Cur].split("|")[2].split(";")[5]:
+			save_file.set_value("Evidence",get_parent().Dialogue[Cur].split("|")[2].split(";")[0],get_parent().Dialogue[Cur].split("|")[2])
 #		if save_file.get_value("Evidence",get_parent().Dialogue[Cur].split("|")[1].split("/")[0],"-20:-20:-20:-20").split(":")[2] < get_parent().Dialogue[Cur].split("|")[1].split("/")[3]:
 #			save_file.set_value("Evidence",get_parent().Dialogue[Cur].split("|")[1].split("/")[0],get_parent().Dialogue[Cur].split("|")[1].split("/")[1]+":"+get_parent().Dialogue[Cur].split("|")[1].split("/")[2]+":"+get_parent().Dialogue[Cur].split("|")[1].split("/")[3])
 #		else:
@@ -174,7 +177,7 @@ func _on_next_button_pressed():
 	else:
 		$AudioStreamPlayer2.stop()
 	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split("|").size() > 2:
-		if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] != "split":
+		if get_parent().Dialogue[Cur].split("|")[2].split(":")[0] != "split" and get_parent().Dialogue[Cur].left(3) != "~~~":
 			if get_parent().Dialogue[Cur].split("|")[3] != "---":
 				if get_parent().Dialogue[Cur].split("|")[3].split(" ")[0] == "START":
 					$AudioStreamPlayer.set_stream(load("res://sounds/"+get_parent().Dialogue[Cur].split("|")[3].split(" ")[1]+".ogg"))

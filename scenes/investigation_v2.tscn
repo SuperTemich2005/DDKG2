@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation_v2.gd" type="Script" id=2]
@@ -7,16 +7,16 @@
 [ext_resource path="res://sprites/crosshair/nothing.png" type="Texture" id=5]
 [ext_resource path="res://sprites/court_record.png" type="Texture" id=6]
 [ext_resource path="res://sprites/evidence/badge.png" type="Texture" id=7]
-[ext_resource path="res://sprites/evidence/badge_big.png" type="Texture" id=8]
+[ext_resource path="res://sprites/evidence/body_big.png" type="Texture" id=8]
 [ext_resource path="res://sprites/evidence/body.png" type="Texture" id=9]
 [ext_resource path="res://sounds/fanfare_newev.ogg" type="AudioStream" id=10]
-[ext_resource path="res://sprites/evidence/body_big.png" type="Texture" id=11]
+[ext_resource path="res://sprites/evidence/knucklebuster_big.png" type="Texture" id=11]
 [ext_resource path="res://sprites/evidence/branch.png" type="Texture" id=12]
-[ext_resource path="res://sprites/evidence/branch_big.png" type="Texture" id=13]
-[ext_resource path="res://sprites/evidence/knucklebuster_big.png" type="Texture" id=14]
+[ext_resource path="res://sprites/evidence/autopsy_big.png" type="Texture" id=13]
+[ext_resource path="res://sprites/evidence/branch_big.png" type="Texture" id=14]
 [ext_resource path="res://sprites/evidence/knucklebuster.png" type="Texture" id=15]
 [ext_resource path="res://sprites/evidence/autopsy.png" type="Texture" id=16]
-[ext_resource path="res://sprites/evidence/autopsy_big.png" type="Texture" id=17]
+[ext_resource path="res://sprites/evidence/badge_big.png" type="Texture" id=17]
 [ext_resource path="res://sprites/evidence/footage.png" type="Texture" id=18]
 [ext_resource path="res://sprites/record_cell.png" type="Texture" id=19]
 
@@ -80,6 +80,16 @@ animations = [ {
 "name": "badge",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "footage",
@@ -88,16 +98,6 @@ animations = [ {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "knucklebuster",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "report",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
 "speed": 5.0
 } ]
 
@@ -111,29 +111,29 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "badge",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "knucklebuster",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "report",
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "branch",
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "knucklebuster",
 "speed": 5.0
 } ]
 
@@ -146,6 +146,44 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="CanvasItemMaterial" id=13]
 blend_mode = 3
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "body",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "knucklebuster",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -560,7 +598,7 @@ __meta__ = {
 [node name="evidence" type="AnimatedSprite" parent="show_cell"]
 position = Vector2( -0.286477, -0.441175 )
 scale = Vector2( 0.817042, 0.817042 )
-frames = SubResource( 8 )
+frames = SubResource( 14 )
 animation = "badge"
 [connection signal="pressed" from="next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
@@ -571,5 +609,4 @@ animation = "badge"
 [connection signal="pressed" from="investigation_buttons_container/button_chat" to="." method="_on_button_chat_pressed"]
 [connection signal="pressed" from="investigation_buttons_container/button_present" to="." method="_on_button_present_pressed"]
 [connection signal="pressed" from="investigation_buttons_container/button_move" to="." method="_on_button_move_pressed"]
-[connection signal="pressed" from="frame_record/record_show" to="." method="_on_record_show_pressed"]
 [connection signal="timeout" from="update" to="." method="_on_update_timeout"]

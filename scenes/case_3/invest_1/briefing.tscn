@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/case_3/invest_1/briefing.gd" type="Script" id=2]
 [ext_resource path="res://sprites/background/atrain_bg.png" type="Texture" id=3]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/investigation_v2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/background/btrain_bg.png" type="Texture" id=6]
 [ext_resource path="res://scenes/character_scenes/character_temich.tscn" type="PackedScene" id=7]
 
@@ -163,20 +162,6 @@ __meta__ = {
 one_shot = true
 autostart = true
 
-[node name="investigation_screen" parent="." instance=ExtResource( 5 )]
-
-[node name="background" parent="investigation_screen" index="0"]
-margin_left = -50.0
-margin_top = -56.0
-margin_right = 1124.0
-margin_bottom = 653.0
-
-[node name="court_record" parent="investigation_screen" index="3"]
-margin_left = 1239.19
-margin_top = 20.2271
-margin_right = 1516.19
-margin_bottom = 70.2271
-
 [node name="chat_1" type="Button" parent="."]
 visible = false
 margin_left = 65.0
@@ -220,7 +205,6 @@ custom_fonts/font = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="mouse_entered" from="poi_1" to="." method="_on_poi_1_mouse_entered"]
 [connection signal="mouse_exited" from="poi_1" to="." method="_on_poi_mouse_exited"]
 [connection signal="pressed" from="poi_1" to="." method="_on_poi_1_pressed"]
@@ -242,5 +226,3 @@ __meta__ = {
 [connection signal="pressed" from="chat_2" to="." method="_on_chat_2_pressed"]
 [connection signal="pressed" from="chat_3" to="." method="_on_chat_3_pressed"]
 [connection signal="pressed" from="chat_4" to="." method="_on_chat_4_pressed"]
-
-[editable path="investigation_screen"]
