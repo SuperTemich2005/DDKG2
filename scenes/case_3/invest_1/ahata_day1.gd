@@ -11,6 +11,7 @@ var loc_file = ConfigFile.new()
 var read_chats
 var check_for_read_chats
 var goto_when_read
+var NoShow
 func _ready():
 	Dialogue = [ # диалоги. 
 		"6 октября. 12:50. 'Пузатий пан' 1-й этаж.|G",
@@ -135,13 +136,24 @@ func _ready():
 		"Егорыч: То объём стакана - 250 мл.|W|character_temich kekk|---|---",
 		"Радомир: Как всё удобно вышло...|W|character_tuvok yee|---|---",
 		"Егорыч: (Непривычно видеть перманентно депрессивного человека улыбающимся.)|B|---|---|---",
-		"~~~ Графин добавлен в записи суда.|B|2;grafin;Графин;Вмещает литр лимонада, вместе с ним дали 4 стакана по 250 миллилитров.;Лимонад имел отчетливый, кислый вкус лимона. Его пили Я, Тёмыч, Тувок и Жека, каждый по стакану.;1", # 123
-		"END",
+		"~~~ Графин добавлен в записи суда.|B|character_tuvok HIDE|---|---|2|grafin;Графин;Вмещает детто литр лимонада, вместе с ним дали 4 стакана по 250 миллилитров.;Лимонад имел отчетливый, кислый вкус лимона. Его пили Я, Тёмыч, Тувок и Жека, каждый по стакану. На дне ничего не осталось.;1", # 123
+		"OUT",
+		"Радомир: Что это?|W|character_tuvok default|---|---",
+		"Егорыч: ...Ничего.|W",
+		"MAIN",
+		"Егорыч: (Люди одеты в вышиванки... зачем-то.)|B|character_temich default|---|---", # Торгаши, 128
+		"MAIN",
+		"Егорыч: Дизайн ножек этого стола мне нравится.|W|character_temich default|---|---", # стол, 130
+		"Тёмыч: Да, это всё клево, но я сижу в углу и мне они впиваются в ноги.|W|character_temich wonder|---|---",
+		"Так что они не самые удобные",
+		"Егорыч: Но стол же квадратный, а нас четыре. Зачем в углу тесниться, сядь как обычно.",
+		"Тёмыч: Мне мешают|W|character_temich kekk|---|---",
+		"Егорыч: Кто?",
+		"Тёмыч: ...Волей сценариста, ты не получишь ответа на этот вопрос!|W|character_temich dadada|---|---",
+		"MAIN",
 		"",
 	]
-# СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!
 	#$investigation_screen.Cur = 119
-	loc_file.load("C:/Games/ddkg2.save")
 	Chats = [
 		"Обед;21",
 		"Поездка;71",
@@ -157,73 +169,7 @@ func _ready():
 	Shows = [
 		"badge 111",
 	]
-	
+	NoShow = 141-17
+	check_for_read_chats = true
+	goto_when_read = 134-17
 	read_chats = [false,false,false,true]
-
-
-func _on_poi_mouse_exited():
-	$investigation_screen/Crosshair.animation = "default"
-
-
-func _on_poi_1_pressed():
-	if $investigation_screen.State == "Examine":
-		$investigation_screen.State = "Dialogue"
-		$investigation_screen.Cur = int($poi_1.text)
-		$investigation_screen/BG/DialogueBox.text = Dialogue[$investigation_screen.Cur]
-		$investigation_screen.Checked[1] = true
-
-
-func _on_poi_1_mouse_entered():
-	if $investigation_screen.State == "Examine":
-		if $investigation_screen.Checked[1] == false:
-			$investigation_screen/Crosshair.animation = "wut"
-		else:
-			$investigation_screen/Crosshair.animation = "gotchu"
-
-
-func _on_poi_2_mouse_entered():
-	if $investigation_screen.State == "Examine":
-		if $investigation_screen.Checked[2] == false:
-			$investigation_screen/Crosshair.animation = "wut"
-		else:
-			$investigation_screen/Crosshair.animation = "gotchu"
-
-
-func _on_poi_2_pressed():
-	if $investigation_screen.State == "Examine":
-		$investigation_screen.State = "Dialogue"
-		$investigation_screen.Cur = int($poi_2.text)
-		$investigation_screen/BG/DialogueBox.text = Dialogue[$investigation_screen.Cur]
-		$investigation_screen.Checked[2] = true
-
-
-func _on_poi_3_mouse_entered():
-	if $investigation_screen.State == "Examine":
-		if $investigation_screen.Checked[3] == false:
-			$investigation_screen/Crosshair.animation = "wut"
-		else:
-			$investigation_screen/Crosshair.animation = "gotchu"
-
-
-func _on_poi_3_pressed():
-	if $investigation_screen.State == "Examine":
-		$investigation_screen.State = "Dialogue"
-		$investigation_screen.Cur = int($poi_3.text)
-		$investigation_screen/BG/DialogueBox.text = Dialogue[$investigation_screen.Cur]
-		$investigation_screen.Checked[3] = true
-
-
-func _on_poi_4_mouse_entered():
-	if $investigation_screen.State == "Examine":
-		if $investigation_screen.Checked[4] == false:
-			$investigation_screen/Crosshair.animation = "wut"
-		else:
-			$investigation_screen/Crosshair.animation = "gotchu"
-
-
-func _on_poi_4_pressed():
-	if $investigation_screen.State == "Examine":
-		$investigation_screen.State = "Dialogue"
-		$investigation_screen.Cur = int($poi_4.text)
-		$investigation_screen/BG/DialogueBox.text = Dialogue[$investigation_screen.Cur]
-		$investigation_screen.Checked[4] = true

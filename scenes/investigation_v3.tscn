@@ -1,14 +1,19 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation_v3.gd" type="Script" id=2]
 [ext_resource path="res://sprites/crosshair/uninvestigated.png" type="Texture" id=3]
 [ext_resource path="res://sprites/crosshair/investigated.png" type="Texture" id=4]
 [ext_resource path="res://sprites/crosshair/nothing.png" type="Texture" id=5]
+[ext_resource path="res://sprites/evidence/branch_big.png" type="Texture" id=6]
 [ext_resource path="res://sprites/evidence/badge.png" type="Texture" id=7]
+[ext_resource path="res://sprites/evidence/badge_big.png" type="Texture" id=8]
 [ext_resource path="res://sprites/evidence/body.png" type="Texture" id=9]
 [ext_resource path="res://sounds/fanfare_newev.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sprites/evidence/body_big.png" type="Texture" id=11]
 [ext_resource path="res://sprites/evidence/branch.png" type="Texture" id=12]
+[ext_resource path="res://sprites/evidence/knucklebuster_big.png" type="Texture" id=13]
+[ext_resource path="res://sprites/evidence/autopsy_big.png" type="Texture" id=14]
 [ext_resource path="res://sprites/evidence/knucklebuster.png" type="Texture" id=15]
 [ext_resource path="res://sprites/evidence/autopsy.png" type="Texture" id=16]
 [ext_resource path="res://sprites/evidence/footage.png" type="Texture" id=18]
@@ -57,9 +62,19 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -67,26 +82,16 @@ animations = [ {
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "knucklebuster",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
 } ]
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=7]
 blend_mode = 3
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -98,9 +103,19 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -108,27 +123,53 @@ animations = [ {
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "knucklebuster",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 size = 27
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "body",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "knucklebuster",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=11]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -206,9 +247,9 @@ visible = false
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 70.0
+margin_top = 64.0
 margin_right = 1024.0
-margin_bottom = 155.0
+margin_bottom = 149.0
 custom_constants/separation = 50
 alignment = 1
 __meta__ = {
@@ -300,6 +341,7 @@ frames = SubResource( 6 )
 animation = "badge"
 
 [node name="CourtRecord" type="Node2D" parent="."]
+visible = false
 
 [node name="BG" type="ColorRect" parent="CourtRecord"]
 margin_left = 192.0
@@ -315,16 +357,18 @@ margin_left = 16.0
 margin_top = 16.0
 margin_right = 80.0
 margin_bottom = 80.0
+rect_pivot_offset = Vector2( -190.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cell2" type="ColorRect" parent="CourtRecord/BG"]
-margin_left = 256.0
+margin_left = 96.0
 margin_top = 16.0
-margin_right = 320.0
+margin_right = 160.0
 margin_bottom = 80.0
+rect_pivot_offset = Vector2( -270.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -335,16 +379,18 @@ margin_left = 176.0
 margin_top = 16.0
 margin_right = 240.0
 margin_bottom = 80.0
+rect_pivot_offset = Vector2( -350.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cell4" type="ColorRect" parent="CourtRecord/BG"]
-margin_left = 96.0
+margin_left = 256.0
 margin_top = 16.0
-margin_right = 160.0
+margin_right = 320.0
 margin_bottom = 80.0
+rect_pivot_offset = Vector2( -430.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -355,16 +401,18 @@ margin_left = 16.0
 margin_top = 96.0
 margin_right = 80.0
 margin_bottom = 160.0
+rect_pivot_offset = Vector2( -190.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cell6" type="ColorRect" parent="CourtRecord/BG"]
-margin_left = 256.0
+margin_left = 96.0
 margin_top = 96.0
-margin_right = 320.0
+margin_right = 160.0
 margin_bottom = 160.0
+rect_pivot_offset = Vector2( -270.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -375,16 +423,18 @@ margin_left = 176.0
 margin_top = 96.0
 margin_right = 240.0
 margin_bottom = 160.0
+rect_pivot_offset = Vector2( -350.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cell8" type="ColorRect" parent="CourtRecord/BG"]
-margin_left = 96.0
+margin_left = 256.0
 margin_top = 96.0
-margin_right = 160.0
+margin_right = 320.0
 margin_bottom = 160.0
+rect_pivot_offset = Vector2( -430.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -395,16 +445,18 @@ margin_left = 16.0
 margin_top = 176.0
 margin_right = 80.0
 margin_bottom = 240.0
+rect_pivot_offset = Vector2( -190.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cell10" type="ColorRect" parent="CourtRecord/BG"]
-margin_left = 256.0
+margin_left = 96.0
 margin_top = 176.0
-margin_right = 320.0
+margin_right = 160.0
 margin_bottom = 240.0
+rect_pivot_offset = Vector2( -270.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -415,16 +467,18 @@ margin_left = 176.0
 margin_top = 176.0
 margin_right = 240.0
 margin_bottom = 240.0
+rect_pivot_offset = Vector2( -350.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cell12" type="ColorRect" parent="CourtRecord/BG"]
-margin_left = 96.0
+margin_left = 256.0
 margin_top = 176.0
-margin_right = 160.0
+margin_right = 320.0
 margin_bottom = 240.0
+rect_pivot_offset = Vector2( -430.863, 72 )
 color = Color( 0.831373, 0.831373, 0.831373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -470,8 +524,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ExpandBG2" type="ColorRect" parent="CourtRecord/BG"]
+visible = false
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 320.0
+margin_bottom = 240.0
+color = Color( 0.831373, 0.831373, 0.831373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ColorOverlay" type="ColorRect" parent="CourtRecord"]
-material = SubResource( 8 )
+material = SubResource( 7 )
 margin_left = 192.0
 margin_top = 64.0
 margin_right = 832.0
@@ -486,81 +551,70 @@ __meta__ = {
 [node name="Image1" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.604, 112.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image2" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320, 112 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image3" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400, 112 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image4" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480, 112 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image5" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 193 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image6" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image7" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image8" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image9" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 273 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image10" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image11" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Image12" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 9 )
-animation = "badge"
+frames = SubResource( 8 )
 
 [node name="Present" type="Button" parent="CourtRecord"]
+visible = false
 margin_left = 208.0
 margin_top = 320.0
 margin_right = 352.0
 margin_bottom = 384.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 text = "Показать"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -571,8 +625,47 @@ margin_left = 368.0
 margin_top = 320.0
 margin_right = 512.0
 margin_bottom = 384.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 text = "Прочесть"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="AnimatedSprite" parent="CourtRecord"]
+position = Vector2( 671.371, 148.25 )
+scale = Vector2( 0.774286, 0.774286 )
+frames = SubResource( 10 )
+
+[node name="Desc" type="Label" parent="CourtRecord"]
+margin_left = 536.0
+margin_top = 280.0
+margin_right = 808.0
+margin_bottom = 376.0
+custom_fonts/font = SubResource( 12 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="CourtRecord"]
+margin_left = 536.0
+margin_top = 248.0
+margin_right = 808.0
+margin_bottom = 272.0
+custom_fonts/font = SubResource( 12 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Expand" type="Label" parent="CourtRecord"]
+visible = false
+margin_left = 216.0
+margin_top = 88.0
+margin_right = 504.0
+margin_bottom = 296.0
+custom_fonts/font = SubResource( 12 )
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -590,35 +683,35 @@ __meta__ = {
 [node name="Choice1" type="Button" parent="Choices"]
 margin_right = 229.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Choice2" type="Button" parent="Choices"]
 margin_top = 43.0
 margin_right = 229.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Choice3" type="Button" parent="Choices"]
 margin_top = 86.0
 margin_right = 229.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Choice4" type="Button" parent="Choices"]
 margin_top = 129.0
 margin_right = 229.0
 margin_bottom = 168.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Chat" type="VBoxContainer" parent="."]
 visible = false
-margin_left = 384.0
+margin_left = 64.0
 margin_top = 168.0
-margin_right = 613.0
+margin_right = 293.0
 margin_bottom = 434.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -628,14 +721,14 @@ __meta__ = {
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Chat2" type="Button" parent="Chat"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Chat3" type="Button" parent="Chat"]
@@ -643,14 +736,52 @@ visible = false
 margin_top = 43.0
 margin_right = 228.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Chat4" type="Button" parent="Chat"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 11 )
+text = "Tes ФЫВ"
+
+[node name="Moves" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 64.0
+margin_top = 168.0
+margin_right = 293.0
+margin_bottom = 434.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Move1" type="Button" parent="Moves"]
+visible = false
+margin_right = 228.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 11 )
+text = "Tes ФЫВ"
+
+[node name="Move2" type="Button" parent="Moves"]
+visible = false
+margin_right = 228.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 11 )
+text = "Tes ФЫВ"
+
+[node name="Move3" type="Button" parent="Moves"]
+visible = false
+margin_right = 228.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 11 )
+text = "Tes ФЫВ"
+
+[node name="Move4" type="Button" parent="Moves"]
+visible = false
+margin_right = 228.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="First" type="Timer" parent="."]
@@ -659,12 +790,13 @@ one_shot = true
 autostart = true
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="ShowCourtRecord" to="." method="_on_ShowCourtRecord_pressed"]
 [connection signal="pressed" from="InvestigationButtons/Investigate" to="." method="_on_Investigate_pressed"]
 [connection signal="pressed" from="InvestigationButtons/Chat" to="." method="_on_Chat_pressed"]
 [connection signal="pressed" from="InvestigationButtons/Present" to="." method="_on_Present_pressed"]
 [connection signal="pressed" from="InvestigationButtons/Move" to="." method="_on_Move_pressed"]
 [connection signal="timeout" from="update" to="." method="_on_update_timeout"]
-[connection signal="pressed" from="CourtRecord/Present" to="." method="_on_Present_pressed"]
+[connection signal="pressed" from="CourtRecord/Present" to="." method="_on_PresentEvidence_pressed"]
 [connection signal="pressed" from="CourtRecord/Check" to="." method="_on_Check_pressed"]
 [connection signal="pressed" from="Choices/Choice1" to="." method="_on_Choices_pressed"]
 [connection signal="pressed" from="Choices/Choice2" to="." method="_on_Choices_pressed"]
@@ -674,4 +806,8 @@ autostart = true
 [connection signal="pressed" from="Chat/Chat2" to="." method="_on_Chats_pressed"]
 [connection signal="pressed" from="Chat/Chat3" to="." method="_on_Chats_pressed"]
 [connection signal="pressed" from="Chat/Chat4" to="." method="_on_Chats_pressed"]
+[connection signal="pressed" from="Moves/Move1" to="." method="_on_Moves_pressed"]
+[connection signal="pressed" from="Moves/Move2" to="." method="_on_Moves_pressed"]
+[connection signal="pressed" from="Moves/Move3" to="." method="_on_Moves_pressed"]
+[connection signal="pressed" from="Moves/Move4" to="." method="_on_Moves_pressed"]
 [connection signal="timeout" from="First" to="." method="_on_First_timeout"]

@@ -20,46 +20,6 @@ animations = [ {
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="poi_1" type="Button" parent="."]
-margin_left = 304.0
-margin_top = -8.0
-margin_right = 1034.0
-margin_bottom = 78.0
-text = "49"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="poi_2" type="Button" parent="."]
-margin_left = 612.842
-margin_top = 296.704
-margin_right = 804.842
-margin_bottom = 445.704
-text = "21"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="poi_3" type="Button" parent="."]
-margin_left = 210.0
-margin_top = 375.0
-margin_right = 385.0
-margin_bottom = 469.0
-text = "38"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="poi_4" type="Button" parent="."]
-margin_left = 114.0
-margin_top = -7.0
-margin_right = 273.0
-margin_bottom = 372.0
-text = "69"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="back_ground" type="AnimatedSprite" parent="."]
 position = Vector2( -306.573, -29.9619 )
 scale = Vector2( 0.573176, 0.573176 )
@@ -93,17 +53,31 @@ visible = false
 position = Vector2( -26.4335, 216.243 )
 
 [node name="investigation_screen" parent="." instance=ExtResource( 5 )]
-[connection signal="mouse_entered" from="poi_1" to="." method="_on_poi_1_mouse_entered"]
-[connection signal="mouse_exited" from="poi_1" to="." method="_on_poi_mouse_exited"]
-[connection signal="pressed" from="poi_1" to="." method="_on_poi_1_pressed"]
-[connection signal="mouse_entered" from="poi_2" to="." method="_on_poi_2_mouse_entered"]
-[connection signal="mouse_exited" from="poi_2" to="." method="_on_poi_mouse_exited"]
-[connection signal="pressed" from="poi_2" to="." method="_on_poi_2_pressed"]
-[connection signal="mouse_entered" from="poi_3" to="." method="_on_poi_3_mouse_entered"]
-[connection signal="mouse_exited" from="poi_3" to="." method="_on_poi_mouse_exited"]
-[connection signal="pressed" from="poi_3" to="." method="_on_poi_3_pressed"]
-[connection signal="mouse_entered" from="poi_4" to="." method="_on_poi_4_mouse_entered"]
-[connection signal="mouse_exited" from="poi_4" to="." method="_on_poi_mouse_exited"]
-[connection signal="pressed" from="poi_4" to="." method="_on_poi_4_pressed"]
+
+[node name="POIs" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="POIs"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 429.0
+margin_top = 254.0
+margin_right = 672.0
+margin_bottom = 305.0
+text = "127"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="POIs"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 519.0
+margin_top = 344.0
+margin_right = 891.0
+margin_bottom = 434.0
+text = "129"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="POIs/Button" to="investigation_screen" method="_on_POI_pressed"]
+[connection signal="pressed" from="POIs/Button2" to="investigation_screen" method="_on_POI_pressed"]
 
 [editable path="characters_all/character_tuvok"]
