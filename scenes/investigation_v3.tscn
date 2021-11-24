@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation_v3.gd" type="Script" id=2]
@@ -16,8 +16,10 @@
 [ext_resource path="res://sprites/evidence/autopsy_big.png" type="Texture" id=14]
 [ext_resource path="res://sprites/evidence/knucklebuster.png" type="Texture" id=15]
 [ext_resource path="res://sprites/evidence/autopsy.png" type="Texture" id=16]
+[ext_resource path="res://sprites/evidence/grafin.png" type="Texture" id=17]
 [ext_resource path="res://sprites/evidence/footage.png" type="Texture" id=18]
 [ext_resource path="res://sprites/record_cell.png" type="Texture" id=19]
+[ext_resource path="res://sprites/evidence/grafin_big.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -51,6 +53,7 @@ animations = [ {
 blend_mode = 3
 
 [sub_resource type="SpriteFrames" id=6]
+resource_name = "EvidenceSpFr"
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -67,9 +70,9 @@ animations = [ {
 "name": "footage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "badge",
+"name": "report",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -77,57 +80,24 @@ animations = [ {
 "name": "branch",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "report",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "knucklebuster",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "grafin",
 "speed": 5.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=7]
 blend_mode = 3
-
-[sub_resource type="SpriteFrames" id=8]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "body",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "badge",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "report",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "knucklebuster",
-"speed": 5.0
-} ]
 
 [sub_resource type="DynamicFont" id=9]
 size = 27
@@ -145,9 +115,9 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "badge",
+"name": "report",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -155,21 +125,26 @@ animations = [ {
 "name": "branch",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "report",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "knucklebuster",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -338,7 +313,6 @@ __meta__ = {
 position = Vector2( -0.286477, -0.441175 )
 scale = Vector2( 0.817042, 0.817042 )
 frames = SubResource( 6 )
-animation = "badge"
 
 [node name="CourtRecord" type="Node2D" parent="."]
 visible = false
@@ -551,62 +525,62 @@ __meta__ = {
 [node name="Image1" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.604, 112.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image2" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320, 112 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image3" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400, 112 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image4" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480, 112 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image5" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 193 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image6" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image7" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image8" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image9" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 273 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image10" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image11" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Image12" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Present" type="Button" parent="CourtRecord"]
 visible = false
@@ -641,7 +615,7 @@ margin_left = 536.0
 margin_top = 280.0
 margin_right = 808.0
 margin_bottom = 376.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -652,7 +626,7 @@ margin_left = 536.0
 margin_top = 248.0
 margin_right = 808.0
 margin_bottom = 272.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -664,7 +638,7 @@ margin_left = 216.0
 margin_top = 88.0
 margin_right = 504.0
 margin_bottom = 296.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -683,28 +657,31 @@ __meta__ = {
 [node name="Choice1" type="Button" parent="Choices"]
 margin_right = 229.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Choice2" type="Button" parent="Choices"]
+visible = false
 margin_top = 43.0
 margin_right = 229.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Choice3" type="Button" parent="Choices"]
+visible = false
 margin_top = 86.0
 margin_right = 229.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Choice4" type="Button" parent="Choices"]
+visible = false
 margin_top = 129.0
 margin_right = 229.0
 margin_bottom = 168.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Chat" type="VBoxContainer" parent="."]
@@ -721,14 +698,14 @@ __meta__ = {
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Chat2" type="Button" parent="Chat"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Chat3" type="Button" parent="Chat"]
@@ -736,14 +713,14 @@ visible = false
 margin_top = 43.0
 margin_right = 228.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Chat4" type="Button" parent="Chat"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Moves" type="VBoxContainer" parent="."]
@@ -760,28 +737,28 @@ __meta__ = {
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Move2" type="Button" parent="Moves"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Move3" type="Button" parent="Moves"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="Move4" type="Button" parent="Moves"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Tes ФЫВ"
 
 [node name="First" type="Timer" parent="."]

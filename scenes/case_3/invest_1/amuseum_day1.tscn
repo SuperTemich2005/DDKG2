@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/case_3/invest_1/amuseum_day1.gd" type="Script" id=1]
+[ext_resource path="res://sprites/background/ahata_bg.png" type="Texture" id=3]
+[ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/investigation_v3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/character_scenes/character_zheka_halal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/character_scenes/character_temichlegs.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/character_scenes/character_zheka.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/character_scenes/character_tuvok.tscn" type="PackedScene" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="back_ground" type="AnimatedSprite" parent="."]
+position = Vector2( -306.573, -29.9619 )
+scale = Vector2( 0.573176, 0.573176 )
+frames = SubResource( 1 )
+centered = false
+
+[node name="characters_all" type="Node2D" parent="."]
+position = Vector2( -1, -115 )
+
+[node name="character_egorich" parent="characters_all" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 1, 115 )
+
+[node name="character_temich" parent="characters_all" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 9.52441, 190.488 )
+
+[node name="character_zheka" parent="characters_all" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 1, 115 )
+
+[node name="character_tuvok" parent="characters_all" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 0, 152 )
+
+[node name="desk" parent="characters_all/character_tuvok" index="1"]
+visible = false
+
+[node name="character_halal" parent="characters_all" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( -26.4335, 216.243 )
+
+[node name="investigation_screen" parent="." instance=ExtResource( 5 )]
+
+[node name="POIs" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="POIs"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 429.0
+margin_top = 254.0
+margin_right = 672.0
+margin_bottom = 305.0
+text = "127"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="POIs"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 519.0
+margin_top = 344.0
+margin_right = 891.0
+margin_bottom = 434.0
+text = "129"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="POIs/Button" to="investigation_screen" method="_on_POI_pressed"]
+[connection signal="pressed" from="POIs/Button2" to="investigation_screen" method="_on_POI_pressed"]
+
+[editable path="characters_all/character_tuvok"]

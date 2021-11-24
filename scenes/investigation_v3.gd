@@ -44,10 +44,11 @@ func refresh():
 
 func _on_Choices_pressed():
 	if State == "Choice":
-		for i in $Choices.get_children():
-			if i.pressed:
-				Cur = int(get_parent().Dialogue[Cur].split("|")[5].split(";")[i].split(":")[1])-1
+		for i in range(0,len($Choices.get_children())):
+			if $Choices.get_children()[i].pressed:
+				Cur = int(get_parent().Dialogue[Cur].split("|")[5].split(";")[i+1].split(":")[1])-1
 		State = "Dialogue"
+		$Choices.hide()
 		_on_Next_pressed()
 
 
@@ -107,9 +108,9 @@ func _on_Next_pressed():
 									State = "Choice"
 									$Next.hide()
 									$Choices.show()
-									for i in range(1,get_parent().Dialogue[Cur].split("|")[5].split(";").size()+1):
-										$Choices.get_child(i).show()
-										$Choices.get_child(i).text = get_parent().Dialogue[Cur].split("|")[5].split(";")[i].split(":")[0]
+									for i in range(1,get_parent().Dialogue[Cur].split("|")[5].split(";").size()):
+										$Choices.get_children()[i-1].show()
+										$Choices.get_children()[i-1].text = get_parent().Dialogue[Cur].split("|")[5].split(";")[i].split(":")[0]
 								elif get_parent().Dialogue[Cur].split("|")[5].split(" ")[0] == "show":
 									$show_cell/evidence.animation = get_parent().Dialogue[Cur].split("|")[5].split(" ")[1]
 									$show_cell.show()
