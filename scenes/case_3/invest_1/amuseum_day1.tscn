@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/case_3/invest_1/amuseum_day1.gd" type="Script" id=1]
 [ext_resource path="res://sprites/background/bpirogov_bg.jpg" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/character_scenes/character_temichlegs.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/character_scenes/character_zheka.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/character_scenes/character_tuvok.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/character_scenes/character_sonya.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -57,6 +58,10 @@ visible = false
 [node name="character_halal" parent="characters_all" instance=ExtResource( 6 )]
 visible = false
 position = Vector2( -26.4335, 216.243 )
+
+[node name="character_sonya" parent="characters_all" instance=ExtResource( 10 )]
+visible = false
+position = Vector2( -2.11902, 122.898 )
 
 [node name="investigation_screen" parent="." instance=ExtResource( 5 )]
 
