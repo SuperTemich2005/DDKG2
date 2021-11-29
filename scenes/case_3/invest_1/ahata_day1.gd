@@ -12,7 +12,9 @@ var read_chats
 var check_for_read_chats
 var goto_when_read
 var NoShow
+var BoxColor
 func _ready():
+	BoxColor = Color(0.5,1,0.5,1)
 	Dialogue = [ # диалоги. 
 		"6 октября. 12:50. 'Пузатий пан' 1-й этаж.|G",
 		"Жека: Я подсяду?|W|character_zheka default|START panhata_bgm|---",

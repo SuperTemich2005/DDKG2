@@ -28,6 +28,12 @@ func _ready():
 
 
 func refresh():
+	if "BoxColor" in get_parent():
+		$CourtRecord/ColorOverlay.color = Color(get_parent().BoxColor)
+		$show_cell/color.color = Color(get_parent().BoxColor)
+	else:
+		$CourtRecord/ColorOverlay.color = Color(0.5,0.5,1,1)
+		$show_cell/color.color = Color(0.5,0.5,1,1)
 	for i in range(1,5):
 		if get_parent().Chats[i-1] != "":
 			$Chat.get_children()[i-1].text = get_parent().Chats[i-1].split(";")[0]
@@ -79,16 +85,19 @@ func _on_Next_pressed():
 			if get_parent().Dialogue[Cur].split("|").size() >= 3: # has animation def
 				if get_parent().Dialogue[Cur].split("|")[2] != "---":
 					#print("Reanim")
-					for i in get_parent().get_node("characters_all").get_children():
-						i.hide()
-						#print("hid ",i.name)
-					var target = get_parent().get_node("characters_all/"+get_parent().Dialogue[Cur].split("|")[2].split(" ")[0])
-					#print(target.name)
-					if get_parent().Dialogue[Cur].split("|")[2].split(" ")[1] != "HIDE":
-						target.get_node("sprite").animation = get_parent().Dialogue[Cur].split("|")[2].split(" ")[1]
-						target.show()
+					if get_parent().Dialogue[Cur].split("|")[2].split("_")[0] == "character":
+						for i in get_parent().get_node("characters_all").get_children():
+							i.hide()
+							#print("hid ",i.name)
+						var target = get_parent().get_node("characters_all/"+get_parent().Dialogue[Cur].split("|")[2].split(" ")[0])
+						#print(target.name)
+						if get_parent().Dialogue[Cur].split("|")[2].split(" ")[1] != "HIDE":
+							target.get_node("sprite").animation = get_parent().Dialogue[Cur].split("|")[2].split(" ")[1]
+							target.show()
+						else:
+							target.hide()
 					else:
-						target.hide()
+						get_parent().get_node("back_ground").animation = get_parent().Dialogue[Cur].split("|")[2]
 				if get_parent().Dialogue[Cur].split("|").size() >= 4:
 					if get_parent().Dialogue[Cur].split("|")[3] != "---":
 						if get_parent().Dialogue[Cur].split("|")[3].split(" ")[0] == "START":

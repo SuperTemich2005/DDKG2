@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/case_3/invest_1/amuseum_day1.gd" type="Script" id=1]
-[ext_resource path="res://sprites/background/ahata_bg.png" type="Texture" id=3]
+[ext_resource path="res://sprites/background/bpirogov_bg.jpg" type="Texture" id=2]
+[ext_resource path="res://sprites/background/apirogov_bg.jpg" type="Texture" id=3]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/investigation_v3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/character_scenes/character_zheka_halal.tscn" type="PackedScene" id=6]
@@ -15,14 +16,19 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default2",
+"speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="back_ground" type="AnimatedSprite" parent="."]
-position = Vector2( -306.573, -29.9619 )
-scale = Vector2( 0.573176, 0.573176 )
+position = Vector2( -13.1017, -7.71325 )
+scale = Vector2( 1.04387, 1.04387 )
 frames = SubResource( 1 )
 centered = false
 
@@ -55,29 +61,5 @@ position = Vector2( -26.4335, 216.243 )
 [node name="investigation_screen" parent="." instance=ExtResource( 5 )]
 
 [node name="POIs" type="Node2D" parent="."]
-
-[node name="Button" type="Button" parent="POIs"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 429.0
-margin_top = 254.0
-margin_right = 672.0
-margin_bottom = 305.0
-text = "127"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button2" type="Button" parent="POIs"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 519.0
-margin_top = 344.0
-margin_right = 891.0
-margin_bottom = 434.0
-text = "129"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="POIs/Button" to="investigation_screen" method="_on_POI_pressed"]
-[connection signal="pressed" from="POIs/Button2" to="investigation_screen" method="_on_POI_pressed"]
 
 [editable path="characters_all/character_tuvok"]

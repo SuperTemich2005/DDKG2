@@ -38,14 +38,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "gotchu",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "wut",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "gotchu",
 "speed": 5.0
 } ]
 
@@ -70,16 +70,6 @@ animations = [ {
 "name": "footage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "report",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "knucklebuster",
@@ -94,16 +84,26 @@ animations = [ {
 "loop": true,
 "name": "grafin",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=7]
 blend_mode = 3
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 27
 font_data = ExtResource( 1 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -113,16 +113,6 @@ animations = [ {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "body",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "report",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -139,12 +129,22 @@ animations = [ {
 "loop": true,
 "name": "grafin",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -588,7 +588,7 @@ margin_left = 208.0
 margin_top = 320.0
 margin_right = 352.0
 margin_bottom = 384.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Показать"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -599,7 +599,7 @@ margin_left = 368.0
 margin_top = 320.0
 margin_right = 512.0
 margin_bottom = 384.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Прочесть"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -608,14 +608,14 @@ __meta__ = {
 [node name="Viewport" type="AnimatedSprite" parent="CourtRecord"]
 position = Vector2( 671.371, 148.25 )
 scale = Vector2( 0.774286, 0.774286 )
-frames = SubResource( 10 )
+frames = SubResource( 9 )
 
 [node name="Desc" type="Label" parent="CourtRecord"]
 margin_left = 536.0
 margin_top = 280.0
 margin_right = 808.0
 margin_bottom = 376.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -626,7 +626,7 @@ margin_left = 536.0
 margin_top = 248.0
 margin_right = 808.0
 margin_bottom = 272.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -638,7 +638,7 @@ margin_left = 216.0
 margin_top = 88.0
 margin_right = 504.0
 margin_bottom = 296.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -657,7 +657,7 @@ __meta__ = {
 [node name="Choice1" type="Button" parent="Choices"]
 margin_right = 229.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Choice2" type="Button" parent="Choices"]
@@ -665,7 +665,7 @@ visible = false
 margin_top = 43.0
 margin_right = 229.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Choice3" type="Button" parent="Choices"]
@@ -673,7 +673,7 @@ visible = false
 margin_top = 86.0
 margin_right = 229.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Choice4" type="Button" parent="Choices"]
@@ -681,7 +681,7 @@ visible = false
 margin_top = 129.0
 margin_right = 229.0
 margin_bottom = 168.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Chat" type="VBoxContainer" parent="."]
@@ -698,14 +698,14 @@ __meta__ = {
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Chat2" type="Button" parent="Chat"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Chat3" type="Button" parent="Chat"]
@@ -713,14 +713,14 @@ visible = false
 margin_top = 43.0
 margin_right = 228.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Chat4" type="Button" parent="Chat"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Moves" type="VBoxContainer" parent="."]
@@ -737,28 +737,28 @@ __meta__ = {
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Move2" type="Button" parent="Moves"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Move3" type="Button" parent="Moves"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="Move4" type="Button" parent="Moves"]
 visible = false
 margin_right = 228.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Tes ФЫВ"
 
 [node name="First" type="Timer" parent="."]
