@@ -38,25 +38,15 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "no",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "thonker",
+"name": "rage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "annoyed",
+"name": "yee",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "rekt",
-"speed": 15.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
@@ -73,29 +63,29 @@ animations = [ {
 "name": "comeon",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "picard",
-"speed": 5.0
+"frames": [ ExtResource( 27 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "rekt",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "deskslam",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "annoyed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "picard",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "dadada",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
-"loop": false,
-"name": "objection_1",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "paper",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -103,14 +93,24 @@ animations = [ {
 "name": "damn",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "yee",
+"name": "paper",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "objection_1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "no",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "rage",
+"name": "thonker",
 "speed": 5.0
 } ]
 

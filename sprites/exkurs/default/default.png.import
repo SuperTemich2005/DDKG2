@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hmm_01.png-77b7762adf9305825423877518dbcd08.stex"
+path="res://.import/default.png-75c174296361e67799ef9a0b14b7322a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ltnjud/hmm/hmm_01.png"
-dest_files=[ "res://.import/hmm_01.png-77b7762adf9305825423877518dbcd08.stex" ]
+source_file="res://sprites/exkurs/default/default.png"
+dest_files=[ "res://.import/default.png-75c174296361e67799ef9a0b14b7322a.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
