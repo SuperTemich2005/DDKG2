@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rage.png-99c18bea3449db725beae9255935dabc.stex"
+path="res://.import/cpirogov_bg.jpg-8e142d222e4e486b77f079b372a5e66e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gg_lviv/rage/rage.png"
-dest_files=[ "res://.import/rage.png-99c18bea3449db725beae9255935dabc.stex" ]
+source_file="res://sprites/background/cpirogov_bg.jpg"
+dest_files=[ "res://.import/cpirogov_bg.jpg-8e142d222e4e486b77f079b372a5e66e.stex" ]
 
 [params]
 

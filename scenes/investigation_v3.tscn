@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation_v3.gd" type="Script" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://sprites/evidence/footage.png" type="Texture" id=18]
 [ext_resource path="res://sprites/record_cell.png" type="Texture" id=19]
 [ext_resource path="res://sprites/evidence/grafin_big.png" type="Texture" id=20]
+[ext_resource path="res://sprites/evidence/money.png" type="Texture" id=21]
+[ext_resource path="res://sprites/evidence/money_big.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -65,14 +67,19 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "money",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "footage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "knucklebuster",
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -90,9 +97,9 @@ animations = [ {
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "branch",
+"name": "knucklebuster",
 "speed": 5.0
 } ]
 
@@ -115,9 +122,14 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 22 ) ],
 "loop": true,
-"name": "knucklebuster",
+"name": "money",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -135,9 +147,9 @@ animations = [ {
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "branch",
+"name": "knucklebuster",
 "speed": 5.0
 } ]
 
@@ -166,8 +178,8 @@ margin_left = 36.0
 margin_top = 10.0
 margin_right = 879.0
 margin_bottom = 104.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "..."
 autowrap = true
 __meta__ = {
@@ -313,6 +325,7 @@ __meta__ = {
 position = Vector2( -0.286477, -0.441175 )
 scale = Vector2( 0.817042, 0.817042 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="CourtRecord" type="Node2D" parent="."]
 visible = false
@@ -531,56 +544,67 @@ frames = SubResource( 6 )
 position = Vector2( 320, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Image3" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Image4" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Image5" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 193 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Image6" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Image7" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Image8" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Image9" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 273 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Image10" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Image11" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Image12" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "money"
 
 [node name="Present" type="Button" parent="CourtRecord"]
 visible = false
@@ -765,6 +789,7 @@ text = "Tes ФЫВ"
 wait_time = 0.5
 one_shot = true
 autostart = true
+
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="ShowCourtRecord" to="." method="_on_ShowCourtRecord_pressed"]

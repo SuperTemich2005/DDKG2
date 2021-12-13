@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rage.png-99c18bea3449db725beae9255935dabc.stex"
+path="res://.import/money.png-0bbb0da592b430f1e024761c87792f34.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gg_lviv/rage/rage.png"
-dest_files=[ "res://.import/rage.png-99c18bea3449db725beae9255935dabc.stex" ]
+source_file="res://sprites/evidence/money.png"
+dest_files=[ "res://.import/money.png-0bbb0da592b430f1e024761c87792f34.stex" ]
 
 [params]
 
