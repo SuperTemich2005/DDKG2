@@ -93,6 +93,25 @@ position = Vector2( -13.7729, 204.476 )
 
 [node name="investigation_screen" parent="." instance=ExtResource( 5 )]
 
+[node name="Investigate" parent="investigation_screen/InvestigationButtons" index="0"]
+margin_left = 37.0
+margin_right = 273.0
+
+[node name="Chat" parent="investigation_screen/InvestigationButtons" index="1"]
+margin_left = 323.0
+margin_right = 535.0
+
+[node name="Present" parent="investigation_screen/InvestigationButtons" index="2"]
+self_modulate = Color( 0.992157, 1, 0, 1 )
+margin_left = 585.0
+margin_right = 821.0
+text = "Лентольна"
+
+[node name="Move" parent="investigation_screen/InvestigationButtons" index="3"]
+margin_left = 871.0
+margin_right = 987.0
+
 [node name="POIs" type="Node2D" parent="."]
 
 [editable path="characters_all/character_tuvok"]
+[editable path="investigation_screen"]

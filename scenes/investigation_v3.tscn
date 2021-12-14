@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation_v3.gd" type="Script" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://sprites/evidence/grafin_big.png" type="Texture" id=20]
 [ext_resource path="res://sprites/evidence/money.png" type="Texture" id=21]
 [ext_resource path="res://sprites/evidence/money_big.png" type="Texture" id=22]
+[ext_resource path="res://sprites/evidence/halal.png" type="Texture" id=23]
+[ext_resource path="res://sprites/evidence/halal_big.png" type="Texture" id=24]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -40,14 +42,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "wut",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "gotchu",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "wut",
 "speed": 5.0
 } ]
 
@@ -57,6 +59,11 @@ blend_mode = 3
 [sub_resource type="SpriteFrames" id=6]
 resource_name = "EvidenceSpFr"
 animations = [ {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "hijab",
+"speed": 5.0
+}, {
 "frames": [  ],
 "loop": true,
 "name": "default",
@@ -75,11 +82,6 @@ animations = [ {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -101,6 +103,11 @@ animations = [ {
 "loop": true,
 "name": "knucklebuster",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=7]
@@ -112,6 +119,11 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "hijab",
+"speed": 5.0
+}, {
 "frames": [  ],
 "loop": true,
 "name": "default",
@@ -125,11 +137,6 @@ animations = [ {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "money",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -150,6 +157,11 @@ animations = [ {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "knucklebuster",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "branch",
 "speed": 5.0
 } ]
 
@@ -325,7 +337,7 @@ __meta__ = {
 position = Vector2( -0.286477, -0.441175 )
 scale = Vector2( 0.817042, 0.817042 )
 frames = SubResource( 6 )
-animation = "money"
+animation = "hijab"
 
 [node name="CourtRecord" type="Node2D" parent="."]
 visible = false
@@ -544,67 +556,56 @@ frames = SubResource( 6 )
 position = Vector2( 320, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Image3" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Image4" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Image5" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 193 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Image6" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Image7" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Image8" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Image9" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 273 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Image10" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Image11" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Image12" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "money"
 
 [node name="Present" type="Button" parent="CourtRecord"]
 visible = false

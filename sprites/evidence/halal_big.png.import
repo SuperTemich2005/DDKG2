@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/objection_05.png-9b16fb31f774f34279a49e09f3f92bb9.stex"
+path="res://.import/halal_big.png-0d7e4b5f0f4a651359c6735ec2ff9ed4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gg_lviv/objection_1/objection_05.png"
-dest_files=[ "res://.import/objection_05.png-9b16fb31f774f34279a49e09f3f92bb9.stex" ]
+source_file="res://sprites/evidence/halal_big.png"
+dest_files=[ "res://.import/halal_big.png-0d7e4b5f0f4a651359c6735ec2ff9ed4.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
