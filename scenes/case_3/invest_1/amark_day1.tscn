@@ -1,0 +1,98 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scenes/case_3/invest_1/amark_day1.gd" type="Script" id=1]
+[ext_resource path="res://sprites/background/bpirogov_bg.jpg" type="Texture" id=2]
+[ext_resource path="res://sprites/background/apirogov_bg.jpg" type="Texture" id=3]
+[ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/investigation_v3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/character_scenes/character_zheka_halal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/character_scenes/character_temichlegs.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/character_scenes/character_zheka.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/character_scenes/character_tuvok.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/character_scenes/character_sonya.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/background/cpirogov_bg.jpg" type="Texture" id=11]
+[ext_resource path="res://sprites/background/dpirogov_bg.jpg" type="Texture" id=12]
+[ext_resource path="res://scenes/character_scenes/character_mashasis.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/character_scenes/character_sewa.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/character_scenes/character_layton.tscn" type="PackedScene" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "default3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "default4",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="back_ground" type="AnimatedSprite" parent="."]
+position = Vector2( -13.1017, -7.71325 )
+scale = Vector2( 1.04387, 1.04387 )
+frames = SubResource( 1 )
+animation = "default4"
+centered = false
+
+[node name="characters_all" type="Node2D" parent="."]
+position = Vector2( -1, -115 )
+
+[node name="character_egorich" parent="characters_all" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 1, 115 )
+
+[node name="character_temich" parent="characters_all" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 9.52441, 190.488 )
+
+[node name="character_zheka" parent="characters_all" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 1, 115 )
+
+[node name="character_tuvok" parent="characters_all" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 0, 152 )
+
+[node name="desk" parent="characters_all/character_tuvok" index="1"]
+visible = false
+
+[node name="character_halal" parent="characters_all" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( -26.4335, 216.243 )
+
+[node name="character_sonya" parent="characters_all" instance=ExtResource( 10 )]
+visible = false
+position = Vector2( -2.11902, 122.898 )
+
+[node name="character_mashasis" parent="characters_all" instance=ExtResource( 13 )]
+visible = false
+position = Vector2( -1.05945, 222.487 )
+
+[node name="character_sewa" parent="characters_all" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 0, 200 )
+
+[node name="character_lentoln" parent="characters_all" instance=ExtResource( 15 )]
+visible = false
+position = Vector2( -13.7729, 204.476 )
+
+[node name="investigation_screen" parent="." instance=ExtResource( 5 )]
+
+[node name="POIs" type="Node2D" parent="."]
+
+[editable path="characters_all/character_tuvok"]
