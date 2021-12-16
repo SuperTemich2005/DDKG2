@@ -42,14 +42,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "gotchu",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "wut",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "gotchu",
 "speed": 5.0
 } ]
 
@@ -59,11 +59,6 @@ blend_mode = 3
 [sub_resource type="SpriteFrames" id=6]
 resource_name = "EvidenceSpFr"
 animations = [ {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "hijab",
-"speed": 5.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "default",
@@ -72,6 +67,21 @@ animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "body",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "hijab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 21 ) ],
@@ -89,11 +99,6 @@ animations = [ {
 "name": "badge",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "grafin",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "report",
@@ -102,11 +107,6 @@ animations = [ {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "knucklebuster",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
 "speed": 5.0
 } ]
 
@@ -119,11 +119,6 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 24 ) ],
-"loop": true,
-"name": "hijab",
-"speed": 5.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "default",
@@ -132,6 +127,21 @@ animations = [ {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "body",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "hijab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ) ],
@@ -144,11 +154,6 @@ animations = [ {
 "name": "badge",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "grafin",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "report",
@@ -157,11 +162,6 @@ animations = [ {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "knucklebuster",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "branch",
 "speed": 5.0
 } ]
 
@@ -337,7 +337,7 @@ __meta__ = {
 position = Vector2( -0.286477, -0.441175 )
 scale = Vector2( 0.817042, 0.817042 )
 frames = SubResource( 6 )
-animation = "hijab"
+animation = "autopsy"
 
 [node name="CourtRecord" type="Node2D" parent="."]
 visible = false
@@ -551,61 +551,73 @@ __meta__ = {
 position = Vector2( 240.604, 112.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image2" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image3" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image4" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image5" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 193 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image6" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image7" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image8" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image9" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 273 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image10" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image11" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Image12" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
+animation = "autopsy"
 
 [node name="Present" type="Button" parent="CourtRecord"]
 visible = false

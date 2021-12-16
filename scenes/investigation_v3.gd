@@ -128,9 +128,20 @@ func _on_Next_pressed():
 									# 0Text|1Color|2Anim|3BGM|4React|5id|6nameint;desc;exp;ver
 									save_file.load("C:/Games/ddkg2.save")
 									print("Adding evidence")
-									if save_file.get_value("Evidence",get_parent().Dialogue[Cur].split("|")[5],"-20;-20;-20;-20;-20").split(";")[-1] < get_parent().Dialogue[Cur].split("|")[5].split(";")[-1]:
-										print("adding evidence id ",get_parent().Dialogue[Cur].split("|")[5],": ",get_parent().Dialogue[Cur].split("|")[6])
-										save_file.set_value("Evidence",get_parent().Dialogue[Cur].split("|")[5],get_parent().Dialogue[Cur].split("|")[6])
+									var refr = false # не добавляем новую улику? false - добавляем новую улику
+									for x in range(1,1+save_file.get_section_keys("Evidence").size()): # счетчик сравнивает текущую улику с каждой уликой в записях
+										print("Сравнение ",x," ",save_file.get_value("Evidence",str(x))," с ",get_parent().Dialogue[Cur].split("|")[6])
+										if save_file.get_value("Evidence",str(x)) == get_parent().Dialogue[Cur].split("|")[6]: # есть ли такая улика уже
+											print("совпадение")
+											if int(save_file.get_value("Evidence",str(x)).split(";")[-1]) < int(get_parent().Dialogue[Cur].split("|")[6].split(";")[-1]): # новее ли улика
+												print("adding evidence id ",get_parent().Dialogue[Cur].split("|")[5],": ",get_parent().Dialogue[Cur].split("|")[6])
+												save_file.set_value("Evidence",get_parent().Dialogue[Cur].split("|")[5],get_parent().Dialogue[Cur].split("|")[6])
+												save_file.save("C:/Games/ddkg2.save")
+											refr = true # не добавляем новую улику
+											break
+									if not refr: # если добавляем новую улику
+										print("adding evidence id ",str(1+save_file.get_section_keys("Evidence").size()),": ",get_parent().Dialogue[Cur].split("|")[6])
+										save_file.set_value("Evidence",str(1+save_file.get_section_keys("Evidence").size()),get_parent().Dialogue[Cur].split("|")[6])
 										save_file.save("C:/Games/ddkg2.save")
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
 		get_tree().change_scene(get_parent().Dialogue[Cur].split(" ")[1])
@@ -165,7 +176,7 @@ func _input(event):
 			for i in range(1,len(save_file.get_section_keys("Evidence"))+1):
 				if get_node("CourtRecord/BG/Cell"+str(i)).get_global_rect().has_point(event.position):
 					Selected = i
-					#print(i)
+					#if Selected < save_file.get_section_keys().size():
 					$CourtRecord/Viewport.animation = get_node("CourtRecord/Cells/Image"+str(i)).animation
 					$CourtRecord/Name.text = save_file.get_value("Evidence",str(i)).split(";")[1]
 					$CourtRecord/Desc.text = save_file.get_value("Evidence",str(i)).split(";")[2]
