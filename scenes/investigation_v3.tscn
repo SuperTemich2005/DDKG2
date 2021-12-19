@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation_v3.gd" type="Script" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://sprites/evidence/money_big.png" type="Texture" id=22]
 [ext_resource path="res://sprites/evidence/halal.png" type="Texture" id=23]
 [ext_resource path="res://sprites/evidence/halal_big.png" type="Texture" id=24]
+[ext_resource path="res://sprites/evidence/affidavit.png" type="Texture" id=25]
+[ext_resource path="res://sprites/evidence/affidavit_big.png" type="Texture" id=26]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -69,16 +71,6 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "hijab",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "grafin",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "branch",
@@ -89,14 +81,24 @@ animations = [ {
 "name": "money",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "hijab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "knucklebuster",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "badge",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -104,9 +106,14 @@ animations = [ {
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "knucklebuster",
+"name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "aff",
 "speed": 5.0
 } ]
 
@@ -129,16 +136,6 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
-"loop": true,
-"name": "hijab",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "grafin",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "branch",
@@ -149,9 +146,19 @@ animations = [ {
 "name": "money",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 24 ) ],
 "loop": true,
-"name": "badge",
+"name": "hijab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "knucklebuster",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -159,9 +166,14 @@ animations = [ {
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "knucklebuster",
+"name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "aff",
 "speed": 5.0
 } ]
 
@@ -337,7 +349,6 @@ __meta__ = {
 position = Vector2( -0.286477, -0.441175 )
 scale = Vector2( 0.817042, 0.817042 )
 frames = SubResource( 6 )
-animation = "autopsy"
 
 [node name="CourtRecord" type="Node2D" parent="."]
 visible = false
@@ -551,73 +562,73 @@ __meta__ = {
 position = Vector2( 240.604, 112.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image2" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image3" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image4" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480, 112 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image5" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 193 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image6" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image7" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image8" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 192.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image9" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 240.896, 273 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image10" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 320.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image11" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 400.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Image12" type="AnimatedSprite" parent="CourtRecord/Cells"]
 position = Vector2( 480.293, 272.5 )
 scale = Vector2( 0.792683, 0.792683 )
 frames = SubResource( 6 )
-animation = "autopsy"
+animation = "aff"
 
 [node name="Present" type="Button" parent="CourtRecord"]
 visible = false

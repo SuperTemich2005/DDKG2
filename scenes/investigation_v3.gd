@@ -1,4 +1,5 @@
 extends Node2D
+signal next
 # WHY DO I HAVE TO DO DIS(((((((
 
 # Declare member variables here. Examples:
@@ -59,6 +60,7 @@ func _on_Choices_pressed():
 
 
 func _on_Next_pressed():
+	emit_signal("next")
 	Cur+=1
 	ShowChars = 0
 	$show_cell.hide()
@@ -134,8 +136,8 @@ func _on_Next_pressed():
 										if save_file.get_value("Evidence",str(x)) == get_parent().Dialogue[Cur].split("|")[6]: # есть ли такая улика уже
 											print("совпадение")
 											if int(save_file.get_value("Evidence",str(x)).split(";")[-1]) < int(get_parent().Dialogue[Cur].split("|")[6].split(";")[-1]): # новее ли улика
-												print("adding evidence id ",get_parent().Dialogue[Cur].split("|")[5],": ",get_parent().Dialogue[Cur].split("|")[6])
-												save_file.set_value("Evidence",get_parent().Dialogue[Cur].split("|")[5],get_parent().Dialogue[Cur].split("|")[6])
+												print("adding evidence id ",str(x),": ",get_parent().Dialogue[Cur].split("|")[6])
+												save_file.set_value("Evidence",str(x),get_parent().Dialogue[Cur].split("|")[6])
 												save_file.save("C:/Games/ddkg2.save")
 											refr = true # не добавляем новую улику
 											break

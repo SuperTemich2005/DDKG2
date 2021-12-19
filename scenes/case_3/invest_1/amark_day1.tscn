@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/case_3/invest_1/amark_day1.gd" type="Script" id=1]
-[ext_resource path="res://sprites/background/bpirogov_bg.jpg" type="Texture" id=2]
-[ext_resource path="res://sprites/background/apirogov_bg.jpg" type="Texture" id=3]
+[ext_resource path="res://sprites/background/bbus_bg.jpg" type="Texture" id=2]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/investigation_v3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/character_scenes/character_zheka_halal.tscn" type="PackedScene" id=6]
@@ -10,7 +9,6 @@
 [ext_resource path="res://scenes/character_scenes/character_zheka.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/character_scenes/character_tuvok.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/character_scenes/character_sonya.tscn" type="PackedScene" id=10]
-[ext_resource path="res://sprites/background/cpirogov_bg.jpg" type="Texture" id=11]
 [ext_resource path="res://sprites/background/dpirogov_bg.jpg" type="Texture" id=12]
 [ext_resource path="res://scenes/character_scenes/character_mashasis.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/character_scenes/character_sewa.tscn" type="PackedScene" id=14]
@@ -18,16 +16,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "default3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "default4",
@@ -35,7 +23,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "default2",
+"name": "photo",
 "speed": 5.0
 } ]
 
@@ -43,7 +31,7 @@ animations = [ {
 script = ExtResource( 1 )
 
 [node name="back_ground" type="AnimatedSprite" parent="."]
-position = Vector2( -13.1017, -7.71325 )
+position = Vector2( -10.9827, -39.4971 )
 scale = Vector2( 1.04387, 1.04387 )
 frames = SubResource( 1 )
 animation = "default4"
@@ -112,6 +100,8 @@ margin_left = 871.0
 margin_right = 987.0
 
 [node name="POIs" type="Node2D" parent="."]
+
+[connection signal="next" from="investigation_screen" to="." method="_on_investigation_screen_next"]
 
 [editable path="characters_all/character_tuvok"]
 [editable path="investigation_screen"]
