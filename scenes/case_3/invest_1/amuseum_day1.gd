@@ -150,7 +150,7 @@ func _ready():
 		"Тёмыч: Какое бабло, ирод окаянный?!|W|character_temich comeon",
 		"Беркут: Мои 150 гривень! Я не могу купить себе буханку в дорогу!|W|character_sewa rage",
 		"Е. Анатольевна: Артём, у всей группы пропали деньги, от 50 до 200 гривень.|W|character_lentoln hmm",
-		"Жекя №2: И у меня тоже!|W|character_mashasis default",
+		"Жека №2: И у меня тоже!|W|character_mashasis default",
 		"Жека №1: И у меня тоже!|W|character_zheka objection",
 		"~Жека №3~ Радомир: И у меня тоже!|W|character_tuvok rage",
 		"Секунду, Елена Анатольевна, а кто, собственно, навел нас всех на Зинца?|W|character_tuvok hmm",

@@ -316,7 +316,7 @@ func _ready():
 		"",
 		"",
 	]
-	NoShow = 141-17
+	NoShow = 268
 	check_for_read_chats = false
 	read_chats = [false,false,false,false]
 
