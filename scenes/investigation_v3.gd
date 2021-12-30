@@ -24,11 +24,39 @@ func _ready():
 	save_file.set_value("Locations","Last",get_parent().filename)
 	save_file.set_value("Locations",get_parent().filename,"1")
 	save_file.save("C:/Games/ddkg2.save")
+	if save_file.get_value("General","Arc","asffhad") != "asffhad": # the best `if` in my life
+		$ArcBG.show()
+		$ArcBG/Label.show()
+		$ArcBG/Label.text = "Арка: "+save_file.get_value("General","Arc","asffhad")
 	for i in range(1,len(save_file.get_section_keys("Evidence"))+1):
 		get_node("CourtRecord/Cells/Image"+str(i)).animation = save_file.get_value("Evidence",str(i)).split(";")[0]
 
 
 func refresh():
+	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT":
+		if get_parent().Dialogue[Cur].split("|").size() >= 2: # has color def
+			#print("Repaint")
+			var col = Color(1,1,1,1)
+			match get_parent().Dialogue[Cur].split("|")[1]:
+				"W":
+					col = Color(1,1,1,1)
+				"R":
+					col = Color(1,0.5,0.5,1)
+				"B":
+					col = Color(0.5,0.5,1,1)
+				"G":
+					col = Color(0.5,1,0.5,1)
+				"Y":
+					col = Color(1,1,0.5,1)
+				"P":
+					col = Color(1,0.5,1,1)
+				_:
+					col = Color(1,1,1,1)
+			$BG/text_color.color = col
+	if "Arc" in get_parent():
+		get_parent().Arc = save_file.get_value("General","Arc")
+		$ArcBG.show()
+		$ArcBG/Label.text = "Арка: "+get_parent().Arc
 	if "BoxColor" in get_parent():
 		$CourtRecord/ColorOverlay.color = Color(get_parent().BoxColor)
 		$show_cell/color.color = Color(get_parent().BoxColor)
@@ -44,6 +72,9 @@ func refresh():
 			$Moves.get_children()[i-1].show()
 
 
+func set_arc(arc: String):
+	save_file.set_value("General","Arc",arc)
+	save_file.save("C:/Games/ddkg2.save")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -56,6 +87,7 @@ func _on_Choices_pressed():
 				Cur = int(get_parent().Dialogue[Cur].split("|")[5].split(";")[i+1].split(":")[1])-1
 		State = "Dialogue"
 		$Choices.hide()
+		$Next.show()
 		_on_Next_pressed()
 
 
@@ -115,6 +147,12 @@ func _on_Next_pressed():
 						if get_parent().Dialogue[Cur].split("|").size() >= 6: # split, highlight evidence
 							print("Split, highlight, add evidence")
 							if get_parent().Dialogue[Cur].split("|")[5] != "---":
+								if get_parent().Dialogue[Cur].split("|")[5].split(";")[0] == "arc":
+									set_arc(str(get_parent().Dialogue[Cur].split("|")[5].split(";")[1]))
+									$ArcBG.show()
+									$ArcBG/Label.text = "Арка: "+str(get_parent().Dialogue[Cur].split("|")[5].split(";")[1])
+									$AudioStreamPlayer2.set_stream(load("res://sounds/fanfare_newev.ogg"))
+									$AudioStreamPlayer2.play()
 								if get_parent().Dialogue[Cur].split("|")[5].split(";")[0] == "split":
 									State = "Choice"
 									$Next.hide()
@@ -145,6 +183,8 @@ func _on_Next_pressed():
 										print("adding evidence id ",str(1+save_file.get_section_keys("Evidence").size()),": ",get_parent().Dialogue[Cur].split("|")[6])
 										save_file.set_value("Evidence",str(1+save_file.get_section_keys("Evidence").size()),get_parent().Dialogue[Cur].split("|")[6])
 										save_file.save("C:/Games/ddkg2.save")
+									for i in range(1,len(save_file.get_section_keys("Evidence"))+1):
+										get_node("CourtRecord/Cells/Image"+str(i)).animation = save_file.get_value("Evidence",str(i)).split(";")[0]
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
 		get_tree().change_scene(get_parent().Dialogue[Cur].split(" ")[1])
 	elif get_parent().Dialogue[Cur] == "MAIN":
@@ -170,6 +210,9 @@ func _on_Next_pressed():
 
 
 func _input(event):
+	if event is InputEventKey:
+		if Input.is_key_pressed(KEY_SPACE) and State == "Dialogue":
+			_on_Next_pressed()
 	if event is InputEventMouseMotion:
 		$Crosshair.position = event.position
 	if event is InputEventMouseButton:
@@ -215,6 +258,7 @@ func _on_Chat_pressed():
 	State = "Chat"
 	$InvestigationButtons.hide()
 	$Chat.show()
+	$Back.show()
 
 func _on_Present_pressed():
 	_on_ShowCourtRecord_pressed()
@@ -285,10 +329,11 @@ func _on_PresentEvidence_pressed():
 	_on_ShowCourtRecord_pressed()
 	var EvidenceFound = false
 	save_file.load("C:/Games/ddkg2.save")
-	for i in range(1,len(save_file.get_section_keys("Evidence"))):
-		print("matching")
-		if get_node("CourtRecord/Cells/Image"+str(Selected)).animation == get_parent().Shows[i-1].split(" ")[0]:
-			Cur = int(get_parent().Shows[i-1].split(" ")[1])-1
+	for i in range(0,len(save_file.get_section_keys("Evidence"))):
+		print("matching ",get_node("CourtRecord/Cells/Image"+str(Selected)).animation," ",get_parent().Shows[i-1].split(" ")[0])
+		if get_node("CourtRecord/Cells/Image"+str(Selected)).animation == get_parent().Shows[i-1].split(";")[0]:
+			print("matched")
+			Cur = int(get_parent().Shows[i-1].split(";")[1])-1
 			_on_Next_pressed()
 			State = "Dialogue"
 			$InvestigationButtons.hide()
@@ -297,6 +342,7 @@ func _on_PresentEvidence_pressed():
 			EvidenceFound = true
 			break
 	if EvidenceFound == false:
+		print("no match. goto noshow")
 		Cur = get_parent().NoShow-1
 		_on_Next_pressed()
 		State = "Dialogue"

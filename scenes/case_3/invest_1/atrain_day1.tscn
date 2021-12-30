@@ -99,6 +99,7 @@ __meta__ = {
 }
 
 [node name="investigation_screen" parent="." instance=ExtResource( 1 )]
+
 [connection signal="pressed" from="POIs/poi_1" to="investigation_screen" method="_on_POI_pressed"]
 [connection signal="pressed" from="POIs/poi_2" to="investigation_screen" method="_on_POI_pressed"]
 [connection signal="pressed" from="POIs/poi_3" to="investigation_screen" method="_on_POI_pressed"]

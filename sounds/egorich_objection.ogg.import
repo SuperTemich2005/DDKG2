@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/egorich_objection.ogg-fd0bbea0fa696452e1e7e92d338ac4dc.oggstr"
+
+[deps]
+
+source_file="res://sounds/egorich_objection.ogg"
+dest_files=[ "res://.import/egorich_objection.ogg-fd0bbea0fa696452e1e7e92d338ac4dc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

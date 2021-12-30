@@ -1,15 +1,15 @@
 [gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://sprites/gg_lviv/default/default.png" type="Texture" id=1]
-[ext_resource path="res://sprites/gg/deskslam/deskslam_3.png" type="Texture" id=2]
+[ext_resource path="res://sprites/gg_lviv/deskslam/deskslam_02.png" type="Texture" id=2]
 [ext_resource path="res://sprites/gg_lviv/yee/yee.png" type="Texture" id=3]
 [ext_resource path="res://sprites/gg_lviv/rage/rage.png" type="Texture" id=4]
 [ext_resource path="res://sprites/gg/no/no_3.png" type="Texture" id=5]
-[ext_resource path="res://sprites/gg/deskslam/deskslam.png" type="Texture" id=6]
-[ext_resource path="res://sprites/gg/deskslam/deskslam_1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/gg_lviv/deskslam/deskslam_01.png" type="Texture" id=6]
+[ext_resource path="res://sprites/gg_lviv/deskslam/deskslam_03.png" type="Texture" id=7]
 [ext_resource path="res://sprites/gg/no/no_1.png" type="Texture" id=8]
 [ext_resource path="res://sprites/gg/no/no_2.png" type="Texture" id=9]
-[ext_resource path="res://sprites/gg/deskslam/deskslam_2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/gg_lviv/deskslam/deskslam_04.png" type="Texture" id=10]
 [ext_resource path="res://sprites/gg/thonker/thonker.png" type="Texture" id=11]
 [ext_resource path="res://sprites/background/adef_bg.png" type="Texture" id=12]
 [ext_resource path="res://sprites/gg_lviv/thonk/thonk.png" type="Texture" id=13]
@@ -36,9 +36,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "rage",
+"name": "kekk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -46,35 +46,35 @@ animations = [ {
 "name": "yee",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "kekk",
+"name": "rage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "paper",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "wonder",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ) ],
-"loop": true,
-"name": "annoyed",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 26 ) ],
 "loop": false,
-"name": "objection_1",
-"speed": 8.0
+"name": "rekt",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "deskslam",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "thonker",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
 "loop": false,
 "name": "no",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "paper",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
@@ -86,10 +86,15 @@ animations = [ {
 "name": "comeon",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "thonker",
+"name": "wonder",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "objection_1",
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
@@ -101,15 +106,10 @@ animations = [ {
 "name": "damn",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 27 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "rekt",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "deskslam",
-"speed": 15.0
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "annoyed",
+"speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]

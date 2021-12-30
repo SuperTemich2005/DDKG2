@@ -37,9 +37,9 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "badge",
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -47,9 +47,9 @@ animations = [ {
 "name": "footage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "branch",
+"name": "badge",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -78,14 +78,14 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "badge",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "badge",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],

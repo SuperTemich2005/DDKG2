@@ -20,21 +20,6 @@ animations = [ {
 "name": "death",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "anyways",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "shrug",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "order67",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "uh",
@@ -44,6 +29,21 @@ animations = [ {
 "loop": true,
 "name": "wtfbruh",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "order67",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "anyways",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "shrug",
+"speed": 1.0
 } ]
 
 [node name="Node2D" type="Node2D"]
@@ -52,5 +52,4 @@ animations = [ {
 position = Vector2( 522.138, 328.573 )
 scale = Vector2( 1.63449, 1.63449 )
 frames = SubResource( 1 )
-animation = "order67"
 playing = true
