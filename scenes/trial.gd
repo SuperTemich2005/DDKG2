@@ -29,7 +29,8 @@ func _ready():
 	for i in range(1,13):
 		get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	State = "Dialogue" # Main Dialogue Examine Chat Show Move
-	save_file.set_value("Locations","Last",get_parent().filename)
+	if get_parent().filename != "res://scenes/case_2/trial_day1/trial_gameover.tscn":
+		save_file.set_value("Locations","Last",get_parent().filename)
 	save_file.save("C:/Games/ddkg2.save")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -62,9 +63,12 @@ func _process(delta):
 			$back_button.disabled = true
 			$background.show()
 			$show_text.show()
-			if not get_parent().Dialogue[Cur+1].split(" ")[0] == "SPLIT":
+			if not get_parent().Dialogue[Cur+1].split(":")[0] == "SPLIT":
 				$next_button.show()
 				$next_button.disabled = false
+			else:
+				$next_button.hide()
+				$next_button.disabled = true
 		"Show":
 			$back_button.show()
 			$back_button.disabled = false

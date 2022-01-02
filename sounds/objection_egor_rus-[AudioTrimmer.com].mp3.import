@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/objection_egor_rus-[AudioTrimmer.com].mp3-bfa93a24968e8e7bf0edb0b65c8b98e5.mp3str"
+
+[deps]
+
+source_file="res://sounds/objection_egor_rus-[AudioTrimmer.com].mp3"
+dest_files=[ "res://.import/objection_egor_rus-[AudioTrimmer.com].mp3-bfa93a24968e8e7bf0edb0b65c8b98e5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

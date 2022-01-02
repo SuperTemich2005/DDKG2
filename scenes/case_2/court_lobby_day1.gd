@@ -37,6 +37,7 @@ func _ready():
 		"(...)",
 		"OUT res://scenes/case_2/trial_day1/trial_1.tscn",
 		"",
+		"",
 	]
 	Music = [
 		"",

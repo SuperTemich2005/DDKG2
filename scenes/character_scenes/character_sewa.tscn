@@ -1,21 +1,32 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/sewa/default/default.png" type="Texture" id=1]
 [ext_resource path="res://sprites/sewa/rage/rage.png" type="Texture" id=2]
 [ext_resource path="res://sprites/sewa/oi/oi.png" type="Texture" id=3]
 [ext_resource path="res://sprites/sewa/kaef/kaef.png" type="Texture" id=4]
-[ext_resource path="res://sprites/masha/desk.png" type="Texture" id=5]
+[ext_resource path="res://sprites/sewa/breakdown/death_01.png" type="Texture" id=5]
+[ext_resource path="res://sprites/sewa/breakdown/death_02.png" type="Texture" id=6]
+[ext_resource path="res://sprites/sewa/breakdown/death_03.png" type="Texture" id=7]
+[ext_resource path="res://sprites/sewa/breakdown/death_04.png" type="Texture" id=8]
+[ext_resource path="res://sprites/sewa/breakdown/death_07.png" type="Texture" id=9]
+[ext_resource path="res://sprites/sewa/breakdown/death_06.png" type="Texture" id=10]
+[ext_resource path="res://sprites/sewa/breakdown/death_05.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "death1",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "death2",
+"speed": 15.0
+}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "rage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -27,6 +38,11 @@ animations = [ {
 "loop": true,
 "name": "kaef",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "rage",
+"speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]
@@ -35,10 +51,4 @@ animations = [ {
 position = Vector2( 513.388, 393.418 )
 scale = Vector2( 0.439402, 0.439402 )
 frames = SubResource( 1 )
-animation = "kaef"
-
-[node name="desk" type="Sprite" parent="."]
-visible = false
-position = Vector2( 503.945, 421.214 )
-scale = Vector2( 0.366, 0.437959 )
-texture = ExtResource( 5 )
+playing = true

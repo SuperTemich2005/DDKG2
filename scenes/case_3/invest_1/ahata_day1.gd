@@ -77,7 +77,7 @@ func _ready():
 		"???: ...|W",
 		"???: ...|W|character_halal HIDE|---|---",
 		"Тёмыч: ...Кто это был?|W|character_temich comeon|---|REACT surprise",
-		"Радомир: Арабы на украинском с таким акцентом не разговаривают.|W|character_tuvok default|---|---",
+		"Радомир: Арабы на украинском с таким акцентом не разговаривают.|W|character_tuvok default|START panhata_bgm|---",
 		"Жека: Хиджаб - не признак национальности, а признак религии.|W|character_zheka idea|---|---",
 		"Тёмыч: Да, кстати, может это просто кто-то из наших прикалывается и простыню с поезда на себя накинул.|W|character_temich kekk|---|REACT frustration",
 		"Радомир: ...Странно. У меня какое-то странное ощущение появилось.|W|character_tuvok hmm|---|REACT surprise",

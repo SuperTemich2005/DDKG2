@@ -90,5 +90,6 @@ func _ready():
 	Shows = [
 		"badge 50",
 	]
+	NoShow = 0
 	read_chats = [false,false,false,false]
 	check_for_read_chats = false

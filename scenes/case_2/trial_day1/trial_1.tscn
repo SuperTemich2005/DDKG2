@@ -32,14 +32,14 @@ animations = [ {
 "name": "wit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "hld",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "def",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "hld",
 "speed": 5.0
 } ]
 

@@ -295,11 +295,15 @@ func _on_ShowCourtRecord_pressed():
 		$Next.hide()
 		$BG.hide()
 		StateCR = "Rec1"
+		if State == "Inter":
+			$Back.hide()
 	else:
 		StateCR = "No"
 		$CourtRecord.hide()
 		$Next.show()
 		$BG.show()
+		if State == "Inter":
+			$Back.show()
 
 
 func _on_PresentEvidence_pressed():

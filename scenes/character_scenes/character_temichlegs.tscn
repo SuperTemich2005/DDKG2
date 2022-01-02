@@ -86,24 +86,24 @@ animations = [ {
 "name": "comeon",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "wonder",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ), ExtResource( 19 ), ExtResource( 18 ) ],
 "loop": false,
 "name": "objection_1",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "picard",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "damn",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "wonder",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "picard",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 24 ) ],
@@ -125,6 +125,7 @@ centered = false
 position = Vector2( 505.252, 359.722 )
 scale = Vector2( 0.504587, 0.504587 )
 frames = SubResource( 1 )
+animation = "yee"
 playing = true
 
 [node name="table" type="Sprite" parent="."]

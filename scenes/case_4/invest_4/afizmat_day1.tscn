@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/investigation_v3.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/case_4/invest_4/afizmat_day1.gd" type="Script" id=2]
+[ext_resource path="res://sprites/background/afizmat_bg.png" type="Texture" id=3]
+[ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="back_ground" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+centered = false
+
+[node name="characters_all" type="Node2D" parent="."]
+position = Vector2( -1, -115 )
+
+[node name="character_egorich" parent="characters_all" instance=ExtResource( 4 )]
+position = Vector2( 1, 115 )
+
+[node name="POIs" type="Node2D" parent="."]
+
+[node name="investigation_screen" parent="." instance=ExtResource( 1 )]

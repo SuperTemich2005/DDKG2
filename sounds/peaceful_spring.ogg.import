@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/peaceful_spring.ogg-88cd545b0d05bc8ed5fe08561e02196d.oggstr"
+
+[deps]
+
+source_file="res://sounds/peaceful_spring.ogg"
+dest_files=[ "res://.import/peaceful_spring.ogg-88cd545b0d05bc8ed5fe08561e02196d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

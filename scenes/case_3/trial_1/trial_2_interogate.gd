@@ -5,7 +5,7 @@ var Roles
 var correct
 var va
 func _ready():
-	correct = "5 money res://scenes/case_3/trial_1/trial_3.tscn 92"
+	correct = "4 money res://scenes/case_3/trial_1/trial_3.tscn 92"
 	va = "egor"
 	BoxColor = Color(0.5,1,0.5,1)
 	Roles = [

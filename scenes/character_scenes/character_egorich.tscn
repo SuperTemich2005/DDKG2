@@ -160,11 +160,6 @@ animations = [ {
 "name": "sigh",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 115 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 111 ), ExtResource( 116 ), ExtResource( 118 ), ExtResource( 117 ), ExtResource( 121 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 122 ), ExtResource( 126 ), ExtResource( 129 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 128 ), ExtResource( 123 ), ExtResource( 127 ) ],
-"loop": false,
-"name": "laugh",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 62 ), ExtResource( 66 ), ExtResource( 68 ), ExtResource( 64 ), ExtResource( 57 ), ExtResource( 65 ), ExtResource( 69 ), ExtResource( 60 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 63 ), ExtResource( 55 ), ExtResource( 61 ), ExtResource( 67 ), ExtResource( 70 ), ExtResource( 56 ) ],
 "loop": true,
 "name": "suspects",
@@ -189,6 +184,11 @@ animations = [ {
 "loop": false,
 "name": "all_of_sudden",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 115 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 111 ), ExtResource( 116 ), ExtResource( 118 ), ExtResource( 117 ), ExtResource( 121 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 122 ), ExtResource( 126 ), ExtResource( 129 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 128 ), ExtResource( 123 ), ExtResource( 127 ) ],
+"loop": false,
+"name": "laugh",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 139 ) ],
 "loop": true,
@@ -222,5 +222,5 @@ animations = [ {
 position = Vector2( 538.923, 357.313 )
 scale = Vector2( 1.61882, 1.61882 )
 frames = SubResource( 1 )
-frame = 23
+frame = 30
 playing = true

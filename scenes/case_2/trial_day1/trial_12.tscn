@@ -17,14 +17,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "jud",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "pro",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "wit",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -32,14 +32,14 @@ animations = [ {
 "name": "def",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "jud",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "hld",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "wit",
 "speed": 5.0
 } ]
 
@@ -89,4 +89,5 @@ centered = false
 
 [node name="forward" type="Timer" parent="."]
 one_shot = true
+
 [connection signal="timeout" from="forward" to="." method="_on_forward_timeout"]

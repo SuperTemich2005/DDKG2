@@ -22,9 +22,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "park2",
+"name": "hotel3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -32,19 +32,19 @@ animations = [ {
 "name": "park1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "hotel2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "hotel1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "hotel3",
+"name": "hotel2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "park2",
 "speed": 5.0
 } ]
 
@@ -88,4 +88,5 @@ one_shot = true
 autostart = true
 
 [node name="Trial" parent="." instance=ExtResource( 1 )]
+
 [connection signal="timeout" from="verif" to="." method="_on_verif_timeout"]

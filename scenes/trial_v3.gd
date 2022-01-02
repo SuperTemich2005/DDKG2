@@ -80,6 +80,7 @@ func _on_Choices_pressed():
 				Cur = int(get_parent().Dialogue[Cur].split("|")[5].split(";")[i+1].split(":")[1])-1
 		State = "Dialogue"
 		$Choices.hide()
+		$Next.show()
 		_on_Next_pressed()
 
 
@@ -88,25 +89,48 @@ func _on_Next_pressed():
 	Cur+=1
 	ShowChars = 0
 	$show_cell.hide()
+	if get_parent().Dialogue[Cur].split(" ")[0] == "OBJECTION":
+		$Bubble.show()
+		$Bubble.animation = get_parent().Dialogue[Cur].split(" ")[1]
+		$Next.hide()
+		$BG.hide()
+		$hidebub2.start()
+		print("Objection!")
+		if get_parent().Dialogue[Cur].split(" ").size() >= 3:
+			print("With VA")
+			if get_parent().Dialogue[Cur].split(" ")[2] == "wv":
+				var ava = get_parent().Dialogue[Cur].split(" ")[3]
+				print(ava," ","res://sounds/"+get_parent().Dialogue[Cur].split(" ")[1]+"_rus"+ava+".ogg")
+				$AudioStreamPlayer2.set_stream(load("res://sounds/"+get_parent().Dialogue[Cur].split(" ")[1]+"_rus"+ava+".ogg"))
+				$AudioStreamPlayer2.play()
 	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT":
 		if get_parent().Dialogue[Cur].split("|").size() >= 2: # has color def
 			#print("Repaint")
 			var col = Color(1,1,1,1)
 			match get_parent().Dialogue[Cur].split("|")[1]:
+				"BIG":
+					$BG/DialogueBox.get_font("font").size = 48
 				"W":
 					col = Color(1,1,1,1)
+					$BG/DialogueBox.get_font("font").size = 16
 				"R":
 					col = Color(1,0.5,0.5,1)
+					$BG/DialogueBox.get_font("font").size = 16
 				"B":
 					col = Color(0.5,0.5,1,1)
+					$BG/DialogueBox.get_font("font").size = 16
 				"G":
 					col = Color(0.5,1,0.5,1)
+					$BG/DialogueBox.get_font("font").size = 16
 				"Y":
 					col = Color(1,1,0.5,1)
+					$BG/DialogueBox.get_font("font").size = 16
 				"P":
 					col = Color(1,0.5,1,1)
+					$BG/DialogueBox.get_font("font").size = 16
 				_:
 					col = Color(1,1,1,1)
+					$BG/DialogueBox.get_font("font").size = 16
 			$BG/text_color.color = col
 			if get_parent().Dialogue[Cur].split("|").size() >= 3: # has animation def
 				if get_parent().Dialogue[Cur].split("|")[2] != "---":
@@ -165,10 +189,12 @@ func _on_Next_pressed():
 									var refr = false # не добавляем новую улику? false - добавляем новую улику
 									for x in range(1,1+save_file.get_section_keys("Evidence").size()): # счетчик сравнивает текущую улику с каждой уликой в записях
 										print("Сравнение ",x," ",save_file.get_value("Evidence",str(x))," с ",get_parent().Dialogue[Cur].split("|")[6])
-										if save_file.get_value("Evidence",str(x)) == get_parent().Dialogue[Cur].split("|")[6]: # есть ли такая улика уже
+										if save_file.get_value("Evidence",str(x)).split(";")[0] == get_parent().Dialogue[Cur].split("|")[6].split(";")[0]: # есть ли такая улика уже
 											print("совпадение")
+											print(int(save_file.get_value("Evidence",str(x)).split(";")[-1])," ",int(get_parent().Dialogue[Cur].split("|")[6].split(";")[-1]))
 											if int(save_file.get_value("Evidence",str(x)).split(";")[-1]) < int(get_parent().Dialogue[Cur].split("|")[6].split(";")[-1]): # новее ли улика
-												print("adding evidence id ",str(x),": ",get_parent().Dialogue[Cur].split("|")[6])
+												print("adding evidence id ",str(1+save_file.get_section_keys("Evidence").size()),": ",get_parent().Dialogue[Cur].split("|")[6])
+												save_file.erase_section_key("Evidence",str(x))
 												save_file.set_value("Evidence",str(x),get_parent().Dialogue[Cur].split("|")[6])
 												save_file.save("C:/Games/ddkg2.save")
 											refr = true # не добавляем новую улику
@@ -294,3 +320,10 @@ func _on_PresentEvidence_pressed():
 		$InvestigationButtons.hide()
 		$BG.show()
 		$Next.show()
+
+
+func _on_hidebub2_timeout():
+	$Bubble.hide()
+	$Next.show()
+	_on_Next_pressed()
+	$BG.show()

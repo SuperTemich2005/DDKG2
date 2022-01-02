@@ -63,16 +63,6 @@ animations = [ {
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "knucklebuster",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "badge",
@@ -81,6 +71,16 @@ animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "knucklebuster",
 "speed": 5.0
 } ]
 
@@ -104,16 +104,6 @@ animations = [ {
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "knucklebuster",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "badge",
@@ -122,6 +112,16 @@ animations = [ {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "knucklebuster",
 "speed": 5.0
 } ]
 
@@ -144,10 +144,10 @@ animations = [ {
 script = ExtResource( 2 )
 
 [node name="background" type="ColorRect" parent="."]
-margin_left = -1.0
+margin_left = -47.0
 margin_top = 486.0
-margin_right = 863.0
-margin_bottom = 609.0
+margin_right = 1041.0
+margin_bottom = 664.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,8 +190,8 @@ margin_left = 10.0
 margin_top = 496.0
 margin_right = 853.0
 margin_bottom = 590.0
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "..."
 autowrap = true
 __meta__ = {
@@ -489,6 +489,7 @@ visible = false
 position = Vector2( 513.621, 245.5 )
 scale = Vector2( 0.636724, 0.636724 )
 frames = SubResource( 12 )
+
 [connection signal="pressed" from="next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="court_record" to="." method="_on_court_record_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/trial_v3.gd" type="Script" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://sprites/evidence/halal_big.png" type="Texture" id=24]
 [ext_resource path="res://sprites/evidence/affidavit.png" type="Texture" id=25]
 [ext_resource path="res://sprites/evidence/affidavit_big.png" type="Texture" id=26]
+[ext_resource path="res://sprites/Objection.png" type="Texture" id=27]
+[ext_resource path="res://sprites/Hold it.png" type="Texture" id=28]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -44,14 +46,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "gotchu",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "wut",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "gotchu",
 "speed": 5.0
 } ]
 
@@ -76,19 +78,19 @@ animations = [ {
 "name": "aff2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "footage",
+"name": "knucklebuster",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -106,14 +108,14 @@ animations = [ {
 "name": "money",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "knucklebuster",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
 "name": "hijab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "footage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 25 ) ],
@@ -121,6 +123,10 @@ animations = [ {
 "name": "aff",
 "speed": 5.0
 } ]
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+font_data = ExtResource( 1 )
 
 [sub_resource type="CanvasItemMaterial" id=7]
 blend_mode = 3
@@ -146,14 +152,19 @@ animations = [ {
 "name": "aff2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "branch",
+"name": "knucklebuster",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -171,11 +182,6 @@ animations = [ {
 "name": "money",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "knucklebuster",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 24 ) ],
 "loop": true,
 "name": "hijab",
@@ -190,10 +196,6 @@ animations = [ {
 [sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=11]
-size = 32
-font_data = ExtResource( 1 )
-
 [sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.54902, 0, 0, 1 )
 border_width_left = 4
@@ -204,6 +206,19 @@ border_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=13]
 font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "obj",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "hit",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -316,6 +331,46 @@ __meta__ = {
 position = Vector2( -0.286477, -0.441175 )
 scale = Vector2( 0.817042, 0.817042 )
 frames = SubResource( 6 )
+
+[node name="Choices" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 64.0
+margin_top = 168.0
+margin_right = 293.0
+margin_bottom = 434.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Choice1" type="Button" parent="Choices"]
+margin_right = 229.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 11 )
+text = "Tes ФЫВ"
+
+[node name="Choice2" type="Button" parent="Choices"]
+visible = false
+margin_top = 43.0
+margin_right = 229.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 11 )
+text = "Tes ФЫВ"
+
+[node name="Choice3" type="Button" parent="Choices"]
+visible = false
+margin_top = 86.0
+margin_right = 229.0
+margin_bottom = 125.0
+custom_fonts/font = SubResource( 11 )
+text = "Tes ФЫВ"
+
+[node name="Choice4" type="Button" parent="Choices"]
+visible = false
+margin_top = 129.0
+margin_right = 229.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 11 )
+text = "Tes ФЫВ"
 
 [node name="CourtRecord" type="Node2D" parent="."]
 visible = false
@@ -647,46 +702,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Choices" type="VBoxContainer" parent="."]
-visible = false
-margin_left = 64.0
-margin_top = 168.0
-margin_right = 293.0
-margin_bottom = 434.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Choice1" type="Button" parent="Choices"]
-margin_right = 229.0
-margin_bottom = 39.0
-custom_fonts/font = SubResource( 11 )
-text = "Tes ФЫВ"
-
-[node name="Choice2" type="Button" parent="Choices"]
-visible = false
-margin_top = 43.0
-margin_right = 229.0
-margin_bottom = 82.0
-custom_fonts/font = SubResource( 11 )
-text = "Tes ФЫВ"
-
-[node name="Choice3" type="Button" parent="Choices"]
-visible = false
-margin_top = 86.0
-margin_right = 229.0
-margin_bottom = 125.0
-custom_fonts/font = SubResource( 11 )
-text = "Tes ФЫВ"
-
-[node name="Choice4" type="Button" parent="Choices"]
-visible = false
-margin_top = 129.0
-margin_right = 229.0
-margin_bottom = 168.0
-custom_fonts/font = SubResource( 11 )
-text = "Tes ФЫВ"
-
 [node name="First" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
@@ -714,14 +729,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Bubble" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 512, 300 )
+frames = SubResource( 14 )
+animation = "obj"
+
+[node name="hidebub2" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="ShowCourtRecord" to="." method="_on_ShowCourtRecord_pressed"]
 [connection signal="timeout" from="update" to="." method="_on_update_timeout"]
-[connection signal="pressed" from="CourtRecord/Present" to="." method="_on_PresentEvidence_pressed"]
-[connection signal="pressed" from="CourtRecord/Check" to="." method="_on_Check_pressed"]
 [connection signal="pressed" from="Choices/Choice1" to="." method="_on_Choices_pressed"]
 [connection signal="pressed" from="Choices/Choice2" to="." method="_on_Choices_pressed"]
 [connection signal="pressed" from="Choices/Choice3" to="." method="_on_Choices_pressed"]
 [connection signal="pressed" from="Choices/Choice4" to="." method="_on_Choices_pressed"]
+[connection signal="pressed" from="CourtRecord/Present" to="." method="_on_PresentEvidence_pressed"]
+[connection signal="pressed" from="CourtRecord/Check" to="." method="_on_Check_pressed"]
 [connection signal="timeout" from="First" to="." method="_on_First_timeout"]
+[connection signal="timeout" from="hidebub2" to="." method="_on_hidebub2_timeout"]
