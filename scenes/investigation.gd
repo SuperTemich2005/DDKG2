@@ -31,8 +31,9 @@ func _ready():
 	for i in range(1,13):
 		get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	State = "Dialogue" # Main Dialogue Examine Chat Show Move
-	save_file.set_value("Locations","Last",get_parent().filename)
-	save_file.save("C:/Games/ddkg2.save")
+	if get_parent().filename != "res://scenes/case_2/invest_day2/court_lobby_day2.tscn":
+		save_file.set_value("Locations","Last",get_parent().filename)
+		save_file.save("C:/Games/ddkg2.save")
 	#_on_next_button_pressed()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

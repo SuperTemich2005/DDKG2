@@ -329,7 +329,7 @@ func _on_PresentEvidence_pressed():
 	_on_ShowCourtRecord_pressed()
 	var EvidenceFound = false
 	save_file.load("C:/Games/ddkg2.save")
-	for i in range(0,len(save_file.get_section_keys("Evidence"))+1):
+	for i in range(0,get_parent().Shows.size()+1):
 		print("matching ",get_node("CourtRecord/Cells/Image"+str(Selected)).animation," ",get_parent().Shows[i-1].split(" ")[0])
 		if get_node("CourtRecord/Cells/Image"+str(Selected)).animation == get_parent().Shows[i-1].split(" ")[0]:
 			print("matched")

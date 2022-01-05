@@ -54,3 +54,5 @@ position = Vector2( 4.45447, 192.434 )
 [node name="POIs" type="Node2D" parent="."]
 
 [node name="investigation_screen" parent="." instance=ExtResource( 5 )]
+
+[connection signal="next" from="investigation_screen" to="." method="_on_investigation_screen_next"]

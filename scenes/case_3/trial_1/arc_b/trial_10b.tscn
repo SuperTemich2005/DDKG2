@@ -21,9 +21,9 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "pro",
+"name": "jud",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -36,17 +36,17 @@ animations = [ {
 "name": "def",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "jud",
+"name": "pro",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "pro",
+"name": "jud",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -59,9 +59,9 @@ animations = [ {
 "name": "def",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "jud",
+"name": "pro",
 "speed": 5.0
 } ]
 

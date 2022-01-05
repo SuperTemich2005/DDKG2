@@ -19,7 +19,7 @@ func _ready():
 		"Я считаю, что вор - Жека, а помогал - Беркут!|W|character_egorich slam|START slam|---|arc;B",
 		"Жека: А ты страха не знаешь, адвокат.|W|character_msis default|START omen",
 		"Егорыч: Твой мотив - накопление денег, чтобы сбежать из дома, где к тебе с сестрой пристаёт отчим!|W|character_egorich slam|---|REACT slam",
-		"Жека: Как ты смеешь...!|W|character_mashasis rage",
+		"Жека: Как ты смеешь...!|W|character_msis rage",
 		"Егорыч: Будешь отрицать это?|W|character_egorich suspects",
 		"Жека: Да, буду!|W|character_msis rage",
 		"Соня: Перед тем, как обвинять Женю, ты должен доказать, что Беркут переоделся в араба!|Y|character_sonya death",

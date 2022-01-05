@@ -311,6 +311,14 @@ func _ready():
 		"",
 	]
 	Shows = [
+		"badge 258",
+		"badge 258",
+		"badge 258",
+		"badge 258",
+		"hijab 179",
+		"hijab 179",
+		"hijab 179",
+		"hijab 179",
 		"hijab 179",
 		"badge 258",
 		"",

@@ -220,8 +220,8 @@ func _ready():
 	]
 	loc_file.load("C:/Games/ddkg2.save")
 	loc_file.erase_section("Locations")
-	loc_file.set_value("Locations","Last","res://scenes/case_3/invest_1/introduction3.tscn")
-	loc_file.erase_section("Evidence")
+	loc_file.set_value("Locations","Last","res://scenes/case_3/invest_1/introduction3.tscn") # записывает как последнюю посещенную локацию превьюшку к третьему кейсу.
+	loc_file.erase_section("Evidence") # всё так же чистит улики
 	loc_file.set_value("General","Case","3")
 	loc_file.save("C:/Games/ddkg2.save")
 	$characters_all/character_masha/desk.free()

@@ -63,8 +63,13 @@ func _ready():
 		"badge 287",
 		"badge 287",
 	]
-	loc_file.load("C:/Games/ddkg2.save")
-	loc_file.set_value("General","Case","4")
-	loc_file.save("C:/Games/ddkg2.save")
 	check_for_read_chats = false
 	read_chats = [false,false,false,false]
+
+
+func _on_investigation_screen_next():
+	if $investigation_screen.Cur == 5:
+		loc_file.load("C:/Games/ddkg2.save")
+		loc_file.set_value("General","Case","4")
+		loc_file.set_value("Locations","Last","res://scenes/case_4/invest_4/introduction4.tscn")
+		loc_file.save("C:/Games/ddkg2.save")
