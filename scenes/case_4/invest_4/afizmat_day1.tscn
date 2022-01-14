@@ -19,13 +19,60 @@ script = ExtResource( 2 )
 [node name="back_ground" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="characters_all" type="Node2D" parent="."]
 position = Vector2( -1, -115 )
 
 [node name="character_egorich" parent="characters_all" instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 1, 115 )
 
 [node name="POIs" type="Node2D" parent="."]
+
+[node name="poi_1" type="Button" parent="POIs"]
+margin_right = 124.0
+margin_bottom = 107.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poi_2" type="Button" parent="POIs"]
+margin_left = 677.0
+margin_top = 257.0
+margin_right = 1027.0
+margin_bottom = 327.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poi_3" type="Button" parent="POIs"]
+margin_left = 558.0
+margin_top = 239.0
+margin_right = 656.0
+margin_bottom = 335.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poi_4" type="Button" parent="POIs"]
+margin_left = 778.0
+margin_top = 210.0
+margin_right = 814.0
+margin_bottom = 230.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poi_5" type="Button" parent="POIs"]
+margin_left = 7.0
+margin_top = 194.0
+margin_right = 241.0
+margin_bottom = 402.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="investigation_screen" parent="." instance=ExtResource( 1 )]
