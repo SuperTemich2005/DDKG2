@@ -70,6 +70,9 @@ func refresh():
 		if get_parent().Moves[i-1] != "":
 			$Moves.get_children()[i-1].text = get_parent().Moves[i-1].split(";")[0]
 			$Moves.get_children()[i-1].show()
+	if save_file.get_value("Locations",get_parent().filename,"0") == "1":
+		Cur = get_parent().goto_when_was-1
+		_on_Next_pressed()
 
 
 func set_arc(arc: String):
@@ -171,10 +174,12 @@ func _on_Next_pressed():
 									var refr = false # не добавляем новую улику? false - добавляем новую улику
 									for x in range(1,1+save_file.get_section_keys("Evidence").size()): # счетчик сравнивает текущую улику с каждой уликой в записях
 										print("Сравнение ",x," ",save_file.get_value("Evidence",str(x))," с ",get_parent().Dialogue[Cur].split("|")[6])
-										if save_file.get_value("Evidence",str(x)) == get_parent().Dialogue[Cur].split("|")[6]: # есть ли такая улика уже
+										if save_file.get_value("Evidence",str(x)).split(";")[0] == get_parent().Dialogue[Cur].split("|")[6].split(";")[0]: # есть ли такая улика уже
 											print("совпадение")
+											print(int(save_file.get_value("Evidence",str(x)).split(";")[-1])," ",int(get_parent().Dialogue[Cur].split("|")[6].split(";")[-1]))
 											if int(save_file.get_value("Evidence",str(x)).split(";")[-1]) < int(get_parent().Dialogue[Cur].split("|")[6].split(";")[-1]): # новее ли улика
-												print("adding evidence id ",str(x),": ",get_parent().Dialogue[Cur].split("|")[6])
+												print("adding evidence id ",str(1+save_file.get_section_keys("Evidence").size()),": ",get_parent().Dialogue[Cur].split("|")[6])
+												save_file.erase_section_key("Evidence",str(x))
 												save_file.set_value("Evidence",str(x),get_parent().Dialogue[Cur].split("|")[6])
 												save_file.save("C:/Games/ddkg2.save")
 											refr = true # не добавляем новую улику
@@ -183,8 +188,6 @@ func _on_Next_pressed():
 										print("adding evidence id ",str(1+save_file.get_section_keys("Evidence").size()),": ",get_parent().Dialogue[Cur].split("|")[6])
 										save_file.set_value("Evidence",str(1+save_file.get_section_keys("Evidence").size()),get_parent().Dialogue[Cur].split("|")[6])
 										save_file.save("C:/Games/ddkg2.save")
-									for i in range(1,len(save_file.get_section_keys("Evidence"))+1):
-										get_node("CourtRecord/Cells/Image"+str(i)).animation = save_file.get_value("Evidence",str(i)).split(";")[0]
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
 		get_tree().change_scene(get_parent().Dialogue[Cur].split(" ")[1])
 	elif get_parent().Dialogue[Cur] == "MAIN":

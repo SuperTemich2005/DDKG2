@@ -31,10 +31,12 @@ visible = false
 position = Vector2( 1, 115 )
 
 [node name="POIs" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="poi_1" type="Button" parent="POIs"]
 margin_right = 124.0
 margin_bottom = 107.0
+text = "116"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -44,6 +46,7 @@ margin_left = 677.0
 margin_top = 257.0
 margin_right = 1027.0
 margin_bottom = 327.0
+text = "138"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -53,6 +56,7 @@ margin_left = 558.0
 margin_top = 239.0
 margin_right = 656.0
 margin_bottom = 335.0
+text = "131"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -62,6 +66,7 @@ margin_left = 778.0
 margin_top = 210.0
 margin_right = 814.0
 margin_bottom = 230.0
+text = "122"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -71,8 +76,15 @@ margin_left = 7.0
 margin_top = 194.0
 margin_right = 241.0
 margin_bottom = 402.0
+text = "143"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="investigation_screen" parent="." instance=ExtResource( 1 )]
+
+[connection signal="pressed" from="POIs/poi_1" to="investigation_screen" method="_on_POI_pressed"]
+[connection signal="pressed" from="POIs/poi_2" to="investigation_screen" method="_on_POI_pressed"]
+[connection signal="pressed" from="POIs/poi_3" to="investigation_screen" method="_on_POI_pressed"]
+[connection signal="pressed" from="POIs/poi_4" to="investigation_screen" method="_on_POI_pressed"]
+[connection signal="pressed" from="POIs/poi_5" to="investigation_screen" method="_on_POI_pressed"]

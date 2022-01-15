@@ -46,14 +46,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "wut",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "gotchu",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "wut",
 "speed": 5.0
 } ]
 
@@ -73,9 +73,9 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "aff2",
+"name": "report",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -83,34 +83,14 @@ animations = [ {
 "name": "knucklebuster",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "badge",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "report",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "grafin",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "money",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
 "name": "hijab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "aff",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ) ],
@@ -118,9 +98,29 @@ animations = [ {
 "name": "footage",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "money",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 25 ) ],
 "loop": true,
-"name": "aff",
+"name": "aff2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "badge",
 "speed": 5.0
 } ]
 
@@ -147,39 +147,14 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ) ],
-"loop": true,
-"name": "aff2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "knucklebuster",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "badge",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "grafin",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "money",
+"name": "knucklebuster",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 24 ) ],
@@ -190,6 +165,31 @@ animations = [ {
 "frames": [ ExtResource( 26 ) ],
 "loop": true,
 "name": "aff",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "money",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "aff2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "badge",
 "speed": 5.0
 } ]
 

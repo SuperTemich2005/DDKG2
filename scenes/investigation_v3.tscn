@@ -78,29 +78,9 @@ animations = [ {
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "knucklebuster",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "badge",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "aff2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ) ],
@@ -108,14 +88,14 @@ animations = [ {
 "name": "hijab",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "grafin",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 25 ) ],
 "loop": true,
 "name": "aff",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "footage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 21 ) ],
@@ -123,9 +103,29 @@ animations = [ {
 "name": "money",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "aff2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "cig",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "badge",
 "speed": 5.0
 } ]
 
@@ -153,34 +153,14 @@ animations = [ {
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "knucklebuster",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "badge",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 26 ) ],
-"loop": true,
-"name": "aff2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 24 ) ],
 "loop": true,
 "name": "hijab",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "grafin",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],
@@ -193,9 +173,29 @@ animations = [ {
 "name": "money",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "aff2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 28 ) ],
 "loop": true,
 "name": "cig",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "badge",
 "speed": 5.0
 } ]
 
