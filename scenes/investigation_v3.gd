@@ -21,9 +21,6 @@ func _ready():
 	State = "Dialogue"
 	StateCR = "No"
 	save_file.load("C:/Games/ddkg2.save")
-	save_file.set_value("Locations","Last",get_parent().filename)
-	save_file.set_value("Locations",get_parent().filename,"1")
-	save_file.save("C:/Games/ddkg2.save")
 	if save_file.get_value("General","Arc","asffhad") != "asffhad": # the best `if` in my life
 		$ArcBG.show()
 		$ArcBG/Label.show()
@@ -73,6 +70,10 @@ func refresh():
 	if save_file.get_value("Locations",get_parent().filename,"0") == "1":
 		Cur = get_parent().goto_when_was-1
 		_on_Next_pressed()
+	save_file.load("C:/Games/ddkg2.save")
+	save_file.set_value("Locations","Last",get_parent().filename)
+	save_file.set_value("Locations",get_parent().filename,"1")
+	save_file.save("C:/Games/ddkg2.save")
 
 
 func set_arc(arc: String):

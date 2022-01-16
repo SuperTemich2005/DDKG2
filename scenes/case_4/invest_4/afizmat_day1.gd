@@ -17,7 +17,7 @@ var goto_when_was
 func _ready():
 #	BoxColor = Color(0.5,1,0.5,1)
 	Dialogue = [ # диалоги. 
-		"29 апреля. 13:55. Ларёк 'Физмат' рядом с Лицеем 99.|G",
+		"29 апреля. 12:55. Ларёк 'Физмат' рядом с Лицеем 99.|G",
 		"Тёмыч: ДА БЛИНААААА|W|character_egorich suspects|START peaceful_spring|REACT damage",
 		"Егорыч: Что-то не так?",
 		"Тёмыч: Щас вроде не то, что очень тепло,",
@@ -171,7 +171,7 @@ func _ready():
 		"",
 	]
 	Moves = [
-		"",
+		"Методкабинет;res://scenes/case_4/invest_4/ametod_day1.tscn",
 		"",
 		"",
 		"",
