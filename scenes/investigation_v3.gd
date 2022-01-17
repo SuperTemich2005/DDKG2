@@ -70,6 +70,11 @@ func refresh():
 	if save_file.get_value("Locations",get_parent().filename,"0") == "1":
 		Cur = get_parent().goto_when_was-1
 		_on_Next_pressed()
+	if get_parent().Chats == ["","","",""]:
+		$InvestigationButtons/Chat.hide()
+		$InvestigationButtons/Present.hide()
+		for i in get_parent().get_node("characters_all").get_children():
+			i.hide()
 	save_file.load("C:/Games/ddkg2.save")
 	save_file.set_value("Locations","Last",get_parent().filename)
 	save_file.set_value("Locations",get_parent().filename,"1")
@@ -198,9 +203,10 @@ func _on_Next_pressed():
 		$Back.hide()
 		$InvestigationButtons.show()
 		var temp = 0
-		for i in ReadChats:
-			if i:
-				temp += 1
+		if "ReadChats" in get_parent():
+			for i in ReadChats:
+				if i:
+					temp += 1
 		if temp == 4 and get_parent().check_for_read_chats:
 			State = "Dialogue"
 			$BG.show()

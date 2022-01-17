@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/paltos_theme.ogg-0b2ba967338a3d07316d8be3efa1af45.oggstr"
+
+[deps]
+
+source_file="res://sounds/paltos_theme.ogg"
+dest_files=[ "res://.import/paltos_theme.ogg-0b2ba967338a3d07316d8be3efa1af45.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
