@@ -19,7 +19,7 @@ func _ready():
 	loc_file.load("C:/Games/ddkg2.save")
 	if loc_file.get_value("Locations","res://scenes/case_4/invest_4/aappendix_day1.tscn","") == "1" and loc_file.get_value("Locations","res://scenes/case_4/invest_4/ametod_day1.tscn","") == "1":
 		if loc_file.get_value("Special","Fizmat_reached_stage_2","") == "1":
-			goto_when_was = 0
+			goto_when_was = 236
 		else:
 			goto_when_was = 146
 		print("Stage 2 of this scene")
