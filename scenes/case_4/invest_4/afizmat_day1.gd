@@ -1,6 +1,6 @@
 extends Node2D
 var Anims
-var Dialogue
+var Dialogue: PoolStringArray
 var Chats
 var Shows
 var Moves
@@ -15,19 +15,7 @@ var NoShow
 var goto_when_was
 #var BoxColor
 func _ready():
-#	BoxColor = Color(0.5,1,0.5,1)
 	loc_file.load("C:/Games/ddkg2.save")
-	if loc_file.get_value("Locations","res://scenes/case_4/invest_4/aappendix_day1.tscn","") == "1" and loc_file.get_value("Locations","res://scenes/case_4/invest_4/ametod_day1.tscn","") == "1":
-		if loc_file.get_value("Special","Fizmat_reached_stage_2","") == "1":
-			goto_when_was = 236
-		else:
-			goto_when_was = 146
-		print("Stage 2 of this scene")
-		loc_file.save_value("Special","Fizmat_reached_stage_2","1")
-		loc_file.save("C:/Games/ddkg2.save")
-	else:
-		goto_when_was = 51
-		print("Stage 1 of this scene")
 	Dialogue = [ # диалоги. 
 		"29 апреля. 12:55. Ларёк 'Физмат' рядом с Лицеем 99.|G",
 		"Тёмыч: ДА БЛИНААААА|W|character_egorich suspects|START peaceful_spring|REACT damage",
@@ -175,6 +163,7 @@ func _ready():
 		"Тёмыч: За этими деревьями ничего не видно. Странно.|W|character_egorich thinks",
 		"Егорыч: Действительно, за этими деревьями не видно абсолютно ничего. Самая плотная растительная стена, которую я когда-либо видел.",
 		"Тёмыч: Нет, я к тому, что сегодня утром тут не было абсолютно ничего. Эта стена появилась из ниоткуда!|W|character_egorich all_of_sudden|---|REACT surprise",
+		"MAIN",
 		"29 апреля. 13:07. Ларёк 'Физмат' рядом с Лицеем 99.|G",
 		"Егорыч: Спустя столько времени, ты таки нашел выход из школы!|W|character_egorich yee|START egor_theme",
 		"Тёмыч: Теперь можно и по домам. Мы итак в школе задержались, как будто бы никакой сокращенки у нас не было...",
@@ -191,7 +180,7 @@ func _ready():
 		"Тёмыч: Взаимно.|W|character_paltos suspects",
 		"Аполлонов: Я вообще не за тобой пришел, можешь уходить.",
 		"Тёмыч: Чего еще прикажешь, о великий Палтос?",
-		"(Управляющий, как обычно. Ему и до старшего следователя недалеко, и до старосты)|B",
+		"(Управляющий, как обычно. Ему и до 'самого' старшего следователя недалеко, и до старосты)|B",
 		"(Но выполнять чьи-то приказы лично я не стану)",
 		"(Тем более, если это Палтос.)",
 		"Аполлонов: Ну, если хочешь видеть, как я вяжу твоего друга, то пожалуйста, наблюдай.|W|character_paltos kek|STOP all|REACT surprise",
@@ -240,7 +229,7 @@ func _ready():
 		"Тёмыч: Кх",
 		"Кхх... кхх...",
 		"...",
-		"ХААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААА",
+		"ХААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААА|W|charqacter_egorich laugh|---|REACT sith_slam",
 		"ЕГОРЫЧ?|W|character_paltos suspects",
 		"С НЕЙ?!",
 		"Какая-то ОНА с ЕГОГОРЫЧЕМ?",
@@ -260,20 +249,44 @@ func _ready():
 		"И чтобы по ночам в клубах её развлекал.",
 		"А Егорыч максимум нашей лодкой развлечь может",
 		"Аполлонов: Мне пофиг, что у вас там за катера, у меня задание доставить подозреваемого в учительскую.|W|character_paltos whatever",
-                "И пока только одного. Тебя потом позовут.",
-                "Тёмыч (Внегласное правило школы - адвоката выбирают во время следствия.)|B",
-                "Хорошо, так тому и быть. Егорыч, встретимся позже.|W|character_egorich damage|---|REACT damage",
-                "Егорыч: Я позвоню.",
-                "...|W|character_egorich HIDE|STOP all",
-                "Тёмыч: (Адвокат Тьоха Тьохич: приступаю к работе!)|B|---|START investigation_op",
-                "MAIN",
+		"И пока только одного. Тебя потом позовут.",
+		"Тёмыч (Внегласное правило школы - адвоката выбирают во время следствия.)|B",
+		"Хорошо, так тому и быть. Егорыч, встретимся позже.|W|character_egorich damage|---|REACT damage",
+		"Егорыч: Я позвоню.",
+		"...|W|character_egorich HIDE|STOP all",
+		"Тёмыч: (Адвокат Тьоха Тьохич: приступаю к работе!)|B|---|START investigation_op",
+		"MAIN",
 	]
-	Chats = [
-		"Ира Жарова;54",
-		"Мореплаватель;65",
-		"Адвокатство;78",
-		"",
-	]
+	if loc_file.get_value("Locations","res://scenes/case_4/invest_4/aappendix_day1.tscn","") == "1" and loc_file.get_value("Locations","res://scenes/case_4/invest_4/ametod_day1.tscn","") == "1":
+		if loc_file.get_value("Special","Fizmat_reached_stage_2","") == "1":
+			goto_when_was = 237
+		else:
+			goto_when_was = 147
+		print("Stage 2 of this scene")
+		loc_file.set_value("Special","Fizmat_reached_stage_2","1")
+		loc_file.save("C:/Games/ddkg2.save")
+		$POIs.free()
+		Chats = [
+			"",
+			"",
+			"",
+			"",
+		]
+	else:
+		goto_when_was = 51
+		print("Stage 1 of this scene")
+		print("Chats")
+		Chats = [
+			"Ира Жарова;54",
+			"Мореплаватель;65",
+			"Адвокатство;78",
+			"",
+		]
+		if $investigation_screen/ArcBG/Label.text[-1] == "B":
+			Dialogue[93] = "И даже тот суд не всех переубедил."
+			Dialogue[99] = "(Единственная, кто всерьез воспринимает мою невиновность в той краже.)|B"
+			print("Swapping dialogue line for arc B")
+			Chats[3] = "3-й кейс;101"
 	Moves = [
 		"Методкабинет;res://scenes/case_4/invest_4/ametod_day1.tscn",
 		"",
@@ -286,8 +299,4 @@ func _ready():
 	check_for_read_chats = false
 	read_chats = [false,false,false,false]
 	print($investigation_screen/ArcBG/Label.text[-1])
-	if $investigation_screen/ArcBG/Label.text[-1] == "B":
-		Dialogue[93] = "И даже тот суд не всех переубедил."
-		Dialogue[99] = "(Единственная, кто всерьез воспринимает мою невиновность в той краже.)|B"
-		print("Swapping dialogue line for arc B")
-		Chats[3] = "3-й кейс;101"
+	
