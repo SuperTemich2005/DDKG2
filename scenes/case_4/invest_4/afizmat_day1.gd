@@ -265,7 +265,8 @@ func _ready():
                 "Хорошо, так тому и быть. Егорыч, встретимся позже.|W|character_egorich damage|---|REACT damage",
                 "Егорыч: Я позвоню.",
                 "...|W|character_egorich HIDE|STOP all",
-                "Тёмыч: (Адвокат Тьоха Тьохич: приступаю к работе!)|B|---|START investigation_op
+                "Тёмыч: (Адвокат Тьоха Тьохич: приступаю к работе!)|B|---|START investigation_op",
+                "MAIN",
 	]
 	Chats = [
 		"Ира Жарова;54",
