@@ -105,7 +105,10 @@ func _on_Next_pressed():
 	Cur+=1
 	ShowChars = 0
 	$show_cell.hide()
-	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT":
+	if $Next.text == ">>>>>":
+		Cur-=1
+		ShowChars = len(get_parent().Dialogue[Cur].split("|")[0])
+	if $Next.text != ">>>>>" and get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT":
 		if get_parent().Dialogue[Cur].split("|").size() >= 2: # has color def
 			#print("Repaint")
 			var col = Color(1,1,1,1)
@@ -241,6 +244,10 @@ func _input(event):
 func _on_update_timeout():
 	ShowChars = clamp(ShowChars+1,0,len(get_parent().Dialogue[Cur].split("|")[0]))
 	$BG/DialogueBox.text = get_parent().Dialogue[Cur].split("|")[0].left(ShowChars)
+	if ShowChars == len(get_parent().Dialogue[Cur].split("|")[0]):
+		$Next.text = "Далее"
+	else:
+		$Next.text = ">>>>>"
 
 
 func _on_Back_pressed():

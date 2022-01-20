@@ -31,6 +31,7 @@ position = Vector2( -1, -115 )
 position = Vector2( 1, 115 )
 
 [node name="character_paltos" parent="characters_all" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 32.0918, 132.143 )
 
 [node name="POIs" type="Node2D" parent="."]
