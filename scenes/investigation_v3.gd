@@ -104,11 +104,9 @@ func _on_Next_pressed():
 	emit_signal("next")
 	Cur+=1
 	ShowChars = 0
+	$Skip.show()
 	$show_cell.hide()
-	if $Next.text == ">>>>>":
-		Cur-=1
-		ShowChars = len(get_parent().Dialogue[Cur].split("|")[0])
-	if $Next.text != ">>>>>" and get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT":
+	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT":
 		if get_parent().Dialogue[Cur].split("|").size() >= 2: # has color def
 			#print("Repaint")
 			var col = Color(1,1,1,1)
@@ -203,6 +201,7 @@ func _on_Next_pressed():
 		State = "Main"
 		$BG.hide()
 		$Next.hide()
+		$Skip.hide()
 		$Back.hide()
 		$InvestigationButtons.show()
 		var temp = 0
@@ -245,9 +244,7 @@ func _on_update_timeout():
 	ShowChars = clamp(ShowChars+1,0,len(get_parent().Dialogue[Cur].split("|")[0]))
 	$BG/DialogueBox.text = get_parent().Dialogue[Cur].split("|")[0].left(ShowChars)
 	if ShowChars == len(get_parent().Dialogue[Cur].split("|")[0]):
-		$Next.text = "Далее"
-	else:
-		$Next.text = ">>>>>"
+		$Skip.hide()
 
 
 func _on_Back_pressed():
@@ -388,3 +385,8 @@ func _on_Moves_pressed():
 		for i in range(0,4):
 			if $Moves.get_child(i).pressed:
 				get_tree().change_scene(get_parent().Moves[i].split(";")[1])
+
+
+func _on_Skip_pressed():
+	ShowChars = len(get_parent().Dialogue[Cur].split("|")[0])
+	$Skip.hide()

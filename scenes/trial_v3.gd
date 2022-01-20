@@ -210,6 +210,7 @@ func _on_Next_pressed():
 		$BG.hide()
 		$Next.hide()
 		$Back.hide()
+		$Skip.hide()
 		$InvestigationButtons.show()
 		var temp = 0
 		for i in ReadChats:
@@ -249,6 +250,8 @@ func _input(event):
 func _on_update_timeout():
 	ShowChars = clamp(ShowChars+1,0,len(get_parent().Dialogue[Cur].split("|")[0]))
 	$BG/DialogueBox.text = get_parent().Dialogue[Cur].split("|")[0].left(ShowChars)
+	if ShowChars == len(get_parent().Dialogue[Cur].split("|")[0]):
+		$Skip.hide()
 
 
 func _on_Back_pressed():
@@ -327,3 +330,8 @@ func _on_hidebub2_timeout():
 	$Next.show()
 	_on_Next_pressed()
 	$BG.show()
+
+
+func _on_Skip_pressed():
+	ShowChars = len(get_parent().Dialogue[Cur].split("|")[0])
+	$Skip.hide()
