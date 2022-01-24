@@ -108,7 +108,7 @@ func _ready():
 			"Егорыч: Не так быстро!|W|character_egorich rage|---|REACT intro_woosh",
 			"На-на!",
 			"Тёмыч: *уворот*",
-			"*грохот*|R|character_egorich all_of_sudden|STOP all|REACT sith_slam",
+			"	*грохот*|R|character_egorich all_of_sudden|STOP all|REACT sith_slam",
 			"Тёмыч: Бл*ть...|W",
 			"Увернулся...|W|---|START egor_theme",
 			"MAIN",
@@ -116,13 +116,22 @@ func _ready():
 			"Егорыч: В смысле плоская?|W|character_egorich suspects|---|REACT surprise",
 			"Тёмыч: Ну не похожа она на беременяшку.|W|character_egorich thinks",
 			"Может, она всё это выдумала, а щас тебя хочет подставить зачем-то!",
-			"Егорыч: А я думал, ты про грудь.|W|character_egorich thinks",
+			"Егорыч: А я думал, ты про грудь.|W|character_egorich suspects",
 			"Тёмыч: Да и там она скорее Кирилл, чем Ира, кххххх|W|---|---|REACT frustration",
-			"Егорыч: Хах, точно...|W|character_egorich laughs|---|REACT damage",
+			"Егорыч: Хах, точно...|W|character_egorich laugh|---|REACT damage",
+			"MAIN",
+			"Егорыч: Надо провести расследование.|W|character_egorich thinks",
+			"Тёмыч: Где начнем?",
+			"Егорыч: Ну, походим по разным местам. В столовке щас много людей может быть...|W|character_egorich yee",
+			"Тёмыч: Ну, щас восьмой урок будет, так что да, так оно и есть.",
+			"Егорыч: Еще в аппендиксе на 2-м этаже 3 кабинета, там-то точно найдётся кто-нибудь!",
+			"Тёмыч: И он к нам ближе, так что думаю будет целесообразным пойти сначала туда.",
+			"Егорыч: Согласен.|W|character_egorich thinks",
+			"MAIN",
 		]
 		Chats = [
-			"Идеи?;36",
-			"Что делать?;51",
+			"Идеи?;94",
+			"Что делать?;102",
 			"",
 			"",
 		]
@@ -250,16 +259,7 @@ func _ready():
 			"Тёмыч: Бл*ть...|W",
 			"Увернулся...|W|---|START egor_theme",
 			"MAIN",
-			"Егорыч: Она как-то не похожа на беременную...|W|character_egorich thinks", # идеи
-			"Тёмыч: Ну, это только первый месяц...|W|character_egorich default",
-			"Егорыч: Может, у нее из-за залёта мозг с плацентой смешиваться начал?|W|character_egorich thinks",
-			"Или...|W|character_egorich suspects",
-			"Тёмыч: Что 'или'?",
-			"Егорыч: ...|W|---|---|REACT surprise",
-			"Что, если то, что щас происходит - 'реприза'?",
-			"И меня подставляют, как тебя?",
-			"Тёмыч: Только вместо Фильмоновых - Жаренная...",
-			"",
+			
 		]
 		Chats = [
 			"Идеи?;36",

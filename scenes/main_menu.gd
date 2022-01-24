@@ -13,7 +13,17 @@ func _ready():
 	save_file = ConfigFile.new()
 	save_file.load("C:/Games/ddkg2.save")
 	if save_file.load("C:/Games/ddkg2.save") == OK:
-		$save_info.text = str(save_file.get_value("General","Case"))+" дело."
+		var spec = ""
+		match save_file.get_value("General","Case"):
+			"2":
+				spec = "Подкупное дело."
+			"3":
+				spec = "Украденное дело."
+			"4":
+				spec = "Залётное дело."
+		$save_info.text = str(save_file.get_value("General","Case"))+" дело: "+spec
+		if save_file.get_value("General","Case","") >= str(4):
+			$logo.animation = "default2"
 	else:
 		$load_game.disabled = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
