@@ -112,6 +112,13 @@ func _ready():
 			"Тёмыч: Бл*ть...|W",
 			"Увернулся...|W|---|START egor_theme",
 			"MAIN",
+			"Тёмыч: Если так подумать, то Жаренная сильно плоская|W|character_egorich thinks", # идеи
+			"Егорыч: В смысле плоская?|W|character_egorich suspects|---|REACT surprise",
+			"Тёмыч: Ну не похожа она на беременяшку.|W|character_egorich thinks",
+			"Может, она всё это выдумала, а щас тебя хочет подставить зачем-то!",
+			"Егорыч: А я думал, ты про грудь.|W|character_egorich thinks",
+			"Тёмыч: Да и там она скорее Кирилл, чем Ира, кххххх|W|---|---|REACT frustration",
+			"Егорыч: Хах, точно...|W|character_egorich laughs|---|REACT damage",
 		]
 		Chats = [
 			"Идеи?;36",
