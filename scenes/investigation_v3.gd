@@ -67,7 +67,7 @@ func refresh():
 		if get_parent().Moves[i-1] != "":
 			$Moves.get_children()[i-1].text = get_parent().Moves[i-1].split(";")[0]
 			$Moves.get_children()[i-1].show()
-	if save_file.get_value("Locations",get_parent().filename,"0") == "1":
+	if save_file.get_value("Locations",get_parent().filename,"0") == "1" and "goto_when_was" in get_parent():
 		Cur = get_parent().goto_when_was-1
 		_on_Next_pressed()
 	if get_parent().Chats == ["","","",""]:
@@ -205,7 +205,7 @@ func _on_Next_pressed():
 		$Back.hide()
 		$InvestigationButtons.show()
 		var temp = 0
-		if "ReadChats" in get_parent():
+		if "read_chats" in get_parent():
 			for i in ReadChats:
 				if i:
 					temp += 1

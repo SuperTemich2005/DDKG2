@@ -276,23 +276,23 @@ func _ready():
 		goto_when_was = 51
 		print("Stage 1 of this scene")
 		print("Chats")
-		Chats = [
-			"Ира Жарова;54",
-			"Мореплаватель;65",
-			"Адвокатство;78",
-			"",
-		]
-		if $investigation_screen/ArcBG/Label.text[-1] == "B":
-			Dialogue[93] = "И даже тот суд не всех переубедил."
-			Dialogue[99] = "(Единственная, кто всерьез воспринимает мою невиновность в той краже.)|B"
-			print("Swapping dialogue line for arc B")
-			Chats[3] = "3-й кейс;101"
 	Moves = [
 		"Методкабинет;res://scenes/case_4/invest_4/ametod_day1.tscn",
 		"",
 		"",
 		"",
 	]
+	Chats = [
+		"Ира Жарова;54",
+		"Мореплаватель;65",
+		"Адвокатство;78",
+		"",
+	]
+	if $investigation_screen/ArcBG/Label.text[-1] == "B":
+		Dialogue[93] = "И даже тот суд не всех переубедил."
+		Dialogue[99] = "(Единственная, кто всерьез воспринимает мою невиновность в той краже.)|B"
+		print("Swapping dialogue line for arc B")
+		Chats[3] = "3-й кейс;101"
 	Shows = [
 		"badge 110",
 	]

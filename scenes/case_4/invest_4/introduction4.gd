@@ -18,6 +18,7 @@ func _ready():
 	save_file.erase_section("Locations")
 	save_file.erase_section("Evidence")
 	save_file.set_value("General","Case","4")
+	save_file.set_value("Locations","Last",filename)
 	save_file.set_value("Evidence","1","badge;Бейдж дежурного;Мой бейдж дежурного. Более для адвокатуры не используется.;Эти черти до сих пор считают меня вором. Пускай теперь сами выкручиваются, когда на них будут тыкать пальцем и обзывать ворами-насильниками-убийцами!;1")
 	save_file.save("C:/Games/ddkg2.save")
 

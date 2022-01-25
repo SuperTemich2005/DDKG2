@@ -36,6 +36,7 @@ func _on_new_game_pressed():
 	save_file.set_value("General","Case","2")
 	save_file.erase_section_key("General","Arc")
 	save_file.erase_section("Locations")
+	save_file.erase_section("Special")
 	save_file.erase_section("Evidence")
 	save_file.set_value("Evidence","1","badge:Значок дежурного, у каждого свой номер. Мой - 12. Док-во моей должности защитника")
 	save_file.save("C:/Games/ddkg2.save")

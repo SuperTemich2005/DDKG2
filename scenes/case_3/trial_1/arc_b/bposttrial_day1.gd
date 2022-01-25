@@ -35,7 +35,7 @@ func _ready():
 		"(Но если понадобится, я всё-таки помогу своим друзьям выбраться из беды. 'Не делай добра - не получишь зла'?)",
 		"(Не делая добра, ты не будешь в положении получить такое же добро в первую очередь.)",
 		"(Так что... Я менее категоричный в этом плане.)",
-		"OUT res://scenes/main_menu.tscn",
+		"OUT res://scenes/case_4/invest_4/introduction4.tscn",
 	]
 	Chats = [
 		"Как экскурсия?;84",
@@ -61,6 +61,5 @@ func _ready():
 func _on_investigation_screen_next():
 	if $investigation_screen.Cur == 5:
 		loc_file.load("C:/Games/ddkg2.save")
-		loc_file.set_value("General","Case","4")
-		loc_file.set_value("Locations","Last","res://scenes/case_4/invest_4/introduction4.tscn")
+		#loc_file.set_value("General","Case","4")
 		loc_file.save("C:/Games/ddkg2.save")

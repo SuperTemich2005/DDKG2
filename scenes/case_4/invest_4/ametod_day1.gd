@@ -19,7 +19,7 @@ func _ready():
 	if loc_file.get_value("Special","Fizmat_reached_stage_2","") == "1":
 		Dialogue = [ # диалоги. 
 			"29 апреля. 13:20. Методкабинет|G",
-			"Аполлонов: Мы уже это обсуждали. Признавай отцовство.|W|character_paltos kek",
+			"Аполлонов: Мы уже это обсуждали. Признавай отцовство.|W|character_paltos kek|START suspense",
 			"Егорыч: Я в очередной раз запрашиваю доказательства и отсрочки до рождения.|W|character_egorich rage",
 			"Жарова: Да у меня море свидетелей, которые свечку держали!|W|character_eera rage",
 			"Все говорят, что я права и ты - отец!",
@@ -152,6 +152,8 @@ func _ready():
 			print("asdfg")
 			
 		else:
+			loc_file.set_value("Special","Metod_reached_stage_2","1")
+			loc_file.save("C:/Games/ddkg2.save")
 			goto_when_was = 0
 	else:
 		Dialogue = [ # диалоги. 

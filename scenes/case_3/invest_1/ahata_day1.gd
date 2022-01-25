@@ -175,3 +175,4 @@ func _ready():
 	check_for_read_chats = true
 	goto_when_read = 134-17
 	read_chats = [false,false,false,true]
+ 

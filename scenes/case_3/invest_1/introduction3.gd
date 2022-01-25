@@ -18,6 +18,7 @@ func _ready():
 	save_file.erase_section("Locations")
 	save_file.erase_section("Evidence")
 	save_file.set_value("Evidence","1","badge;Бейдж дежурного;Мой бейдж дежурного.;noexp;1")
+	save_file.set_value("Locations","Last",filename)
 	save_file.save("C:/Games/ddkg2.save")
 
 
