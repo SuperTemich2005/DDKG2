@@ -1,12 +1,48 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/liera/default/default.png" type="Texture" id=1]
+[ext_resource path="res://sprites/liera/idk/default.png" type="Texture" id=2]
+[ext_resource path="res://sprites/liera/thinks/default.png" type="Texture" id=3]
+[ext_resource path="res://sprites/liera/ignore/default.png" type="Texture" id=4]
+[ext_resource path="res://sprites/liera/rage/default.png" type="Texture" id=5]
+[ext_resource path="res://sprites/liera/lmfao/default.png" type="Texture" id=6]
+[ext_resource path="res://sprites/liera/wtf/default.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "ignore",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "lmfao",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "thinks",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "wtf",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "rage",
 "speed": 5.0
 } ]
 

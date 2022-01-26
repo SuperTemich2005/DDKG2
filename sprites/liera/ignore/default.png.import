@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/default.png-d9e6460e6db69a82593e0afcb74778b7.stex"
+path="res://.import/default.png-17d75db11f71c3e6b629675363d95780.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/liera/default/default.png"
-dest_files=[ "res://.import/default.png-d9e6460e6db69a82593e0afcb74778b7.stex" ]
+source_file="res://sprites/liera/ignore/default.png"
+dest_files=[ "res://.import/default.png-17d75db11f71c3e6b629675363d95780.stex" ]
 
 [params]
 

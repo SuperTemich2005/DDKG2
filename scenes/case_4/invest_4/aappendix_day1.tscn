@@ -37,38 +37,4 @@ position = Vector2( 13.3635, 120.271 )
 [node name="POIs" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 
-[node name="poi_1" type="Button" parent="POIs"]
-margin_left = 5.0
-margin_top = 95.0
-margin_right = 421.0
-margin_bottom = 339.0
-text = "87"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="poi_2" type="Button" parent="POIs"]
-margin_left = 762.0
-margin_top = 84.0
-margin_right = 827.0
-margin_bottom = 385.0
-text = "58"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="poi_3" type="Button" parent="POIs"]
-margin_left = 831.0
-margin_top = 249.0
-margin_right = 1024.0
-margin_bottom = 597.0
-text = "79"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="investigation_screen" parent="." instance=ExtResource( 1 )]
-
-[connection signal="pressed" from="POIs/poi_1" to="investigation_screen" method="_on_POI_pressed"]
-[connection signal="pressed" from="POIs/poi_2" to="investigation_screen" method="_on_POI_pressed"]
-[connection signal="pressed" from="POIs/poi_3" to="investigation_screen" method="_on_POI_pressed"]
