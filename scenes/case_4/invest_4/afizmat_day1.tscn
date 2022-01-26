@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/investigation_v3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/case_4/invest_4/afizmat_day1.gd" type="Script" id=2]
 [ext_resource path="res://sprites/background/afizmat_bg.png" type="Texture" id=3]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/character_scenes/character_paltos.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/character_scenes/character_sonya.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -34,6 +35,10 @@ position = Vector2( 1, 115 )
 [node name="character_paltos" parent="characters_all" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 41, 147 )
+
+[node name="character_sonya" parent="characters_all" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 17, 171 )
 
 [node name="POIs" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )

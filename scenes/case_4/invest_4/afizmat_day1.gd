@@ -256,26 +256,71 @@ func _ready():
 		"...|W|character_egorich HIDE|STOP all",
 		"Тёмыч: (Адвокат Тьоха Тьохич: приступаю к работе!)|B|---|START investigation_op",
 		"MAIN",
+		"29 апреля. Около 13:30. Ларёк 'Физмат' рядом с Лицеем 99|G|character_egorich default",
+		"Егорыч: Думаешь, тут кто-то из свидетелей есть?|W|character_egorich thinks|START investigation_op",
+		"Тёмыч: Ну... кстати",
+		"А что в нашем случае значит 'свидетель'?",
+		"Егорыч: Действительно.|W|character_egorich suspects",
+		"Если только она не тр*халась прилюдно, то свидетелей быть не может.",
+		"Тёмыч: Я могу предположить, что аптекарь из АНЦ или кассир из АТБ, в теории, вспомнит, как Жаренная или её парень покупали зимнюю резину",
+		"Но учитывая то, что мы щас в такой ситуации, то вряд ли зимняя резина имеет место быть.",
+		"Егорыч: Вообще, какова наша цель и почему мы не можем дождаться рождения ребенка, чтобы протестить меня на отцовство?|W|character_egorich thinks",
+		"Тёмыч: Потому что если щас мы не сделаем этого, то 333 подружки Жаренной сами судилище устроят и на всю школу тебя заклеймят козлом",
+		"А когда проведется тест на отцовство, то всем уже будет пофиг",
+		"...",
+		"Егорыч: Ясно.|W|character_egorich default",
+		"Тёмыч: Другой вопрос - как доказать здесь и сейчас, что ты - не батя?",
+		"Егорыч: Расколоть Жарову или найти её настоящего парня!|W|character_egorich yee",
+		"Тёмыч: Последний вопрос - насколько это реально?",
+		"Я, конечно, творил дичь круче, но у меня нет третьего глаза",
+		"Егорыч: Но ты часто говоришь о том, что у тебя есть третий глаз|W|character_egorich suspects",
+		"Тёмыч: Я также часто прикалываюсь, ирод окаянный, так что грех принимать каждый мой прикол всерьёз.",
+		"???: Эй.|P|---|STOP all|REACT surprise",
+		"Тёмыч: Ох, Егорыч, я забегу в 'Физмат', а ты пока загляни в столовку. Я думаю, что мы там что-то найдём.",
+		"Егорыч: Еще лучше, я зайду в 320-й. Там у Радыча урок будет, он-то точно что-то про Жарову расскажет.|W|character_egorich yee",
+		"Тёмыч: Ну вот и правильно! Ладно, увидимся.",
+		"...|W|character_egorich HIDE",
+		"Соня: Привет|P|character_sonya default|START peaceful_spring|REACT surprise",
+		"Тёмыч: 'Очень' давно не виделись.",
+		"Соня: Прям 'очень', угу...",
+		"MAIN",
+		"Соня: Как дела?|P|character_sonya uh",
+		"Тёмыч: У нас были сокращенные уроки. Слишком сокращенные",
+		"У нас было вроде 4 урока.",
+		"Соня: Чертила...|P|character_sonya death",
+		"И в честь чего такое случилось?|P|character_sonya uh",
+		"",
 	]
-	if loc_file.get_value("Locations","res://scenes/case_4/invest_4/aappendix_day1.tscn","") == "1" and loc_file.get_value("Locations","res://scenes/case_4/invest_4/ametod_day1.tscn","") == "1":
-		if loc_file.get_value("Special","Fizmat_reached_stage_2","") == "1":
-			goto_when_was = 237
+	if loc_file.get_value("Special","Met_Liena","") == "1":
+		if loc_file.get_value("Special","Met_Sonya_at_Fizmat","") == "1":
+			goto_when_was = 265
+			Chats = [
+				"Ситуация с Егорычем;267",
+			]
 		else:
-			goto_when_was = 147
-		print("Stage 2 of this scene")
-		loc_file.set_value("Special","Fizmat_reached_stage_2","1")
-		loc_file.save("C:/Games/ddkg2.save")
-		$POIs.free()
-		Chats = [
-			"",
-			"",
-			"",
-			"",
-		]
+			goto_when_was = 239
+			loc_file.set_value("Special","Met_Sonya_at_Fizmat","1")
+			loc_file.save("C:/Games/ddkg2.save")
 	else:
-		goto_when_was = 51
-		print("Stage 1 of this scene")
-		print("Chats")
+		if loc_file.get_value("Locations","res://scenes/case_4/invest_4/aappendix_day1.tscn","") == "1" and loc_file.get_value("Locations","res://scenes/case_4/invest_4/ametod_day1.tscn","") == "1":
+			if loc_file.get_value("Special","Fizmat_reached_stage_2","") == "1":
+				goto_when_was = 237
+			else:
+				goto_when_was = 147
+			print("Stage 2 of this scene")
+			loc_file.set_value("Special","Fizmat_reached_stage_2","1")
+			loc_file.save("C:/Games/ddkg2.save")
+			$POIs.free()
+			Chats = [
+				"",
+				"",
+				"",
+				"",
+			]
+		else:
+			goto_when_was = 51
+			print("Stage 1 of this scene")
+			print("Chats")
 	Moves = [
 		"Методкабинет;res://scenes/case_4/invest_4/ametod_day1.tscn",
 		"",
@@ -291,6 +336,7 @@ func _ready():
 	if $investigation_screen/ArcBG/Label.text[-1] == "B":
 		Dialogue[93] = "И даже тот суд не всех переубедил."
 		Dialogue[99] = "(Единственная, кто всерьез воспринимает мою невиновность в той краже.)|B"
+		Dialogue[250] = "Как меня за то дело с деньгой"
 		print("Swapping dialogue line for arc B")
 		Chats[3] = "3-й кейс;101"
 	Shows = [

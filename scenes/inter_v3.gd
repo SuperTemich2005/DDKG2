@@ -95,6 +95,7 @@ func _on_Next_pressed():
 		$Bubble.show()
 		$Bubble.animation = get_parent().Dialogue[Cur].split(" ")[1]
 		$Next.hide()
+		$Skip.hide()
 		$BG.hide()
 		$hidebub2.start()
 		if get_parent().Dialogue[Cur].split(" ").size() >= 3:
@@ -102,6 +103,8 @@ func _on_Next_pressed():
 				var ava = get_parent().Dialogue[Cur].split(" ")[3]
 				$AudioStreamPlayer2.set_stream(load("res://sounds/"+get_parent().Dialogue[Cur].split(" ")[1]+"_rus"+ava+".ogg"))
 				$AudioStreamPlayer2.play()
+	else:
+		$Skip.show()
 	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT" and get_parent().Dialogue[Cur].split(" ")[0] != "OBJECTION":
 		if get_parent().Dialogue[Cur].split("|").size() >= 2: # has color def
 			#print("Repaint")

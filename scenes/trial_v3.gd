@@ -95,6 +95,7 @@ func _on_Next_pressed():
 		$Next.hide()
 		$BG.hide()
 		$hidebub2.start()
+		$Skip.hide()
 		print("Objection!")
 		if get_parent().Dialogue[Cur].split(" ").size() >= 3:
 			print("With VA")
@@ -103,6 +104,8 @@ func _on_Next_pressed():
 				print(ava," ","res://sounds/"+get_parent().Dialogue[Cur].split(" ")[1]+"_rus"+ava+".ogg")
 				$AudioStreamPlayer2.set_stream(load("res://sounds/"+get_parent().Dialogue[Cur].split(" ")[1]+"_rus"+ava+".ogg"))
 				$AudioStreamPlayer2.play()
+	else:
+		$Skip.show()
 	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT":
 		if get_parent().Dialogue[Cur].split("|").size() >= 2: # has color def
 			#print("Repaint")

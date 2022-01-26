@@ -71,13 +71,24 @@ func _ready():
 		"Лена: В-Вы... Вы... Вы...|W|character_liena wtf",
 		"Конченые просто!|R|character_liena rage",
 		"Тёмыч: Такова наша служба.|W|character_liena ignore",
-		"",
+		"Лена: ...|W|character_liena ignore|START investigation_op",
+		"MAIN",
+		"Тёмыч: Предлагаю обсудить--|W|character_liena rage",
+		"Лена: Своего друга-насильника обсуди!|W|---|---|REACT damage",
+		"Тёмыч: 'Насильника'?",
+		"Лена: Ой, всё...",
+		"Егорыч: Информативная у тебя беседа, Тьоха.|W|character_egorich sigh",
+		"Тёмыч: У нас☭.",
+		"Егорыч: А у нас в квартире газ.|W|character_egorich laugh|---|REACT frustration",
+		"Тёмыч: (Как бы то ни было, на конструктивную беседу можно не рассчитывать.)|B",
+		"(Мы слишком сильно её обидели нашим каминг-аутом, кххх)",
+		"MAIN",
 	]
 	Chats = [
-		"",
-		"",
-		"",
-		"",
+		"Лена;56",
+		"Ира Жарова;56",
+		"Егор Ищенко;56",
+		"Внешний вид;56",
 	]
 	Moves = [
 		"Методкабинет;res://scenes/case_4/invest_4/ametod_day1.tscn",
@@ -86,11 +97,17 @@ func _ready():
 		"",
 	]
 	Shows = [
-		"badge 92",
+		"a 0",
 	]
+	NoShow = 56
 	loc_file.load("C:/Games/ddkg2.save")
 	if loc_file.get_value("Special","Metod_reached_stage_2","") == "1":
-		goto_when_was = 6
+		if loc_file.get_value("Special","Met_Liena","") == "1":
+			goto_when_was = 54
+		else:
+			goto_when_was = 6
+			loc_file.set_value("Special","Met_Liena","1")
+			loc_file.save("C:/Games/ddkg2.save")
 	else:
 		goto_when_was = 5
 	check_for_read_chats = false
