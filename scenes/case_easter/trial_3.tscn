@@ -1,13 +1,12 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://scenes/inter_v3.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/case_easter/trial_2_interogate.gd" type="Script" id=2]
+[ext_resource path="res://scenes/trial_v3.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/case_easter/trial_3.gd" type="Script" id=2]
 [ext_resource path="res://sprites/background/aschoolwit_fg.png" type="Texture" id=3]
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/character_scenes/character_temichlegs.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/character_scenes/character_write.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/character_scenes/character_swetlandontuse.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/character_scenes/character_sewa.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/character_scenes/character_swetlandontuse.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sprites/background/aschooldef_bg.png" type="Texture" id=9]
 [ext_resource path="res://sprites/background/aschoolpro_bg.png" type="Texture" id=10]
 [ext_resource path="res://sprites/background/aschooldef_fg.png" type="Texture" id=11]
@@ -79,7 +78,7 @@ visible = false
 position = Vector2( -23, 203 )
 
 [node name="sprite" parent="characters_all/character_egorich" index="0"]
-frame = 50
+frame = 23
 flip_h = true
 
 [node name="character_temich" parent="characters_all" instance=ExtResource( 5 )]
@@ -90,19 +89,15 @@ position = Vector2( 10.5947, 190.703 )
 visible = false
 position = Vector2( 4.23792, 130.314 )
 
-[node name="character_werur" parent="characters_all" instance=ExtResource( 6 )]
-visible = false
-position = Vector2( -15, 190.703 )
+[node name="character_swetlan" parent="characters_all" instance=ExtResource( 6 )]
+position = Vector2( -7, 51 )
 
 [node name="character_sonya" parent="characters_all" instance=ExtResource( 16 )]
 visible = false
 position = Vector2( -7, 187 )
 
-[node name="character_swetlan" parent="characters_all" instance=ExtResource( 8 )]
-position = Vector2( -7, 51 )
-
 [node name="fore_ground" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 88 )
+position = Vector2( 0, 96 )
 frames = SubResource( 2 )
 animation = "jud"
 centered = false

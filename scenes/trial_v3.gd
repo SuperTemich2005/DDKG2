@@ -28,11 +28,11 @@ func _ready():
 		$ArcBG.show()
 		$ArcBG/Label.show()
 		$ArcBG/Label.text = "Арка: "+save_file.get_value("General","Arc","asffhad")
-	for i in range(1,len(save_file.get_section_keys("Evidence"))+1):
-		get_node("CourtRecord/Cells/Image"+str(i)).animation = save_file.get_value("Evidence",str(i)).split(";")[0]
 
 
 func refresh():
+	for i in range(1,len(save_file.get_section_keys("Evidence"))+1):
+		get_node("CourtRecord/Cells/Image"+str(i)).animation = save_file.get_value("Evidence",str(i)).split(";")[0]
 	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT":
 		if get_parent().Dialogue[Cur].split("|").size() >= 2: # has color def
 			#print("Repaint")
@@ -206,6 +206,7 @@ func _on_Next_pressed():
 										print("adding evidence id ",str(1+save_file.get_section_keys("Evidence").size()),": ",get_parent().Dialogue[Cur].split("|")[6])
 										save_file.set_value("Evidence",str(1+save_file.get_section_keys("Evidence").size()),get_parent().Dialogue[Cur].split("|")[6])
 										save_file.save("C:/Games/ddkg2.save")
+									refresh()
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
 		get_tree().change_scene(get_parent().Dialogue[Cur].split(" ")[1])
 	elif get_parent().Dialogue[Cur] == "MAIN":
