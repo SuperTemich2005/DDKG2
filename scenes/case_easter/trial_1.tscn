@@ -1,0 +1,101 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scenes/trial_v3.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/case_3/trial_1/trial_1.gd" type="Script" id=2]
+[ext_resource path="res://sprites/background/aschoolwit_fg.png" type="Texture" id=3]
+[ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/character_scenes/character_temichlegs.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/character_scenes/character_swetlandontuse.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/character_scenes/character_sewa.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/background/aschooldef_bg.png" type="Texture" id=9]
+[ext_resource path="res://sprites/background/aschoolpro_bg.png" type="Texture" id=10]
+[ext_resource path="res://sprites/background/aschooldef_fg.png" type="Texture" id=11]
+[ext_resource path="res://sprites/background/aschoolwit_bg.png" type="Texture" id=12]
+[ext_resource path="res://sprites/background/aschooljud_fg.png" type="Texture" id=13]
+[ext_resource path="res://sprites/background/aschoolpro_fg.png" type="Texture" id=14]
+[ext_resource path="res://sprites/background/aschooljud_bg.png" type="Texture" id=15]
+[ext_resource path="res://scenes/character_scenes/character_sonya.tscn" type="PackedScene" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "def",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "pro",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "wit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "jud",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "def",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "pro",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "wit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "jud",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="back_ground" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "jud"
+centered = false
+
+[node name="characters_all" type="Node2D" parent="."]
+position = Vector2( -1, -115 )
+
+[node name="character_egorich" parent="characters_all" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( -23, 203 )
+
+[node name="character_temich" parent="characters_all" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 10.5947, 190.703 )
+
+[node name="character_sewa" parent="characters_all" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 4.23792, 130.314 )
+
+[node name="character_swetlan" parent="characters_all" instance=ExtResource( 6 )]
+position = Vector2( -7, 51 )
+
+[node name="character_sonya" parent="characters_all" instance=ExtResource( 16 )]
+visible = false
+position = Vector2( -7, 187 )
+
+[node name="fore_ground" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 96 )
+frames = SubResource( 2 )
+animation = "jud"
+centered = false
+
+[node name="investigation_screen" parent="." instance=ExtResource( 1 )]
