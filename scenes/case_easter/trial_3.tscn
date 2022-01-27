@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/trial_v3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/case_easter/trial_3.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/character_scenes/character_temichlegs.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/character_scenes/character_swetlandontuse.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/character_scenes/character_sewa.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/character_scenes/character_layton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sprites/background/aschooldef_bg.png" type="Texture" id=9]
 [ext_resource path="res://sprites/background/aschoolpro_bg.png" type="Texture" id=10]
 [ext_resource path="res://sprites/background/aschooldef_fg.png" type="Texture" id=11]
@@ -28,14 +29,14 @@ animations = [ {
 "name": "pro",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "wit",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "jud",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "wit",
 "speed": 5.0
 } ]
 
@@ -51,14 +52,14 @@ animations = [ {
 "name": "pro",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "wit",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "jud",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "wit",
 "speed": 5.0
 } ]
 
@@ -78,7 +79,7 @@ visible = false
 position = Vector2( -23, 203 )
 
 [node name="sprite" parent="characters_all/character_egorich" index="0"]
-frame = 23
+frame = 46
 flip_h = true
 
 [node name="character_temich" parent="characters_all" instance=ExtResource( 5 )]
@@ -96,6 +97,10 @@ position = Vector2( -7, 51 )
 visible = false
 position = Vector2( -7, 187 )
 
+[node name="character_lentoln" parent="characters_all" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 1, 139 )
+
 [node name="fore_ground" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 96 )
 frames = SubResource( 2 )
@@ -103,5 +108,7 @@ animation = "jud"
 centered = false
 
 [node name="investigation_screen" parent="." instance=ExtResource( 1 )]
+
+[connection signal="next" from="investigation_screen" to="." method="_on_investigation_screen_next"]
 
 [editable path="characters_all/character_egorich"]

@@ -7,10 +7,10 @@ var va
 func _ready():
 	correct = "5 aff res://scenes/case_easter/trial_3.tscn 3"
 	va = ""
-	BoxColor = Color(0.5,1,0.5,1)
+	BoxColor = Color(0.5,0.5,1,1)
 	Roles = [
 		"character_egorich pro",
-		"character_lentoln jud",
+		"character_swetlan jud",
 		#"character_temich hld",
 		"character_sonya pro",
 		"character_wit wit",

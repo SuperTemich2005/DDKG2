@@ -23,24 +23,24 @@ animations = [ {
 "name": "default",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "sigh",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "rage",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "kek",
+"name": "sigh",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "hmm",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "kek",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -55,5 +55,5 @@ animations = [ {
 position = Vector2( 538.923, 357.313 )
 scale = Vector2( 1.61882, 1.61882 )
 frames = SubResource( 1 )
-frame = 1
+animation = "rage"
 playing = true

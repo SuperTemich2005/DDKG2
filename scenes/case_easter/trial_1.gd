@@ -3,7 +3,7 @@ var Dialogue
 var BoxColor
 var Roles
 func _ready():
-	BoxColor = Color(0.5,1,0.5,1)
+	BoxColor = Color(0.5,0.5,1,1)
 	Roles = [
 		"character_egorich pro",
 		"character_swetlan jud",
