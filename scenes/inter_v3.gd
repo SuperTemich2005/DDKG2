@@ -194,7 +194,7 @@ func _on_Next_pressed():
 									var refr = false # не добавляем новую улику? false - добавляем новую улику
 									for x in range(1,1+save_file.get_section_keys("Evidence").size()): # счетчик сравнивает текущую улику с каждой уликой в записях
 										print("Сравнение ",x," ",save_file.get_value("Evidence",str(x))," с ",get_parent().Dialogue[Cur].split("|")[6])
-										if save_file.get_value("Evidence",str(x)) == get_parent().Dialogue[Cur].split("|")[6]: # есть ли такая улика уже
+										if save_file.get_value("Evidence",str(x)).split(";")[0] == get_parent().Dialogue[Cur].split("|")[6].split(";")[0]: # есть ли такая улика уже
 											print("совпадение")
 											if int(save_file.get_value("Evidence",str(x)).split(";")[-1]) < int(get_parent().Dialogue[Cur].split("|")[6].split(";")[-1]): # новее ли улика
 												print("adding evidence id ",str(x),": ",get_parent().Dialogue[Cur].split("|")[6])

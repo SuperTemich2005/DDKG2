@@ -21,6 +21,8 @@ func _ready():
 				spec = "Украденное дело."
 			"4":
 				spec = "Залётное дело."
+			"E":
+				spec = "Ууу читерюга!"
 		$save_info.text = str(save_file.get_value("General","Case"))+" дело: "+spec
 		if save_file.get_value("General","Case","") >= str(4):
 			$logo.animation = "default2"

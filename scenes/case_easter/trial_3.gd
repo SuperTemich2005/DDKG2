@@ -47,7 +47,13 @@ func _ready():
 		"Егорыч: А вот опишите то, что только что произошло.|W|character_egorich thinks",
 		"Библиотекарша: Да запросто, я как щас помню это!|W|character_lentoln omg",
 		"--- Как со мной не поздоровались ---|R|---|STOP all|REACT intro_woosh",
-		"",
+		"Библиотекарша: На прошлой перемене, я впустила в библиотеку 10-В класс.|W|character_lentoln default|START examination-moderato",
+		"Но никто из них не поздоровался! Даже головой не кивнули!|W|character_lentoln hmm",
+		"За окном еще какие-то охломоны закладки искали, или просто для развлечения в мусорке рылись|W|character_lentoln omg",
+		"Егорыч: Ваши показания какие-то мутные...|W|character_egorich suspects|STOP all|REACT frustration",
+		"Но не суть. Я проведу перекрестный допрос.|W|character_egorich yee",
+		"Тёмыч: Удачи, дружище.|W|character_temich kekk",
+		"OUT res://scenes/case_easter/trial_4_interogate.tscn",
 	]
 	$investigation_screen._on_Next_pressed()
 
