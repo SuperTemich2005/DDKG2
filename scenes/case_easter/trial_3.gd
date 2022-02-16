@@ -11,6 +11,7 @@ func _ready():
 		"character_sonya wit",
 		"character_wit wit",
 		"character_temich def",
+		"character_lentoln wit",
 	]
 	Dialogue = [ # диалоги. 
 		"",

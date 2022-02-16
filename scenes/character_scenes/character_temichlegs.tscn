@@ -36,26 +36,6 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "yee",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "paper",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "kekk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "rage",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
 "name": "picard",
@@ -66,19 +46,34 @@ animations = [ {
 "name": "rekt",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "no",
-"speed": 3.0
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "damn",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 30 ) ],
 "loop": true,
 "name": "comeon",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "damn",
+"name": "wonder",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "objection_1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "no",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "kekk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ) ],
@@ -91,25 +86,30 @@ animations = [ {
 "name": "thonker",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 10 ) ],
 "loop": false,
-"name": "objection_1",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "wonder",
-"speed": 5.0
+"name": "deskslam",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 24 ) ],
 "loop": true,
 "name": "annoyed",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "deskslam",
-"speed": 15.0
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "yee",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "paper",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "rage",
+"speed": 5.0
 } ]
 
 [node name="Node2D" type="Node2D"]

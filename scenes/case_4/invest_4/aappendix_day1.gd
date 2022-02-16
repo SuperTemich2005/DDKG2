@@ -97,7 +97,7 @@ func _ready():
 		"",
 	]
 	Shows = [
-		"a 0",
+		"a 56",
 	]
 	NoShow = 56
 	loc_file.load("C:/Games/ddkg2.save")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/magatama_overlay.gd" type="Script" id=1]
+[ext_resource path="res://sprites/magatama/chains_of_the_heart_2.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BG" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LaunchChains" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -64 )
+texture = ExtResource( 2 )
+
+[connection signal="timeout" from="LaunchChains" to="." method="_on_LaunchChains_timeout"]

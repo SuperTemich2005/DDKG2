@@ -19,7 +19,7 @@ func _ready():
 	Dialogue = [ # диалоги. оффсет 20
 		"Светланфёдрна: Допрашивай.|W|character_swetlan default",
 		"--- Как со мной не поздоровались ---|R|character_lentoln default|STOP all|REACT intro_woosh",
-		"Библиотекарша: На прошлой перемене, я впустила в библиотеку 10-В класс.|G2|character_lentoln default|START2 examination-moderato|---|7",
+		"Библиотекарша: На прошлой перемене, я впустила в библиотеку 10-В класс.|G2|character_lentoln default|START2 examination-allegro|---|7",
 		"Но никто из них не поздоровался! Даже головой не кивнули!|G2|character_lentoln hmm|---|---|12",
 		"За окном еще какие-то охломоны закладки искали, или просто для развлечения в мусорке рылись|G2|character_lentoln omg|---|---|16",
 		"EJUMP 37",

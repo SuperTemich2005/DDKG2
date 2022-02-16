@@ -78,7 +78,7 @@ visible = false
 position = Vector2( -23, 203 )
 
 [node name="sprite" parent="characters_all/character_egorich" index="0"]
-frame = 24
+frame = 48
 flip_h = true
 
 [node name="character_temich" parent="characters_all" instance=ExtResource( 5 )]
