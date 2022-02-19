@@ -289,7 +289,9 @@ func _ready():
 		"У нас было вроде 4 урока.",
 		"Соня: Чертила...|P|character_sonya death",
 		"И в честь чего такое случилось?|P|character_sonya uh",
-		"",
+		"красная тревога",
+		"MAGATAMA RRRRR",
+		"Как я встретил вашу маму",
 	]
 	if loc_file.get_value("Special","Met_Liena","") == "1":
 		if loc_file.get_value("Special","Met_Sonya_at_Fizmat","") == "1":
@@ -339,6 +341,8 @@ func _ready():
 		Dialogue[250] = "Как меня за то дело с деньгой"
 		print("Swapping dialogue line for arc B")
 		Chats[3] = "3-й кейс;101"
+	else:
+		Chats[3] = "Тест магатамы;272"
 	Shows = [
 		"badge 110",
 	]

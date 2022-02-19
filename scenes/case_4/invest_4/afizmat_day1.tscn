@@ -6,13 +6,18 @@
 [ext_resource path="res://scenes/character_scenes/character_egorich.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/character_scenes/character_paltos.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/character_scenes/character_sonya.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/magatama_overlay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/background/mfizmat_bg.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "magatama",
 "speed": 5.0
 } ]
 
@@ -25,8 +30,6 @@ centered = false
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="magatama" parent="." instance=ExtResource( 7 )]
 
 [node name="characters_all" type="Node2D" parent="."]
 position = Vector2( -1, -115 )

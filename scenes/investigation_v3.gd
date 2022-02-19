@@ -13,6 +13,9 @@ var ShowChars # for char-to-char printing
 var Selected
 var ReadChats
 var save_file = ConfigFile.new()
+var chains_back = []
+var magatama_bg_fade = -3
+var magatama_prep = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Selected = 0
@@ -106,7 +109,7 @@ func _on_Next_pressed():
 	ShowChars = 0
 	$Skip.show()
 	$show_cell.hide()
-	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT":
+	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT" and get_parent().Dialogue[Cur].split(" ")[0] != "MAGATAMA":
 		if get_parent().Dialogue[Cur].split("|").size() >= 2: # has color def
 			#print("Repaint")
 			var col = Color(1,1,1,1)
@@ -220,6 +223,100 @@ func _on_Next_pressed():
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "JUMP":
 		Cur = int(get_parent().Dialogue[Cur].split(" ")[1])-1
 		_on_Next_pressed()
+	elif get_parent().Dialogue[Cur].split(" ")[0] == "MAGATAMA":
+		var locks = get_parent().Dialogue[Cur].split(" ")[1]
+		print("START MAGATAMA")
+		$MagaFadeInClk.start()
+		get_parent().get_node("back_ground").animation = "magatama"
+		$AudioStreamPlayer.stop()
+		$AudioStreamPlayer2.set_stream(load("res://sounds/magatama_start.ogg"))
+		$AudioStreamPlayer2.play()
+		$Next.hide()
+		$ShowCourtRecord.hide()
+		$BG.hide()
+		$Skip.hide()
+		match len(locks):
+			1:
+				var subside = 1
+				for i in range(2):
+					subside *= -1
+					var a = Sprite.new()
+					a.position = Vector2(512,300)
+					a.texture = load("res://sprites/magatama/chains_of_the_heart_1.png")
+					a.rotation_degrees = subside*30
+					chains_back.append(a)
+					a.hide()
+					add_child_below_node($chains,a)
+			2:
+				var side = 1
+				var subside = 1
+				for i in range(4):
+					subside *= -1
+					if i%2 == 0:
+						side *= -1
+					var a = Sprite.new()
+					a.position = Vector2(512+side*300,300)
+					a.texture = load("res://sprites/magatama/chains_of_the_heart_1.png")
+					a.rotation_degrees = subside*60
+					chains_back.append(a)
+					a.hide()
+					add_child_below_node($chains,a)
+			3:
+				var side = 1
+				var subside = 1
+				for i in range(4):
+					subside *= -1
+					if i%2 == 0:
+						side *= -1
+					var a = Sprite.new()
+					a.position = Vector2(512+side*300,150)
+					a.texture = load("res://sprites/magatama/chains_of_the_heart_1.png")
+					a.rotation_degrees = subside*30
+					chains_back.append(a)
+					a.hide()
+					add_child_below_node($chains,a)
+			4:
+				var side = 1
+				var subside = 1
+				for i in range(4):
+					subside *= -1
+					if i%2 == 0:
+						side *= -1
+					var a = Sprite.new()
+					a.position = Vector2(512+side*300,150)
+					a.texture = load("res://sprites/magatama/chains_of_the_heart_1.png")
+					a.rotation_degrees = subside*30
+					chains_back.append(a)
+					a.hide()
+					add_child_below_node($chains,a)
+			5:
+				var side = 1
+				var subside = 1
+				var offs = 0
+				for i in range(6):
+					var a = Sprite.new()
+					subside *= -1
+					if i%2 == 0:
+						side *= -1
+					if i > 3:
+						a.position = Vector2(512+-subside*500,600/2-20)
+					else:
+						a.position = Vector2(512+side*300,600/2-120)
+					a.texture = load("res://sprites/magatama/chains_of_the_heart_1.png")
+					a.rotation_degrees = subside*30
+					chains_back.append(a)
+					a.hide()
+					add_child_below_node($chains,a)
+
+
+func _process(delta):
+	if magatama_prep == true:
+		magatama_bg_fade = clamp(magatama_bg_fade+0.05,0,1)
+		$MagatamaBG.color.a = magatama_bg_fade
+		if magatama_bg_fade == 1:
+			print("starting magatimer ",magatama_bg_fade," ",magatama_prep)
+			magatama_prep = false
+			$MagaChainClk.start()
 
 
 func _input(event):
@@ -391,3 +488,25 @@ func _on_Moves_pressed():
 func _on_Skip_pressed():
 	ShowChars = len(get_parent().Dialogue[Cur].split("|")[0])
 	$Skip.hide()
+
+
+func _on_MagaChainClk_timeout():
+	var count = 0
+	print("Magachain ",chains_back)
+	for i in chains_back:
+		print(i.visible)
+		if i.visible == false:
+			i.show()
+			break
+		else:
+			count += 1
+	if count == chains_back.size():
+		$MagaChainClk.stop()
+		_on_Next_pressed()
+		$BG.show()
+		$Next.show()
+		$ShowCourtRecord.show()
+
+
+func _on_MagaFadeInClk_timeout():
+	magatama_prep = true

@@ -18,7 +18,7 @@ __meta__ = {
 wait_time = 0.5
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -64 )
+position = Vector2( 464, 128 )
 texture = ExtResource( 2 )
 
 [connection signal="timeout" from="LaunchChains" to="." method="_on_LaunchChains_timeout"]
