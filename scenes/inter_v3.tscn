@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/inter_v3.gd" type="Script" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://sprites/evidence/affidavit_big.png" type="Texture" id=26]
 [ext_resource path="res://sprites/Objection.png" type="Texture" id=27]
 [ext_resource path="res://sprites/Hold it.png" type="Texture" id=28]
+[ext_resource path="res://sprites/Take That.png" type="Texture" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -46,14 +47,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "gotchu",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "wut",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "gotchu",
 "speed": 5.0
 } ]
 
@@ -73,6 +74,11 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "hijab",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "footage",
@@ -83,14 +89,19 @@ animations = [ {
 "name": "money",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "aff",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -103,24 +114,14 @@ animations = [ {
 "name": "aff2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "grafin",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "aff",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "hijab",
+"name": "branch",
 "speed": 5.0
 } ]
 
@@ -143,19 +144,29 @@ animations = [ {
 "name": "body",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "hijab",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "money",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "grafin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "aff",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -168,24 +179,14 @@ animations = [ {
 "name": "aff2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "grafin",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "report",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "aff",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ) ],
-"loop": true,
-"name": "hijab",
+"name": "branch",
 "speed": 5.0
 } ]
 
@@ -217,6 +218,11 @@ animations = [ {
 "frames": [ ExtResource( 28 ) ],
 "loop": true,
 "name": "hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "have",
 "speed": 5.0
 } ]
 
@@ -756,10 +762,9 @@ __meta__ = {
 }
 
 [node name="Bubble" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 512, 300 )
 frames = SubResource( 14 )
-animation = "hit"
+animation = "obj"
 
 [node name="hidebub" type="Timer" parent="."]
 one_shot = true

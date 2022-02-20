@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/psychelocks.ogg-aa61da6bff1395d52f54060d3e191abe.oggstr"
+
+[deps]
+
+source_file="res://sounds/psychelocks.ogg"
+dest_files=[ "res://.import/psychelocks.ogg-aa61da6bff1395d52f54060d3e191abe.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

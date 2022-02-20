@@ -104,3 +104,4 @@ __meta__ = {
 [connection signal="pressed" from="POIs/poi_3" to="investigation_screen" method="_on_POI_pressed"]
 [connection signal="pressed" from="POIs/poi_4" to="investigation_screen" method="_on_POI_pressed"]
 [connection signal="pressed" from="POIs/poi_5" to="investigation_screen" method="_on_POI_pressed"]
+[connection signal="next" from="investigation_screen" to="." method="_on_investigation_screen_next"]

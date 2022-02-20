@@ -14,8 +14,12 @@ var Selected
 var ReadChats
 var save_file = ConfigFile.new()
 var chains_back = []
+var locks_back = []
 var magatama_bg_fade = -3
 var magatama_prep = false
+var magatama_clear
+var magatama_bg
+var cur_secret = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Selected = 0
@@ -24,6 +28,7 @@ func _ready():
 	State = "Dialogue"
 	StateCR = "No"
 	save_file.load("C:/Games/ddkg2.save")
+	cur_secret = int(save_file.get_value("Secrets",get_parent().filename,"0"))
 	if save_file.get_value("General","Arc","asffhad") != "asffhad": # the best `if` in my life
 		$ArcBG.show()
 		$ArcBG/Label.show()
@@ -109,7 +114,7 @@ func _on_Next_pressed():
 	ShowChars = 0
 	$Skip.show()
 	$show_cell.hide()
-	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT" and get_parent().Dialogue[Cur].split(" ")[0] != "MAGATAMA":
+	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT" and get_parent().Dialogue[Cur].split(" ")[0] != "MAGATAMA" and get_parent().Dialogue[Cur].split(" ")[0] != "NOMAGA" and get_parent().Dialogue[Cur].split(" ")[0] != "BREAKLOCK":
 		if get_parent().Dialogue[Cur].split("|").size() >= 2: # has color def
 			#print("Repaint")
 			var col = Color(1,1,1,1)
@@ -177,6 +182,12 @@ func _on_Next_pressed():
 									$show_cell/evidence.animation = get_parent().Dialogue[Cur].split("|")[5].split(" ")[1]
 									$show_cell.show()
 									# 0Text|1Color|2Anim|3BGM|4React|5split;choice1:goto1;choice2:goto2;choice3:goto3
+								elif get_parent().Dialogue[Cur].split("|")[5].split(" ")[0] == "demand":
+									_on_ShowCourtRecord_pressed()
+									$CourtRecord/Present.show()
+									if get_parent().Dialogue[Cur].split("|")[5].split(" ")[4]:
+										$StopMaga.show()
+									$BG.show()
 								elif get_parent().Dialogue[Cur].split("|")[0].left(3) == "~~~":
 									# 0Text|1Color|2Anim|3BGM|4React|5id|6nameint;desc;exp;ver
 									save_file.load("C:/Games/ddkg2.save")
@@ -208,6 +219,8 @@ func _on_Next_pressed():
 		$Skip.hide()
 		$Back.hide()
 		$InvestigationButtons.show()
+		if cur_secret != 0:
+			$Magatama.show()
 		var temp = 0
 		if "read_chats" in get_parent():
 			for i in ReadChats:
@@ -223,8 +236,38 @@ func _on_Next_pressed():
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "JUMP":
 		Cur = int(get_parent().Dialogue[Cur].split(" ")[1])-1
 		_on_Next_pressed()
+	elif get_parent().Dialogue[Cur].split(" ")[0] == "BREAKLOCK":
+		$AudioStreamPlayer2.set_stream(load("res://sounds/intro_woosh.ogg"))
+		$AudioStreamPlayer2.play(0)
+		locks_back.pop_back().free()
+		$BG.hide()
+		$Next.hide()
+		$ShowCourtRecord.hide()
+		$Skip.hide()
+		$autoforward.start()
+	elif get_parent().Dialogue[Cur].split(" ")[0] == "NOMAGA":
+		$AudioStreamPlayer.stop()
+		$BG.hide()
+		$Next.hide()
+		$ShowCourtRecord.hide()
+		$Skip.hide()
+		get_parent().get_node("back_ground").animation = "default"
+		if len(get_parent().Dialogue[Cur].split(" ")) == 2:
+			if get_parent().Dialogue[Cur].split(" ")[1] == "SUPER":
+				save_file.set_value("Secrets",get_parent().filename,"0")
+				save_file.save("C:/Games/ddkg2.save")
+		for i in chains_back:
+			i.animation = "retract"
+			i.play()
+			magatama_clear = true
+		for i in locks_back:
+			i.hide()
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "MAGATAMA":
 		var locks = get_parent().Dialogue[Cur].split(" ")[1]
+		if get_parent().Dialogue[Cur].split(" ")[2] != "crossexam":
+			save_file.set_value("Secrets",get_parent().filename,get_parent().Dialogue[Cur].split(" ")[2])
+			cur_secret = int(get_parent().Dialogue[Cur].split(" ")[2])
+			save_file.save("C:/Games/ddkg2.save")
 		print("START MAGATAMA")
 		$MagaFadeInClk.start()
 		get_parent().get_node("back_ground").animation = "magatama"
@@ -240,13 +283,26 @@ func _on_Next_pressed():
 				var subside = 1
 				for i in range(2):
 					subside *= -1
-					var a = Sprite.new()
+					var a = AnimatedSprite.new()
 					a.position = Vector2(512,300)
-					a.texture = load("res://sprites/magatama/chains_of_the_heart_1.png")
+					a.frames = load("res://sprites/magatama/chains_animations.tres")
 					a.rotation_degrees = subside*30
 					chains_back.append(a)
 					a.hide()
 					add_child_below_node($chains,a)
+				var lock_color = ""
+				if locks[0] == "R":
+					lock_color = "res://sprites/magatama/standart_lock.png"
+				elif locks[0] == "B":
+					lock_color = "res://sprites/magatama/hidden_lock.png"
+				elif locks[0] == "G":
+					lock_color = "res://sprites/magatama/wont_tell_lock.png"
+				var b = Sprite.new()
+				b.position = Vector2(512,300)
+				b.texture = load(lock_color)
+				locks_back.append(b)
+				b.hide()
+				add_child_below_node($locks_parent,b)
 			2:
 				var side = 1
 				var subside = 1
@@ -254,13 +310,29 @@ func _on_Next_pressed():
 					subside *= -1
 					if i%2 == 0:
 						side *= -1
-					var a = Sprite.new()
+					var a = AnimatedSprite.new()
 					a.position = Vector2(512+side*300,300)
-					a.texture = load("res://sprites/magatama/chains_of_the_heart_1.png")
+					a.frames = load("res://sprites/magatama/chains_animations.tres")
 					a.rotation_degrees = subside*60
 					chains_back.append(a)
 					a.hide()
 					add_child_below_node($chains,a)
+				side = 1
+				for i in range(2):
+					side *= -1
+					var lock_color = ""
+					if locks[i] == "R":
+						lock_color = "res://sprites/magatama/standart_lock.png"
+					elif locks[i] == "B":
+						lock_color = "res://sprites/magatama/hidden_lock.png"
+					elif locks[i] == "G":
+						lock_color = "res://sprites/magatama/wont_tell_lock.png"
+					var b = Sprite.new()
+					b.position = Vector2(512+side*300,300)
+					b.texture = load(lock_color)
+					locks_back.append(b)
+					b.hide()
+					add_child_below_node($locks_parent,b)
 			3:
 				var side = 1
 				var subside = 1
@@ -268,13 +340,27 @@ func _on_Next_pressed():
 					subside *= -1
 					if i%2 == 0:
 						side *= -1
-					var a = Sprite.new()
+					var a = AnimatedSprite.new()
 					a.position = Vector2(512+side*300,150)
-					a.texture = load("res://sprites/magatama/chains_of_the_heart_1.png")
+					a.frames = load("res://sprites/magatama/chains_animations.tres")
 					a.rotation_degrees = subside*30
 					chains_back.append(a)
 					a.hide()
 					add_child_below_node($chains,a)
+				for i in range(3):
+					var lock_color = ""
+					if locks[i] == "R":
+						lock_color = "res://sprites/magatama/standart_lock.png"
+					elif locks[i] == "B":
+						lock_color = "res://sprites/magatama/hidden_lock.png"
+					elif locks[i] == "G":
+						lock_color = "res://sprites/magatama/wont_tell_lock.png"
+					var b = Sprite.new()
+					b.position = Vector2(512+cos(TAU/3*i+PI/2)*350,200+sin(TAU/3*i+PI/2)*140)
+					b.texture = load(lock_color)
+					locks_back.append(b)
+					b.hide()
+					add_child_below_node($locks_parent,b)
 			4:
 				var side = 1
 				var subside = 1
@@ -282,19 +368,33 @@ func _on_Next_pressed():
 					subside *= -1
 					if i%2 == 0:
 						side *= -1
-					var a = Sprite.new()
+					var a = AnimatedSprite.new()
 					a.position = Vector2(512+side*300,150)
-					a.texture = load("res://sprites/magatama/chains_of_the_heart_1.png")
+					a.frames = load("res://sprites/magatama/chains_animations.tres")
 					a.rotation_degrees = subside*30
 					chains_back.append(a)
 					a.hide()
 					add_child_below_node($chains,a)
+				for i in range(4):
+					var lock_color = ""
+					if locks[i] == "R":
+						lock_color = "res://sprites/magatama/standart_lock.png"
+					elif locks[i] == "B":
+						lock_color = "res://sprites/magatama/hidden_lock.png"
+					elif locks[i] == "G":
+						lock_color = "res://sprites/magatama/wont_tell_lock.png"
+					var b = Sprite.new()
+					b.position = Vector2(512+cos(i)*300,300-sin(i)*150)
+					b.texture = load(lock_color)
+					locks_back.append(b)
+					b.hide()
+					add_child_below_node($locks_parent,b)
 			5:
 				var side = 1
 				var subside = 1
 				var offs = 0
 				for i in range(6):
-					var a = Sprite.new()
+					var a = AnimatedSprite.new()
 					subside *= -1
 					if i%2 == 0:
 						side *= -1
@@ -302,21 +402,40 @@ func _on_Next_pressed():
 						a.position = Vector2(512+-subside*500,600/2-20)
 					else:
 						a.position = Vector2(512+side*300,600/2-120)
-					a.texture = load("res://sprites/magatama/chains_of_the_heart_1.png")
+					a.frames = load("res://sprites/magatama/chains_animations.tres")
 					a.rotation_degrees = subside*30
 					chains_back.append(a)
 					a.hide()
 					add_child_below_node($chains,a)
+				for i in range(5):
+					var lock_color = ""
+					if locks[i] == "R":
+						lock_color = "res://sprites/magatama/standart_lock.png"
+					elif locks[i] == "B":
+						lock_color = "res://sprites/magatama/hidden_lock.png"
+					elif locks[i] == "G":
+						lock_color = "res://sprites/magatama/wont_tell_lock.png"
+					var b = Sprite.new()
+					b.position = Vector2(512+cos(TAU/5*i+PI/2)*300,300-sin(TAU/5*i+PI/2)*150)
+					b.texture = load(lock_color)
+					locks_back.append(b)
+					b.hide()
+					add_child_below_node($locks_parent,b)
 
 
 func _process(delta):
 	if magatama_prep == true:
 		magatama_bg_fade = clamp(magatama_bg_fade+0.05,0,1)
-		$MagatamaBG.color.a = magatama_bg_fade
+		get_parent().get_node("back_ground").self_modulate = Color(1-magatama_bg_fade,1-magatama_bg_fade,1-magatama_bg_fade,1)
 		if magatama_bg_fade == 1:
-			print("starting magatimer ",magatama_bg_fade," ",magatama_prep)
 			magatama_prep = false
 			$MagaChainClk.start()
+	if magatama_clear == true:
+		magatama_bg_fade = clamp(magatama_bg_fade-0.01,0,1)
+		get_parent().get_node("back_ground").self_modulate = Color(1-magatama_bg_fade,1-magatama_bg_fade,1-magatama_bg_fade,1)
+		if magatama_bg_fade == 0:
+			magatama_clear = false
+			$autoforward.start()
 
 
 func _input(event):
@@ -346,6 +465,7 @@ func _on_update_timeout():
 
 
 func _on_Back_pressed():
+	$Magatama.show()
 	State = "Main"
 	$InvestigationButtons.show()
 	$Crosshair.hide()
@@ -356,6 +476,7 @@ func _on_Back_pressed():
 
 
 func _on_Investigate_pressed():
+	$Magatama.hide()
 	State = "Examine"
 	$InvestigationButtons.hide()
 	$Crosshair.show()
@@ -366,18 +487,22 @@ func _on_Investigate_pressed():
 
 func _on_Chat_pressed():
 	State = "Chat"
+	$Magatama.hide()
 	$InvestigationButtons.hide()
 	$Chat.show()
 	$Back.show()
+	$Magatama.hide()
 
 func _on_Present_pressed():
 	_on_ShowCourtRecord_pressed()
+	$Magatama.disabled = true
 	$CourtRecord/Present.show()
 	for i in $InvestigationButtons.get_children():
 		i.disabled = true
 
 
 func _on_Move_pressed():
+	$Magatama.hide()
 	State = "Move"
 	$InvestigationButtons.hide()
 	$Moves.show()
@@ -385,6 +510,7 @@ func _on_Move_pressed():
 
 func _on_Chats_pressed():
 	if State == "Chat":
+		$Magatama.hide()
 		for i in range(0,4):
 			if $Chat.get_children()[i].pressed:
 				Cur = int(get_parent().Chats[i].split(";")[1])-1
@@ -435,32 +561,48 @@ func _on_ShowCourtRecord_pressed():
 		$CourtRecord/Present.hide()
 		for i in $InvestigationButtons.get_children():
 			i.disabled = false
+		$Magatama.disabled = false
 
 
 func _on_PresentEvidence_pressed():
 	_on_ShowCourtRecord_pressed()
 	var EvidenceFound = false
+	$StopMaga.hide()
 	save_file.load("C:/Games/ddkg2.save")
-	for i in range(0,get_parent().Shows.size()+1):
-		print("matching ",get_node("CourtRecord/Cells/Image"+str(Selected)).animation," ",get_parent().Shows[i-1].split(" ")[0])
-		if get_node("CourtRecord/Cells/Image"+str(Selected)).animation == get_parent().Shows[i-1].split(" ")[0]:
-			print("matched")
-			Cur = int(get_parent().Shows[i-1].split(" ")[1])-1
+	if get_parent().Dialogue[Cur].split("|")[5].split(" ")[0] != "demand":
+		for i in range(0,get_parent().Shows.size()+1):
+			print("matching ",get_node("CourtRecord/Cells/Image"+str(Selected)).animation," ",get_parent().Shows[i-1].split(" ")[0])
+			if get_node("CourtRecord/Cells/Image"+str(Selected)).animation == get_parent().Shows[i-1].split(" ")[0]:
+				print("matched")
+				Cur = int(get_parent().Shows[i-1].split(" ")[1])-1
+				_on_Next_pressed()
+				State = "Dialogue"
+				$InvestigationButtons.hide()
+				$BG.show()
+				$Next.show()
+				EvidenceFound = true
+				break
+		if EvidenceFound == false:
+			print("no match. goto noshow")
+			Cur = get_parent().NoShow-1
 			_on_Next_pressed()
 			State = "Dialogue"
 			$InvestigationButtons.hide()
 			$BG.show()
 			$Next.show()
-			EvidenceFound = true
-			break
-	if EvidenceFound == false:
-		print("no match. goto noshow")
-		Cur = get_parent().NoShow-1
-		_on_Next_pressed()
-		State = "Dialogue"
-		$InvestigationButtons.hide()
-		$BG.show()
-		$Next.show()
+	else:
+		if get_node("CourtRecord/Cells/Image"+str(Selected)).animation == get_parent().Dialogue[Cur].split("|")[5].split(" ")[1]:
+			Cur = int(get_parent().Dialogue[Cur].split("|")[5].split(" ")[2])-1
+			_on_Next_pressed()
+			State = "Dialogue"
+			$BG.show()
+			$Next.show()
+		else:
+			Cur = int(get_parent().Dialogue[Cur].split("|")[5].split(" ")[3])-1
+			_on_Next_pressed()
+			State = "Dialogue"
+			$BG.show()
+			$Next.show()
 
 
 func _on_POI_pressed():
@@ -497,16 +639,69 @@ func _on_MagaChainClk_timeout():
 		print(i.visible)
 		if i.visible == false:
 			i.show()
+			i.play()
 			break
 		else:
 			count += 1
 	if count == chains_back.size():
+		$MagaLockClk.start()
 		$MagaChainClk.stop()
+
+
+func _on_MagaFadeInClk_timeout():
+	magatama_prep = true
+
+
+func _on_MagaLockClk_timeout():
+	var count = 0
+	$AudioStreamPlayer2.set_stream(load("res://sounds/sith_slam.ogg"))
+	for i in locks_back:
+		if i.visible == false:
+			i.show()
+			i.scale = Vector2(2,2)
+			$AudioStreamPlayer2.play()
+			break
+		else:
+			count += 1
+	if count == len(locks_back):
+		$MagaLockClk.stop()
 		_on_Next_pressed()
 		$BG.show()
 		$Next.show()
 		$ShowCourtRecord.show()
 
 
-func _on_MagaFadeInClk_timeout():
-	magatama_prep = true
+func _on_autoforward_timeout():
+	_on_Next_pressed()
+	$BG.show()
+	$Next.show()
+	$ShowCourtRecord.show()
+	$TakeBubble.hide()
+
+
+func _on_Magatama_pressed():
+	$AudioStreamPlayer.set_stream(load("res://sounds/have_rus.ogg"))
+	$AudioStreamPlayer.play()
+	Cur = cur_secret-1
+	State = "Dialogue"
+	$InvestigationButtons.hide()
+	$Magatama.hide()
+	$autoforward2.start()
+	$TakeBubble.show()
+	if StateCR != "No":
+		_on_ShowCourtRecord_pressed()
+
+
+func _on_autoforward2_timeout():
+	_on_Next_pressed()
+	$TakeBubble.hide()
+
+
+func _on_StopMaga_pressed():
+	Cur = get_parent().maga_halt-1
+	_on_Next_pressed()
+	State = "Dialogue"
+	$CourtRecord.hide()
+	$Next.show()
+	$Skip.show()
+	$StopMaga.hide()
