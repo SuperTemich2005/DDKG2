@@ -43,7 +43,18 @@ func _ready():
 		"И, на самом деле, я хочу скорее забыть эти все вписки.",
 		"Тёмыч: ('Рене Оуберженуа в роли Одо...')|B",
 		"А что так? Не прижился разгульный образ жизни?|W",
-		"Ада: М-да, можно и так сказать...|W|character_odo thinks",
+		"Ада: М-да, можно и так сказать...|W|character_odo thinks|---|REACT frustration",
+		"MAIN",
+		"Тёмыч: Что ж, Одо...|W|character_odo default",
+		"Ада: 'Одо'?|W|---|---|REACT surprise",
+		"Егорыч: Не обращай внимания, он всем дает клички.|W|character_egorich laughs",
+		"Ада: Ну, хотя бы не обидное что-то.|W|character_odo thinks",
+		"Тёмыч: Откуда ты? И что ты?",
+		"Ада: Я из 10-А. Занимаюсь танцами.|W|character_odo default",
+		"Тёмыч: Информативно.",
+		"(Надо спросить у неё по поводу той вписки и по поводу Егорыча.)|B",
+		"MAIN",
+		"",
 	]
 	Moves = [
 		"Методкабинет;res://scenes/case_4/invest_4/ametod_day1.tscn",
@@ -56,10 +67,13 @@ func _ready():
 	goto_when_read = 0
 	loc_file.load("C:/Games/ddkg2.save")
 	if loc_file.get_value("Special","Got_Magatama","") == "1":
-		goto_when_was = 3
+		if loc_file.get_value("Special","Visited_Mess_With_Odo","") == "1":
+			goto_when_was = 28
+		else:
+			goto_when_was = 3
 		Chats = [
-			"",
-			"",
+			"Ада Одо;28",
+			"Вписка;37",
 			"",
 			"",
 		]
