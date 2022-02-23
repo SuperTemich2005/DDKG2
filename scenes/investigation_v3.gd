@@ -233,6 +233,8 @@ func _on_Next_pressed():
 			$InvestigationButtons.hide()
 			Cur = get_parent().goto_when_read-1
 			_on_Next_pressed()
+			get_parent().check_for_read_chats = false
+			get_parent().read_chats = [false,false,false,false]
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "JUMP":
 		Cur = int(get_parent().Dialogue[Cur].split(" ")[1])-1
 		_on_Next_pressed()
@@ -264,10 +266,11 @@ func _on_Next_pressed():
 			i.hide()
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "MAGATAMA":
 		var locks = get_parent().Dialogue[Cur].split(" ")[1]
-		if get_parent().Dialogue[Cur].split(" ")[2] != "crossexam":
-			save_file.set_value("Secrets",get_parent().filename,get_parent().Dialogue[Cur].split(" ")[2])
-			cur_secret = int(get_parent().Dialogue[Cur].split(" ")[2])
-			save_file.save("C:/Games/ddkg2.save")
+		if len(get_parent().Dialogue[Cur].split(" ")[2]) == 3:
+			if get_parent().Dialogue[Cur].split(" ")[2] != "crossexam":
+				save_file.set_value("Secrets",get_parent().filename,get_parent().Dialogue[Cur].split(" ")[2])
+				cur_secret = int(get_parent().Dialogue[Cur].split(" ")[2])
+				save_file.save("C:/Games/ddkg2.save")
 		print("START MAGATAMA")
 		$MagaFadeInClk.start()
 		get_parent().get_node("back_ground").animation = "magatama"
@@ -465,7 +468,8 @@ func _on_update_timeout():
 
 
 func _on_Back_pressed():
-	$Magatama.show()
+	if cur_secret != 0:
+		$Magatama.show()
 	State = "Main"
 	$InvestigationButtons.show()
 	$Crosshair.hide()
@@ -569,7 +573,7 @@ func _on_PresentEvidence_pressed():
 	var EvidenceFound = false
 	$StopMaga.hide()
 	save_file.load("C:/Games/ddkg2.save")
-	if get_parent().Dialogue[Cur].split("|")[5].split(" ")[0] != "demand":
+	if State != "Dialogue":
 		for i in range(0,get_parent().Shows.size()+1):
 			print("matching ",get_node("CourtRecord/Cells/Image"+str(Selected)).animation," ",get_parent().Shows[i-1].split(" ")[0])
 			if get_node("CourtRecord/Cells/Image"+str(Selected)).animation == get_parent().Shows[i-1].split(" ")[0]:

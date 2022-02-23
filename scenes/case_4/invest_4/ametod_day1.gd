@@ -128,6 +128,19 @@ func _ready():
 			"Тёмыч: И он к нам ближе, так что думаю будет целесообразным пойти сначала туда.",
 			"Егорыч: Согласен.|W|character_egorich thinks",
 			"MAIN",
+			"Тёмыч: Зырь, Егорыч, это амулет.|W|character_egorich default|---|REACT surprise",
+			"Егорыч: Выглядит интересно.|W|character_egorich thinks",
+			"Это похоже на... магатаму из Ace Attorney.",
+			"Тёмыч: Хмм, раз уж ты сказал... Действительно.|W|---|---|REACT surprise",
+			"Только с зубчиками, как будто это ключ.",
+			"Егорыч: Ключ-магатама?|W|character_egorich yee",
+			"...Хм!|W|character_egorich thinks|---|REACT surprise",
+			"Проба - 385. Это очень дешевый золотой амулет.|W|character_egorich suspects",
+			"Чей он?",
+			"Тёмыч: Захара Прохорова. Так сказала Лена... Или Лера. Как её там.",
+			"Жора, короче.|W|character_egorich all_of_sudden|---|REACT frustration",
+			"Егорыч: Агафон.|W|character_egorich laughs",
+			"MAIN",
 		]
 		Chats = [
 			"Идеи?;94",
@@ -138,11 +151,12 @@ func _ready():
 		Moves = [
 			"Магазин;res://scenes/case_4/invest_4/afizmat_day1.tscn",
 			"Аппендикс;res://scenes/case_4/invest_4/aappendix_day1.tscn",
-			"",
+			"Столовая;res://scenes/case_4/invest_4/amesshall_day1.tscn",
 			"",
 		]
 		Shows = [
 			"badge 82",
+			"magatama 111",
 		]
 		$POIs/poi_1.text = "77"
 		$POIs/poi_2.text = "48"

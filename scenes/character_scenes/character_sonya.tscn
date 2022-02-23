@@ -25,25 +25,20 @@ animations = [ {
 "name": "death",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": false,
-"name": "forceslam",
-"speed": 15.0
+"name": "shrug",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "order67",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": false,
-"name": "shrug",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "anyways",
-"speed": 5.0
+"name": "forceslam",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -53,6 +48,11 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "wtfbruh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "anyways",
 "speed": 5.0
 } ]
 

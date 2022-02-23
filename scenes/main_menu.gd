@@ -9,10 +9,9 @@ var save_file
 var loc_file
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(str(149*25))
 	save_file = ConfigFile.new()
-	save_file.load("C:/Games/ddkg2.save")
-	if save_file.load("C:/Games/ddkg2.save") == OK:
+	var a = save_file.load("C:/Games/ddkg2.save")
+	if a == OK:
 		var spec = ""
 		match save_file.get_value("General","Case"):
 			"2":
@@ -27,6 +26,8 @@ func _ready():
 		if save_file.get_value("General","Case","") >= str(4):
 			$logo.animation = "default2"
 	else:
+		Directory.new().make_dir("C:/Games")
+		save_file.save("C:/Games/ddkg2.save")
 		$load_game.disabled = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -276,7 +276,7 @@ func _ready():
 		"Егорыч: Но ты часто говоришь о том, что у тебя есть третий глаз|W|character_egorich suspects",
 		"Тёмыч: Я также часто прикалываюсь, ирод окаянный, так что грех принимать каждый мой прикол всерьёз.",
 		"???: Эй.|P|---|STOP all|REACT surprise",
-		"Тёмыч: Ох, Егорыч, я забегу в 'Физмат', а ты пока загляни в столовку. Я думаю, что мы там что-то найдём.",
+		"Тёмыч: Ох, Егорыч, я забегу в 'Физмат', а ты пока загляни в столовку. Я думаю, что мы там что-то найдём.|W",
 		"Егорыч: Еще лучше, я зайду в 320-й. Там у Радыча урок будет, он-то точно что-то про Жарову расскажет.|W|character_egorich yee",
 		"Тёмыч: Ну вот и правильно! Ладно, увидимся.",
 		"...|W|character_egorich HIDE",
@@ -340,21 +340,60 @@ func _ready():
 		"Тёмыч: (Хотел сказать 'эффектная', особенно дома в пижаме.)|B",
 		"Соня: План действий ясен?|P|character_sonya uh",
 		"Тёмыч: Угу.",
+		"(Бедная Лена/Лера)|B",
+		"MAIN",
+		"Тёмыч: Смотри, птичка!|P|character_sonya default|---|REACT surprise",
+		"Соня: ...?",
+		"Аааа!|P|character_sonya wtfbruh|---|REACT damage",
+		"Блин!",
+		"Глаза",
+		"Мои глаза",
+		"Я ничего не вижу!",
+		"Тёмыч: А вот я в сторону солнца смотрю всё время.",
+		"Мучаюсь",
+		"А тебе норм",
+		"Соня: Сочувствую.",
+		"MAIN",
+		"Тёмыч: Магазин 'Физмат.'|P|character_sonya default",
+		"Мы с Егорычем предположили, что если в него зайдёт завуч после третьего урока",
+		"Полшколы сляжет героями.|P|character_sonya uh",
+		"Соня: А если завуч зайдет в 7 вечера",
+		"То половина от оставшихся в живых людей просто исчезнет|P|character_sonya death|---|REACT frustration",
+		"Тёмыч: А если она зайдёт сюда в--",
+		"Соня: Могу представить, что произойдёт.|P|character_sonya whatever",
+		"Тёмыч: (Ну да, ну да...)|B|character_sonya orded67",
+		"MAIN",
+		"Соня: Что это?|P|character_sonya default",
+		"Тёмыч: Очень важная улика, имхо.",
+		"Соня: Я одолжу у тебя?|P|character_sonya uh",
+		"Тёмыч: Разве что дам сделать копию.",
+		"Соня: Ууу, жадина.|P|character_sonya death",
 		"MAIN",
 	]
 	if loc_file.get_value("Special","Met_Liena","") == "1":
-		if loc_file.get_value("Special","Met_Sonya_at_Fizmat","") == "1":
+		if loc_file.get_value("Special","Met_Sonya_After_Liena","") == "1":
 			goto_when_was = 265
-			Chats = [
-				"Соня Виноградова;267",
-				"Ситуация с Егорычем;279",
-				"",
-				"",
-			]
+			NoShow = 346
 		else:
-			goto_when_was = 239
-			loc_file.set_value("Special","Met_Sonya_at_Fizmat","1")
+			goto_when_was = 249
+			loc_file.set_value("Special","Met_Sonya_After_Liena","1")
 			loc_file.save("C:/Games/ddkg2.save")
+		check_for_read_chats = false
+		read_chats = [false,false,false,false]
+		Shows = [
+			"a 123",
+		]
+		Chats = [
+			"Соня Виноградова;267",
+			"Ситуация с Егорычем;279",
+			"",
+			"",
+		]
+		$POIs/poi_1.text = "325"
+		$POIs/poi_2.text = "337"
+		$POIs/poi_3.free()
+		$POIs/poi_4.free()
+		$POIs/poi_5.free()
 	else:
 		if loc_file.get_value("Locations","res://scenes/case_4/invest_4/aappendix_day1.tscn","") == "1" and loc_file.get_value("Locations","res://scenes/case_4/invest_4/ametod_day1.tscn","") == "1":
 			if loc_file.get_value("Special","Fizmat_reached_stage_2","") == "1":
@@ -371,16 +410,23 @@ func _ready():
 				"",
 				"",
 			]
+			check_for_read_chats = false
+			read_chats = [false,false,false,false]
 		else:
 			goto_when_was = 51
 			print("Stage 1 of this scene")
 			print("Chats")
+			Shows = [
+				"badge 110",
+			]
 			Chats = [
 				"Ира Жарова;54",
 				"Мореплаватель;65",
 				"Адвокатство;78",
 				"",
 			]
+			check_for_read_chats = false
+			read_chats = [false,false,false,false]
 	Moves = [
 		"Методкабинет;res://scenes/case_4/invest_4/ametod_day1.tscn",
 		"",
@@ -393,13 +439,7 @@ func _ready():
 		Dialogue[250] = "Как меня за то дело с деньгой"
 		print("Swapping dialogue line for arc B")
 		Chats[3] = "3-й кейс;101"
-	Shows = [
-		"badge 110",
-	]
-	check_for_read_chats = false
-	read_chats = [false,false,false,false]
 	print($investigation_screen/ArcBG/Label.text[-1])
-	maga_halt = 302
 
 
 func _on_investigation_screen_next():
