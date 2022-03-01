@@ -375,7 +375,7 @@ func _ready():
 			goto_when_was = 265
 			NoShow = 346
 		else:
-			goto_when_was = 249
+			goto_when_was = 239
 			loc_file.set_value("Special","Met_Sonya_After_Liena","1")
 			loc_file.save("C:/Games/ddkg2.save")
 		check_for_read_chats = false

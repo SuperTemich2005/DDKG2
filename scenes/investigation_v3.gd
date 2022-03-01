@@ -75,7 +75,7 @@ func refresh():
 		if get_parent().Moves[i-1] != "":
 			$Moves.get_children()[i-1].text = get_parent().Moves[i-1].split(";")[0]
 			$Moves.get_children()[i-1].show()
-	if save_file.get_value("Locations",get_parent().filename,"0") == "1" and "goto_when_was" in get_parent():
+	if save_file.get_value("Locations",get_parent().filename,"0") == "1" and "goto_when_was" in get_parent() and not get_parent().Dialogue[Cur].split(" ")[0] == "~~~":
 		Cur = get_parent().goto_when_was-1
 		_on_Next_pressed()
 	if get_parent().Chats == ["","","",""]:
@@ -114,7 +114,11 @@ func _on_Next_pressed():
 	ShowChars = 0
 	$Skip.show()
 	$show_cell.hide()
-	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT" and get_parent().Dialogue[Cur].split(" ")[0] != "MAGATAMA" and get_parent().Dialogue[Cur].split(" ")[0] != "NOMAGA" and get_parent().Dialogue[Cur].split(" ")[0] != "BREAKLOCK":
+	if get_parent().Dialogue[Cur].split(" ")[0] == "---":
+		$BG/DialogueBox.align = Label.ALIGN_CENTER
+	else:
+		$BG/DialogueBox.align = Label.ALIGN_LEFT
+	if get_parent().Dialogue[Cur] != "MAIN" and get_parent().Dialogue[Cur].split(" ")[0] != "JUMP" and get_parent().Dialogue[Cur].split(" ")[0] != "OUT" and get_parent().Dialogue[Cur].split(" ")[0] != "MAGATAMA" and get_parent().Dialogue[Cur] != "HIDEMAGA" and get_parent().Dialogue[Cur].split(" ")[0] != "NOMAGA" and get_parent().Dialogue[Cur].split(" ")[0] != "BREAKLOCK":
 		if get_parent().Dialogue[Cur].split("|").size() >= 2: # has color def
 			#print("Repaint")
 			var col = Color(1,1,1,1)
@@ -125,6 +129,7 @@ func _on_Next_pressed():
 					col = Color(1,0.5,0.5,1)
 				"B":
 					col = Color(0.5,0.5,1,1)
+					
 				"G":
 					col = Color(0.5,1,0.5,1)
 				"Y":
@@ -223,7 +228,7 @@ func _on_Next_pressed():
 			$Magatama.show()
 		var temp = 0
 		if "read_chats" in get_parent():
-			for i in ReadChats:
+			for i in get_parent().read_chats:
 				if i:
 					temp += 1
 		if temp == 4 and get_parent().check_for_read_chats:
@@ -237,6 +242,15 @@ func _on_Next_pressed():
 			get_parent().read_chats = [false,false,false,false]
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "JUMP":
 		Cur = int(get_parent().Dialogue[Cur].split(" ")[1])-1
+		_on_Next_pressed()
+	elif get_parent().Dialogue[Cur] == "HIDEMAGA":
+		print("Hiding magatama")
+		for i in chains_back:
+			i.hide()
+		for i in locks_back:
+			i.hide()
+		get_parent().get_node("back_ground").self_modulate = Color(1,1,1,1)
+		get_parent().get_node("back_ground").animation = "default"
 		_on_Next_pressed()
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "BREAKLOCK":
 		$AudioStreamPlayer2.set_stream(load("res://sounds/intro_woosh.ogg"))
@@ -266,12 +280,13 @@ func _on_Next_pressed():
 			i.hide()
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "MAGATAMA":
 		var locks = get_parent().Dialogue[Cur].split(" ")[1]
-		if len(get_parent().Dialogue[Cur].split(" ")[2]) == 3:
-			if get_parent().Dialogue[Cur].split(" ")[2] != "crossexam":
-				save_file.set_value("Secrets",get_parent().filename,get_parent().Dialogue[Cur].split(" ")[2])
-				cur_secret = int(get_parent().Dialogue[Cur].split(" ")[2])
-				save_file.save("C:/Games/ddkg2.save")
+		print((get_parent().Dialogue[Cur].split(" ")))
+		if get_parent().Dialogue[Cur].split(" ")[2] != "crossexam":
+			save_file.set_value("Secrets",get_parent().filename,get_parent().Dialogue[Cur].split(" ")[2])
+			cur_secret = int(get_parent().Dialogue[Cur].split(" ")[2])
+			save_file.save("C:/Games/ddkg2.save")
 		print("START MAGATAMA")
+		print(cur_secret)
 		$MagaFadeInClk.start()
 		get_parent().get_node("back_ground").animation = "magatama"
 		$AudioStreamPlayer.stop()

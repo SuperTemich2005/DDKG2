@@ -42,7 +42,7 @@ func _ready():
 		"Но такого кадра... я не видел никогда...",
 		"Тёмыч: Моё субъективное мнение - п*зда тебе если тебе приходится так краситься",
 		"Егорыч: Ну, согласен.",
-		"???: Ой, я перезвоню. Тут два красавчика на мене засматриваются.|G",
+		"???: Ой, я перезвоню. Тут два красавчика на мене засматриваются.|G|character_liena default",
 		"Давай, увидимся...",
 		"Тёмыч: *кхм*|W",
 		"Я дико извиняюсь, но я тебя задержу.",
@@ -63,11 +63,11 @@ func _ready():
 		"'Лёха Шустрый': М, а как насчет кафешки сегодня вечером?|W|character_egorich yee",
 		"Лена: Замётано!|W|character_liena default",
 		"Егорыч: GOTTEM!|W|character_egorich objection|START egorich_objection|REACT objection",
-		"Тёмыч: GOT 'EM!",
+		"Тёмыч: GOTCHU!",
 		"Лена: Ч-Что? В смысле?|W|character_liena wtf",
 		"Тёмыч: Наша сказка хороша, начинай сначала.",
-		"Меня зовут Тьоха Тьохович, я из 9-В класса.|W|---|---|---|show badge",
-		"Егорыч: Я - Егор Ботанович. Так что, еще идем в кафешку?|W|character_egorich yee",
+		"Меня зовут Тёмыч Тёмовец, я из 9-В класса.|W|---|---|---|show badge",
+		"Егорыч: Я - Егор 'Ботан' Ищенко. Так что, еще идем в кафешку?|W|character_egorich yee",
 		"Лена: В-Вы... Вы... Вы...|W|character_liena wtf",
 		"Конченые просто!|R|character_liena rage",
 		"Тёмыч: Такова наша служба.|W|character_liena ignore",
@@ -164,7 +164,7 @@ func _ready():
 		"Лена: Как 'как'? Да... никак.|W|character_liena thinks",
 		"...Да...",
 		"...",
-		"Тёмыч: (Got 'em.)|B",
+		"Тёмыч: (Got 'em.)|B|---|START investigation_op",
 		"MAIN",
 		"Лена: ...|W|character_liena ignore",
 		"Тёмыч: (Тут Михаилом Иванычем не пригрозишь...)|B",
@@ -201,7 +201,7 @@ func _ready():
 		if loc_file.get_value("Special","Met_Liena","") == "1":
 			check_for_read_chats = false
 			read_chats = [false,false,false,false]
-			if loc_file.get_value("Special","Met_Sonya_After_Liena","") == "1":
+			if loc_file.get_value("Special","Sonya_Chatted","") == "1":
 				check_for_read_chats = true
 				read_chats = [false,false,false,true]
 				goto_when_read = 152
@@ -215,7 +215,7 @@ func _ready():
 					"a 0",
 				]
 				NoShow = 149
-				if loc_file.get_value("Special","Can_Interrogate_Liena") == "1":
+				if loc_file.get_value("Special","Can_Interrogate_Liena","") == "1":
 					goto_when_was = 98
 				else:
 					goto_when_was = 66

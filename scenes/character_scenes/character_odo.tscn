@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/odo/default/default.png" type="Texture" id=1]
+[ext_resource path="res://sprites/odo/nervous/nervous.png" type="Texture" id=2]
+[ext_resource path="res://sprites/odo/thinks/thinks.png" type="Texture" id=3]
+[ext_resource path="res://sprites/odo/ignore/ignore.png" type="Texture" id=4]
+[ext_resource path="res://sprites/odo/huh/huh.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "ignore",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "thinks",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "nervous",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "huh",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 522.958, 323.975 )
+scale = Vector2( 0.474833, 0.474833 )
+frames = SubResource( 1 )
+animation = "thinks"
+playing = true

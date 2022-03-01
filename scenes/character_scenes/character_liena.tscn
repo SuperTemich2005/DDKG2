@@ -20,9 +20,9 @@ animations = [ {
 "name": "ignore",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "thinks",
+"name": "rage",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -30,9 +30,9 @@ animations = [ {
 "name": "idk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "rage",
+"name": "thinks",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
