@@ -177,7 +177,7 @@ func _ready():
 		"Лена: Короче, найдешь его, передай. Какая-то его безделушка, причем поддельная.|W|character_liena ignore|---|REACT surprise|show magatama",
 		"Наверное, своей девушке бедной хотел подарить, но она оказалась нормальной и отшила этого лоха.",
 		"Тёмыч: Передам.|W|---|---",
-		"~~~ Амулет Прохорова надет на шею.|B|---|---|REACT fanfare_newev|123135|magatama;Амулет;Принадлежит Захару Прохорову.;Амулет в форме ключика из низкопробного золота. Я хз, как он выглядит, поэтому я надел его на шею, на видное место. Так что, он сам его найдет, либо кто-то из его окружения его найдёт. (Это же так работает?);2",
+		"~~~ Амулет Прохорова надет на шею.|B|---|START investigation_op|REACT fanfare_newev|123135|magatama;Амулет;Принадлежит Захару Прохорову.;Амулет в форме ключика из низкопробного золота. Я хз, как он выглядит, поэтому я надел его на шею, на видное место. Так что, он сам его найдет, либо кто-то из его окружения его найдёт. (Это же так работает?);2",
 		"MAIN",
 	]
 	Moves = [
@@ -189,6 +189,8 @@ func _ready():
 	loc_file.load("C:/Games/ddkg2.save")
 	if loc_file.get_value("Special","Metod_reached_stage_2","") == "1":
 		NoShow = 56
+		check_for_read_chats = false
+		read_chats = [false,false,false,false]
 		Shows = [
 			"a 56",
 		]
@@ -199,8 +201,6 @@ func _ready():
 			"",
 		]
 		if loc_file.get_value("Special","Met_Liena","") == "1":
-			check_for_read_chats = false
-			read_chats = [false,false,false,false]
 			if loc_file.get_value("Special","Sonya_Chatted","") == "1":
 				check_for_read_chats = true
 				read_chats = [false,false,false,true]

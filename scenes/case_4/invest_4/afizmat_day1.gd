@@ -368,12 +368,29 @@ func _ready():
 		"Соня: Я одолжу у тебя?|P|character_sonya uh",
 		"Тёмыч: Разве что дам сделать копию.",
 		"Соня: Ууу, жадина.|P|character_sonya death",
+		"SKIP_THIS|W|character_sonya default",
 		"MAIN",
+		"Соня: О, я тебя как раз таки ищу.|P|character_sonya death|---|REACT surprise",
+		"Егорыч: О, привет.|W|character_egorich yee",
+		"Соня: ...|W|character_sonya death",
+		"Тёмыч: Да, привет.",
+		"Егорыч: Кстати, ты знаешь, что Тёмыч вернулся в адвокатуру и сейчас--|W|character_egorich thinks",
+		"Соня: Да.|Y|character_sonya death",
+		"",
 	]
 	if loc_file.get_value("Special","Met_Liena","") == "1":
 		if loc_file.get_value("Special","Met_Sonya_After_Liena","") == "1":
-			goto_when_was = 265
-			NoShow = 346
+			if loc_file.get_value("Secrets","res://scenes/case_4/invest_4/amesshall_day1.tscn","") != "1":
+				goto_when_was = 353
+				Chats = [
+					"Соня Виноградова;267",
+					"Ситуация с Егорычем;279",
+					"",
+					"",
+				]
+			else:
+				goto_when_was = 265
+				NoShow = 346
 		else:
 			goto_when_was = 239
 			loc_file.set_value("Special","Met_Sonya_After_Liena","1")
@@ -400,7 +417,6 @@ func _ready():
 				goto_when_was = 237
 			else:
 				goto_when_was = 147
-			print("Stage 2 of this scene")
 			loc_file.set_value("Special","Fizmat_reached_stage_2","1")
 			loc_file.save("C:/Games/ddkg2.save")
 			$POIs.free()

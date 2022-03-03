@@ -215,6 +215,8 @@ func _on_Next_pressed():
 										save_file.set_value("Evidence",str(1+save_file.get_section_keys("Evidence").size()),get_parent().Dialogue[Cur].split("|")[6])
 										save_file.save("C:/Games/ddkg2.save")
 									refresh()
+		if get_parent().Dialogue[Cur].split("|")[0] == "SKIP_THIS":
+			_on_Next_pressed()
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
 		get_tree().change_scene(get_parent().Dialogue[Cur].split(" ")[1])
 	elif get_parent().Dialogue[Cur] == "MAIN":
@@ -247,8 +249,12 @@ func _on_Next_pressed():
 		print("Hiding magatama")
 		for i in chains_back:
 			i.hide()
+			i.free()
 		for i in locks_back:
 			i.hide()
+			i.free()
+		chains_back = []
+		locks_back = []
 		get_parent().get_node("back_ground").self_modulate = Color(1,1,1,1)
 		get_parent().get_node("back_ground").animation = "default"
 		_on_Next_pressed()

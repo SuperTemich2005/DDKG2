@@ -141,6 +141,13 @@ func _ready():
 			"Жора, короче.|W|character_egorich all_of_sudden|---|REACT frustration",
 			"Егорыч: Агафон.|W|character_egorich laughs",
 			"MAIN",
+			"29 апреля. 14:15. Методкабинет|G",
+			"Тёмыч: Одо что-то точно скрывает.|W|character_egorich thinks|START logic",
+			"Я видел своими глазами один, красный псих-замок.",
+			"Егорыч: Тьоха, без обид, но ты же понимаешь, что у человека без белки психи-замки в воздухе не летают?|W|---|---|REACT frustration",
+			"Тёмыч: Не сомневаюсь. Но я явно под эффектом от этой шняги.|W|character_egorich suspects|---|---|show magatama",
+			"Егорыч: Будем надеяться, что она действительно работает и работает исправно.",
+			"MAIN",
 		]
 		Chats = [
 			"Идеи?;94",
@@ -162,9 +169,15 @@ func _ready():
 		$POIs/poi_2.text = "48"
 		$POIs/poi_3.text = "69"
 		if loc_file.get_value("Special","Metod_reached_stage_2","") == "1":
-			goto_when_was = 46
-			print("asdfg")
-			
+			if loc_file.get_value("Secrets","res://scenes/case_4/invest_4/amesshall_day1.tscn","") != "0":
+				if loc_file.get_value("Special","Discussed_Odo_Psychelocks","") == "1":
+					goto_when_was = 46
+				else:
+					loc_file.set_value("Special","Discussed_Odo_Psychelocks","1")
+					loc_file.save("C:/Games/ddkg2.save")
+					goto_when_was = 124
+			else:
+				goto_when_was = 46
 		else:
 			loc_file.set_value("Special","Metod_reached_stage_2","1")
 			loc_file.save("C:/Games/ddkg2.save")

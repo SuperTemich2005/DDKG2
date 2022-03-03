@@ -11,5 +11,5 @@ dest_files=[ "res://.import/psychelocks.ogg-aa61da6bff1395d52f54060d3e191abe.ogg
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
