@@ -372,25 +372,70 @@ func _ready():
 		"MAIN",
 		"Соня: О, я тебя как раз таки ищу.|P|character_sonya death|---|REACT surprise",
 		"Егорыч: О, привет.|W|character_egorich yee",
-		"Соня: ...|W|character_sonya death",
-		"Тёмыч: Да, привет.",
+		"Соня: ...|W|character_sonya death|---|REACT frustration",
+		"Тёмыч: Да, привет.|W|---|START theme_of_sith",
 		"Егорыч: Кстати, ты знаешь, что Тёмыч вернулся в адвокатуру и сейчас--|W|character_egorich thinks",
 		"Соня: Да.|Y|character_sonya death",
-		"",
+		"Тёмыч: Пока ты искал вулканца, мы с ней пересеклись и все обсудили.|W|character_egorich thinks",
+		"Знакомься - ирод окаянный, который будет обвинять тебя во всех грехах человечества.|W|character_sonya death",
+		"Егорыч: ...|W|character_egorich suspects|---|REACT frustration",
+		"Тёмыч: Так, что ж... Какие-нибудь новости?|W|character_sonya death",
+		"Соня: ...",
+		"Тёмыч: Никаких зацепок?",
+		"Соня: ...",
+		"Егорыч: Это бесполезно, Тьоха.|W|character_egorich thinks",
+		"*пинг*|G|character_egorich all_of_sudden|---|REACT surprise",
+		"Тёмыч: Мне пришла ссылка на инсту.|W|character_sonya death",
+		"Что тут?",
+		"Соня: Ну открой, посмотри.|P",
+		"Тёмыч: Открою и посмотрю.|W",
+		"Хмм, по всей видимости, это страничка в инсте, принадлежащая...",
+		"Чё?|W|---|STOP all|REACT surprise",
+		"Фильмоновой? Этой стерве?",
+		"Егорыч: Давно я не слышал этой фамилии. Какой из?|W|character_egorich suspects|START suspense",
+		"Тёмыч: Большая которая. Смотри, какая-то фотка месячной давности.",
+		"'На вписоне у подружки. У неё там жарко.'|W|photo_with_filmonova1",
+		"Егорыч: Ниче се... Смотри, в этом же посту второе фото.",
+		"'Накупили бухла, щас будем зажигать.'|W|photo_with_filmonova2",
+		"На этой фотке уже есть Кирова. Какая из них сделана раньше?",
+		"Тёмыч: Хмм. Смотри, инста отметила даты загрузки. Групповая фото с Кировой выложена раньше.",
+		"SKIP_THIS|W|default",
+		"Егорыч: Надо дедржать эти фотки во внимании.|W|character_egorich thinks",
+		"~~~ Фото Фильмоновой, Жаровой, Кировой и Лены сохранено.|B|---|---|REACT fanfare_newev|2512|footage;Фото Махи, Иры, Одо и Лены;Нажмите 'подробнее' для описания;Дата публикации: 25.03.2020 - 21:00",
+		"~~~ Фото Фильмоновой и Лены сохранено.|B|---|---|REACT fanfare_newev|2512|footbge;Фото Махи и Лены;Нажмите 'подробнее' для описания;Дата публикации: 25.03.2020 - 22:20",
+		"Тёмыч: Ага. Учитывая, что это - наши единственные улики.|W|character_egorich laughs|---|REACT frustration",
+		"Че ржёшь, чертила?|W|character_egorich all_of_sudden|---|REACT damage",
+		"Соня: ...|W|character_sonya death",
+		"Я пойду. Увидимся.|P",
+		"Тёмыч: Угу.|W",
+		"Егорыч: 'Угу'?|W|character_egorich thinks",
+		"Тёмыч: Эээ, нет, тебе послышалось.",
+		"(Ну конечно, ирод окаянный нас не слышит. Нас никто не слышит.)|B",
+		"(Телепатия во всей своей красе... 'телепатия')",
+		"...|W|character_egorich HIDE",
+		"Егорыч: Что же, напомню, что Ада Кирова все еще существует и, вроде, должна быть в столовке.|W|character_egorich yee",
+		"Тёмыч: ....Точно.",
+		"Ладно, пойдём её нагоним",
+		"SKIP_THIS|W|character_egorich HIDE",
+		"MAIN",
 	]
 	if loc_file.get_value("Special","Met_Liena","") == "1":
 		if loc_file.get_value("Special","Met_Sonya_After_Liena","") == "1":
 			if loc_file.get_value("Secrets","res://scenes/case_4/invest_4/amesshall_day1.tscn","") != "1":
-				goto_when_was = 353
+				if loc_file.get_value("Special","Discussed_Odo_Psychelocks_with_Sonya","") == "1":
+					goto_when_was = 399
+				else:
+					loc_file.set_value("Special","Discussed_Odo_Psychelocks_with_Sonya","1")
+					loc_file.save("C:/Games/ddkg2.save")
+					goto_when_was = 353
 				Chats = [
-					"Соня Виноградова;267",
-					"Ситуация с Егорычем;279",
+					"",
+					"",
 					"",
 					"",
 				]
 			else:
 				goto_when_was = 265
-				NoShow = 346
 		else:
 			goto_when_was = 239
 			loc_file.set_value("Special","Met_Sonya_After_Liena","1")
@@ -406,6 +451,7 @@ func _ready():
 			"",
 			"",
 		]
+		NoShow = 346
 		$POIs/poi_1.text = "325"
 		$POIs/poi_2.text = "337"
 		$POIs/poi_3.free()

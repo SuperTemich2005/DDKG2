@@ -13,6 +13,7 @@ var check_for_read_chats
 var goto_when_read
 var NoShow
 var goto_when_was
+var maga_halt
 #var BoxColor
 func _ready():
 #	BoxColor = Color(0.5,1,0.5,1)
@@ -21,6 +22,7 @@ func _ready():
 		"Тёмыч: (...Тут нечего делать... пока что.)|B",
 		"MAIN",
 		"29 апреля. 14:00. Столовая.|G",
+		"Тёмыч: О, привет, ирод окаянный|W|character_egorich laughs",
 		"Егорыч: Что, будем искать свидетелей?|W|character_egorich default|START egor_theme",
 		"Тёмыч: Да. Из допроса Эквинокс Прайм, я понял, что мы ищем одного из двух свидетелей-девочек.",
 		"Егорыч: Хмм?|W|character_egorich thinks",
@@ -76,7 +78,7 @@ func _ready():
 		"Ада: Ч-Что? Нет!|W|character_odo huh",
 		"С чего вы в-взяли?",
 		"Я просто говорю, что видела.|W|character_odo nervous",
-		"MAGATAMA R 84",
+		"MAGATAMA R 85",
 		"Тёмыч: (ЧТОООООООООООООООООООООООООООООООООООООООООООООООООООООООООООООООООООООООООООО)|B|---|---|REACT damage",
 		"(Что это такое?!)",
 		"(Это... психозамки из Ace Attorney?)",
@@ -110,7 +112,7 @@ func _ready():
 		"Ада: Ну и где конкретно я 'лгу'? А главное, зачем?|W|character_odo thinks",
 		"Тёмыч: Ты врёшь на том моменте, где рассказываешь, что с твоей бывшей подружкой шпёхался именно Егор-'Степан' Ботаныч.|W|---|---|REACT damage",
 		"Ада: А ты хочешь сказать, что это делал не твой дружок?|W|character_odo huh",
-		"Тёмыч: Не-а. Я хочу сказать, что...|G|---|---|---|split;Тебя вообще не было на той вписке:102;Ты знаешь, кто на самом деле отжарил Жаренную:94",
+		"Тёмыч: Не-а. Я хочу сказать, что...|G|---|---|---|split;Тебя вообще не было на той вписке:103;Ты знаешь, кто на самом деле отжарил Жаренную:95",
 		"Тёмыч: Ты знаешь, кто на самом деле отжарил Жаренную.|W|character_odo ignore|---|REACT surprise",
 		"Ада: Да? И кто, по-моему, на самом деле 'отжарил' 'жаренную'?",
 		"Потому что по-моему, это всё-таки был Егор Ищенко.|W|character_odo default",
@@ -126,6 +128,25 @@ func _ready():
 		"Да и вообще, где, по-твоему, я тогда была?|W|---|START psychelocks",
 		"Тёмыч: Не знаю. Однако, я могу наверняка сказать, что именно в момент преступления, ты была где-то в нашей вселенной, но только не на самом месте преступления!",
 		"Ада: Громкое заявление. И что, по-твоему, доказывает, что меня не было на месте преступления в момент преступления?",
+		"Тёмыч: Ты спрашиваешь?|G|---|---|---|demand footage 125 111 magamark",
+		"[фейл] Ада: Что это?|W|character_odo ignore",
+		"Тёмыч: Моё доказательство!|W|character_odo huh|---|REACT surprise",
+		"Ада: ...угу.|W|character_odo ignore|---|REACT frustration",
+		"Егорыч: *клац*|G|character_egorich yee|STOP all",
+		"Тёмыч: Нет, Егорыч, рано. Я облажался, видимо.|W",
+		"Егорыч: А, ой.|W|character_egorich thinks",
+		"*клац*|G|---|START psychelocks",
+		"Ада: Что это вообще за музыка? Зачем она?|W|character_odo nervous",
+		"Тёмыч: Та... Не обращай внимания.",
+		"...Блин. Неловко вышло.",
+		"Ада: Может, ты все-таки покажешь мне свою 'улику'?",
+		"Тёмыч: А, да, точно!",
+		"Ада: ...Покажешь?|W|character_odo huh",
+		"JUMP 110",
+		"Тёмыч: (Ну нафиг. Я манал долбить её псевдопоказания с теми уликами, что у меня есть сейчас)|B",
+		"(Надо продолжать расследование...)",
+		"SKIP_THIS|W|---|STOP all",
+		"HIDEMAGA",
 	]
 	Moves = [
 		"Методкабинет;res://scenes/case_4/invest_4/ametod_day1.tscn",
@@ -133,6 +154,7 @@ func _ready():
 		"",
 		"",
 	]
+	maga_halt = 126
 	read_chats = [false,false,false,false]
 	check_for_read_chats = false
 	goto_when_read = 0
@@ -143,14 +165,14 @@ func _ready():
 			$investigation_screen/AudioStreamPlayer.play()
 			$characters_all/character_odo.show()
 			$characters_all/character_egorich.hide()
-			goto_when_was = 27
+			goto_when_was = 28
 		else:
 			loc_file.set_value("Special","Visited_Mess_With_Odo","1")
 			loc_file.save("C:/Games/ddkg2.save")
 			goto_when_was = 3
 		Chats = [
-			"Ада Одо;28",
-			"Вписка;37",
+			"Ада Одо;29",
+			"Вписка;38",
 			"",
 			"",
 		]

@@ -18,6 +18,11 @@ animations = [ {
 "name": "ignore",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "thinks",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "huh",
@@ -26,11 +31,6 @@ animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "nervous",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "thinks",
 "speed": 5.0
 } ]
 

@@ -154,6 +154,8 @@ func _on_Next_pressed():
 						else:
 							target.hide()
 					else:
+						for i in get_parent().get_node("characters_all").get_children():
+							i.hide()
 						get_parent().get_node("back_ground").animation = get_parent().Dialogue[Cur].split("|")[2]
 				if get_parent().Dialogue[Cur].split("|").size() >= 4:
 					if get_parent().Dialogue[Cur].split("|")[3] != "---":
@@ -190,7 +192,7 @@ func _on_Next_pressed():
 								elif get_parent().Dialogue[Cur].split("|")[5].split(" ")[0] == "demand":
 									_on_ShowCourtRecord_pressed()
 									$CourtRecord/Present.show()
-									if get_parent().Dialogue[Cur].split("|")[5].split(" ")[4]:
+									if get_parent().Dialogue[Cur].split("|")[5].split(" ")[4] == "magamark":
 										$StopMaga.show()
 									$BG.show()
 								elif get_parent().Dialogue[Cur].split("|")[0].left(3) == "~~~":

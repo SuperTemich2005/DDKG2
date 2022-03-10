@@ -147,6 +147,7 @@ func _ready():
 			"Егорыч: Тьоха, без обид, но ты же понимаешь, что у человека без белки психи-замки в воздухе не летают?|W|---|---|REACT frustration",
 			"Тёмыч: Не сомневаюсь. Но я явно под эффектом от этой шняги.|W|character_egorich suspects|---|---|show magatama",
 			"Егорыч: Будем надеяться, что она действительно работает и работает исправно.",
+			"SKIP_THIS|W|character_egorich default|START egor_theme",
 			"MAIN",
 		]
 		Chats = [
@@ -168,10 +169,13 @@ func _ready():
 		$POIs/poi_1.text = "77"
 		$POIs/poi_2.text = "48"
 		$POIs/poi_3.text = "69"
-		if loc_file.get_value("Special","Metod_reached_stage_2","") == "1":
-			if loc_file.get_value("Secrets","res://scenes/case_4/invest_4/amesshall_day1.tscn","") != "0":
-				if loc_file.get_value("Special","Discussed_Odo_Psychelocks","") == "1":
+		if loc_file.get_value("Special","Metod_reached_stage_2","0") == "1":
+			print("MetodReachedStage2 == 1")
+			if loc_file.get_value("Secrets","res://scenes/case_4/invest_4/amesshall_day1.tscn","1") == "84":
+				print("Odo has secrets, "+loc_file.get_value("Secrets","res://scenes/case_4/invest_4/amesshall_day1.tscn","1")+" == 1")
+				if loc_file.get_value("Special","Discussed_Odo_Psychelocks","0") == "1":
 					goto_when_was = 46
+					print("DiscussedOdoPSychelocks")
 				else:
 					loc_file.set_value("Special","Discussed_Odo_Psychelocks","1")
 					loc_file.save("C:/Games/ddkg2.save")
