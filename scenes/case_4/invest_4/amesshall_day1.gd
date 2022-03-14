@@ -147,6 +147,7 @@ func _ready():
 		"(Надо продолжать расследование...)",
 		"SKIP_THIS|W|---|STOP all",
 		"HIDEMAGA",
+		"MAIN",
 	]
 	Moves = [
 		"Методкабинет;res://scenes/case_4/invest_4/ametod_day1.tscn",
@@ -154,30 +155,38 @@ func _ready():
 		"",
 		"",
 	]
-	maga_halt = 126
+	maga_halt = 125
 	read_chats = [false,false,false,false]
 	check_for_read_chats = false
 	goto_when_read = 0
 	loc_file.load("C:/Games/ddkg2.save")
-	if loc_file.get_value("Special","Got_Magatama","") == "1":
-		if loc_file.get_value("Special","Visited_Mess_With_Odo","") == "1":
-			$investigation_screen/AudioStreamPlayer.set_stream(load("res://sounds/investigation_op.ogg"))
-			$investigation_screen/AudioStreamPlayer.play()
-			$characters_all/character_odo.show()
-			$characters_all/character_egorich.hide()
-			goto_when_was = 28
+	if loc_file.get_value("Locations",filename,"") == "1":
+		if loc_file.get_value("Special","Got_Magatama","") == "1":
+			if loc_file.get_value("Special","Visited_Mess_With_Odo","") == "1":
+				$investigation_screen/AudioStreamPlayer.set_stream(load("res://sounds/investigation_op.ogg"))
+				$investigation_screen/AudioStreamPlayer.play()
+				$characters_all/character_odo.show()
+				$characters_all/character_egorich.hide()
+				goto_when_was = 28
+			else:
+				loc_file.set_value("Special","Visited_Mess_With_Odo","1")
+				loc_file.save("C:/Games/ddkg2.save")
+				goto_when_was = 3
+			Chats = [
+				"Ада Одо;29",
+				"Вписка;38",
+				"",
+				"",
+			]
 		else:
-			loc_file.set_value("Special","Visited_Mess_With_Odo","1")
-			loc_file.save("C:/Games/ddkg2.save")
-			goto_when_was = 3
-		Chats = [
-			"Ада Одо;29",
-			"Вписка;38",
-			"",
-			"",
-		]
+			goto_when_was = 1
+			Chats = [
+				"",
+				"",
+				"",
+				"",
+			]
 	else:
-		goto_when_was = 1
 		Chats = [
 			"",
 			"",

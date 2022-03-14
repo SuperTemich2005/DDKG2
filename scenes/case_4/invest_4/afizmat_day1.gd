@@ -401,9 +401,9 @@ func _ready():
 		"Тёмыч: Хмм. Смотри, инста отметила даты загрузки. Групповая фото с Кировой выложена раньше.",
 		"SKIP_THIS|W|default",
 		"Егорыч: Надо дедржать эти фотки во внимании.|W|character_egorich thinks",
-		"~~~ Фото Фильмоновой, Жаровой, Кировой и Лены сохранено.|B|---|---|REACT fanfare_newev|2512|footage;Фото Махи, Иры, Одо и Лены;Нажмите 'подробнее' для описания;Дата публикации: 25.03.2020 - 21:00",
-		"~~~ Фото Фильмоновой и Лены сохранено.|B|---|---|REACT fanfare_newev|2512|footbge;Фото Махи и Лены;Нажмите 'подробнее' для описания;Дата публикации: 25.03.2020 - 22:20",
-		"Тёмыч: Ага. Учитывая, что это - наши единственные улики.|W|character_egorich laughs|---|REACT frustration",
+		"~~~ Фото Фильмоновой, Жаровой, Кировой и Лены сохранено.|B|---|---|REACT fanfare_newev|2512|footage_spec1;Фото Махи, Иры, Одо и Лены;Нажмите 'подробнее' для описания;Дата публикации: 25.03.2020 - 21:00",
+		"~~~ Фото Фильмоновой и Лены сохранено.|B|---|---|REACT fanfare_newev|2512|footage_spec2;Фото Махи и Лены;Нажмите 'подробнее' для описания;Дата публикации: 25.03.2020 - 22:20",
+		"Егорыч: Ага. Учитывая, что это - наши единственные улики.|W|character_egorich laughs|---|REACT frustration",
 		"Че ржёшь, чертила?|W|character_egorich all_of_sudden|---|REACT damage",
 		"Соня: ...|W|character_sonya death",
 		"Я пойду. Увидимся.|P",
@@ -413,13 +413,30 @@ func _ready():
 		"(Ну конечно, ирод окаянный нас не слышит. Нас никто не слышит.)|B",
 		"(Телепатия во всей своей красе... 'телепатия')",
 		"...|W|character_egorich HIDE",
-		"Егорыч: Что же, напомню, что Ада Кирова все еще существует и, вроде, должна быть в столовке.|W|character_egorich yee",
+		"Егорыч: Что же, напомню, что Ада Кирова все еще существует и, вроде, должна быть в столовке.|W|character_egorich yee|STOP all",
 		"Тёмыч: ....Точно.",
 		"Ладно, пойдём её нагоним",
-		"SKIP_THIS|W|character_egorich HIDE",
+		"SKIP_THIS|W|character_egorich HIDE|START investigation_op",
 		"MAIN",
 	]
 	if loc_file.get_value("Special","Met_Liena","") == "1":
+		check_for_read_chats = false
+		read_chats = [false,false,false,false]
+		Shows = [
+			"a 123",
+		]
+		Chats = [
+			"Соня Виноградова;267",
+			"Ситуация с Егорычем;279",
+			"",
+			"",
+		]
+		NoShow = 346
+		$POIs/poi_1.text = "325"
+		$POIs/poi_2.text = "337"
+		$POIs/poi_3.free()
+		$POIs/poi_4.free()
+		$POIs/poi_5.free()
 		if loc_file.get_value("Special","Met_Sonya_After_Liena","") == "1":
 			if loc_file.get_value("Secrets","res://scenes/case_4/invest_4/amesshall_day1.tscn","") != "1":
 				if loc_file.get_value("Special","Discussed_Odo_Psychelocks_with_Sonya","") == "1":
@@ -440,23 +457,6 @@ func _ready():
 			goto_when_was = 239
 			loc_file.set_value("Special","Met_Sonya_After_Liena","1")
 			loc_file.save("C:/Games/ddkg2.save")
-		check_for_read_chats = false
-		read_chats = [false,false,false,false]
-		Shows = [
-			"a 123",
-		]
-		Chats = [
-			"Соня Виноградова;267",
-			"Ситуация с Егорычем;279",
-			"",
-			"",
-		]
-		NoShow = 346
-		$POIs/poi_1.text = "325"
-		$POIs/poi_2.text = "337"
-		$POIs/poi_3.free()
-		$POIs/poi_4.free()
-		$POIs/poi_5.free()
 	else:
 		if loc_file.get_value("Locations","res://scenes/case_4/invest_4/aappendix_day1.tscn","") == "1" and loc_file.get_value("Locations","res://scenes/case_4/invest_4/ametod_day1.tscn","") == "1":
 			if loc_file.get_value("Special","Fizmat_reached_stage_2","") == "1":
