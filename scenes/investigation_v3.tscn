@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://fonts/consola.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/investigation_v3.gd" type="Script" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://sprites/evidence/magatama.png" type="Texture" id=31]
 [ext_resource path="res://sprites/evidence/footage_big.png" type="Texture" id=32]
 [ext_resource path="res://sprites/evidence/footage_spec1_big.png" type="Texture" id=33]
+[ext_resource path="res://sprites/background/amashahouse_bg.png" type="Texture" id=34]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -77,9 +78,39 @@ animations = [ {
 "name": "footbge",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "footage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "magatama",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "footage_spec2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "footage_spec1",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 25 ) ],
 "loop": true,
-"name": "aff2",
+"name": "aff",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -87,9 +118,9 @@ animations = [ {
 "name": "knucklebuster",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 23 ) ],
 "loop": true,
-"name": "report",
+"name": "hijab",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 21 ) ],
@@ -102,14 +133,9 @@ animations = [ {
 "name": "grafin",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "aff",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 31 ) ],
-"loop": true,
-"name": "magatama",
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 27 ) ],
@@ -117,34 +143,9 @@ animations = [ {
 "name": "cig",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 25 ) ],
 "loop": true,
-"name": "footage",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "badge",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "hijab",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "footage_spec1",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "footage_spec2",
+"name": "aff2",
 "speed": 5.0
 } ]
 
@@ -172,9 +173,34 @@ animations = [ {
 "name": "footbge",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "badge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "magatama",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "report",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "footage_spec2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "footage_spec1",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 26 ) ],
 "loop": true,
-"name": "aff2",
+"name": "aff",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -182,9 +208,9 @@ animations = [ {
 "name": "knucklebuster",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 24 ) ],
 "loop": true,
-"name": "report",
+"name": "hijab",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ) ],
@@ -197,14 +223,9 @@ animations = [ {
 "name": "grafin",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "aff",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": true,
-"name": "magatama",
+"name": "branch",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 28 ) ],
@@ -212,29 +233,9 @@ animations = [ {
 "name": "cig",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 26 ) ],
 "loop": true,
-"name": "badge",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ) ],
-"loop": true,
-"name": "hijab",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "branch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ) ],
-"loop": true,
-"name": "footage_spec1",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "footage_spec2",
+"name": "aff2",
 "speed": 5.0
 } ]
 
@@ -255,6 +256,18 @@ border_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=11]
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.505882, 0.741176, 1, 1 )
 
 [sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 1 )
@@ -861,6 +874,29 @@ one_shot = true
 [node name="MagaLockClk" type="Timer" parent="."]
 wait_time = 0.33
 
+[node name="ForPinpointing" type="TextureButton" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+texture_normal = ExtResource( 34 )
+
+[node name="PinpointCorrectTarget" type="Button" parent="ForPinpointing"]
+margin_left = 589.0
+margin_top = 22.0
+margin_right = 769.0
+margin_bottom = 131.0
+text = "CorrectAnswer"
+
+[node name="Label" type="Label" parent="ForPinpointing"]
+margin_left = 2.0
+margin_top = 456.0
+margin_right = 593.0
+margin_bottom = 485.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
+text = "Нажмите на место на фотографии, чтобы указать на него"
+
 [node name="BG" type="ColorRect" parent="."]
 margin_left = -26.0
 margin_top = 486.0
@@ -876,8 +912,8 @@ margin_left = 36.0
 margin_top = 10.0
 margin_right = 879.0
 margin_bottom = 104.0
-custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 12 )
 text = "..."
 autowrap = true
 __meta__ = {
@@ -985,6 +1021,8 @@ texture = ExtResource( 29 )
 [connection signal="timeout" from="MagaChainClk" to="." method="_on_MagaChainClk_timeout"]
 [connection signal="timeout" from="MagaFadeInClk" to="." method="_on_MagaFadeInClk_timeout"]
 [connection signal="timeout" from="MagaLockClk" to="." method="_on_MagaLockClk_timeout"]
+[connection signal="pressed" from="ForPinpointing" to="." method="_on_PinpointFail_pressed"]
+[connection signal="pressed" from="ForPinpointing/PinpointCorrectTarget" to="." method="_on_PinpointSuccess_pressed"]
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
 [connection signal="pressed" from="Skip" to="." method="_on_Skip_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

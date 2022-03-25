@@ -22,14 +22,14 @@ animations = [ {
 "name": "magatama",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "photo_with_filmonova2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "photo_with_filmonova1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "photo_with_filmonova2",
 "speed": 5.0
 } ]
 

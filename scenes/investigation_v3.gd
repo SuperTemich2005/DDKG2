@@ -142,21 +142,30 @@ func _on_Next_pressed():
 			if get_parent().Dialogue[Cur].split("|").size() >= 3: # has animation def
 				if get_parent().Dialogue[Cur].split("|")[2] != "---":
 					#print("Reanim")
-					if get_parent().Dialogue[Cur].split("|")[2].split("_")[0] == "character":
-						for i in get_parent().get_node("characters_all").get_children():
-							i.hide()
-							#print("hid ",i.name)
-						var target = get_parent().get_node("characters_all/"+get_parent().Dialogue[Cur].split("|")[2].split(" ")[0])
-						#print(target.name)
-						if get_parent().Dialogue[Cur].split("|")[2].split(" ")[1] != "HIDE":
-							target.get_node("sprite").animation = get_parent().Dialogue[Cur].split("|")[2].split(" ")[1]
-							target.show()
-						else:
-							target.hide()
+					if get_parent().Dialogue[Cur].split("|")[2].split(" ")[0] == "PINPOINT":
+						$ForPinpointing/PinpointCorrectTarget.margin_left = int(get_parent().Dialogue[Cur].split("|")[2].split(" ")[1].split(".")[0])
+						$ForPinpointing/PinpointCorrectTarget.margin_up = int(get_parent().Dialogue[Cur].split("|")[2].split(" ")[1].split(".")[1])
+						$ForPinpointing/PinpointCorrectTarget.margin_right = int(get_parent().Dialogue[Cur].split("|")[2].split(" ")[2].split(".")[0])
+						$ForPinpointing/PinpointCorrectTarget.margin_down = int(get_parent().Dialogue[Cur].split("|")[2].split(" ")[2].split(".")[1])
+						$ForPinpointing.show()
+						$ForPinpointing.texture = load(get_parent().Dialogue[Cur].split("|")[2].split(" ")[3])
+						$Next.hide()
 					else:
-						for i in get_parent().get_node("characters_all").get_children():
-							i.hide()
-						get_parent().get_node("back_ground").animation = get_parent().Dialogue[Cur].split("|")[2]
+						if get_parent().Dialogue[Cur].split("|")[2].split("_")[0] == "character":
+							for i in get_parent().get_node("characters_all").get_children():
+								i.hide()
+								#print("hid ",i.name)
+							var target = get_parent().get_node("characters_all/"+get_parent().Dialogue[Cur].split("|")[2].split(" ")[0])
+							#print(target.name)
+							if get_parent().Dialogue[Cur].split("|")[2].split(" ")[1] != "HIDE":
+								target.get_node("sprite").animation = get_parent().Dialogue[Cur].split("|")[2].split(" ")[1]
+								target.show()
+							else:
+								target.hide()
+						else:
+							for i in get_parent().get_node("characters_all").get_children():
+								i.hide()
+							get_parent().get_node("back_ground").animation = get_parent().Dialogue[Cur].split("|")[2]
 				if get_parent().Dialogue[Cur].split("|").size() >= 4:
 					if get_parent().Dialogue[Cur].split("|")[3] != "---":
 						if get_parent().Dialogue[Cur].split("|")[3].split(" ")[0] == "START":
@@ -732,3 +741,17 @@ func _on_StopMaga_pressed():
 	$Next.show()
 	$Skip.show()
 	$StopMaga.hide()
+
+
+func _on_PinpointFail_pressed():
+	$ForPinpointing.hide()
+	$Next.show()
+	Cur = int(get_parent().Dialogue[Cur].split("|")[2].split(" ")[5])-1
+	_on_Next_pressed()
+
+
+func _on_PinpointSuccess_pressed():
+	$ForPinpointing.hide()
+	$Next.show()
+	Cur = int(get_parent().Dialogue[Cur].split("|")[2].split(" ")[4])-1
+	_on_Next_pressed()
