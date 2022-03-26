@@ -166,7 +166,7 @@ func _ready():
 	read_chats = [false,false,false,false]
 	check_for_read_chats = false
 	goto_when_read = 0
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	if loc_file.get_value("Locations",filename,"") == "1":
 		if loc_file.get_value("Special","Got_Magatama","") == "1":
 			if loc_file.get_value("Special","Visited_Mess_With_Odo","") == "1":
@@ -177,7 +177,7 @@ func _ready():
 				goto_when_was = 28
 			else:
 				loc_file.set_value("Special","Visited_Mess_With_Odo","1")
-				loc_file.save("C:/Games/ddkg2.save")
+				loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 				goto_when_was = 3
 			Chats = [
 				"Ада Одо;29",

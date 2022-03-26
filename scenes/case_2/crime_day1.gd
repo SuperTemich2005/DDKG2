@@ -509,7 +509,7 @@ func _ready():
 	
 	
 	
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	if str(loc_file.get_value("Locations",str(filename))) == "1":
 		$investigation_screen.Cur = 30
 		
@@ -656,5 +656,5 @@ func _on_poi_5_pressed():
 func _on_verif_timeout():
 	print("shitfuck")
 	loc_file.set_value("Locations",str(filename),"1")
-	loc_file.save("C:/Games/ddkg2.save")
+	loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 

@@ -23,6 +23,11 @@ animations = [ {
 "name": "def",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "jud",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "pro",
@@ -31,11 +36,6 @@ animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "wit",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "jud",
 "speed": 5.0
 } ]
 
@@ -46,6 +46,11 @@ animations = [ {
 "name": "def",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "jud",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "pro",
@@ -54,11 +59,6 @@ animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "wit",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "jud",
 "speed": 5.0
 } ]
 
@@ -78,7 +78,7 @@ visible = false
 position = Vector2( -23, 203 )
 
 [node name="sprite" parent="characters_all/character_egorich" index="0"]
-frame = 30
+frame = 42
 flip_h = true
 
 [node name="character_temich" parent="characters_all" instance=ExtResource( 5 )]

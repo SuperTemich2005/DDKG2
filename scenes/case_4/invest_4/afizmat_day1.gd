@@ -15,7 +15,7 @@ var NoShow
 var goto_when_was
 var maga_halt
 func _ready():
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	Dialogue = [ # диалоги. 
 		"29 апреля. 12:55. Ларёк 'Физмат' рядом с Лицеем 99.|G",
 		"Тёмыч: ДА БЛИНААААА|W|character_egorich suspects|START peaceful_spring|REACT damage",
@@ -443,7 +443,7 @@ func _ready():
 					goto_when_was = 399
 				else:
 					loc_file.set_value("Special","Discussed_Odo_Psychelocks_with_Sonya","1")
-					loc_file.save("C:/Games/ddkg2.save")
+					loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 					goto_when_was = 353
 				Chats = [
 					"",
@@ -456,7 +456,7 @@ func _ready():
 		else:
 			goto_when_was = 239
 			loc_file.set_value("Special","Met_Sonya_After_Liena","1")
-			loc_file.save("C:/Games/ddkg2.save")
+			loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	else:
 		if loc_file.get_value("Locations","res://scenes/case_4/invest_4/aappendix_day1.tscn","") == "1" and loc_file.get_value("Locations","res://scenes/case_4/invest_4/ametod_day1.tscn","") == "1":
 			if loc_file.get_value("Special","Fizmat_reached_stage_2","") == "1":
@@ -464,7 +464,7 @@ func _ready():
 			else:
 				goto_when_was = 147
 			loc_file.set_value("Special","Fizmat_reached_stage_2","1")
-			loc_file.save("C:/Games/ddkg2.save")
+			loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 			$POIs.free()
 			Chats = [
 				"",
@@ -507,4 +507,4 @@ func _ready():
 func _on_investigation_screen_next():
 	if $investigation_screen.Cur == 320:
 		loc_file.set_value("Special","Sonya_Chatted","1")
-		loc_file.save("C:/Games/ddkg2.save")
+		loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")

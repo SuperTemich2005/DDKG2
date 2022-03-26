@@ -15,7 +15,7 @@ var NoShow
 var goto_when_was
 #var BoxColor
 func _ready():
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	if loc_file.get_value("Special","Fizmat_reached_stage_2","") == "1":
 		Dialogue = [ # диалоги. 
 			"29 апреля. 13:20. Методкабинет|G",
@@ -178,13 +178,13 @@ func _ready():
 					print("DiscussedOdoPSychelocks")
 				else:
 					loc_file.set_value("Special","Discussed_Odo_Psychelocks","1")
-					loc_file.save("C:/Games/ddkg2.save")
+					loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 					goto_when_was = 124
 			else:
 				goto_when_was = 46
 		else:
 			loc_file.set_value("Special","Metod_reached_stage_2","1")
-			loc_file.save("C:/Games/ddkg2.save")
+			loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 			goto_when_was = 0
 	else:
 		Dialogue = [ # диалоги. 

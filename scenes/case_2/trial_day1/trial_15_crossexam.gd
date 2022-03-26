@@ -452,6 +452,6 @@ func _ready():
 	CorrectShow = "footage 6"
 	WrongShow = 273
 	Out = "res://scenes/case_2/trial_day1/trial_16.tscn"
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	loc_file.set_value("Locations","Last",filename)
-	loc_file.save("C:/Games/ddkg2.save")
+	loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")

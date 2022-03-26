@@ -177,7 +177,7 @@ func _ready():
 		if Moves[i-1] != "":
 			get_node("move_"+str(i)).text = Moves[i-1].left(Moves[i-1].length()-Moves[i-1].split(" ")[-1].length())
 	print(Chats[0].split(" ")[-1])
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	
 
 func _on_chat_1_pressed():
@@ -299,4 +299,4 @@ func _on_poi_4_pressed():
 func _on_verif_timeout():
 	print("shitfuck")
 	loc_file.set_value("Locations",str(filename),"1")
-	loc_file.save("C:/Games/ddkg2.save")
+	loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")

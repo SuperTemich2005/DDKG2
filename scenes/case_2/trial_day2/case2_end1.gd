@@ -218,9 +218,9 @@ func _ready():
 		"OUT res://scenes/case_3/invest_1/introduction3.tscn",
 		"",
 	]
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	loc_file.set_value("General","Case","3")
-	loc_file.save("C:/Games/ddkg2.save")
+	loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	$characters_all/character_masha/desk.free()
 
 func _process(_delta):

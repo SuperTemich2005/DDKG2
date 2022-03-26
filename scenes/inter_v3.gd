@@ -20,10 +20,10 @@ func _ready():
 	ShowChars = 0
 	State = "Dialogue"
 	StateCR = "No"
-	save_file.load("C:/Games/ddkg2.save")
+	save_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	save_file.set_value("Locations","Last",get_parent().filename)
 	save_file.set_value("Locations",get_parent().filename,"1")
-	save_file.save("C:/Games/ddkg2.save")
+	save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	if save_file.get_value("General","Arc","asffhad") != "asffhad": # the best `if` in my life
 		$ArcBG.show()
 		$ArcBG/Label.show()
@@ -70,7 +70,7 @@ func refresh():
 
 func set_arc(arc: String):
 	save_file.set_value("General","Arc",arc)
-	save_file.save("C:/Games/ddkg2.save")
+	save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -189,7 +189,7 @@ func _on_Next_pressed():
 									# 0Text|1Color|2Anim|3BGM|4React|5split;choice1:goto1;choice2:goto2;choice3:goto3
 								elif get_parent().Dialogue[Cur].split("|")[0].left(3) == "~~~":
 									# 0Text|1Color|2Anim|3BGM|4React|5id|6nameint;desc;exp;ver
-									save_file.load("C:/Games/ddkg2.save")
+									save_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 									print("Adding evidence")
 									var refr = false # не добавляем новую улику? false - добавляем новую улику
 									for x in range(1,1+save_file.get_section_keys("Evidence").size()): # счетчик сравнивает текущую улику с каждой уликой в записях
@@ -199,13 +199,13 @@ func _on_Next_pressed():
 											if int(save_file.get_value("Evidence",str(x)).split(";")[-1]) < int(get_parent().Dialogue[Cur].split("|")[6].split(";")[-1]): # новее ли улика
 												print("adding evidence id ",str(x),": ",get_parent().Dialogue[Cur].split("|")[6])
 												save_file.set_value("Evidence",str(x),get_parent().Dialogue[Cur].split("|")[6])
-												save_file.save("C:/Games/ddkg2.save")
+												save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 											refr = true # не добавляем новую улику
 											break
 									if not refr: # если добавляем новую улику
 										print("adding evidence id ",str(1+save_file.get_section_keys("Evidence").size()),": ",get_parent().Dialogue[Cur].split("|")[6])
 										save_file.set_value("Evidence",str(1+save_file.get_section_keys("Evidence").size()),get_parent().Dialogue[Cur].split("|")[6])
-										save_file.save("C:/Games/ddkg2.save")
+										save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 									refresh()
 	elif get_parent().Dialogue[Cur].split(" ")[0] == "OUT":
 		get_tree().change_scene(get_parent().Dialogue[Cur].split(" ")[1])
@@ -279,7 +279,7 @@ func _on_Back_pressed():
 func _on_First_timeout():
 	refresh()
 	save_file.set_value("Locations",str(get_parent().filename),"1")
-	save_file.save("C:/Games/ddkg2.save")
+	save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 
 
 func _on_Check_pressed():

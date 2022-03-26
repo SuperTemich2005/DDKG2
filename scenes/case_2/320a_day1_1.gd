@@ -178,7 +178,7 @@ func _ready():
 	]
 	
 # СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!!
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	for i in range(1,4):
 		if Chats[i-1] != "":
 			get_node("chat_"+str(i)).text = Chats[i-1].left(Chats[i-1].length()-3)
@@ -308,4 +308,4 @@ func _on_poi_4_pressed():
 func _on_verif_timeout():
 	print("shitfuck")
 	loc_file.set_value("Locations",str(filename),"1")
-	loc_file.save("C:/Games/ddkg2.save")
+	loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")

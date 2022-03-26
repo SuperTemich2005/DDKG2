@@ -25,13 +25,13 @@ func _ready():
 		Checked[i] = false
 	Cur = 0
 	save_file = ConfigFile.new()
-	save_file.load("C:/Games/ddkg2.save")
+	save_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	for i in range(1,13):
 		get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	State = "Dialogue" # Main Dialogue Examine Chat Show Move
 	if get_parent().filename != "res://scenes/case_2/trial_day1/trial_gameover.tscn":
 		save_file.set_value("Locations","Last",get_parent().filename)
-	save_file.save("C:/Games/ddkg2.save")
+	save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -107,7 +107,7 @@ func _on_next_button_pressed():
 			save_file.set_value("Evidence",get_parent().Ev[Cur].split("/")[0],get_parent().Ev[Cur].split("/")[1]+":"+get_parent().Ev[Cur].split("/")[2]+":"+get_parent().Ev[Cur].split("/")[3])
 		else:
 			pass
-		save_file.save("C:/Games/ddkg2.save")
+		save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 		for i in range(1,13):
 			get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	else:

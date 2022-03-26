@@ -174,6 +174,6 @@ func _ready():
 		"OUT ",
 		"",
 	]
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	loc_file.set_value("Locations","Last",filename)
-	loc_file.save("C:/Games/ddkg2.save")
+	loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")

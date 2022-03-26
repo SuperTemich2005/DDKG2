@@ -615,7 +615,7 @@ func _ready():
 	
 # СУКА БЛЯТЬ НЕ ТРОГАЙ ЭТО ГАНДОН НЕДОШТОПАННЫЙ АААААААААААААААААААААААА!!!!!!!!!!!!!!!!!!!!!!!!
 	$characters_all/character_masha/desk.hide()
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	if str(loc_file.get_value("Locations",filename)) == "1":
 		if str(loc_file.get_value("Locations","res://scenes/case_2/park_day1.tscnchecked")) == "1":
 			$investigation_screen.Cur = 67
@@ -752,4 +752,4 @@ func _on_poi_4_pressed():
 func _on_verif_timeout():
 	print("shitfuck")
 	loc_file.set_value("Locations",str(filename),"1")
-	loc_file.save("C:/Games/ddkg2.save")
+	loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")

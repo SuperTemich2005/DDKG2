@@ -27,7 +27,7 @@ func _ready():
 	ShowChars = 0
 	State = "Dialogue"
 	StateCR = "No"
-	save_file.load("C:/Games/ddkg2.save")
+	save_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	cur_secret = int(save_file.get_value("Secrets",get_parent().filename,"0"))
 	if save_file.get_value("General","Arc","asffhad") != "asffhad": # the best `if` in my life
 		$ArcBG.show()
@@ -83,15 +83,15 @@ func refresh():
 		$InvestigationButtons/Present.hide()
 		for i in get_parent().get_node("characters_all").get_children():
 			i.hide()
-	save_file.load("C:/Games/ddkg2.save")
+	save_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	save_file.set_value("Locations","Last",get_parent().filename)
 	save_file.set_value("Locations",get_parent().filename,"1")
-	save_file.save("C:/Games/ddkg2.save")
+	save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 
 
 func set_arc(arc: String):
 	save_file.set_value("General","Arc",arc)
-	save_file.save("C:/Games/ddkg2.save")
+	save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -206,7 +206,7 @@ func _on_Next_pressed():
 									$BG.show()
 								elif get_parent().Dialogue[Cur].split("|")[0].left(3) == "~~~":
 									# 0Text|1Color|2Anim|3BGM|4React|5id|6nameint;desc;exp;ver
-									save_file.load("C:/Games/ddkg2.save")
+									save_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 									print("Adding evidence")
 									var refr = false # не добавляем новую улику? false - добавляем новую улику
 									for x in range(1,1+save_file.get_section_keys("Evidence").size()): # счетчик сравнивает текущую улику с каждой уликой в записях
@@ -218,13 +218,13 @@ func _on_Next_pressed():
 												print("adding evidence id ",str(1+save_file.get_section_keys("Evidence").size()),": ",get_parent().Dialogue[Cur].split("|")[6])
 												save_file.erase_section_key("Evidence",str(x))
 												save_file.set_value("Evidence",str(x),get_parent().Dialogue[Cur].split("|")[6])
-												save_file.save("C:/Games/ddkg2.save")
+												save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 											refr = true # не добавляем новую улику
 											break
 									if not refr: # если добавляем новую улику
 										print("adding evidence id ",str(1+save_file.get_section_keys("Evidence").size()),": ",get_parent().Dialogue[Cur].split("|")[6])
 										save_file.set_value("Evidence",str(1+save_file.get_section_keys("Evidence").size()),get_parent().Dialogue[Cur].split("|")[6])
-										save_file.save("C:/Games/ddkg2.save")
+										save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 									refresh()
 		if get_parent().Dialogue[Cur].split("|")[0] == "SKIP_THIS":
 			_on_Next_pressed()
@@ -288,7 +288,7 @@ func _on_Next_pressed():
 		if len(get_parent().Dialogue[Cur].split(" ")) == 2:
 			if get_parent().Dialogue[Cur].split(" ")[1] == "SUPER":
 				save_file.set_value("Secrets",get_parent().filename,"0")
-				save_file.save("C:/Games/ddkg2.save")
+				save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 		for i in chains_back:
 			i.animation = "retract"
 			i.play()
@@ -301,7 +301,7 @@ func _on_Next_pressed():
 		if get_parent().Dialogue[Cur].split(" ")[2] != "crossexam":
 			save_file.set_value("Secrets",get_parent().filename,get_parent().Dialogue[Cur].split(" ")[2])
 			cur_secret = int(get_parent().Dialogue[Cur].split(" ")[2])
-			save_file.save("C:/Games/ddkg2.save")
+			save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 		print("START MAGATAMA")
 		print(cur_secret)
 		$MagaFadeInClk.start()
@@ -563,7 +563,7 @@ func _on_First_timeout():
 	refresh()
 	ReadChats = get_parent().read_chats
 	save_file.set_value("Locations",str(get_parent().filename),"1")
-	save_file.save("C:/Games/ddkg2.save")
+	save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 
 
 func _on_Check_pressed():
@@ -604,7 +604,7 @@ func _on_PresentEvidence_pressed():
 	_on_ShowCourtRecord_pressed()
 	var EvidenceFound = false
 	$StopMaga.hide()
-	save_file.load("C:/Games/ddkg2.save")
+	save_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	if State != "Dialogue":
 		for i in range(0,get_parent().Shows.size()+1):
 			print("matching ",get_node("CourtRecord/Cells/Image"+str(Selected)).animation," ",get_parent().Shows[i-1].split(" ")[0])

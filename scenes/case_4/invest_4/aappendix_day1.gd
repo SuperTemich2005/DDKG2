@@ -186,7 +186,7 @@ func _ready():
 		"",
 		"",
 	]
-	loc_file.load("C:/Games/ddkg2.save")
+	loc_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	if loc_file.get_value("Special","Metod_reached_stage_2","") == "1":
 		NoShow = 56
 		check_for_read_chats = false
@@ -220,13 +220,13 @@ func _ready():
 				else:
 					goto_when_was = 66
 					loc_file.set_value("Special","Can_Interrogate_Liena","1")
-					loc_file.save("C:/Games/ddkg2.save")
+					loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 			else:
 				goto_when_was = 54
 		else:
 			goto_when_was = 6
 			loc_file.set_value("Special","Met_Liena","1")
-			loc_file.save("C:/Games/ddkg2.save")
+			loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	else:
 		Shows = [
 			"a 56",
@@ -243,4 +243,4 @@ func _ready():
 func _on_investigation_screen_next():
 	if $investigation_screen.Cur == 159:
 		loc_file.set_value("Special","Got_Magatama","1")
-		loc_file.save("C:/Games/ddkg2.save")
+		loc_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")

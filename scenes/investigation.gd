@@ -27,13 +27,13 @@ func _ready():
 		Checked[i] = false
 	Cur = 0
 	save_file = ConfigFile.new()
-	save_file.load("C:/Games/ddkg2.save")
+	save_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	for i in range(1,13):
 		get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	State = "Dialogue" # Main Dialogue Examine Chat Show Move
 	if get_parent().filename != "res://scenes/case_2/invest_day2/court_lobby_day2.tscn":
 		save_file.set_value("Locations","Last",get_parent().filename)
-		save_file.save("C:/Games/ddkg2.save")
+		save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 	#_on_next_button_pressed()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -152,7 +152,7 @@ func _on_next_button_pressed():
 	if CheckedEvs == get_parent().EvCount:
 		print("asdasdasd")
 		save_file.set_value("Locations",str(get_parent().filename)+"checked","1")
-		save_file.save("C:/Games/ddkg2.save")
+		save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 
 	ShowChars = 0
 	Cur+=1
@@ -162,13 +162,13 @@ func _on_next_button_pressed():
 	if get_parent().Dialogue[Cur].split(" ")[0] == "~~~":
 		$AudioStreamPlayer2.set_stream(load("res://sounds/fanfare_newev.ogg"))
 		$AudioStreamPlayer2.play()
-		save_file.load("C:/Games/ddkg2.save")
+		save_file.load(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 		if save_file.get_value("Evidence",get_parent().Ev[Cur].split("/")[0],"-20:-20:-20:-20").split(":")[2] < get_parent().Ev[Cur].split("/")[3]:
 			save_file.set_value("Evidence",get_parent().Ev[Cur].split("/")[0],get_parent().Ev[Cur].split("/")[1]+":"+get_parent().Ev[Cur].split("/")[2]+":"+get_parent().Ev[Cur].split("/")[3])
 			print(get_parent().Ev[Cur].split("/")[0])
 		else:
 			pass
-		save_file.save("C:/Games/ddkg2.save")
+		save_file.save(OS.get_system_dir(2)+"/AZIE Games/ddkg2.save")
 		for i in range(1,13):
 			get_node("frame_record/evidence_"+str(i)).animation = str(save_file.get_value("Evidence",str(i),"default")).split(":")[0]
 	else:

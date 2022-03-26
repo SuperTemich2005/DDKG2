@@ -48,9 +48,6 @@ margin_right = 412.551
 margin_bottom = 406.469
 custom_fonts/font = SubResource( 2 )
 text = "Новая игра (Дело 2)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="load_game" type="Button" parent="."]
 margin_left = 30.5508
